@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Samuel Eto'o — Empire FGA Profile (Expanded)</title>
+  <style>
+    :root{
+      --bg:#071026; --card:#071622; --accent:#0b5bb0; --accent2:#ffd24d;
+      --muted:#98a7bf; --white:#eef6ff;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(11,91,176,0.06),transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(255,210,77,0.04),transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1300px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1300px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:26px}
+    .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:520px;object-fit:cover;object-position: center 20%; border-radius:10px;border:3px solid var(--accent2);background:#0b1624}
+    .title{font-size:34px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(11,91,176,0.12);padding:7px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--white);margin:6px 8px 6px 0;border:1px solid rgba(255,210,77,0.18)}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:linear-gradient(90deg, rgba(11,91,176,0.85), rgba(255,210,77,0.85));font-weight:800;color:#071122}
+    .rating-badge{position:absolute;right:18px;top:18px;background:linear-gradient(90deg,#ffd24d,#0b5bb0);color:#071122;font-weight:900;padding:12px 18px;border-radius:16px;font-size:26px;box-shadow:0 10px 30px rgba(11,91,176,0.18)}
+    .section{margin-top:18px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    .lead{color:var(--white);font-size:16px;line-height:1.5}
+    ul.small{margin:0;padding-left:18px}
+    .visual-canvas{background:transparent;border-radius:8px;padding:12px;height:420px;display:flex;align-items:center;justify-content:center;border:1px dashed rgba(255,210,77,0.18)}
+    .accent-heading{color:var(--accent2)}
+    .muted-box{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);padding:12px;border-radius:8px;margin-top:8px;color:var(--muted)}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}.visual-canvas{height:auto}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://www.fcbarcelona.com/fcbarcelona/photo/2020/03/09/6cfb910a-1edd-4a1b-b854-498d32bc97d1/eto-o-fcb-at.madrid-8-.jpg" alt="Samuel Eto'o celebrating with Inter Milan in the 2010 Champions League Final">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Samuel Eto'o</div>
+        <div class="sub">Striker (Retired) · Cameroon · Born: 10 Mar 1981 (44)</div>
+
+        <div>
+          <span class="pill"><strong>Iconic Clubs</strong> Barcelona, Inter Milan, RCD Mallorca, Chelsea</span>
+          <span class="pill"><strong>Position</strong> Centre-Forward</span>
+          <span class="pill"><strong>Nickname</strong> "The Indomitable Lion" / "Little Milla"</span>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Quick Summary</h3>
+          <p class="lead">One of the greatest strikers and African players of all time. Eto'o is the only player in history to win back-to-back continental trebles (with Barcelona in 2009 and Inter Milan in 2010). A 4-time African Footballer of the Year, he was a legend of pace, intelligent movement, and lethal finishing, scoring in two Champions League finals.</p>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Snapshot Metrics (Playing Career Peak)</h3>
+          <table aria-describedby="physical-metrics">
+            <thead><tr><th>Metric</th><th>Value (ERA-Adjusted)</th></tr></thead>
+            <tbody>
+              <tr><td>STK - Strike Efficiency</td><td>9.8</td></tr>
+              <tr><td>RDS - Renard des Surfaces</td><td>9.7</td></tr>
+              <tr><td>PAC - Pace</td><td>9.5</td></tr>
+              <tr><td>CRS - Clutch Response</td><td>9.8</td></tr>
+              <tr><td>IQ - Tactical Intelligence</td><td>9.2</td></tr>
+              <tr><td>DYN - Dynamism</td><td>9.0</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Audit Flags</h3>
+          <ul class="small">
+            <li>Profile is historical and based on archival footage and reports.</li>
+            <li>Analyze 2008-09 Barcelona season (Treble, 36 goals) and 2009-10 Inter Milan season (Treble, wide forward role) for peak metrics.</li>
+            <li>Player is the all-time top scorer for Cameroon (56 goals) and the Africa Cup of Nations (18 goals).</li>
+          </ul>
+        </div>
+
+        <div class="section small">Bio and career details referenced from Wikipedia, Transfermarkt, and Goal.com.</div>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">94.0</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="lead">Samuel Eto'o Fils is, without question, one of the most decorated and lethal strikers of the modern era. After emerging at RCD Mallorca (70 goals, a club record), he became a global superstar at Barcelona, scoring 130 goals in 199 appearances. There, he won 3 La Liga titles and 2 Champions Leagues, scoring in the 2006 and 2009 finals. In 2009, he moved to Inter Milan and achieved the unthinkable: winning a second consecutive continental treble. A 4-time African Player of the Year, he is also Cameroon's all-time top scorer (56 goals) and an Olympic Gold Medalist (2000).</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline (Table)</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>1997–2000</td><td>Real Madrid</td><td>Joined as a 16-year-old; 3 senior appearances.</td></tr>
+            <tr><td>2000–2004</td><td>RCD Mallorca</td><td>Became a club legend; all-time top scorer (70 goals).</td></tr>
+            <tr><td>2004–2009</td><td>Barcelona</td><td>Scored 130 goals. Won 2009 Treble, 2x CL, 3x La Liga.</td></tr>
+            <tr><td>2009–2011</td><td>Inter Milan</td><td>Won 2010 Treble; became 1st player to win two trebles.</td></tr>
+            <tr><td>2011–2013</td><td>Anzhi Makhachkala</td><td>Briefly became the world's highest-paid player.</td></tr>
+            <tr><td>2013–2014</td><td>Chelsea</td><td>Scored 9 league goals, including a hat-trick vs. Man Utd.</td></tr>
+            <tr><td>2014–2019</td><td>Everton / Sampdoria / Antalyaspor</td><td>Prolific in Turkey, 44 goals in 76 games.</td></tr>
+            <tr><td>1997–2014</td><td>Cameroon National Team</td><td>118 caps, 56 goals (all-time top scorer). 2x AFCON winner.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="key-matches">
+        <h2 id="key-matches" style="color:var(--accent)">Key Matches and Milestones (Table)</h2>
+        <table aria-describedby="key-matches-table">
+          <thead><tr><th>Date</th><th>Milestone / Event</th><th>Note</th></tr></thead>
+          <tbody>
+            <tr><td>May 27, 2009</td><td>Barcelona vs. Man Utd (CL Final)</td><td>Scored the opening goal in a 2-0 victory.</td></tr>
+            <tr><td>May 22, 2010</td><td>Inter Milan vs. Bayern (CL Final)</td><td>Won his second consecutive Champions League (and treble).</td></tr>
+            <tr><td>May 17, 2006</td><td>Barcelona vs. Arsenal (CL Final)</td><td>Scored the equalizing goal in a 2-1 victory.</td></tr>
+            <tr><td>(Career)</td><td>Consecutive Trebles</td><td>The only player to win the treble in back-to-back years.</td></tr>
+            <tr><td>(Career)</td><td>African Player of the Year</td><td>Won the award a record 4 times.</td></tr>
+            <tr><td>(Career)</td><td>Africa Cup of Nations</td><td>All-time top scorer in tournament history (18 goals).</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="strengths-weaknesses">
+        <h2 id="strengths-weaknesses" style="color:var(--accent)">Strengths and Weaknesses</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Strengths</h3>
+            <ul class="small">
+              <li><strong>Finishing (STK):</strong> One of the most clinical, prolific, and complete finishers of his time.</li>
+              <li><strong>Pace & Movement (PAC):</strong> Possessed explosive pace and world-class off-ball intelligence.</li>
+              <li><strong>Clutch Performer (CRS):</strong> Scored in two Champions League finals.</li>
+              <li><strong>Work Rate & Versatility:</strong> Famously played as a hard-working winger in Inter's 2010 treble run.</li>
+              <li><strong>Winner's Mentality:</strong> A 4-time African POTY and 3-time UCL winner.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Weaknesses</h3>
+            <ul class="small">
+              <li><strong>Temperament:</strong> Could be outspoken and temperamental at times.</li>
+              <li><strong>Aerial Ability:</strong> At 1.80m (5'11"), was not a dominant aerial target.</li>
+              <li><strong>Nomadic Career:</strong> Played for 13 different senior clubs.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="global-impact">
+        <h2 id="global-impact" style="color:var(--accent)">Global Impact Analysis</h2>
+        <div class="two-col">
+          <div>
+            <p class="small"><strong>Marketability & Commercial Value:</strong> Immense. A global icon and arguably the greatest African player of all time. President of the Cameroonian Football Federation.</td>
+            <p class="small"><strong>Transfer Market Positioning (Player):</strong> A superstar who commanded huge wages (highest in the world at Anzhi) and was a key piece in a historic swap deal (for Ibrahimović).</td>
+          </div>
+          <div>
+            <p class="small"><strong>Cross-League Fit (Player):</strong> Proved he was world-class in Spain, Italy, and England. His pace and finishing translated everywhere.</td>
+            <p class="small"><strong>International Impact:</strong> A legend. Cameroon's all-time top scorer (56 goals) and an Olympic Gold Medalist.</td>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (Playing Career Peak)</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Per-90 Core (ERA-Adjusted Estimates)</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>STK - Strike Efficiency</td><td>9.8</td></tr>
+                <tr><td>G - Goals (p90)</td><td>~0.75 (Barça peak)</td></tr>
+                <tr><td>CRS - Clutch Response</td><td>9.8</td></tr>
+                <tr><td>PAC - Pace</td><td>9.5</td></tr>
+                <tr><td>DYN - Dynamism</td><td>9.0 (as a winger)</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 class="accent-heading" style="margin:0 0 8px;">Percentile Context (Historical Strikers)</h3>
+            <ul class="small">
+              <li>Finishing (STK): 99th percentile.</li>
+              <li>Clutch (CRS): 99th percentile.</li>
+              <li>Pace (PAC): 97th percentile.</li>
+              <li>Work Rate (DYN): 95th percentile.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="small">Before publication, cross-reference estimates with archival La Liga, Serie A, and UCL data. ERA Factor: ~1.05 (late 2000s).</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical-philosophies">
+        <h2 id="tactical-philosophies" style="color:var(--accent)">Tactical Philosophies & DNA</h2>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">Core Tactical DNA</h3>
+        <p class="small">Eto'o's DNA was the **Ultimate Winner**. He was a **Predatory Striker** who combined explosive **Pace (PAC)** and **Finishing (STK)** with a rare **Tactical Intelligence (IQ)** and **Work Rate (DYN)**. He is the only player to win back-to-back trebles, proving he could be a selfish #9 (Barça) and a selfless winger (Inter) to achieve victory.</p>
+
+        <div class="two-col">
+          <div>
+            <h4 class="accent-heading" style="margin:6px 0">Primary Philosophies (Top 6)</h4>
+            <table>
+              <thead><tr><th>Philosophy</th><th>Score (0-10)</th><th>Rationale</th></tr></thead>
+              <tbody>
+                <tr><td>Mourinho Tactical</td><td>9.8</td><td>Proved his tactical discipline and self-sacrifice to win the 2010 treble.</td></tr>
+                <tr><td>Ferguson Mental</td><td>9.5</td><td>A serial winner, 4x African POTY, 3x UCL.</td></tr>
+                <tr><td>Guardiola Positional</td><td>9.2</td><td>His pace, pressing, and finishing were perfect for this system.</td></tr>
+                <tr><td>Sacchi Pressing</td><td>9.0</td><td>Had the intelligence and engine to be the first line of defense.</td></tr>
+                <tr><td>Klopp Intensity</td><td>8.8</td><td>A fast, pressing, clinical forward.</td></tr>
+                <tr><td>Haaland Power</td><td>7.5</td><td>Not a target man, but a pace-and-power finisher.</td></tr>
+              </tbody>
+            </table>
+            <div class="muted-box small">Action: attach four PHILOSOPHY_SUBCOMP evidence rows per philosophy above. Focus heavily on 2009 Barcelona treble and 2010 Inter Milan treble.</div>
+          </div>
+
+          <div>
+            <h4 class="accent-heading" style="margin:6px 0">Subcomponent Signals (Representative)</h4>
+            <ul class="small">
+              <li><strong>Back-to-Back Trebles:</strong> 2009 (Barça), 2010 (Inter).</li>
+              <li><strong>3x UCL Winner:</strong></li>
+              <li><strong>4x African Player of the Year:</strong></li>
+              <li><strong>2x CL Final Goalscorer:</strong> 2006, 2009.</li>
+              <li><strong>AFCON All-Time Top Scorer:</strong> 18 goals.</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Philosophy Integration Method</h3>
+        <p class="small">Each published philosophy score is the arithmetic mean of its four PHILOSOPHY_SUBCOMP rows. Subcomponents must include archival clip IDs, event descriptions, stat support (goals, trophies), and confidence level.</p>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Tactical Recommendations Based on DNA (Historical)</h3>
+        <ul class="small">
+          <li>Deploy as a central striker (#9) to maximize his pace and finishing.</li>
+          <li>Can also be deployed as a disciplined, hard-working wide forward in a 4-2-3-1 (as at Inter).</li>
+          <li>Ideal for a high-pressing system that creates turnovers.</li>
+          <li>He is a guaranteed source of goals in high-pressure matches.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="psych-profile">
+        <h2 id="psych-profile" style="color:var(--accent)">Psychological Profile & Personality Analysis</h2>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">Core Psychological Traits</h3>
+        <ul class="small">
+          <li><strong>Supreme Confidence:</strong> Played with a "king of the jungle" swagger; knew he was elite.</li>
+          <li><strong>Winner's Mentality:</strong> Defined by winning; 3 UCLs, 2 Trebles, 2 AFCONs.</li>
+          <li><strong>Tactically Intelligent:</strong> Showed immense discipline to adapt to Mourinho's defensive winger role.</li>
+          <li><strong>Outspoken & Temperamental:</strong> A strong, complex personality who could be fiery.</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">MENTAL STRENGTHS</h3>
+        <ul class="small">
+          <li>Unmatched resilience; won back-to-back trebles.</li>
+          <li>Performed in the biggest moments (2 CL final goals).</li>
+          <li>The mental strength to be a star at Real Madrid (youth), Barça, Inter, and Chelsea.</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:8px 0 6px;">PSYCHOLOGICAL CHALLENGES</h3>
+        <ul class="small">
+          <li>Could clash with management and personalities.</li>
+          <li>His nomadic late career suggests a search for a final challenge.</li>
+        </ul>
+
+        <h3 class="accent-heading" style="margin:12px 0 6px;">Philosophy & Experience</h3>
+        <p class="small">Samuel Eto'o is a born winner, perhaps one of the most intelligent and adaptable strikers in history. His journey from a pure #9 at Barcelona to a self-sacrificing wide forward at Inter to achieve a second straight treble is one of the greatest examples of tactical discipline and winning mentality (a perfect Mourinho player). He combined raw African pace with elite European finishing and an unshakeable will to win.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-stats">
+        <h2 id="career-stats" style="color:var(--accent)">Complete Career Statistics & FGA Rating Breakdown (Player)</h2>
+        <p class="small">Populate the table below with season data from historical archives. ERA Factor: ~1.05 (late 2000s).</p>
+        <table>
+          <thead><tr><th>Season</th><th>Club</th><th>Apps</th><th>Goals</th><th>Assists (Est.)</th><th>G+A</th><th>ERA‑FGA</th></tr></thead>
+          <tbody>
+            <tr><td>2008-09</td><td>Barcelona (All Comps)</td><td>52</td><td>36</td><td>8</td><td>44</td><td>95.0 (Peak)</td></tr>
+            <tr><td>2009-10</td><td>Inter Milan (All Comps)</td><td>48</td><td>16</td><td>9</td><td>25</td><td>93.0 (Peak)</td></tr>
+            <tr><td>2010-11</td><td>Inter Milan (All Comps)</td><td>53</td><td>37</td><td>15</td><td>52</td><td>94.5 (Peak)</td></tr>
+            <tr><td>2005-06</td><td>Barcelona (All Comps)</td><td>47</td><td>34</td><td>6</td><td>40</td><td>93.5 (Peak)</td></tr>
+            <tr><td>(Career)</td><td>Barcelona</td><td>199</td><td>130</td><td>38</td><td>168</td><td>N/A</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Replace placeholders with exact historical data. Stats are representative of his peak.</div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-leadership">
+        <h2 id="psych-leadership" style="color:var(--accent)">Psychological & Leadership Notes (table)</h2>
+        <table>
+          <thead><tr><th>Area</th><th>Observation</th><th>Recommendation</th></tr></thead>
+          <tbody>
+            <tr><td>Leadership Presence</td><td>Alpha. A "Lion," a leader who demanded victory. Now Federation President.</td><td>N/A (Historical)</td></tr>
+            <tr><td>Pressure Handling</td><td>Legendary. Scored in two CL finals and won back-to-back trebles.</td><td>N/A (Historical)</td></tr>
+            <tr><td>Development Focus (Historical)</td><td>Evolved from a pure pace/finishing striker to a tactically brilliant, hard-working forward.</td><td>N/A (Historical)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Interpersonal Dynamics (table)</h2>
+        <table>
+          <thead><tr><th>Type</th><th>Person / Group</th><th>Pattern / Impact</th></tr></thead>
+          <tbody>
+            <tr><td>Coaching Relationship</td><td>Pep Guardiola</td><td>A complex relationship; sold after winning the 2009 treble.</td></tr>
+            <tr><td>Coaching Relationship</td><td>José Mourinho</td><td>A perfect fit. Sacrificed himself as a winger to win the 2010 treble.</td></tr>
+            <tr><td>National Hero</td><td>Cameroon Fans</td><td>Their all-time top scorer and now their Federation President.</td></tr>
+            <tr><td>Partnership</td><td>Ronaldinho / Messi</td><td>Formed two of the most iconic attacking trios in history.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="last5">
+        <h2 id="last5" style="color:var(--accent)">Last 5 Matches (Representative Historical Samples - Player)</h2>
+        <table>
+          <thead><tr><th>Date (Approx)</th><th>Opponent</th><th>Result</th><th>Key Actions</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>May 22, 2010</td><td>Bayern Munich (CL Final)</td><td>W 2-0</td><td>90 mins, 1 assist (as a Winger)</td><td>Won 2010 Treble</td></tr>
+            <tr><td>Apr 28, 2010</td><td>Barcelona (CL Semi)</td><td>L 0-1</td><td>90 mins (as Defensive Winger)</td><td>Advanced to Final</td></tr>
+            <tr><td>May 27, 2009</td><td>Man Utd (CL Final)</td><td>W 2-0</td><td>90 mins, 1 goal (opening goal)</td><td>Won 2009 Treble</td></tr>
+            <tr><td>May 17, 2006</td><td>Arsenal (CL Final)</td><td>W 2-1</td><td>90 mins, 1 goal (equalizer)</td><td>Won 2006 Champions League</td></tr>
+            <tr><td>(Various)</td><td>(AFCON)</td><td>W</td><td>90 mins, 2 goals</td><td>Rep. of AFCON scoring record</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Sources: attach archived match reports/summaries. Matches chosen for significance.</div>
+      </section>
+
+      <section class="section" aria-labelledby="video-highlights">
+        <h2 id="video-highlights" style="color:var(--accent)">Video Highlights (Player Career)</h2>
+        <p class="small">Attach archival clips and event IDs in PHILOSOPHY_SUBCOMP rows. Focus on 2006, 2009 CL final goals, and 2010 defensive work.</p>
+        <table>
+          <thead><tr><th>Clip Tag</th><th>Match</th><th>Approx Year</th><th>Event</th><th>Source ID</th></tr></thead>
+          <tbody>
+            <tr><td>VH-SE-01</td><td>Barcelona vs Arsenal</td><td>2006</td><td>Champions League Final goal</td><td>ARCH-SE-2006-FINAL (attach)</td></tr>
+            <tr><td>VH-SE-02</td><td>Barcelona vs Man Utd</td><td>2009</td><td>Champions League Final goal</td><td>ARCH-SE-2009-FINAL (attach)</td></tr>
+            <tr><td>VH-SE-03</td><td>Inter vs Barcelona</td><td>2010</td><td>Defensive work as a winger (Semi-Final)</td><td>ARCH-SE-2010-SEMI (attach)</td></tr>
+            <tr><td>VH-SE-04</td><td>(Various)</td><td>2000s</td><td>AFCON goals compilation</td><td>ARCH-SE-AFCON (attach)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison with Radar Chart (Elite Strikers)</h2>
+        <p class="small">Comparators: Thierry Henry (Profile), Wayne Rooney (Profile). Generate radar visuals from peak ERA-adjusted data.</p>
+        <div class="visual-canvas">
+          <canvas id="etooRadar" aria-label="Radar comparing Eto'o and comparators" width="720" height="420"></canvas>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-app">
+        <h2 id="psych-app" style="color:var(--accent)">Psychological Application Notes (Historical)</h2>
+        <ul class="small">
+          <li>Player was a supreme competitor with a "win-at-all-costs" mentality.</li>
+          <li>Motivated by proving his greatness; his move to Inter after the Barça treble is a key example.</li>
+          <li>Possessed the rare mental elasticity to shift from a superstar #9 to a soldier #11 for the good of the team.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="sources">
+        <h2 id="sources" style="color:var(--accent)">Sources & Verification Notes</h2>
+        <p class="small">Primary player data: Wikipedia, Transfermarkt, and Goal.com. All metrics are based on his historical peak (circa 2005-2011). Each PHILOSOPHY_SUBCOMP row must include clip descriptions/IDs.</p>
+        <div class="muted-box small">All final numbers must be replaced with verified exports or clearly marked estimates prior to client delivery. Cross-validate "back-to-back trebles" and goals in two CL finals.</div>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Samuel Eto'o expanded scouting profile (Player). This document follows the exact section order provided. Replace editorial placeholders with per-event evidence and PHILOSOPHY_SUBCOMP rows before client delivery.</footer>
+    </main>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('etooRadar')?.getContext('2d');
+    if (ctx) {
+      new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: ['Finishing (STK)','Pace (PAC)','Clutch (CRS)','Movement (RDS)','Work Rate (DYN)','Technique (TEC)'],
+          datasets: [
+            { label: 'Samuel Eto\'o (Peak)', data: [9.8, 9.5, 9.8, 9.7, 9.0, 9.0],
+              backgroundColor:'rgba(11,91,176,0.10)', borderColor:'#0b5bb0', pointBackgroundColor:'#ffd24d', borderWidth:2 },
+            { label: 'Thierry Henry (Profile)', data: [9.6, 9.8, 9.0, 9.5, 8.5, 9.4],
+              backgroundColor:'rgba(255,210,77,0.10)', borderColor:'#ffd24d', pointBackgroundColor:'#0b5bb0', borderWidth:2 },
+            { label: 'Wayne Rooney (Profile)', data: [9.0, 8.8, 9.2, 8.8, 9.4, 9.0],
+              backgroundColor:'rgba(52,211,153,0.08)', borderColor:'#34d399', pointBackgroundColor:'#34d399', borderWidth:2 }
+          ]
+        },
+        options: {
+          responsive:true, maintainAspectRatio:false,
+          plugins:{ legend:{ labels:{ color:'#eef6ff' } }, tooltip:{ backgroundColor:'#071122', titleColor:'#fff', bodyColor:'#cfe6ff' } },
+          scales:{ r:{ beginAtZero:true, max:10, ticks:{ color:'#cfe6ff', stepSize:1 }, pointLabels:{ color:'#eef6ff', font:{ size:12 } }, grid:{ color:'rgba(255,255,255,0.06)' }, angleLines:{ color:'rgba(255,255,255,0.06)' } } }
+        }
+      });
+    }
+  </script>
+</body>
+</html>

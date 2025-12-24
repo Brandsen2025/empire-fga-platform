@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Wei Xiangxin — Empire FGA Profile (Prospect)</title>
+  <style>
+    :root{
+      --bg:#071026; --card:#071622; --accent:#0b5bb0; --accent2:#ffd24d;
+      --muted:#98a7bf; --white:#eef6ff;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(11,91,176,0.06),transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(255,210,77,0.04),transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1300px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1300px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:26px}
+    .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:520px;object-fit:cover;object-position: center 20%; border-radius:10px;border:3px solid var(--accent2);background:#0b1624}
+    .title{font-size:34px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(11,91,176,0.12);padding:7px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--white);margin:6px 8px 6px 0;border:1px solid rgba(255,210,77,0.18)}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:linear-gradient(90deg, rgba(11,91,176,0.85), rgba(255,210,77,0.85));font-weight:800;color:#071122}
+    .rating-badge{position:absolute;right:18px;top:18px;background:linear-gradient(90deg,#ffd24d,#0b5bb0);color:#071122;font-weight:900;padding:12px 18px;border-radius:16px;font-size:26px;box-shadow:0 10px 30px rgba(11,91,176,0.18)}
+    .section{margin-top:18px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    .lead{color:var(--white);font-size:16px;line-height:1.5}
+    ul.small{margin:0;padding-left:18px}
+    .visual-canvas{background:transparent;border-radius:8px;padding:12px;height:420px;display:flex;align-items:center;justify-content:center;border:1px dashed rgba(255,210,77,0.18)}
+    .accent-heading{color:var(--accent2)}
+    .muted-box{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);padding:12px;border-radius:8px;margin-top:8px;color:var(--muted)}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}.visual-canvas{height:auto}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://media.guim.co.uk/57f5c711a76f23c21c7a880da672c8421c977218/179_181_1625_1300/500.jpg" alt="Wei Xiangxin photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Wei Xiangxin</div>
+        <div class="sub">Striker (Prospect) · China · Born: 08 Mar 2008 (17) · Height: 1.80m (Est.)</div>
+
+        <div>
+          <span class="pill"><strong>Iconic Clubs</strong> Meizhou Hakka</span>
+          <span class="pill"><strong>Position</strong> Striker</span>
+          <span class="pill"><strong>Full Name</strong> Wei Xiangxin</span>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Quick Summary</h3>
+          <p class="lead">Hailed as a striker "China needs," Wei is a strong, confident, and composed forward who idols Cristiano Ronaldo. He made history as the first 2008-born player in the Chinese Super League and scored his first goal in his second game. Despite his club's relegation battle, he has a bright future and has already trialed with Auxerre in Europe.</p>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Snapshot Metrics (Current Potential)</h3>
+          <table aria-describedby="physical-metrics">
+            <thead><tr><th>Metric</th><th>Value (Potential)</th></tr></thead>
+            <tbody>
+              <tr><td>FIN - Finishing</td><td>8.8 P</td></tr>
+              <tr><td>COM - Composure</td><td>8.7 P</td></tr>
+              <tr><td>STR - Strength</td><td>8.5 P</td></tr>
+              <tr><td>CON - Confidence</td><td>9.0 P</td></tr>
+              <tr><td>POS - Positioning</td><td>8.5 P</td></tr>
+              <tr><td>PAC - Pace</td><td>8.2 P</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Audit Flags</h3>
+          <ul class="small">
+            <li>A-List Prospect. Hailed as a top striker for China.</li>
+            <li>First 2008-born to play & score in Chinese Super League.</li>
+            <li>Analyze 2025 CSL footage.</li>
+            <li>Strong, confident, "Ronaldo-hero" profile.</li>
+            <li>Trialed with Auxerre (France).</li>
+          </ul>
+        </div>
+
+        <div class="section small">Bio and career details referenced from Meizhou Hakka, Chinese FA, Transfermarkt, and The Guardian.</div>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">71.5 (88.0 P)</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="lead">Wei Xiangxin is carrying the hopes of a nation on his shoulders. Hailed as the striker "China needs," he is a strong, composed, and highly confident forward who models his game and mentality on his hero, Cristiano Ronaldo (he has already "shown his abs to local media"). He joined Meizhou Hakka at the start of 2025 and immediately made history, becoming the first player born in 2008 to play in the Chinese Super League, then scoring his first goal in his second match. Despite his club's likely relegation, Wei's future is bright. He has already trialed with Auxerre and is eager for a permanent move to Europe.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline (Table)</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>2024–2025</td><td>Meizhou Hakka Academy</td><td>Joined the club.</td></tr>
+            <tr><td>2025</td><td>Meizhou Hakka</td><td>CSL Debut (first 2008-born); Scored 1st goal in 2nd game.</td></tr>
+            <tr><td>2025</td><td>China U-17</td><td>Key striker for the national youth team.</td></tr>
+            <tr><td>2025</td><td>Auxerre (Trial)</td><td>Completed a trial with the French club.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="key-matches">
+        <h2 id="key-matches" style="color:var(--accent)">Key Matches and Milestones (Table)</h2>
+        <table aria-describedby="key-matches-table">
+          <thead><tr><th>Date (Approx)</th><th>Milestone / Event</th><th>Note</th></tr></thead>
+          <tbody>
+            <tr><td>2025</td><td>Chinese Super League Debut</td><td>First player born in 2008 to play in the CSL.</td></tr>
+            <tr><td>2025</td><td>First Professional Goal</td><td>Scored in his second CSL appearance.</td></tr>
+            <tr><td>2025</td><td>Auxerre Trial</td><td>Gained European exposure with a trial in France.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="strengths-weaknesses">
+        <h2 id="strengths-weaknesses" style="color:var(--accent)">Strengths and Weaknesses</h2>
+        <div class="two-col">
+          <div>
+            <h3 class="accent-heading">Strengths (Potential)</h3>
+            <ul class="small">
+              <li><strong>Confidence:</strong> Elite. "Ronaldo" mentality, not afraid of the spotlight.</li>
+              <li><strong>Composure:</strong> "Composed in front of goal," as shown by his immediate scoring.</li>
+              <li><strong>Strength:</strong> Profiled as a strong center forward.</li>
+              <li><strong>Ambition:</strong> Already has his sights set on a permanent European move.</li>
+              <li><strong>Finishing:</strong> Natural goal-scorer.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="accent-heading">Weaknesses (Current)</h3>
+            <ul class="small">
+              <li><strong>Team Context:</strong> Playing in a poor, relegation-battling CSL team.</li>
+              <li><strong>Raw:</strong> Very limited senior experience.</li>
+              <li><strong>Technical Polish:</strong> Needs more games to refine his all-around game for Europe.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="global-impact">
+        <h2 id="global-impact" style="color:var(--accent)">Global Impact Analysis</h2>
+        <p class="lead"><strong>"China's Great Hope":</strong> Wei is a figure of immense national interest. China has long searched for a homegrown, world-class striker, and Wei's combination of physique, confidence, and early success has placed that expectation squarely on him. </p>
+        <p class="small"><strong>European Target:</strong> His trial at Auxerre confirms he is already on the European radar. His "Ronaldo" idolization and ambition suggest he is mentally prepared for a move, though he may benefit from a full season in China. He is the CSL's most valuable U-18 asset.</p>
+      </section>
+
+      <section class="section" aria-labelledby="advanced-metrics">
+        <h2 id="advanced-metrics" style="color:var(--accent)">Advanced Metrics (Projected Potential)</h2>
+        <table>
+          <thead><tr><th>Category</th><th>Metric</th><th>Value (Potential)</th><th>Context</th></tr></thead>
+          <tbody>
+            <tr><td rowspan="3">Attacking</td><td>FIN - Finishing</td><td>8.8 P</td><td>Natural goal-scorer, scored immediately.</td></tr>
+            <tr><td>POS - Positioning</td><td>8.5 P</td><td>Instincts to be in the right place.</td></tr>
+            <tr><td>HEA - Heading</td><td>8.4 P</td><td>Good size and strength.</td></tr>
+            <tr><td rowspan="2">Mental</td><td>COM - Composure</td><td>8.7 P</td><td>"Composed in front of goal."</td></tr>
+            <tr><td>CON - Confidence</td><td>9.0 P</td><td>"Ronaldo" hero, high self-belief.</td></tr>
+            <tr><td rowspan="2">Physical</td><td>STR - Strength</td><td>8.5 P</td><td>Profiled as a "strong" forward.</td></tr>
+            <tr><td>PAC - Pace</td><td>8.2 P</td><td>Good functional pace for a striker.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="tactical-philosophies">
+        <h2 id="tactical-philosophies" style="color:var(--accent)">Tactical Philosophies & DNA</h2>
+        <p class="small">Wei's profile as a strong, confident, "Ronaldo-esque" finisher aligns with these frameworks:</p>
+        <table>
+          <thead><tr><th>Philosophy</th><th>Fit Score</th><th>Weight</th><th>Key Attributes</th></tr></thead>
+          <tbody>
+            <tr><td><strong>22. Ferguson Mental</strong></td><td>8.8 P</td><td>1.28</td><td>"Ronaldo" mentality, confidence, focus on results and goals.</td></tr>
+            <tr><td><strong>47. Bianchi Passion</strong></td><td>8.5 P</td><td>1.20</td><td>South American equivalent of passion, confidence, and "killer" instinct.</td></tr>
+            <tr><td><strong>44. Bilardo Pragmatism</strong></td><td>8.2 P</td><td>1.28</td><td>A pure goalscorer, the ultimate pragmatic tool to win games.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="core-tactical-dna">
+        <h2 id="core-tactical-dna" style="color:var(--accent)">Core Tactical DNA</h2>
+        <p class="lead"><strong>Playing Style:</strong> A "Confidence" Striker. His DNA is modeled on his hero, Cristiano Ronaldo, built on a foundation of physical strength, self-belief, and a single-minded focus on scoring goals. He is a strong, composed finisher who seeks the spotlight. His early trial in Europe and stated ambition show he has the mentality to succeed. He projects as a classic, powerful No. 9.</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical-recommendations">
+        <h2 id="tactical-recommendations" style="color:var(--accent)">Tactical Recommendations Based on DNA (Projected)</h2>
+        <table>
+          <thead><tr><th>System</th><th>Role</th><th>Instructions</th></tr></thead>
+          <tbody>
+            <tr><td>4-3-3</td><td>Central Striker (ST)</td><td>Be the focal point, use strength, get in the box.</td></tr>
+            <tr><td>4-2-3-1</td><td>Lone Striker (ST)</td><td>Occupy center-backs, be the primary goal target.</td></tr>
+            <tr><td>4-4-2</td><td>Target Man (ST)</td><td>Use strength to hold up play and be the box presence.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="psychological-profile">
+        <h2 id="psychological-profile" style="color:var(--accent)">Psychological Profile & Personality Analysis</h2>
+        <p class="lead">Wei's psychological profile is his greatest asset. He is described as "confident" and "composed," and his choice of Ronaldo as a hero—even showing his abs to the media—signals a player with immense self-belief who is not afraid of pressure or the spotlight. This is a crucial "X-factor" for a player carrying the hopes of a nation. His ambition is already set on Europe, showing drive and a clear career plan.</p>
+      </section>
+
+      <section class="section" aria-labelledby="core-traits">
+        <h2 id="core-traits" style="color:var(--accent)">Core Psychological Traits (Projected)</h2>
+        <ul class="small">
+          <li><strong>Confident:</strong> Elite self-belief ("Ronaldo" mentality).</li>
+          <li><strong>Composed:</strong> Scored immediately in CSL, unfazed.</li>
+          <li><strong>Ambitious:</strong> Actively seeking a European move.</li>
+          <li><strong>Driven:</strong> Strong, athletic build suggests high work ethic.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="mental-strengths">
+        <h3 id="mental-strengths" class="accent-heading">MENTAL STRENGTHS</h3>
+        <ul class="small">
+          <li><strong>Confidence:</strong> His defining mental trait.</li>
+          <li><strong>Pressure Handling:</strong> Scored in his 2nd pro game as a 16/17-y.o.</li>
+          <li><strong>Ambition:</strong> Already trialing in Europe.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="psychological-challenges">
+        <h3 id="psychological-challenges" class="accent-heading">PSYCHOLOGICAL CHALLENGES</h3>
+        <ul class="small">
+          <li><strong>"Hype" Management:</strong> Being "the striker China needs" is immense pressure.</li>
+          <li><strong>Poor Team:</strong> Playing in a relegated or struggling team is mentally taxing.</li>
+          <li><strong>European Adaption:</strong> A move to Europe will be a major cultural and footballing shock.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="philosophy-experience">
+        <h2 id="philosophy-experience" style="color:var(--accent)">Philosophy & Experience</h2>
+        <p class="lead">Wei's experience is limited but historic. He is a record-breaker in the CSL, and this early exposure to senior, high-pressure football (a relegation battle) will accelerate his development. His trial at Auxerre provided a crucial taste of the European philosophy, which will inform his development as he targets a permanent move.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-statistics">
+        <h2 id="career-statistics" style="color:var(--accent)">Complete Career Statistics & FGA Rating Breakdown (Player)</h2>
+        <p class="small">Populate the table below with season data as it becomes available. ERA Factor: Applied (Current Model)</p>
+        <table>
+          <thead><tr><th>Season</th><th>Club</th><th>Apps</th><th>Goals</th><th>Assists</th><th>Notes</th><th>ERA-FGA (Peak)</th></tr></thead>
+          <tbody>
+            <tr><td>2025</td><td>Meizhou Hakka</td><td>~10-15</td><td>1</td><td>~0</td><td>CSL Debut (first 2008-born), 1st goal.</td><td>71.5 (Current)</td></tr>
+            <tr><td>2025 (U-17)</td><td>China U-17</td><td>~5</td><td>~3</td><td>~1</td><td>Key striker.</td><td>N/A (Prospect)</td></tr>
+            <tr><td>Projected Peak</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>88.0 (Potential)</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Data is based on debut CSL season. All ratings are projections.</div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-leadership">
+        <h2 id="psych-leadership" style="color:var(--accent)">Psychological & Leadership Notes (table)</h2>
+        <table>
+          <thead><tr><th>Area</th><th>Observation</th><th>Recommendation</th></tr></thead>
+          <tbody>
+            <tr><td>Leadership Presence</td><td>Leads with confidence and "star" persona.</td><td>Monitor.</td></tr>
+            <tr><td>Pressure Handling</td><td>Thrives. Scored immediately in CSL, unfazed by hype.</td><td>European move will be the next test.</td></tr>
+            <tr><td>Development</td><td>Needs consistent senior minutes, even if in 2nd tier.</td><td>A full season as a starter is crucial.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Interpersonal Dynamics (table)</h2>
+        <table>
+          <thead><tr><th>Type</th><th>Person / Group</th><th>Pattern / Impact</th></tr></thead>
+          <tbody>
+            <tr><td>Club</td><td>Meizhou Hakka</td><td>Gave him his historic debut and first goal.</td></tr>
+            <tr><td>National Team</td><td>China U-17s</td><td>The nation's top striking prospect.</td></tr>
+            <tr><td>Idol</td><td>Cristiano Ronaldo</td><td>Models his mentality and professionalism on him.</td></tr>
+            <tr><td>Market</td><td>Auxerre</td><td>Has already trialed with the French club.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="last5">
+        <h2 id="last5" style="color:var(--accent)">Last 5 Matches (Representative Historical Samples - Player)</h2>
+        <table>
+          <thead><tr><th>Date (Approx)</th><th>Opponent</th><th>Result</th><th>Key Actions</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>2025</td><td>CSL Opp.</td><td>N/A</td><td>Scored first professional goal.</td><td>CSL (2nd appearance)</td></tr>
+            <tr><td>2025</td><td>CSL Opp.</td><td>N/A</td><td>Made professional debut.</td><td>CSL (1st 2008-born)</td></tr>
+            <tr><td>2025</td><td>Auxerre (Trial)</td><td>N/A</td><td>Trial appearance</td><td>Friendly</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Sources: Chinese Super League, Transfermarkt, The Guardian.</div>
+      </section>
+
+      <section class="section" aria-labelledby="video-highlights">
+        <h2 id="video-highlights" style="color:var(--accent)">Video Highlights (Player Career)</h2>
+        <p class="small">Attach archival clips and event IDs in PHILOSOPHY_SUBCOMP rows. Focus on CSL goal and physical play.</p>
+        <table>
+          <thead><tr><th>Clip Tag</th><th>Match</th><th>Approx Year</th><th>Event</th><th>Source ID</th></tr></thead>
+          <tbody>
+            <tr><td>VH-WX-01</td><td>Meizhou Hakka</td><td>2025</td><td>First CSL goal</td><td>ARCH-WX-CSLGOAL (attach)</td></tr>
+            <tr><td>VH-WX-02</td><td>Meizhou Hakka</td><td>2025</td><td>CSL Debut highlights</td><td>ARCH-WX-CSLDEBUT (attach)</td></tr>
+            <tr><td>VH-WX-03</td><td>China U-17s</td><td>2025</td><td>Goals compilation</td><td>ARCH-WX-U17 (attach)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison with Radar Chart (Striker Prospects)</h2>
+        <p class="small">Comparators: Other top Asian striker prospects. Generate radar visuals from *projected potential* data.</p>
+        <div class="visual-canvas">
+          <canvas id="weiRadar" aria-label="Radar comparing Wei and comparators" width="720" height="420"></canvas>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-app">
+        <h2 id="psych-app" style="color:var(--accent)">Psychological Application Notes (Projected)</h2>
+        <ul class="small">
+          <li>An A-List prospect for the Asian market, with significant national hope.</li>
+          <li>His mental profile ("confidence," "composure") is his biggest asset.</li>
+          <li>He is a high-risk, high-reward prospect who needs to be in an environment that fuels his "Ronaldo" mentality.</li>
+          <li>Relegation may be good for him, allowing him to dominate a lower tier.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="sources">
+        <h2 id="sources" style="color:var(--accent)">Sources & Verification Notes</h2>
+        <p class="small">Primary player data: Transfermarkt, Chinese Football Association (CFA) records, Meizhou Hakka club reports, The Guardian. All metrics are projections based on limited senior/youth performance.</p>
+        <div class="muted-box small">This is a prospective analysis. Data is limited but his record-breaking status is confirmed.</div>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Wei Xiangxin expanded scouting profile. Meizhou Hakka striker prospect. This document follows the exact section order provided.</footer>
+    </main>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('weiRadar')?.getContext('2d');
+    if (ctx) {
+      new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: ['Finishing (FIN)', 'Composure (COM)', 'Strength (STR)', 'Confidence (CON)', 'Positioning (POS)', 'Pace (PAC)'],
+          datasets: [
+            { label: 'Wei Xiangxin (Potential)', data: [8.8, 8.7, 8.5, 9.0, 8.5, 8.2],
+              backgroundColor:'rgba(255,210,77,0.10)', borderColor:'#ffd24d', pointBackgroundColor:'#ffd24d', borderWidth:2 },
+            { label: 'Riku Gunji (Prospect)', data: [8.6, 8.4, 8.0, 8.2, 8.5, 8.3],
+              backgroundColor:'rgba(100, 255, 100, 0.10)', borderColor:'#4BC0C0', pointBackgroundColor:'#4BC0C0', borderWidth:2 },
+            { label: 'Avg. Elite Striker', data: [8.8, 8.2, 8.4, 8.0, 8.5, 8.2],
+              backgroundColor:'rgba(11,91,176,0.10)', borderColor:'#0b5bb0', pointBackgroundColor:'#0b5bb0', borderWidth:2 }
+          ]
+        },
+        options: {
+          responsive:true, maintainAspectRatio:false,
+          plugins:{ legend:{ labels:{ color:'#eef6ff' } }, tooltip:{ backgroundColor:'#071122', titleColor:'#fff', bodyColor:'#cfe6ff' } },
+          scales:{ r:{ beginAtZero:true, max:10, ticks:{ color:'#eef6ff', stepSize:1 }, pointLabels:{ color:'#eef6ff', font:{ size:12 } }, grid:{ color:'rgba(255,255,255,0.06)' }, angleLines:{ color:'rgba(255,255,255,0.06)' } } }
+        }
+      });
+    }
+  </script>
+</body>
+</html>
