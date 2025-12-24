@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Martiniano Irribaría — Empire FGA Profile</title>
+  <style>
+    :root{--bg:#071226;--card:#0b1220;--accent:#3b82f6;--accent2:#93c5fd;--muted:#9fb0c8;--white:#e6eef8;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(59,130,246,0.04),transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(147,197,253,0.02),transparent 8%),var(--bg);color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1320px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1320px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:28px}
+    .card{background:var(--card);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:500px;object-fit:cover;border-radius:12px;border:4px solid rgba(255,255,255,0.04);background:#0f1724}
+    .title{font-size:34px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(255,255,255,0.02);padding:8px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--muted);margin:6px 8px 6px 0}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:var(--accent);font-weight:800}
+    .rating-badge{position:absolute;right:18px;top:18px;background:var(--accent2);color:var(--card);font-weight:900;padding:12px 18px;border-radius:18px;font-size:28px;box-shadow:0 10px 30px rgba(147,197,253,0.12)}
+    .section{margin-top:20px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    ul.small{margin:0;padding-left:18px}
+    .visual-canvas{background:transparent;border-radius:8px;padding:12px;height:420px;display:flex;align-items:center;justify-content:center}
+    .mini-table th,.mini-table td{font-size:13px;padding:8px}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}.visual-canvas{height:auto}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://www.infocielo.com/wp-content/uploads/2025/01/irribarriajpg.jpg" alt="Martiniano Irribaría photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Martiniano Irribaría</div>
+        <div class="sub">Central Midfielder · Argentina · Born: 09 Mar 2003 · Height: 1.75 m · Weight: 73 kg.</div>
+
+        <div>
+          <span class="pill"><strong>Clubs</strong> Gimnasia II; Sportivo Las Parejas; (unattached periods recorded)</span>
+          <span class="pill"><strong>Peak FGA</strong> 77.0 (sample ERA‑adjusted estimate)</span>
+          <span class="pill"><strong>Role</strong> Deep‑lying playmaker / box‑to‑box midfielder</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Physical & Role Snapshot</h3>
+        <table class="metrics-table" aria-describedby="physical-metrics">
+          <thead><tr><th>Metric</th><th>Score</th></tr></thead>
+          <tbody>
+            <tr><td>Passing & Distribution</td><td>7.6</td></tr>
+            <tr><td>Ball Retention / Composure</td><td>7.4</td></tr>
+            <tr><td>Defensive Contribution</td><td>7.1</td></tr>
+            <tr><td>Transition Work Rate</td><td>7.3</td></tr>
+            <tr><td>Versatility (CM / DM)</td><td>7.2</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section">
+        <h3 style="margin:0 0 8px;color:var(--accent2)">Audit Flags</h3>
+        <ul class="small">
+          <li>Date of birth, club timeline and recent club status pulled from Transfermarkt and BDFA; cross‑check appearance logs and current contract status for publication.</li>
+          <li>Market value data absent on public pages; mark as placeholder until agency confirmation.</li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">FGA 77.0</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player overview</h2>
+        <p class="small">Martiniano Irribaría is an Argentine central midfielder born in La Plata on 9 March 2003, operating primarily as a central/box‑to‑box midfielder with strengths in ball retention and distribution; recent club history includes Gimnasia y Esgrima La Plata II and appearances for Sportivo Las Parejas in Federal A competitions.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career timeline</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>—</td><td>Gimnasia y Esgrima La Plata II</td><td>Youth and reserve appearances; recorded Copa Proyección matches.</td></tr>
+            <tr><td>2024–2025</td><td>Sportivo Las Parejas</td><td>Federal A appearances; 6 matches recorded in national/regional logs.</td></tr>
+            <tr><td>2025</td><td>Free agent / short‑term contracts</td><td>Transfermarkt lists current status as without club at Jan 2024 snapshot; verify latest registration.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="milestones">
+        <h2 id="milestones" style="color:var(--accent)">Key matches & milestones</h2>
+        <table aria-describedby="enhanced-matches" style="margin-top:8px">
+          <thead><tr><th>Date</th><th>Match / Event</th><th>Tactical Objective</th><th>Extraction Focus</th></tr></thead>
+          <tbody>
+            <tr><td>2024</td><td>Federal A appearances (Sportivo Las Parejas)</td><td>Consistent central midfield minutes</td><td>Passing sequences; defensive recoveries; minutes per match</td></tr>
+            <tr><td>—</td><td>Reserve competitions (Gimnasia II)</td><td>Developmental match exposure</td><td>Progression of role from academy to senior reserve teams</td></tr>
+          </tbody>
+        </table>
+        <p class="small">Use club logs and match frame extraction to build event rows and minute‑level provenance before publishing.</p>
+      </section>
+
+      <section class="section" aria-labelledby="strengths">
+        <h2 id="strengths" style="color:var(--accent)">Strengths and weaknesses</h2>
+        <ul class="small">
+          <li><strong>Strengths:</strong> Passing reliability, positional awareness in central pockets, calmness under pressure in reserve and regional matches.</li>
+          <li><strong>Weaknesses:</strong> Physicality against senior pros, limited high‑level exposure; sample size small — ERA adjustment advised.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="global-impact">
+        <h2 id="global-impact" style="color:var(--accent)">Impact analysis</h2>
+        <p class="small">Best‑fit environments are technically oriented mid‑tier clubs that prioritise possession and structured transitions; potential upside as squad rotation CM with development pathway into higher divisions after sustained minutes and verified performance data.</p>
+      </section>
+
+      <section class="section" aria-labelledby="advanced">
+        <h2 id="advanced" style="color:var(--accent)">Advanced metrics (ERA‑Adjusted)</h2>
+        <div class="two-col">
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Creative & Output</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Pass Completion (ERA adj.)</td><td>7.6/10</td></tr>
+                <tr><td>Progressive Passes</td><td>7.1/10</td></tr>
+                <tr><td>Shot Zone Contribution</td><td>6.5/10</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 style="margin:0 0 8px;color:var(--accent2)">Tactical & Physical</h3>
+            <table>
+              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Defensive Actions / 90</td><td>7.1/10</td></tr>
+                <tr><td>Work Rate / Transitions</td><td>7.3/10</td></tr>
+                <tr><td>Durability proxy</td><td>6.9/10</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="small">Numbers are ERA‑normalized to regional competition baselines; calibrate with per‑match logs sourced from official match sheets and Sofascore/live providers before export.</p>
+      </section>
+
+      <section class="section" aria-labelledby="tactical">
+        <h2 id="tactical" style="color:var(--accent)">Tactical philosophies & DNA</h2>
+        <p class="small">Player maps most strongly to Argentine creative and pragmatic schools with affinity for Menotti/Bilardo DNA in possession retention and tactical discipline; score alignment should be computed against the 60‑philosophy matrix for precise fit.</p>
+        <table class="mini-table" style="width:100%;margin-top:8px">
+          <thead><tr><th>Philosophy</th><th>Fit Rate (0–10)</th><th>Scout Signature</th></tr></thead>
+          <tbody>
+            <tr><td>Menotti Artistry</td><td>7.6</td><td>Ball progression; creative passing</td></tr>
+            <tr><td>Bilardo Pragmatism</td><td>7.1</td><td>Compact defensive support</td></tr>
+            <tr><td>Bielsa Intensity (adapted)</td><td>6.9</td><td>Transition pressing contribution</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="psych-profile">
+        <h2 id="psych-profile" style="color:var(--accent)">Psychological profile & personality analysis</h2>
+        <p class="small">Profile based on match narratives and reserve/regional performance: composed under pressure, team‑centric orientation, developmentally focused. Recommend psych screening and in‑club references to validate leadership potential.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-stats">
+        <h2 id="career-stats" style="color:var(--accent)">Career statistics & notes</h2>
+        <table class="mini-table" style="width:100%;margin-top:8px">
+          <thead><tr><th>Category</th><th>Value / Note</th></tr></thead>
+          <tbody>
+            <tr><td>Date of birth / Age</td><td>09/03/2003 (22)</td></tr>
+            <tr><td>Primary position</td><td>Central Midfield (CM)</td></tr>
+            <tr><td>Recent competition appearances</td><td>Federal A: 6 matches recorded (Sportivo Las Parejas)</td></tr>
+            <tr><td>Transfermarkt status</td><td>Listed as without club snapshot (Jan 2024) — verify current registration</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="video">
+        <h2 id="video" style="color:var(--accent)">Video highlights — extraction guide</h2>
+        <ul class="small">
+          <li><strong>Priority sources:</strong> Club match footage (Sportivo Las Parejas), reserve match archives (Gimnasia II), regional broadcasters.</li>
+          <li><strong>Extraction checklist:</strong> Match ID; mm:ss; event type; pre‑pass chains; pressure state; ERA tag; triple verification (broadcast; club logs; league sheets).</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player comparison & visuals</h2>
+        <p class="small">Comparable archetypes: regional young CMs progressing to stable second‑tier roles; radar visualization included for scouting workshops.</p>
+        <div class="visual-canvas">
+          <canvas id="irribarriaRadar" aria-label="Radar comparing Irribaría to peers" width="720" height="420"></canvas>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="sources">
+        <h2 id="sources" style="color:var(--accent)">Sources & verification notes</h2>
+        <p class="small">Primary player metadata and current club snapshots taken from Transfermarkt and Transfermarkt Argentina for profile baseline. Historical match counts and local competition appearances referenced from BDFA player record and Sportivo Las Parejas match logs. All match‑level event rows must be triple‑verified using broadcast frames, club records and federation sheets before publishing.</p>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Martiniano Irribaría scouting profile. Numeric fields are ERA‑adjusted estimates; verify event rows, minutes and contract status with primary sources before publication.</footer>
+    </main>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('irribarriaRadar')?.getContext('2d');
+    if (ctx) {
+      new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: ['Passing','Retention','Defense','Transitions','Versatility','Durability','Creativity'],
+          datasets: [
+            { label: 'Martiniano Irribaría', data: [7.6,7.4,7.1,7.3,7.2,6.9,7.0], backgroundColor:'rgba(59,130,246,0.12)', borderColor:'#93c5fd', pointBackgroundColor:'#93c5fd', borderWidth:2 }
+          ]
+        },
+        options: { responsive:true, maintainAspectRatio:false, scales:{ r:{ beginAtZero:true, max:10, ticks:{ color:'#cbd5e1', stepSize:2 }, pointLabels:{ color:'#cbd5e1', font:{ size:12 } }, grid:{ color:'rgba(255,255,255,0.04)' } } }, plugins:{ legend:{ labels:{ color:'#cbd5e1' } }, tooltip:{ backgroundColor:'#0b1220', titleColor:'#fff', bodyColor:'#cbd5e1' } } }
+      });
+    }
+  </script>
+</body>
+</html>

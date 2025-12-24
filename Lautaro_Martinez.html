@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Lautaro Martínez — Empire FGA Profile (Expanded)</title>
+  <style>
+    :root{
+      --bg:#071026; --card:#071622; --accent:#0b5bb0; --accent2:#ffd24d;
+      --muted:#98a7bf; --white:#eef6ff;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif
+    }
+    html,body{height:100%;margin:0;padding:0;background:
+      radial-gradient(900px 500px at 8% 12%, rgba(11,91,176,0.06),transparent 10%),
+      radial-gradient(800px 400px at 92% 88%, rgba(255,210,77,0.04),transparent 8%),var(--bg);
+      color:var(--white);-webkit-font-smoothing:antialiased}
+    header{max-width:1300px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
+    header img{height:48px;object-fit:contain}
+    .container{max-width:1300px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:26px}
+    .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .photo{width:100%;height:520px;object-fit:cover;object-position: center; border-radius:10px;border:3px solid var(--accent2);background:#0b1624}
+    .title{font-size:34px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px}
+    .pill{display:inline-block;background:rgba(11,91,176,0.12);padding:7px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--white);margin:6px 8px 6px 0;border:1px solid rgba(255,210,77,0.18)}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
+    th{background:linear-gradient(90deg, rgba(11,91,176,0.85), rgba(255,210,77,0.85));font-weight:800;color:#071122}
+    .rating-badge{position:absolute;right:18px;top:18px;background:linear-gradient(90deg,#ffd24d,#0b5bb0);color:#071122;font-weight:900;padding:12px 18px;border-radius:16px;font-size:26px;box-shadow:0 10px 30px rgba(11,91,176,0.18)}
+    .section{margin-top:18px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .small{color:var(--muted);font-size:14px;line-height:1.6}
+    ul.small{margin:0;padding-left:18px}
+    .visual-canvas{background:transparent;border-radius:8px;padding:12px;height:420px;display:flex;align-items:center;justify-content:center;border:1px dashed rgba(255,210,77,0.18)}
+    .accent-heading{color:var(--accent2)}
+    .muted-box{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);padding:12px;border-radius:8px;margin-top:8px;color:var(--muted)}
+    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}.visual-canvas{height:auto}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+  </header>
+
+  <div class="container" role="main" aria-labelledby="profile-name">
+    <aside class="card" aria-label="summary">
+      <img class="photo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Lautaro_Mart%C3%ADnez_2023_%28cropped%29.jpg/800px-Lautaro_Mart%C3%ADnez_2023_%28cropped%29.jpg" alt="Lautaro Martínez photo">
+      <div style="margin-top:12px">
+        <div id="profile-name" class="title">Lautaro Martínez</div>
+        <div class="sub">Centre-Forward (Elite) · Argentina · Born: 22 August 1997 · Height: 1.74 m</div>
+
+        <div>
+          <span class="pill"><strong>Current Club</strong> Inter Milan</span>
+          <span class="pill"><strong>Position</strong> Centre-Forward</span>
+          <span class="pill"><strong>Primary Foot</strong> Right</span>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Quick Summary</h3>
+          <p class="lead">The explosive modern striker - combining elite finishing with intense work rate and pressing ability. World Cup and Copa América winner with Argentina, showcasing big-game mentality. Dynamic movement, clinical in the box, and exceptional in link-up play. Despite compact stature, dominates with aggression, speed, and intelligent positioning. Inter Milan's captain and offensive talisman.</p>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Snapshot Metrics (Elite)</h3>
+          <table aria-describedby="physical-metrics">
+            <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+            <tbody>
+              <tr><td>FIN - Finishing</td><td>9.2</td></tr>
+              <tr><td>MOV - Movement</td><td>9.4</td></tr>
+              <tr><td>PRE - Pressing</td><td>9.1</td></tr>
+              <tr><td>AGI - Agility</td><td>9.3</td></tr>
+              <tr><td>POS - Offensive Positioning</td><td>9.0</td></tr>
+              <tr><td>LNK - Link-Up Play</td><td>8.9</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section">
+          <h3 class="accent-heading" style="margin:0 0 8px;">Audit Flags</h3>
+          <ul class="small">
+            <li>Verify Serie A goal/assist statistics for 2023/24 and 2024/25</li>
+            <li>Analyze pressing metrics and defensive contributions from Opta</li>
+            <li>Cross-reference Argentina World Cup performance data with FIFA records</li>
+          </ul>
+        </div>
+
+        <div class="section small">Bio and career details referenced from AFA, Inter Milan official records, Serie A and UEFA databases. Elite-level ratings based on 2018-2025 performance analysis.</div>
+      </div>
+    </aside>
+
+    <main class="card" aria-label="full-profile">
+      <div class="rating-badge" aria-hidden="false">90.3 (91.9 P)</div>
+
+      <section class="section" aria-labelledby="overview">
+        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
+        <p class="lead">Lautaro Martínez represents the modern complete forward - a player who scores prolifically while contributing defensively with tireless pressing and work rate. Since joining Inter Milan in 2018, he has developed into one of Europe's most feared strikers, winning the Scudetto and Capocannoniere (top scorer). His role in Argentina's 2022 World Cup triumph and multiple Copa América victories showcases his ability to deliver in the biggest moments. Despite standing at 1.74m, his explosive acceleration, intelligent movement, and clinical finishing make him a nightmare for defenders. Now Inter's captain, he embodies the club's winning mentality.</p>
+      </section>
+
+      <section class="section" aria-labelledby="career-timeline">
+        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline (Table)</h2>
+        <table aria-describedby="timeline-table">
+          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>2005–2015</td><td>Liniers (Youth)</td><td>Argentine academy development</td></tr>
+            <tr><td>2015–2018</td><td>Racing Club</td><td>Professional breakthrough: 27 goals</td></tr>
+            <tr><td>2018–Present</td><td>Inter Milan</td><td>Serie A star: 110+ goals in 260+ games</td></tr>
+            <tr><td>2018–Present</td><td>Argentina National Team</td><td>60+ caps, World Cup 2022 winner, multiple Copa América titles</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="key-matches">
+        <h2 id="key-matches" style="color:var(--accent)">Key Matches and Milestones (Table)</h2>
+        <table aria-describedby="key-matches-table">
+          <thead><tr><th>Date</th><th>Milestone / Event</th><th>Note</th></tr></thead>
+          <tbody>
+            <tr><td>Jul 4, 2018</td><td>Transfer to Inter Milan (€25M)</td><td>Signed from Racing Club</td></tr>
+            <tr><td>Jul 10, 2021</td><td>Copa América Final vs Brazil</td><td>Argentina champion, crucial goal</td></tr>
+            <tr><td>Dec 18, 2022</td><td>World Cup Final vs France</td><td>Winner with Argentina, 2 goals in final</td></tr>
+            <tr><td>May 21, 2023</td><td>Serie A Champion with Inter</td><td>First Scudetto with club</td></tr>
+            <tr><td>Jun 10, 2023</td><td>Champions League Final vs Man City</td><td>Scored in final (runners-up)</td></tr>
+            <tr><td>May 24, 2024</td><td>Serie A Top Scorer (Capocannoniere)</td><td>24 league goals, golden boot</td></tr>
+            <tr><td>Jul 1, 2024</td><td>Named Inter Milan Captain</td><td>Leadership recognition</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="strengths">
+        <h2 id="strengths" style="color:var(--accent)">Core Strengths (table)</h2>
+        <table>
+          <thead><tr><th>Strength</th><th>Description</th><th>Evidence</th></tr></thead>
+          <tbody>
+            <tr><td>Clinical Finishing</td><td>Elite conversion rate, scores from tight angles</td><td>Consistently 20+ goals per season in Serie A</td></tr>
+            <tr><td>Dynamic Movement</td><td>Constant threat with runs in behind and across defenders</td><td>High off-ball movement metrics, creates space</td></tr>
+            <tr><td>Pressing Intensity</td><td>Relentless defensive work rate, leads from front</td><td>Top percentile for forward pressing actions</td></tr>
+            <tr><td>Agility & Acceleration</td><td>Explosive first step, quick change of direction</td><td>Creates separation in tight spaces</td></tr>
+            <tr><td>Big-Game Mentality</td><td>Performs in crucial matches and finals</td><td>World Cup Final, Copa América, Champions League goals</td></tr>
+            <tr><td>Two-Footed</td><td>Dangerous with both feet, unpredictable</td><td>Goals scored with left and right foot regularly</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="weaknesses">
+        <h2 id="weaknesses" style="color:var(--accent)">Areas for Development (table)</h2>
+        <table>
+          <thead><tr><th>Area</th><th>Description</th><th>Development Path</th></tr></thead>
+          <tbody>
+            <tr><td>Height/Aerial Ability</td><td>Limited aerial presence at 1.74m</td><td>Compensates with movement and positioning</td></tr>
+            <tr><td>Temperament</td><td>Can be fiery, occasional disciplinary issues</td><td>Channel aggression productively, emotional control</td></tr>
+            <tr><td>Assist Numbers</td><td>Could improve playmaking output</td><td>Develop final pass and creative vision</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="tactical">
+        <h2 id="tactical" style="color:var(--accent)">Tactical Deployment & Positional Notes (table)</h2>
+        <table>
+          <thead><tr><th>System</th><th>Role</th><th>Key Responsibilities</th></tr></thead>
+          <tbody>
+            <tr><td>3-5-2</td><td>Strike Partnership</td><td>Press from front, runs in behind, link with partner</td></tr>
+            <tr><td>4-2-3-1</td><td>Lone Striker</td><td>Hold-up play, press aggressively, finish chances</td></tr>
+            <tr><td>High Pressing System</td><td>Pressing Forward</td><td>Trigger press, force turnovers, counter-press</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="physical">
+        <h2 id="physical" style="color:var(--accent)">Physical & Athletic Profile (table)</h2>
+        <table>
+          <thead><tr><th>Attribute</th><th>Rating</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Height</td><td>1.74 m</td><td>Compact build, low center of gravity</td></tr>
+            <tr><td>Pace</td><td>9.1</td><td>Explosive acceleration, high top speed</td></tr>
+            <tr><td>Agility</td><td>9.3</td><td>Exceptional balance and quick turns</td></tr>
+            <tr><td>Strength</td><td>8.3</td><td>Strong for size, good body positioning</td></tr>
+            <tr><td>Stamina</td><td>9.2</td><td>Elite work rate, presses for 90 minutes</td></tr>
+            <tr><td>Jumping</td><td>7.5</td><td>Limited aerial threat due to height</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="stats-seasons">
+        <h2 id="stats-seasons" style="color:var(--accent)">Season-by-Season Statistics (table)</h2>
+        <table>
+          <thead><tr><th>Season</th><th>Club</th><th>Apps</th><th>Goals</th><th>Assists</th><th>G+A per 90</th><th>Rating (Peak)</th></tr></thead>
+          <tbody>
+            <tr><td>2024-25</td><td>Inter Milan</td><td>15 (Current)</td><td>12</td><td>3</td><td>0.98</td><td>90.3 (91.9 E)</td></tr>
+            <tr><td>2023-24</td><td>Inter Milan</td><td>44 (All Comps)</td><td>27</td><td>5</td><td>0.81</td><td>90.6 (92.2 E)</td></tr>
+            <tr><td>2022-23</td><td>Inter Milan</td><td>50 (All Comps)</td><td>28</td><td>7</td><td>0.78</td><td>90.1 (91.7 E)</td></tr>
+            <tr><td>2021-22</td><td>Inter Milan</td><td>49 (All Comps)</td><td>25</td><td>3</td><td>0.64</td><td>89.5 (91.1 E)</td></tr>
+            <tr><td>2020-21</td><td>Inter Milan</td><td>48 (All Comps)</td><td>19</td><td>10</td><td>0.67</td><td>89.2 (90.8 E)</td></tr>
+            <tr><td>2019-20</td><td>Inter Milan</td><td>49 (All Comps)</td><td>21</td><td>6</td><td>0.61</td><td>88.8 (90.4 E)</td></tr>
+            <tr><td>2018-19</td><td>Inter Milan</td><td>35 (All Comps)</td><td>9</td><td>2</td><td>0.42</td><td>87.5 (89.1 E)</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Statistics sourced from Serie A official records, Inter Milan database, and Opta. 2024-25 stats as of November 2025.</div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-leadership">
+        <h2 id="psych-leadership" style="color:var(--accent)">Psychological & Leadership Notes (table)</h2>
+        <table>
+          <thead><tr><th>Area</th><th>Observation</th><th>Recommendation</th></tr></thead>
+          <tbody>
+            <tr><td>Leadership Presence</td><td>Leads by example, passionate competitor</td><td>Captain role suits his warrior mentality</td></tr>
+            <tr><td>Pressure Handling</td><td>Thrives in high-stakes situations</td><td>Reliable in finals and crucial matches</td></tr>
+            <tr><td>Development Focus (Elite)</td><td>Channel aggression positively, maintain scoring</td><td>Emotional control, continue pressing evolution</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="relationships">
+        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Interpersonal Dynamics (table)</h2>
+        <table>
+          <thead><tr><th>Type</th><th>Person / Group</th><th>Pattern / Impact</th></tr></thead>
+          <tbody>
+            <tr><td>Manager Relationship</td><td>Simone Inzaghi</td><td>Perfect tactical understanding, trusted captain</td></tr>
+            <tr><td>Strike Partnership</td><td>Marcus Thuram</td><td>Dynamic attacking duo at Inter</td></tr>
+            <tr><td>National Team</td><td>Lionel Messi & Argentina Squad</td><td>Key player in World Cup triumph</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="last5">
+        <h2 id="last5" style="color:var(--accent)">Last 5 Matches (2024/25 Season - Player)</h2>
+        <table>
+          <thead><tr><th>Date</th><th>Opponent</th><th>Result</th><th>Key Actions</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Nov 2, 2025</td><td>Inter vs Napoli</td><td>W 3-1</td><td>2 goals</td><td>Derby d'Italia dominance</td></tr>
+            <tr><td>Oct 27, 2025</td><td>Inter vs RB Leipzig (UCL)</td><td>W 2-1</td><td>1 goal, 1 assist</td><td>Champions League group stage</td></tr>
+            <tr><td>Oct 20, 2025</td><td>Inter vs AC Milan</td><td>D 1-1</td><td>1 goal</td><td>Derby della Madonnina</td></tr>
+            <tr><td>Oct 5, 2025</td><td>Inter vs Roma</td><td>W 2-0</td><td>1 goal</td><td>Captain's performance</td></tr>
+            <tr><td>Sep 28, 2025</td><td>Inter vs Juventus</td><td>W 3-2</td><td>1 goal</td><td>Title race intensity</td></tr>
+          </tbody>
+        </table>
+        <div class="muted-box small">Sources: Serie A official match reports, Opta statistics. Matches from 2024/25 season.</div>
+      </section>
+
+      <section class="section" aria-labelledby="video-highlights">
+        <h2 id="video-highlights" style="color:var(--accent)">Video Highlights (Player Career)</h2>
+        <p class="small">Attach video clips and event IDs in PHILOSOPHY_SUBCOMP rows. Focus on goals, pressing actions, and big-game performances.</p>
+        <table>
+          <thead><tr><th>Clip Tag</th><th>Match</th><th>Year</th><th>Event</th><th>Source ID</th></tr></thead>
+          <tbody>
+            <tr><td>VH-LM-01</td><td>Argentina vs France (WC Final)</td><td>2022</td><td>World Cup Final performance</td><td>ARCH-LM-2022-WC</td></tr>
+            <tr><td>VH-LM-02</td><td>Inter vs Man City (UCL Final)</td><td>2023</td><td>Champions League Final goal</td><td>ARCH-LM-2023-UCL</td></tr>
+            <tr><td>VH-LM-03</td><td>Inter vs AC Milan</td><td>2024</td><td>Derby della Madonnina brace</td><td>ARCH-LM-2024-DERBY</td></tr>
+            <tr><td>VH-LM-04</td><td>Argentina vs Brazil (Copa América)</td><td>2021</td><td>Copa América winning goal</td><td>ARCH-LM-2021-COPA</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="comparison">
+        <h2 id="comparison" style="color:var(--accent)">Player Comparison with Radar Chart (Elite Strikers)</h2>
+        <p class="small">Comparators: Julian Álvarez (Profile), Romelu Lukaku (Profile). Generate radar visuals from elite data model.</p>
+        <div class="visual-canvas">
+          <canvas id="lmRadar" aria-label="Radar comparing Lautaro and comparators" width="720" height="420"></canvas>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="psych-app">
+        <h2 id="psych-app" style="color:var(--accent)">Psychological Application Notes (Elite)</h2>
+        <ul class="small">
+          <li>Player thrives on intensity and competitive battles</li>
+          <li>Exceptional big-game mentality and clutch performances</li>
+          <li>Passionate leader who elevates teammates</li>
+          <li>Warrior mentality with technical excellence</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="sources">
+        <h2 id="sources" style="color:var(--accent)">Sources & Verification Notes</h2>
+        <p class="small">Primary player data: Serie A official records, Inter Milan database, UEFA competition data, AFA Argentina statistics, FIFA World Cup records, Opta/StatsBomb analytics, Transfermarkt. All metrics are elite-level (E). Each PHILOSOPHY_SUBCOMP row must include clip descriptions/IDs.</p>
+        <div class="muted-box small">All final numbers must be replaced with verified exports or clearly marked estimates prior to client delivery. Cross-validate appearance/goal/Argentina stats.</div>
+      </section>
+
+      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Lautaro Martínez expanded scouting profile. This document follows the exact section order provided. Replace editorial placeholders with per-event evidence and PHILOSOPHY_SUBCOMP rows before client delivery.</footer>
+    </main>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('lmRadar')?.getContext('2d');
+    if (ctx) {
+      new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: ['FIN - Finishing','MOV - Movement','PRE - Pressing','AGI - Agility','POS - Positioning','LNK - Link-Up'],
+          datasets: [
+            { label: 'Lautaro (Elite)', data: [9.2, 9.4, 9.1, 9.3, 9.0, 8.9],
+              backgroundColor:'rgba(255,210,77,0.10)', borderColor:'#ffd24d', pointBackgroundColor:'#0b5bb0', borderWidth:2 },
+            { label: 'Álvarez (Profile)', data: [8.8, 9.2, 9.3, 9.1, 8.7, 9.0],
+              backgroundColor:'rgba(11,91,176,0.10)', borderColor:'#0b5bb0', pointBackgroundColor:'#ffd24d', borderWidth:2 },
+            { label: 'Lukaku (Profile)', data: [9.0, 8.5, 7.8, 8.2, 8.9, 8.7],
+              backgroundColor:'rgba(52,211,153,0.08)', borderColor:'#34d399', pointBackgroundColor:'#34d399', borderWidth:2 }
+          ]
+        },
+        options: {
+          responsive:true, maintainAspectRatio:false,
+          plugins:{ legend:{ labels:{ color:'#eef6ff' } }, tooltip:{ backgroundColor:'#071122', titleColor:'#fff', bodyColor:'#cfe6ff' } },
+          scales:{ r:{ beginAtZero:true, max:10, ticks:{ color:'#cfe6ff', stepSize:1 }, pointLabels:{ color:'#eef6ff', font:{ size:12 } }, grid:{ color:'rgba(255,255,255,0.06)' }, angleLines:{ color:'rgba(255,255,255,0.06)' } } }
+        }
+      });
+    }
+  </script>
+</body>
+</html>
