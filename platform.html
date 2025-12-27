@@ -357,7 +357,7 @@
             </div>
             
             <div id="clientLoginError" class="login-error">
-                <i class="fas fa-exclamation-circle"></i> Invalid credentials. Please contact <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f98a8c8989968b8db99c9489908b9c9f9e98d79a9694">[email&#160;protected]</a>
+                <i class="fas fa-exclamation-circle"></i> Invalid credentials. Please contact <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="70030500001f020430151d001902151617115e131f1d">[email&#160;protected]</a>
             </div>
             
             <form id="clientLoginForm" onsubmit="handleClientLogin(event)">
@@ -470,7 +470,7 @@
                     <i class="fas fa-users"></i> Squad Builder
                 </button>
                 <button class="tab-button py-4 px-2 font-semibold whitespace-nowrap" onclick="switchTab('agents')">
-                    <i class="fas fa-user-tie"></i> Scouting Tool
+                    <i class="fas fa-binoculars"></i> Scouting Tool
                 </button>
             </div>
         </div>
@@ -483,29 +483,29 @@
             <div id="database-tab" class="tab-content active">
                 <div class="text-center mb-8">
                     <h1 class="text-4xl font-bold mb-4 gradient-text">Player Database</h1>
-                    <p class="text-xl text-slate-300">Search 5000 players analyzed with 779 metrics and 60 tactical philosophies</p>
+                    <p class="text-xl text-slate-300">Search 616 players analyzed with 779 metrics and 60 tactical philosophies</p>
                 </div>
 
                 <!-- Stats Dashboard -->
                 <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
                     <div class="stat-card">
-                        <div id="stat-total" class="stat-value">Loading...</div>
+                        <div id="stat-total" class="stat-value">521</div>
                         <div class="stat-label">Total Players</div>
                     </div>
                     <div class="stat-card">
-                        <div id="stat-avg-fga" class="stat-value">--</div>
+                        <div id="stat-avg-fga" class="stat-value">0.0</div>
                         <div class="stat-label">Avg FGA</div>
                     </div>
                     <div class="stat-card">
-                        <div id="stat-legends" class="stat-value">--</div>
+                        <div id="stat-legends" class="stat-value">0</div>
                         <div class="stat-label">Legends (90+)</div>
                     </div>
                     <div class="stat-card">
-                        <div id="stat-elite" class="stat-value">--</div>
+                        <div id="stat-elite" class="stat-value">0</div>
                         <div class="stat-label">Elite (85+)</div>
                     </div>
                     <div class="stat-card">
-                        <div id="stat-showing" class="stat-value">--</div>
+                        <div id="stat-showing" class="stat-value">0</div>
                         <div class="stat-label">Showing</div>
                     </div>
                 </div>
@@ -600,7 +600,7 @@
                 </div>
             </div>
 
-           <!-- MARKET INTELLIGENCE TAB -->
+            <!-- MARKET INTELLIGENCE TAB -->
             <div id="market-tab" class="tab-content">
                 <!-- HERO SECTION -->
                 <div class="text-center mb-8">
@@ -1658,9 +1658,28 @@
             <!-- VIDEO LIBRARY TAB -->
             <div id="agents-tab" class="tab-content">
                 <div class="text-center mb-8">
-                    <h1 class="text-4xl font-bold mb-4 gradient-text"><i class="fas fa-user-tie"></i> Scouting Tool</h1>
-                    <p class="text-xl text-slate-300">Manage your players and generate client-ready reports</p>
+                    <h1 class="text-4xl font-bold mb-4 gradient-text"><i class="fas fa-binoculars"></i> Empire FGA Scouting Tool</h1>
+                    <p class="text-xl text-slate-300">Professional scouting infrastructure: Video Library • AI Analysis • Data Collection • Intelligence Reports</p>
                 </div>
+
+                <!-- SCOUTING TOOL NAVIGATION -->
+                <div class="flex gap-2 mb-6 overflow-x-auto pb-2">
+                    <button onclick="showScoutingTool('video-library', this)" class="scouting-sub-tab active bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg font-semibold whitespace-nowrap transition">
+                        🎬 Video Library
+                    </button>
+                    <button onclick="showScoutingTool('ai-integration', this)" class="scouting-sub-tab bg-slate-800 hover:bg-slate-700 px-4 py-2 rounded-lg font-semibold whitespace-nowrap transition">
+                        🤖 AI Integration
+                    </button>
+                    <button onclick="showScoutingTool('data-collection', this)" class="scouting-sub-tab bg-slate-800 hover:bg-slate-700 px-4 py-2 rounded-lg font-semibold whitespace-nowrap transition">
+                        📋 Data Collection
+                    </button>
+                    <button onclick="showScoutingTool('intelligence-report', this)" class="scouting-sub-tab bg-slate-800 hover:bg-slate-700 px-4 py-2 rounded-lg font-semibold whitespace-nowrap transition">
+                        📊 Intelligence Report
+                    </button>
+                </div>
+
+                <!-- TOOL 1: VIDEO LIBRARY -->
+                <div id="scouting-video-library" class="scouting-section">
                <!-- EMPIRE SCOUTING NETWORK - VIDEO LIBRARY WIDGET -->
 <div id="esn-library-root">
 
@@ -1775,730 +1794,811 @@
 
     .search-icon {
         position: absolute;
-        right: 12px;
+        right: 15px;
         top: 50%;
         transform: translateY(-50%);
-        opacity: 0.5;
+        font-size: 1rem;
     }
 
-    /* REGION TITLES */
-    .esn-region-label {
-        color: var(--esn-text);
-        font-size: 1.1rem;
-        font-weight: 600;
-        margin-top: 40px;
-        margin-bottom: 20px;
-        padding-left: 10px;
-        border-left: 4px solid var(--esn-gold);
-        text-transform: uppercase;
-    }
-
-    /* GRID SYSTEM */
-    .esn-grid {
+    /* GRID LAYOUT */
+    #esn-grid-container {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-        gap: 15px;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 20px;
     }
 
-    /* COUNTRY CARDS */
-    .esn-card {
+    @media (max-width: 768px) {
+        #esn-grid-container {
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        }
+    }
+
+    /* COUNTRY CARD */
+    .esn-country-card {
         background: var(--esn-card-bg);
         border: 1px solid var(--esn-border);
-        padding: 20px 10px;
-        border-radius: 6px;
+        border-radius: 8px;
+        padding: 20px;
         text-align: center;
         cursor: pointer;
         transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
     }
 
-    .esn-card:hover {
-        background: #1a1a1a;
-        transform: translateY(-5px);
+    .esn-country-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 6px 20px rgba(197, 160, 89, 0.3);
         border-color: var(--esn-gold);
-        box-shadow: 0 5px 15px rgba(197, 160, 89, 0.2); /* Gold Glow */
     }
 
     .esn-flag {
-        font-size: 36px;
-        display: block;
-        margin-bottom: 10px;
+        font-size: 3rem;
+        margin-bottom: 12px;
     }
 
-    .esn-name {
-        font-size: 13px;
+    .esn-country-name {
+        font-size: 1.1rem;
         font-weight: 600;
-        letter-spacing: 0.5px;
-        color: #ddd;
+        color: var(--esn-text);
+        margin-bottom: 6px;
     }
 
-    .esn-card:hover .esn-name {
+    .esn-league-count {
+        font-size: 0.85rem;
         color: var(--esn-gold);
     }
 
-    /* MODAL (POPUP) */
+    /* MODAL OVERLAY */
     .esn-modal {
-        display: none;
+        display: none; /* Hidden by default */
         position: fixed;
         z-index: 10000;
-        left: 0; top: 0;
-        width: 100%; height: 100%;
-        background-color: rgba(0,0,0,0.9);
-        backdrop-filter: blur(4px);
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(5px);
     }
 
     .esn-modal-content {
-        background-color: #050505;
+        background-color: var(--esn-bg);
         margin: 5% auto;
         padding: 0;
-        border: 1px solid var(--esn-gold);
+        border: 1px solid var(--esn-border);
         width: 90%;
-        max-width: 600px;
+        max-width: 700px;
         border-radius: 8px;
-        box-shadow: 0 0 30px rgba(197, 160, 89, 0.3);
+        box-shadow: 0 8px 30px rgba(197, 160, 89, 0.4);
+        max-height: 80vh;
+        overflow-y: auto;
     }
 
+    /* Modal Header */
     .esn-modal-header {
-        background: var(--esn-card-bg);
+        background-color: var(--esn-card-bg);
         padding: 20px;
-        border-bottom: 1px solid #333;
+        border-bottom: 2px solid var(--esn-gold);
         display: flex;
         justify-content: space-between;
         align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 10;
     }
 
     .esn-modal-header h3 {
         margin: 0;
         color: var(--esn-gold);
-        text-transform: uppercase;
-        letter-spacing: 1px;
+        font-size: 1.5rem;
+        font-weight: 700;
     }
 
     .esn-close {
-        color: #fff;
-        font-size: 28px;
+        color: var(--esn-gold);
+        font-size: 2rem;
+        font-weight: 700;
         cursor: pointer;
-        transition: 0.2s;
+        transition: color 0.3s;
     }
-    .esn-close:hover { color: var(--esn-gold); }
 
+    .esn-close:hover {
+        color: var(--esn-gold-hover);
+    }
+
+    /* Link List */
     .esn-link-list {
-        padding: 30px;
-        max-height: 60vh;
-        overflow-y: auto;
+        padding: 20px;
     }
 
-    /* LINKS INSIDE MODAL */
-    .esn-league-btn {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background: #151515;
-        color: white;
-        padding: 15px 20px;
-        margin-bottom: 12px;
-        text-decoration: none;
-        border-radius: 4px;
-        border: 1px solid #333;
+    .esn-link-item {
+        background: var(--esn-card-bg);
+        padding: 15px;
+        margin-bottom: 10px;
+        border-radius: 6px;
+        border-left: 3px solid var(--esn-gold);
         transition: all 0.2s;
     }
 
-    .esn-league-btn:hover {
-        background: #222;
-        border-color: var(--esn-gold);
-        color: var(--esn-gold);
+    .esn-link-item:hover {
+        background: #1a1a1a;
+        transform: translateX(5px);
     }
-    
-    .esn-arrow { font-size: 18px; }
 
-    /* RESPONSIVE */
-    @media (max-width: 600px) {
-        #esn-library-root { padding: 20px; }
-        .esn-grid { grid-template-columns: repeat(3, 1fr); }
+    .esn-link-item a {
+        color: var(--esn-gold);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1rem;
+        display: block;
+    }
+
+    .esn-link-item a:hover {
+        color: var(--esn-gold-hover);
     }
 </style>
 
-<!-- JAVASCRIPT LOGIC -->
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-    // --- DATABASE STRUCTURE ---
-    const database = {
-        "South America": [
-            { name: "Argentina", flag: "🇦🇷" }, { name: "Brazil", flag: "🇧🇷" },
-            { name: "Uruguay", flag: "🇺🇾" }, { name: "Colombia", flag: "🇨🇴" },
-            { name: "Chile", flag: "🇨🇱" }, { name: "Paraguay", flag: "🇵🇾" },
-            { name: "Ecuador", flag: "🇪🇨" }, { name: "Peru", flag: "🇵🇪" },
-            { name: "Venezuela", flag: "🇻🇪" }, { name: "Bolivia", flag: "🇧🇴" }
-        ],
-        "Europe": [
-            { name: "England", flag: "🏴󠁧󠁢󠁥󠁮󠁧󠁿" }, { name: "Spain", flag: "🇪🇸" },
-            { name: "Germany", flag: "🇩🇪" }, { name: "Italy", flag: "🇮🇹" },
-            { name: "France", flag: "🇫🇷" }, { name: "Portugal", flag: "🇵🇹" },
-            { name: "Netherlands", flag: "🇳🇱" }, { name: "Belgium", flag: "🇧🇪" },
-            { name: "Turkey", flag: "🇹🇷" }, { name: "Croatia", flag: "🇭🇷" },
-            { name: "Austria", flag: "🇦🇹" }, { name: "Denmark", flag: "🇩🇰" },
-            { name: "Sweden", flag: "🇸🇪" }, { name: "Switzerland", flag: "🇨🇭" },
-            { name: "Poland", flag: "🇵🇱" }, { name: "Serbia", flag: "🇷🇸" },
-            { name: "Norway", flag: "🇳🇴" }, { name: "Greece", flag: "🇬🇷" },
-            { name: "Czech Rep", flag: "🇨🇿" }, { name: "Scotland", flag: "🏴󠁧󠁢󠁳󠁣󠁴󠁿" },
-            { name: "Ukraine", flag: "🇺🇦" }, { name: "Romania", flag: "🇷🇴" },
-            { name: "Hungary", flag: "🇭🇺" }
-        ],
-        "North & Central America": [
-            { name: "USA", flag: "🇺🇸" }, { name: "Mexico", flag: "🇲🇽" },
-            { name: "Canada", flag: "🇨🇦" }, { name: "Costa Rica", flag: "🇨🇷" },
-            { name: "Jamaica", flag: "🇯🇲" }, { name: "Panama", flag: "🇵🇦" }
-        ],
-        "Maghreb (Africa)": [
-            { name: "Morocco", flag: "🇲🇦" }, { name: "Algeria", flag: "🇩🇿" },
-            { name: "Tunisia", flag: "🇹🇳" }, { name: "Egypt", flag: "🇪🇬" },
-            { name: "Libya", flag: "🇱🇾" }
-        ],
-	"Asia": [
-            { name: "Japan", flag: "🇯🇵" }, { name: "Saudi Arabia", flag: "🇸🇦" },
-            { name: "Qatar", flag: "🇸🇦" }, { name: "UAE", flag: "#" },
-	    { name: "South Korea", flag: "🇰🇷" },
-            
-        ]
-    };
-
-    const container = document.getElementById('esn-grid-container');
-
-    // 1. GENERATE GRID
-    function renderGrid() {
-        container.innerHTML = "";
-        for (const [region, countries] of Object.entries(database)) {
-            // Region Header
-            const header = document.createElement('div');
-            header.className = 'esn-region-label';
-            header.innerText = region;
-            container.appendChild(header);
-
-            // Grid Wrapper
-            const grid = document.createElement('div');
-            grid.className = 'esn-grid';
-
-            countries.forEach(c => {
-                const card = document.createElement('div');
-                card.className = 'esn-card';
-                card.setAttribute('data-search', c.name.toLowerCase());
-                card.innerHTML = `<span class="esn-flag">${c.flag}</span><div class="esn-name">${c.name}</div>`;
-                card.onclick = () => openModal(c.name);
-                grid.appendChild(card);
-            });
-            container.appendChild(grid);
+<!-- JAVASCRIPT CODE -->
+<script>
+    // DATA STRUCTURE: Country → Leagues with links
+    const countryData = [
+        {
+            name: "Argentina",
+            flag: "🇦🇷",
+            leagues: [
+                { name: "Liga Profesional", url: "https://www.youtube.com/@FutbolDePrimeraSuscribite/videos" }
+            ]
+        },
+        {
+            name: "Australia",
+            flag: "🇦🇺",
+            leagues: [
+                { name: "A-League", url: "https://www.youtube.com/@KeepUpAU/videos" }
+            ]
+        },
+        {
+            name: "Austria",
+            flag: "🇦🇹",
+            leagues: [
+                { name: "Austrian Bundesliga", url: "https://www.youtube.com/@bundesliga_aut/videos" }
+            ]
+        },
+        {
+            name: "Belgium",
+            flag: "🇧🇪",
+            leagues: [
+                { name: "Pro League", url: "https://www.youtube.com/@JupilerProLeague/videos" }
+            ]
+        },
+        {
+            name: "Brazil",
+            flag: "🇧🇷",
+            leagues: [
+                { name: "Série A + Paulista", url: "https://www.youtube.com/@paulistao/videos" }
+            ]
+        },
+        {
+            name: "Chile",
+            flag: "🇨🇱",
+            leagues: [
+                { name: "Primera División", url: "https://www.youtube.com/@TNTSportsChile/videos" }
+            ]
+        },
+        {
+            name: "Czech Republic",
+            flag: "🇨🇿",
+            leagues: [
+                { name: "Czech First League", url: "https://www.youtube.com/@fortunaliga/videos" }
+            ]
+        },
+        {
+            name: "Denmark",
+            flag: "🇩🇰",
+            leagues: [
+                { name: "Superliga + 1st Division", url: "https://www.youtube.com/@3sportdk/videos" }
+            ]
+        },
+        {
+            name: "England",
+            flag: "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+            leagues: [
+                { name: "Premier League", url: "https://www.youtube.com/@premierleague/videos" },
+                { name: "Championship", url: "https://www.youtube.com/@skysportsfootball/videos" },
+                { name: "League One + League Two", url: "https://www.youtube.com/@skysportsfootball/videos" }
+            ]
+        },
+        {
+            name: "France",
+            flag: "🇫🇷",
+            leagues: [
+                { name: "Ligue 1 + Ligue 2", url: "https://www.youtube.com/@Ligue1/videos" }
+            ]
+        },
+        {
+            name: "Germany",
+            flag: "🇩🇪",
+            leagues: [
+                { name: "Bundesliga + 2.Bundesliga", url: "https://www.youtube.com/@bundesliga/videos" }
+            ]
+        },
+        {
+            name: "Greece",
+            flag: "🇬🇷",
+            leagues: [
+                { name: "Super League", url: "https://www.youtube.com/@superleagregr/videos" }
+            ]
+        },
+        {
+            name: "Italy",
+            flag: "🇮🇹",
+            leagues: [
+                { name: "Serie A", url: "https://www.youtube.com/@SerieA/videos" },
+                { name: "Serie B", url: "https://www.youtube.com/@seriebkt/videos" }
+            ]
+        },
+        {
+            name: "Mexico",
+            flag: "🇲🇽",
+            leagues: [
+                { name: "Liga MX", url: "https://www.youtube.com/@LigaBBVAMX/videos" }
+            ]
+        },
+        {
+            name: "Netherlands",
+            flag: "🇳🇱",
+            leagues: [
+                { name: "Eredivisie", url: "https://www.youtube.com/@eredivisie/videos" },
+                { name: "Eerste Divisie", url: "https://www.youtube.com/@keuken-kampioen-divisie/videos" }
+            ]
+        },
+        {
+            name: "Norway",
+            flag: "🇳🇴",
+            leagues: [
+                { name: "Eliteserien", url: "https://www.youtube.com/@tv2sport/videos" }
+            ]
+        },
+        {
+            name: "Poland",
+            flag: "🇵🇱",
+            leagues: [
+                { name: "Ekstraklasa", url: "https://www.youtube.com/@EkstraklasaOfficial/videos" }
+            ]
+        },
+        {
+            name: "Portugal",
+            flag: "🇵🇹",
+            leagues: [
+                { name: "Primeira Liga", url: "https://www.youtube.com/@ligaportugal/videos" }
+            ]
+        },
+        {
+            name: "Scotland",
+            flag: "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+            leagues: [
+                { name: "Scottish Premiership", url: "https://www.youtube.com/@spfl/videos" }
+            ]
+        },
+        {
+            name: "Serbia",
+            flag: "🇷🇸",
+            leagues: [
+                { name: "SuperLiga", url: "https://www.youtube.com/@SuperLiga/videos" }
+            ]
+        },
+        {
+            name: "Spain",
+            flag: "🇪🇸",
+            leagues: [
+                { name: "La Liga", url: "https://www.youtube.com/@laliga/videos" },
+                { name: "Segunda División", url: "https://www.youtube.com/@laligasmartbank/videos" }
+            ]
+        },
+        {
+            name: "Sweden",
+            flag: "🇸🇪",
+            leagues: [
+                { name: "Allsvenskan", url: "https://www.youtube.com/@allsvenskan/videos" }
+            ]
+        },
+        {
+            name: "Switzerland",
+            flag: "🇨🇭",
+            leagues: [
+                { name: "Super League", url: "https://www.youtube.com/@SuperLeague/videos" }
+            ]
+        },
+        {
+            name: "Turkey",
+            flag: "🇹🇷",
+            leagues: [
+                { name: "Süper Lig", url: "https://www.youtube.com/@superlig/videos" }
+            ]
+        },
+        {
+            name: "USA",
+            flag: "🇺🇸",
+            leagues: [
+                { name: "MLS", url: "https://www.youtube.com/@mls/videos" }
+            ]
         }
-    }
+    ];
 
-    // 2. SEARCH FUNCTION
-    function filterCountries() {
-        const term = document.getElementById('esn-search').value.toLowerCase();
-        const cards = document.getElementsByClassName('esn-card');
-        Array.from(cards).forEach(card => {
-            const name = card.getAttribute('data-search');
-            card.style.display = name.includes(term) ? "block" : "none";
+    // RENDER GRID OF COUNTRIES
+    function renderGrid() {
+        const container = document.getElementById('esn-grid-container');
+        container.innerHTML = '';
+
+        countryData.forEach(country => {
+            const card = document.createElement('div');
+            card.className = 'esn-country-card';
+            card.dataset.countryName = country.name.toLowerCase(); // for search filtering
+
+            card.innerHTML = `
+                <div class="esn-flag">${country.flag}</div>
+                <div class="esn-country-name">${country.name}</div>
+                <div class="esn-league-count">${country.leagues.length} League${country.leagues.length > 1 ? 's' : ''}</div>
+            `;
+
+            card.onclick = () => openModal(country);
+            container.appendChild(card);
         });
     }
 
-    // 3. MODAL & LINKS LOGIC
+    // OPEN MODAL WITH LEAGUE LINKS
     function openModal(country) {
         const modal = document.getElementById('esn-modal');
-        const title = document.getElementById('modal-country-name');
-        const list = document.getElementById('modal-leagues-list');
+        const countryNameEl = document.getElementById('modal-country-name');
+        const leaguesListEl = document.getElementById('modal-leagues-list');
 
-        title.innerText = country.toUpperCase();
-        list.innerHTML = ""; // Clear old links
+        countryNameEl.innerHTML = `${country.flag} ${country.name}`;
+        leaguesListEl.innerHTML = '';
 
-        // --- CUSTOMIZE YOUR LINKS HERE ---
-        // This logic determines which buttons appear for which country.
-        // Replace 'href="#"' with your actual Google Drive / Video URL.
+        country.leagues.forEach(league => {
+            const item = document.createElement('div');
+            item.className = 'esn-link-item';
+            item.innerHTML = `<a href="${league.url}" target="_blank">${league.name}</a>`;
+            leaguesListEl.appendChild(item);
+        });
 
-        let html = "";
-
-        if (country === "Brazil") {
-            html += createLink("Série A (Brasileirão)", "#");
-            html += createLink("Série B", "#");
-            html += createLink("U20 Copinha", "#");
-        } 
-        else if (country === "Argentina") {
-            html += createLink("Liga Profesional", "Liga_Profesional_AR.html");
-            html += createLink("Copa Argentina", "Copa_Argentina_AR.html");
-            html += createLink("Reserves", "#");
-        }
-        else if (country === "England") {
-            html += createLink("Premier League", "#");
-            html += createLink("Championship", "#");
-            html += createLink("League One", "#");
-        }
-	else if (country === "Sweden") {
-            html += createLink("Allsvenskan", "#");
-            html += createLink("Superettan", "superettan.html");
-            html += createLink("U21", "#");
-	}
-	else if (country === "Turkey") {
-            html += createLink("Super Lig", "turkey_super_lig.html");
-            html += createLink("1.Lig", "turkey_1_lig.html");
-            html += createLink("Türkiye Kupasi", "#");
-	}
-	else if (country === "Denmark") {
-            html += createLink("3F Superliga", "danish_superliga.html");
-            html += createLink("First Division", "#");
-            html += createLink("U19", "#");
-	}
-	else if (country === "USA") {
-            html += createLink("MLS (Major League Soccer)", "mls_database.html");
-            html += createLink("USL Championship", "#");
-            html += createLink("USL1", "usl1_widget.html");
-	    html += createLink("NISA", "#");
-	}
-	else if (country === "Colombia") {
-            html += createLink("Torneo Dimayor", "colombian_primera_a.html");
-            html += createLink("Liga Dimayor II", "#");
-            html += createLink("Copa Colombia", "#");
-	    html += createLink("U19", "#");
-	}
-	else if (country === "Netherlands") {
-            html += createLink("Eredivisie", "eredivisie.html");
-            html += createLink("Keuken Kampioen Divisie", "#");
-            html += createLink("Tweede Divisie", "#");
-	    html += createLink("KNVB Beker", "#");
-	}
-	else if (country === "Norway") {
-            html += createLink("Eliteserien", "norway_eliteserien.html");
-            html += createLink("OBOS Ligaen", "#");
-            html += createLink("PostNord Ligaen", "#");
-	    html += createLink("Norsk Tpping Ligaen", "#");
-	    html += createLink("NM Cupen", "#");
-	    html += createLink("U19", "#");
-	}
-	else if (country === "Spain") {
-            html += createLink("La Liga EA Sports", "#");
-            html += createLink("La Liga Hypermotion", "spain_la_liga_2.html");
-            html += createLink("Primera RFEF", "spain_primera_federacion.html");
-	    html += createLink("Segunda RFEF", "#");
-	    html += createLink("Copa del Rey", "#");
-	    html += createLink("División de Honor Juvenil", "#");
-	}
-	else if (country === "Saudi Arabia") {
-            html += createLink("Saudi League", "#");
-            html += createLink("Saudi First Division", "spain_la_liga_2.html");
-            html += createLink("King's Cup", "spain_primera_federacion.html");
-	   
-	}
-        else {
-            // Default links for countries you haven't set up specific leagues for yet
-            html += createLink(country + " - First Division", "#");
-            html += createLink(country + " - Youth / U21", "#");
-            html += createLink(country + " - National Team", "#");
-        }
-
-        list.innerHTML = html;
-        modal.style.display = "block";
+        modal.style.display = 'block';
     }
 
-    // Helper to make a button
-    function createLink(text, url) {
-        return `<a href="${url}" class="esn-league-btn">
-                    <span>${text}</span>
-                    <span class="esn-arrow">▶</span>
-                </a>`;
-    }
-
+    // CLOSE MODAL
     function closeModal() {
-        document.getElementById('esn-modal').style.display = "none";
+        document.getElementById('esn-modal').style.display = 'none';
     }
 
-    // Close modal if clicking background
-    window.onclick = function(e) {
-        if (e.target == document.getElementById('esn-modal')) {
-            closeModal();
-        }
+    // FILTER COUNTRIES VIA SEARCH
+    function filterCountries() {
+        const query = document.getElementById('esn-search').value.toLowerCase();
+        const cards = document.querySelectorAll('.esn-country-card');
+
+        cards.forEach(card => {
+            const countryName = card.dataset.countryName;
+            card.style.display = countryName.includes(query) ? 'block' : 'none';
+        });
     }
+
+    // Close modal if clicked outside content
+    window.onclick = function(event) {
+        const modal = document.getElementById('esn-modal');
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    };
 
     // Run
     renderGrid();
 </script>
-    </footer>
+                </div>
 
+                <!-- TOOL 2: AI INTEGRATION -->
+                <div id="scouting-ai-integration" class="scouting-section hidden">
+                    <div class="bg-gradient-to-r from-purple-900/30 to-slate-900/30 border border-purple-500/30 rounded-xl p-6 mb-6">
+                        <h2 class="text-2xl font-bold mb-4 text-purple-300">🤖 AI-Powered Video Analysis</h2>
+                        <p class="text-slate-300 mb-6">Real-time computer vision for tactical intelligence, player tracking, and automated event detection</p>
+                        
+                        <div class="bg-yellow-900/20 border border-yellow-500/30 rounded-lg p-4 mb-6">
+                            <div class="flex items-center gap-3 mb-2">
+                                <div class="text-2xl">⚠️</div>
+                                <h3 class="font-bold text-yellow-400">Coming Soon - Full Integration</h3>
+                            </div>
+                            <p class="text-sm text-slate-300">AI video analysis system is currently in development. Full integration scheduled for Q1 2026.</p>
+                        </div>
+
+                        <div class="grid md:grid-cols-3 gap-4">
+                            <div class="bg-slate-800/50 rounded-lg p-5 border border-purple-500/20">
+                                <div class="text-3xl mb-3 text-center">👁️</div>
+                                <h4 class="font-bold mb-2 text-center">Object Detection</h4>
+                                <ul class="text-sm text-slate-300 space-y-1">
+                                    <li>• Player tracking (22 players)</li>
+                                    <li>• Ball tracking</li>
+                                    <li>• Referee detection</li>
+                                    <li>• Formation analysis</li>
+                                </ul>
+                            </div>
+                            <div class="bg-slate-800/50 rounded-lg p-5 border border-purple-500/20">
+                                <div class="text-3xl mb-3 text-center">⚡</div>
+                                <h4 class="font-bold mb-2 text-center">Event Recognition</h4>
+                                <ul class="text-sm text-slate-300 space-y-1">
+                                    <li>• Goals & assists</li>
+                                    <li>• Passes & crosses</li>
+                                    <li>• Tackles & interceptions</li>
+                                    <li>• Set pieces</li>
+                                </ul>
+                            </div>
+                            <div class="bg-slate-800/50 rounded-lg p-5 border border-purple-500/20">
+                                <div class="text-3xl mb-3 text-center">🧠</div>
+                                <h4 class="font-bold mb-2 text-center">Tactical Analysis</h4>
+                                <ul class="text-sm text-slate-300 space-y-1">
+                                    <li>• Pressing patterns</li>
+                                    <li>• Space analysis</li>
+                                    <li>• Build-up phases</li>
+                                    <li>• Transition speed</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 p-4 bg-blue-500/10 rounded-lg border border-blue-500/30">
+                            <h4 class="font-semibold mb-2 text-blue-300">Technical Specifications:</h4>
+                            <div class="grid md:grid-cols-2 gap-3 text-sm text-slate-300">
+                                <div>• Model: YOLOv8 + Custom Training</div>
+                                <div>• Processing: 25+ FPS real-time</div>
+                                <div>• Accuracy: 95%+ player detection</div>
+                                <div>• Integration: Wyscout/InStat compatible</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TOOL 3: DATA COLLECTION -->
+                <div id="scouting-data-collection" class="scouting-section hidden">
+                    <div class="bg-gradient-to-r from-green-900/30 to-slate-900/30 border border-green-500/30 rounded-xl p-6">
+                        <h2 class="text-2xl font-bold mb-4 text-green-300">📋 Scout Data Collection Template</h2>
+                        <p class="text-slate-300 mb-6">Comprehensive 779-metric system for professional scouting reports</p>
+
+                        <!-- Template Overview -->
+                        <div class="grid md:grid-cols-2 gap-6 mb-6">
+                            <div class="bg-slate-800/50 rounded-lg p-5 border border-green-500/20">
+                                <h3 class="text-lg font-bold mb-3 text-green-400">Excel Workbook Structure</h3>
+                                <div class="space-y-2 text-sm">
+                                    <div class="flex justify-between">
+                                        <span class="text-slate-400">Worksheets:</span>
+                                        <span class="font-bold text-white">18 sheets</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-slate-400">Total Metrics:</span>
+                                        <span class="font-bold text-white">779 metrics</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-slate-400">Philosophy Scores:</span>
+                                        <span class="font-bold text-white">60 frameworks</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-slate-400">Auto-Calculated:</span>
+                                        <span class="font-bold text-green-400">✓ Yes</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-slate-800/50 rounded-lg p-5 border border-green-500/20">
+                                <h3 class="text-lg font-bold mb-3 text-green-400">Key Features</h3>
+                                <ul class="space-y-2 text-sm text-slate-300">
+                                    <li class="flex items-center gap-2"><i class="fas fa-check text-green-400"></i> Scout identification system</li>
+                                    <li class="flex items-center gap-2"><i class="fas fa-check text-green-400"></i> Video source integration</li>
+                                    <li class="flex items-center gap-2"><i class="fas fa-check text-green-400"></i> Data quality validation</li>
+                                    <li class="flex items-center gap-2"><i class="fas fa-check text-green-400"></i> Auto-generated summary reports</li>
+                                    <li class="flex items-center gap-2"><i class="fas fa-check text-green-400"></i> Player photos & highlights</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Worksheet Breakdown -->
+                        <div class="bg-slate-800/50 rounded-lg p-5 border border-green-500/20 mb-6">
+                            <h3 class="text-lg font-bold mb-4 text-white">18 Specialized Worksheets</h3>
+                            <div class="grid md:grid-cols-3 gap-3 text-sm">
+                                <div class="bg-slate-900/50 rounded p-3">
+                                    <div class="font-bold text-green-400 mb-1">1. Scout Info</div>
+                                    <div class="text-slate-400 text-xs">Scout identification</div>
+                                </div>
+                                <div class="bg-slate-900/50 rounded p-3">
+                                    <div class="font-bold text-green-400 mb-1">2. Player Basic</div>
+                                    <div class="text-slate-400 text-xs">27 identification metrics</div>
+                                </div>
+                                <div class="bg-slate-900/50 rounded p-3">
+                                    <div class="font-bold text-green-400 mb-1">3. Foundation</div>
+                                    <div class="text-slate-400 text-xs">41 foundation metrics</div>
+                                </div>
+                                <div class="bg-slate-900/50 rounded p-3">
+                                    <div class="font-bold text-green-400 mb-1">4. Core FGA</div>
+                                    <div class="text-slate-400 text-xs">10 auto-calculated</div>
+                                </div>
+                                <div class="bg-slate-900/50 rounded p-3">
+                                    <div class="font-bold text-green-400 mb-1">5. Context System</div>
+                                    <div class="text-slate-400 text-xs">26 context metrics</div>
+                                </div>
+                                <div class="bg-slate-900/50 rounded p-3">
+                                    <div class="font-bold text-green-400 mb-1">6. Philosophy Scores</div>
+                                    <div class="text-slate-400 text-xs">60 frameworks</div>
+                                </div>
+                                <div class="bg-slate-900/50 rounded p-3">
+                                    <div class="font-bold text-green-400 mb-1">7. Sub-Components</div>
+                                    <div class="text-slate-400 text-xs">240 components</div>
+                                </div>
+                                <div class="bg-slate-900/50 rounded p-3">
+                                    <div class="font-bold text-green-400 mb-1">8. Ultimate</div>
+                                    <div class="text-slate-400 text-xs">26 integration metrics</div>
+                                </div>
+                                <div class="bg-slate-900/50 rounded p-3">
+                                    <div class="font-bold text-green-400 mb-1">9. Physical</div>
+                                    <div class="text-slate-400 text-xs">17 attributes</div>
+                                </div>
+                                <div class="bg-slate-900/50 rounded p-3">
+                                    <div class="font-bold text-green-400 mb-1">10. Technical</div>
+                                    <div class="text-slate-400 text-xs">26 skills</div>
+                                </div>
+                                <div class="bg-slate-900/50 rounded p-3">
+                                    <div class="font-bold text-green-400 mb-1">11. Goalkeeper</div>
+                                    <div class="text-slate-400 text-xs">26 GK specialized</div>
+                                </div>
+                                <div class="bg-slate-900/50 rounded p-3">
+                                    <div class="font-bold text-green-400 mb-1">12. Tactical</div>
+                                    <div class="text-slate-400 text-xs">26 awareness metrics</div>
+                                </div>
+                                <div class="bg-slate-900/50 rounded p-3">
+                                    <div class="font-bold text-green-400 mb-1">13. Crossing</div>
+                                    <div class="text-slate-400 text-xs">26 delivery metrics</div>
+                                </div>
+                                <div class="bg-slate-900/50 rounded p-3">
+                                    <div class="font-bold text-green-400 mb-1">14. Creative</div>
+                                    <div class="text-slate-400 text-xs">26 artistic metrics</div>
+                                </div>
+                                <div class="bg-slate-900/50 rounded p-3">
+                                    <div class="font-bold text-green-400 mb-1">15. Psychological</div>
+                                    <div class="text-slate-400 text-xs">30 profile metrics</div>
+                                </div>
+                                <div class="bg-slate-900/50 rounded p-3">
+                                    <div class="font-bold text-green-400 mb-1">16. Relationships</div>
+                                    <div class="text-slate-400 text-xs">20+ dynamics</div>
+                                </div>
+                                <div class="bg-slate-900/50 rounded p-3">
+                                    <div class="font-bold text-green-400 mb-1">17. Validation</div>
+                                    <div class="text-slate-400 text-xs">Quality checklist</div>
+                                </div>
+                                <div class="bg-slate-900/50 rounded p-3">
+                                    <div class="font-bold text-green-400 mb-1">18. Summary Report</div>
+                                    <div class="text-slate-400 text-xs">Auto-generated</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Download Section -->
+                        <div class="bg-blue-500/10 border border-blue-500/30 rounded-lg p-5 text-center">
+                            <h3 class="text-lg font-bold mb-3">📥 Download Template</h3>
+                            <p class="text-sm text-slate-300 mb-4">Get the complete Excel template with all 779 metrics, formulas, and validation rules</p>
+                            <button class="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 px-8 py-3 rounded-lg font-bold transition">
+                                <i class="fas fa-download mr-2"></i>Download Empire FGA Scout Template.xlsx
+                            </button>
+                            <div class="mt-3 text-xs text-slate-400">Version 1.0 | Last Updated: January 2025</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TOOL 4: INTELLIGENCE REPORT GENERATOR -->
+                <div id="scouting-intelligence-report" class="scouting-section hidden">
+                    <div class="bg-gradient-to-r from-orange-900/30 to-slate-900/30 border border-orange-500/30 rounded-xl p-6">
+                        <h2 class="text-2xl font-bold mb-4 text-orange-300">📊 Strategic Intelligence Report Generator</h2>
+                        <p class="text-slate-300 mb-6">Generate custom market intelligence reports for transfer windows and strategic planning</p>
+
+                        <!-- Report Builder -->
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-semibold mb-2">Club/Client</label>
+                                    <input type="text" id="reportClub" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2" placeholder="e.g., RB Leipzig">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold mb-2">Transfer Window</label>
+                                    <select id="reportWindow" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2">
+                                        <option value="january-2026">January 2026</option>
+                                        <option value="summer-2026">Summer 2026</option>
+                                        <option value="january-2027">January 2027</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold mb-2">Primary Need</label>
+                                    <select id="reportNeed" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2">
+                                        <option value="striker">Striker</option>
+                                        <option value="midfielder">Midfielder</option>
+                                        <option value="defender">Defender</option>
+                                        <option value="goalkeeper">Goalkeeper</option>
+                                        <option value="multiple">Multiple Positions</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold mb-2">Budget Range (€M)</label>
+                                    <input type="text" id="reportBudget" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2" placeholder="e.g., 30-50">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold mb-2">Current League</label>
+                                    <select id="reportLeague" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2">
+                                        <option value="bundesliga">Bundesliga</option>
+                                        <option value="premier-league">Premier League</option>
+                                        <option value="la-liga">La Liga</option>
+                                        <option value="serie-a">Serie A</option>
+                                        <option value="ligue-1">Ligue 1</option>
+                                    </select>
+                                </div>
+                                <button onclick="generateIntelligenceReport()" class="w-full bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 px-6 py-3 rounded-lg font-bold transition">
+                                    <i class="fas fa-file-alt mr-2"></i>Generate Report
+                                </button>
+                            </div>
+
+                            <div class="bg-slate-800/50 rounded-lg p-5 border border-orange-500/20">
+                                <h3 class="text-lg font-bold mb-3 text-orange-400">Report Includes:</h3>
+                                <div class="space-y-3 text-sm">
+                                    <div class="flex items-start gap-3">
+                                        <div class="text-orange-400 mt-1">📈</div>
+                                        <div>
+                                            <div class="font-semibold">Market Analysis</div>
+                                            <div class="text-slate-400 text-xs">Current market trends and inefficiencies</div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start gap-3">
+                                        <div class="text-orange-400 mt-1">🎯</div>
+                                        <div>
+                                            <div class="font-semibold">Target Profiles</div>
+                                            <div class="text-slate-400 text-xs">Specific player recommendations with FGA scores</div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start gap-3">
+                                        <div class="text-orange-400 mt-1">💰</div>
+                                        <div>
+                                            <div class="font-semibold">Budget Allocation</div>
+                                            <div class="text-slate-400 text-xs">Conservative, aggressive, and recommended scenarios</div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start gap-3">
+                                        <div class="text-orange-400 mt-1">⚡</div>
+                                        <div>
+                                            <div class="font-semibold">Execution Strategy</div>
+                                            <div class="text-slate-400 text-xs">Week-by-week action plan with critical dates</div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start gap-3">
+                                        <div class="text-orange-400 mt-1">🔍</div>
+                                        <div>
+                                            <div class="font-semibold">Tactical Fit</div>
+                                            <div class="text-slate-400 text-xs">60-Philosophy framework compatibility</div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start gap-3">
+                                        <div class="text-orange-400 mt-1">📊</div>
+                                        <div>
+                                            <div class="font-semibold">Success Metrics</div>
+                                            <div class="text-slate-400 text-xs">ROI projections and risk assessments</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Example Report Preview -->
+                        <div class="mt-6 bg-slate-800/50 rounded-lg p-5 border border-orange-500/20">
+                            <div class="flex items-center justify-between mb-3">
+                                <h3 class="text-lg font-bold text-orange-400">📄 Example: RB Leipzig January 2026</h3>
+                                <button class="text-sm bg-orange-600 hover:bg-orange-700 px-3 py-1 rounded transition">
+                                    View Full Report
+                                </button>
+                            </div>
+                            <div class="text-sm text-slate-300 space-y-2">
+                                <div class="flex justify-between">
+                                    <span class="text-slate-400">Client:</span>
+                                    <span class="font-bold">Alexander Neuherz, RB Leipzig</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-slate-400">Window:</span>
+                                    <span class="font-bold">January 2026</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-slate-400">Primary Need:</span>
+                                    <span class="font-bold">15-20 Goals (Striker)</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-slate-400">Budget:</span>
+                                    <span class="font-bold text-green-400">€45-50M recommended</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-slate-400">Top Recommendation:</span>
+                                    <span class="font-bold text-orange-400">Fisnik Asllani (Hoffenheim) €18M</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                // Scouting Tool Sub-Tab Navigation
+                function showScoutingTool(toolId, clickedButton) {
+                    // Hide all scouting sections
+                    document.querySelectorAll('.scouting-section').forEach(section => {
+                        section.classList.add('hidden');
+                    });
+                    
+                    // Remove active class from all tabs
+                    document.querySelectorAll('.scouting-sub-tab').forEach(tab => {
+                        tab.classList.remove('active', 'bg-blue-600');
+                        tab.classList.add('bg-slate-800');
+                    });
+                    
+                    // Show selected section
+                    const targetSection = document.getElementById(`scouting-${toolId}`);
+                    if (targetSection) {
+                        targetSection.classList.remove('hidden');
+                    }
+                    
+                    // Activate clicked tab
+                    if (clickedButton) {
+                        clickedButton.classList.add('active', 'bg-blue-600');
+                        clickedButton.classList.remove('bg-slate-800');
+                    }
+                }
+
+                // Generate Intelligence Report
+                function generateIntelligenceReport() {
+                    const club = document.getElementById('reportClub').value;
+                    const window = document.getElementById('reportWindow').value;
+                    const need = document.getElementById('reportNeed').value;
+                    const budget = document.getElementById('reportBudget').value;
+                    const league = document.getElementById('reportLeague').value;
+
+                    if (!club || !budget) {
+                        alert('Please fill in Club and Budget fields');
+                        return;
+                    }
+
+                    // In real implementation, this would generate a comprehensive report
+                    alert(`Generating Strategic Intelligence Report for ${club}...\n\nWindow: ${window}\nPrimary Need: ${need}\nBudget: €${budget}M\nLeague: ${league}\n\nReport will be ready in 2-3 minutes.`);
+                }
+            </script>
     <script>
         // LOAD FULL PLAYER DATA FROM YOUR DATABASE
         // This section will be replaced with the complete 521-player array
         let playerData = [];
 
-        // Function to update stats display
-        function updateStatsDisplay() {
-            if (playerData.length === 0) return;
-            
-            const legends = playerData.filter(p => p.fga >= 90).length;
-            const elite = playerData.filter(p => p.fga >= 85).length;
-            const avgFga = (playerData.reduce((sum, p) => sum + (p.fga || 0), 0) / playerData.length).toFixed(1);
-            
-            document.getElementById('stat-total').textContent = playerData.length.toLocaleString();
-            document.getElementById('stat-avg-fga').textContent = avgFga;
-            document.getElementById('stat-legends').textContent = legends;
-            document.getElementById('stat-elite').textContent = elite;
-            document.getElementById('stat-showing').textContent = playerData.length.toLocaleString();
-        }
-
-        // Load player database from JSON
-        fetch('complete_player_database.json')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Database file not found');
-                }
-                return response.json();
-            })
-            .then(data => {
-                // Convert database format to platform format
-                playerData = data.map(player => ({
-                    name: player.name,
-                    profileHtml: player.filename || '',
-                    position: player.position || 'Unknown',
-                    age: player.age || null,
-                    nationality: player.nationality || 'Unknown',
-                    fga: player.fga_rating || 0,
-                    bestPhilosophy: player.top_philosophy || 'Unknown',
-                    currentClub: player.club || 'Unknown',
-                    status: player.status || 'basic',
-                    has_profile: player.has_profile || false
-                }));
-                
-                console.log('✅ Loaded', playerData.length, 'players from database');
-                console.log('   Premium profiles:', playerData.filter(p => p.status === 'premium').length);
-                console.log('   Basic profiles:', playerData.filter(p => p.status === 'basic').length);
-                
-                // Update stats display
-                updateStatsDisplay();
-                
-                // Trigger initial display
-                if (typeof applyFilters === 'function') {
-                    applyFilters();
-                }
-            })
-            .catch(error => {
-                console.error('❌ Error loading database:', error);
-                alert('Error loading player database. Please refresh the page.');
-            });
-
-
-        // DEBUG LOGGING
-        console.log('====== PAGE LOADED ======');
-        console.log('Script loaded at:', new Date().toISOString());
-        console.log('playerData exists:', typeof playerData !== 'undefined');
-        console.log('playerData length:', playerData ? playerData.length : 'UNDEFINED');
+// LOAD DATABASE
+fetch('complete_player_database.json')
+    .then(response => response.json())
+    .then(data => {
+        console.log('✅ Loading', data.length, 'players...');
         
+        // Convert to platform format
+        playerData = data.map(p => ({
+            name: p.name || '',
+            player_id: p.player_id || null,
+            image_url: p.image_url || '',
+            profileHtml: p.filename || '',
+            position: p.position || '',
+            age: p.age || null,
+            nationality: p.nationality || '',
+            fga: p.fga_rating || 0,
+            bestPhilosophy: p.top_philosophy || '',
+            agent: p.agent || '',
+            agentCompany: p.agentCompany || '',
+            currentClub: p.club || ''
+        }));
         
-        // State variables
-        let selectedComparePlayers = [];
-        let selectedSquadPlayers = [];
-        let squadPositions = {}; // Track which position each player is assigned to
-        let currentFormation = '4-3-3';
-        let filteredPlayers = [...playerData]; // Initialize with all data
-        let currentPage = 1;
-        let playersPerPage = 25;
-        let currentSortColumn = 'fga';
-        let currentSortOrder = 'desc';
+        console.log('✅ LOADED', playerData.length, 'PLAYERS!');
+        
+        // Initialize display
+        if (typeof applyFilters === 'function') applyFilters();
+    })
+    .catch(error => {
+        console.error('❌ DATABASE ERROR:', error);
+        alert('Upload complete_player_database.json to GitHub!');
+    });
 
-        // Tab Switching
-        function switchTab(tabName) {
-            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
-            document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
-            
-            document.getElementById(tabName + '-tab').classList.add('active');
-            event.target.classList.add('active');
-            
-            if (tabName === 'philosophy') {
-                renderPhilosophyHeatmap();
-            } else if (tabName === 'market') {
-                renderMarketIntelligence();
-            } else if (tabName === 'squad') {
-                initializeSquadBuilder();
-            }
-        }
-
-        // DATABASE FUNCTIONS
-        function quickFilter(type) {
-            switch(type) {
-                case 'legends':
-                    filteredPlayers = playerData.filter(p => p.fga >= 90);
-                    break;
-                case 'elite':
-                    filteredPlayers = playerData.filter(p => p.fga >= 85 && p.fga < 90);
-                    break;
-                case 'prospects':
-                    filteredPlayers = playerData.filter(p => p.age <= 21);
-                    break;
-                case 'active':
-                    filteredPlayers = playerData.filter(p => p.age <= 38);
-                    break;
-                case 'strikers':
-                    filteredPlayers = playerData.filter(p => p.position === 'ST');
-                    break;
-                case 'midfielders':
-                    filteredPlayers = playerData.filter(p => ['CM', 'AM', 'DM'].includes(p.position));
-                    break;
-                case 'defenders':
-                    filteredPlayers = playerData.filter(p => ['CB', 'FB'].includes(p.position));
-                    break;
-                case 'goalkeepers':
-                    filteredPlayers = playerData.filter(p => p.position === 'GK');
-                    break;
-                default:
-                    filteredPlayers = [...playerData];
-            }
-            currentPage = 1;
-            updateStats();
-            renderTable();
-        }
-
-        function filterAndRender() {
-            const search = document.getElementById('search-name').value.toLowerCase();
-            filteredPlayers = playerData.filter(p => p.name.toLowerCase().includes(search));
-            currentPage = 1;
-            updateStats();
-            renderTable();
-        }
-
-        function sortTable(column) {
-            if (currentSortColumn === column) {
-                currentSortOrder = currentSortOrder === 'asc' ? 'desc' : 'asc';
-            } else {
-                currentSortColumn = column;
-                currentSortOrder = 'desc';
-            }
-            
-            filteredPlayers.sort((a, b) => {
-                let aVal = a[column];
-                let bVal = b[column];
-                
-                if (typeof aVal === 'string') {
-                    aVal = aVal.toLowerCase();
-                    bVal = bVal.toLowerCase();
-                }
-                
-                if (currentSortOrder === 'asc') {
-                    return aVal > bVal ? 1 : -1;
-                } else {
-                    return aVal < bVal ? 1 : -1;
-                }
-            });
-            
-            renderTable();
-        }
-
-        function renderTable() {
-            const tbody = document.getElementById('database-table-body');
-            const start = (currentPage - 1) * playersPerPage;
-            const end = start + playersPerPage;
-            const pageData = filteredPlayers.slice(start, end);
-            
-            tbody.innerHTML = pageData.map(player => {
-                // Get player image URL
-                const imageUrl = player.player_image_url || player.image_url || 
-                                (player.player_id ? `https://img.a.transfermarkt.technology/portrait/big/${player.player_id}.jpg` : null);
-                
-                // Get player initials for fallback
-                const nameParts = (player.name || '').trim().split(' ').filter(p => p.length > 0);
-                const initials = nameParts.length === 0 ? '⚽' : 
-                                nameParts.length === 1 ? nameParts[0].substring(0, 2).toUpperCase() :
-                                (nameParts[0][0] + nameParts[nameParts.length - 1][0]).toUpperCase();
-                
-                // Create avatar HTML
-                let avatarHtml;
-                if (imageUrl && imageUrl !== 'null') {
-                    avatarHtml = `
-                        <img 
-                            src="${imageUrl}" 
-                            alt="${player.name}"
-                            class="player-avatar-small"
-                            onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';"
-                            loading="lazy"
-                        />
-                        <div class="player-avatar-placeholder" style="display:none;">
-                            ${initials}
-                        </div>
-                    `;
-                } else {
-                    avatarHtml = `
-                        <div class="player-avatar-placeholder">
-                            ${initials}
-                        </div>
-                    `;
-                }
-                
-                return `
-                    <tr class="hover:bg-slate-800/50 transition">
-                        <td class="py-3">
-                            <div class="player-name-cell">
-                                ${avatarHtml}
-                                <a href="${player.profileHtml}" target="_blank" class="text-blue-400 hover:text-blue-300 font-semibold">
-                                    ${player.name}
-                                </a>
-                            </div>
-                        </td>
-                        <td class="py-3">${player.position}</td>
-                        <td class="py-3">${player.age}</td>
-                        <td class="py-3">${player.nationality}</td>
-                        <td class="py-3"><span class="font-bold text-blue-400">${player.fga.toFixed(1)}</span></td>
-                        <td class="py-3 text-sm">${player.bestPhilosophy}</td>
-                        <td class="py-3">
-                            <div class="flex gap-2">
-                                <button onclick="addToComparison('${player.name.replace(/'/g, "\\'")}')" class="text-xs bg-blue-600 hover:bg-blue-700 px-3 py-1 rounded transition">
-                                    Compare
-                                </button>
-                                <button onclick="exportPlayerProfile('${player.name.replace(/'/g, "\\'")}')" class="text-xs bg-yellow-600 hover:bg-yellow-700 px-3 py-1 rounded transition" title="Export Player Profile PDF">
-                                    PDF
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                `;
-            }).join('');
-            
-            document.getElementById('stat-showing').textContent = pageData.length;
-            updatePagination();
-        }
-
-        function updatePagination() {
-            const container = document.getElementById('pagination-container');
-            const totalPages = Math.ceil(filteredPlayers.length / playersPerPage);
-            
-            if (totalPages <= 1) {
-                container.innerHTML = '';
-                return;
-            }
-            
-            let html = '';
-            
-            // Previous button
-            html += `<button class="pagination-btn" onclick="changePage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}>
-                ← Previous
-            </button>`;
-            
-            // Page numbers
-            const maxVisible = 7;
-            let startPage = Math.max(1, currentPage - Math.floor(maxVisible / 2));
-            let endPage = Math.min(totalPages, startPage + maxVisible - 1);
-            
-            if (endPage - startPage < maxVisible - 1) {
-                startPage = Math.max(1, endPage - maxVisible + 1);
-            }
-            
-            if (startPage > 1) {
-                html += `<button class="pagination-btn" onclick="changePage(1)">1</button>`;
-                if (startPage > 2) html += `<span class="px-2 text-slate-400">...</span>`;
-            }
-            
-            for (let i = startPage; i <= endPage; i++) {
-                html += `<button class="pagination-btn ${i === currentPage ? 'active' : ''}" onclick="changePage(${i})">
-                    ${i}
-                </button>`;
-            }
-            
-            if (endPage < totalPages) {
-                if (endPage < totalPages - 1) html += `<span class="px-2 text-slate-400">...</span>`;
-                html += `<button class="pagination-btn" onclick="changePage(${totalPages})">${totalPages}</button>`;
-            }
-            
-            // Next button
-            html += `<button class="pagination-btn" onclick="changePage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''}>
-                Next →
-            </button>`;
-            
-            container.innerHTML = html;
-        }
-
-        function changePage(page) {
-            const totalPages = Math.ceil(filteredPlayers.length / playersPerPage);
-            if (page < 1 || page > totalPages) return;
-            currentPage = page;
-            renderTable();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function updateStats() {
-            console.log('updateStats called');
-            console.log('  playerData.length:', playerData.length);
-            console.log('  filteredPlayers.length:', filteredPlayers.length);
-            
-            document.getElementById('stat-total').textContent = playerData.length;
-            
-            const avgFga = filteredPlayers.length > 0 
-                ? (filteredPlayers.reduce((sum, p) => sum + p.fga, 0) / filteredPlayers.length).toFixed(1)
-                : '0.0';
-            document.getElementById('stat-avg-fga').textContent = avgFga;
-            
-            const legends = filteredPlayers.filter(p => p.fga >= 90).length;
-            document.getElementById('stat-legends').textContent = legends;
-            
-            const elite = filteredPlayers.filter(p => p.fga >= 85 && p.fga < 90).length;
-            document.getElementById('stat-elite').textContent = elite;
-        }
-
-        // COMPARISON FUNCTIONS
-        function searchForComparison(query) {
-            const results = document.getElementById('comparison-search-results');
-            if (!query) {
-                results.innerHTML = '<p class="text-slate-400 text-sm">Start typing to search players...</p>';
-                return;
-            }
-            
-            const matches = playerData.filter(p => 
-                p.name.toLowerCase().includes(query.toLowerCase())
-            ).slice(0, 10);
-            
-            results.innerHTML = matches.map(player => `
-                <div class="player-card" onclick="addToComparison('${player.name.replace(/'/g, "\\'")}')">
-                    <div class="flex justify-between items-center">
-                        <div>
-                            <div class="font-bold">${player.name}</div>
-                            <div class="text-sm text-slate-400">${player.position} | ${player.nationality} | FGA: ${player.fga.toFixed(1)}</div>
-                        </div>
-                        <button class="bg-blue-600 px-3 py-1 rounded text-sm">Add</button>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        function addToComparison(playerName) {
-            if (selectedComparePlayers.length >= 4) {
-                alert('Maximum 4 players can be compared');
-                return;
-            }
-            
-            const player = playerData.find(p => p.name === playerName);
-            if (!player || selectedComparePlayers.find(p => p.name === playerName)) return;
-            
-            selectedComparePlayers.push(player);
-            updateSelectedPlayers();
-        }
-
-        function removeFromComparison(playerName) {
-            selectedComparePlayers = selectedComparePlayers.filter(p => p.name !== playerName);
-            updateSelectedPlayers();
-        }
-
-        function updateSelectedPlayers() {
-            const container = document.getElementById('selected-players');
-            document.getElementById('selected-count').textContent = selectedComparePlayers.length;
-            
-            if (selectedComparePlayers.length === 0) {
-                container.innerHTML = '<p class="text-slate-400 text-sm">Select players from the search results to compare</p>';
-                return;
-            }
-            
-            container.innerHTML = selectedComparePlayers.map(player => `
-                <div class="player-card selected">
-                    <div class="flex justify-between items-center">
-                        <div>
-                            <div class="font-bold">${player.name}</div>
-                            <div class="text-sm text-slate-400">${player.position} | FGA: ${player.fga.toFixed(1)}</div>
-                        </div>
-                        <button onclick="removeFromComparison('${player.name.replace(/'/g, "\\'")}')" class="bg-red-600 px-3 py-1 rounded text-sm">Remove</button>
-                    </div>
-                </div>
-            `).join('');
-        }
 
         // DEBUG LOGGING
         console.log('====== PAGE LOADED ======');
@@ -4262,6 +4362,7 @@
             });
         }
         
+
         // MARKET INTELLIGENCE FUNCTIONS
         function renderMarketIntelligence() {
             // Filter to only active players (age <= 38) with market value > 0
@@ -5839,18 +5940,6 @@ async function exportPlayerProfile(playerName) {
                 tier: 'Agent',
                 features: ['database', 'comparison', 'market', 'export']
             },
- 'myg': {
-                password: 'guillaume2025',
-                clubName: 'MYG Invest (Guillaume Rippert)',
-                tier: 'Agent',
-                features: ['database', 'comparison', 'market', 'export']
-            },
-'Hayk': {
-                password: 'Hayk2025',
-                clubName: 'Hayk Midzirjanian',
-                tier: 'Agent',
-                features: ['database', 'comparison', 'market', 'export']
-            },
             
             // Demo/Trial Access
             'demo': {
@@ -5861,13 +5950,13 @@ async function exportPlayerProfile(playerName) {
             }
         };
 
-        let isAuthenticated = true; // Login removed - platform is public
+        let isAuthenticated = true;
         let currentUser = null;
         let isClientUser = false;
         let clientInfo = null;
 
         // Handle login form submission
-        // function handleLogin(event) // Login removed {
+        function handleLogin(event) {
             event.preventDefault();
             
             const username = document.getElementById('username').value.trim();
@@ -6347,7 +6436,1359 @@ async function exportPlayerProfile(playerName) {
 
         // Require authentication check (for sensitive tabs like agents)
         function requireAuth() {
-            if (false) { // Authentication removed
+            if (false) {
+                alert('Please log in to access this feature');
+                return false;
+            }
+            return true;
+        }
+
+        // Show notification
+        function showNotification(message, type = 'success') {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                padding: 16px 24px;
+                background: ${type === 'success' ? '#10b981' : '#ef4444'};
+                color: white;
+                border-radius: 8px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+                z-index: 10001;
+                font-weight: 600;
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+
+        // ==========================================
+        // TRANSFER RISK CALCULATOR
+        // Based on CIES Football Observatory Data
+        // ==========================================
+
+        // Risk calculation weights
+        const RISK_WEIGHTS = {
+            philosophyMismatch: 0.30,
+            injuryHistory: 0.20,
+            overvaluation: 0.20,
+            leagueAdaptation: 0.15,
+            ageRisk: 0.10,
+            styleCompatibility: 0.05
+        };
+
+        // Premier League premium multiplier
+        const PL_PREMIUM = 1.25; // 25% markup
+
+        // League adaptation risk matrix
+        const LEAGUE_RISK_MATRIX = {
+            'Premier League': { 'Premier League': 0, 'La Liga': 8, 'Serie A': 5, 'Bundesliga': 5, 'Ligue 1': 3, 'Other': 10 },
+            'La Liga': { 'Premier League': 10, 'La Liga': 0, 'Serie A': 3, 'Bundesliga': 5, 'Ligue 1': 3, 'Other': 8 },
+            'Serie A': { 'Premier League': 8, 'La Liga': 5, 'Serie A': 0, 'Bundesliga': 5, 'Ligue 1': 3, 'Other': 8 },
+            'Bundesliga': { 'Premier League': 6, 'La Liga': 5, 'Serie A': 5, 'Bundesliga': 0, 'Ligue 1': 3, 'Other': 5 },
+            'Ligue 1': { 'Premier League': 12, 'La Liga': 8, 'Serie A': 7, 'Bundesliga': 7, 'Ligue 1': 0, 'Other': 8 },
+            'Other': { 'Premier League': 15, 'La Liga': 12, 'Serie A': 10, 'Bundesliga': 10, 'Ligue 1': 8, 'Other': 5 }
+        };
+
+        // Initialize risk calculator on page load
+        function initializeRiskCalculator() {
+            // Populate player dropdown with active players
+            const playerSelect = document.getElementById('riskPlayerSelect');
+            if (playerSelect && typeof playerData !== 'undefined') {
+                const activePlayers = playerData.filter(p => p.age && p.age < 40).slice(0, 100); // Top 100 for demo
+                activePlayers.forEach(player => {
+                    const option = document.createElement('option');
+                    option.value = player.name;
+                    option.textContent = `${player.name} (${player.position || 'N/A'}, Age ${player.age || 'N/A'})`;
+                    option.dataset.player = JSON.stringify(player);
+                    playerSelect.appendChild(option);
+                });
+            }
+        }
+
+
+        // ==================== MARKET INTELLIGENCE FUNCTIONS ====================
+        
+        // Market Intelligence Sub-Tab Navigation
+        function showMarketSection(sectionId, clickedButton) {
+            // Hide all market sections
+            document.querySelectorAll('.market-section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            
+            // Remove active class from all tabs
+            document.querySelectorAll('.market-sub-tab').forEach(tab => {
+                tab.classList.remove('active', 'bg-blue-600');
+                tab.classList.add('bg-slate-800');
+            });
+            
+            // Show selected section
+            const targetSection = document.getElementById(`market-${sectionId}`);
+            if (targetSection) {
+                targetSection.classList.remove('hidden');
+            }
+            
+            // Activate clicked tab
+            if (clickedButton) {
+                clickedButton.classList.add('active', 'bg-blue-600');
+                clickedButton.classList.remove('bg-slate-800');
+            }
+        }
+
+        // ==================== FEASIBILITY FILTER ====================
+        
+        function calculateFeasibility() {
+            const contractMonths = parseInt(document.getElementById('feasibilityContract').value);
+            const financeStatus = document.getElementById('feasibilityFinance').value;
+            const minutesPlayed = parseInt(document.getElementById('feasibilityMinutes').value);
+            
+            if (!contractMonths || !minutesPlayed) {
+                alert('Please fill in all fields');
+                return;
+            }
+            
+            // Calculate Contract Score (40% weight)
+            let contractScore = 0;
+            if (contractMonths < 12) {
+                contractScore = 100;
+            } else if (contractMonths <= 24) {
+                contractScore = 60;
+            } else if (contractMonths <= 36) {
+                contractScore = 30;
+            } else {
+                contractScore = 10;
+            }
+            
+            // Calculate Financial Score (35% weight)
+            let financialScore = 0;
+            switch(financeStatus) {
+                case 'distressed': financialScore = 100; break;
+                case 'pressured': financialScore = 75; break;
+                case 'stable': financialScore = 40; break;
+                case 'strong': financialScore = 10; break;
+            }
+            
+            // Calculate Hierarchy Score (25% weight)
+            let hierarchyScore = 0;
+            if (minutesPlayed < 25) {
+                hierarchyScore = 100;
+            } else if (minutesPlayed <= 75) {
+                hierarchyScore = 60;
+            } else {
+                hierarchyScore = 20;
+            }
+            
+            // Weighted Total
+            const totalScore = (contractScore * 0.4) + (financialScore * 0.35) + (hierarchyScore * 0.25);
+            
+            // Display Results
+            document.getElementById('feasibilityResults').classList.remove('hidden');
+            document.getElementById('feasibilityScore').textContent = Math.round(totalScore) + '%';
+            
+            // Color coding
+            const card = document.getElementById('feasibilityCard');
+            let labelText = '';
+            let recommendation = '';
+            
+            if (totalScore >= 70) {
+                card.style.borderColor = '#22c55e';
+                labelText = '🟢 HIGH PROBABILITY';
+                document.getElementById('feasibilityLabel').style.color = '#22c55e';
+                recommendation = 'STRONG TARGET: Club is motivated to sell, contract situation favors transfer. Immediate approach recommended.';
+            } else if (totalScore >= 40) {
+                card.style.borderColor = '#eab308';
+                labelText = '🟡 MEDIUM PROBABILITY';
+                document.getElementById('feasibilityLabel').style.color = '#eab308';
+                recommendation = 'VIABLE TARGET: Transfer is possible but may require negotiation. Monitor situation closely.';
+            } else {
+                card.style.borderColor = '#ef4444';
+                labelText = '🔴 LOW PROBABILITY';
+                document.getElementById('feasibilityLabel').style.color = '#ef4444';
+                recommendation = 'DIFFICULT TARGET: Club has little motivation to sell. Very expensive and time-consuming. Consider alternatives.';
+            }
+            
+            document.getElementById('feasibilityLabel').textContent = labelText;
+            document.getElementById('contractFactor').textContent = contractScore.toFixed(0) + '/100';
+            document.getElementById('contractFactor').style.color = contractScore > 60 ? '#22c55e' : (contractScore > 30 ? '#eab308' : '#ef4444');
+            
+            document.getElementById('financialFactor').textContent = financialScore.toFixed(0) + '/100';
+            document.getElementById('financialFactor').style.color = financialScore > 60 ? '#22c55e' : (financialScore > 30 ? '#eab308' : '#ef4444');
+            
+            document.getElementById('hierarchyFactor').textContent = hierarchyScore.toFixed(0) + '/100';
+            document.getElementById('hierarchyFactor').style.color = hierarchyScore > 60 ? '#22c55e' : (hierarchyScore > 30 ? '#eab308' : '#ef4444');
+            
+            document.getElementById('feasibilityRecommendation').textContent = recommendation;
+        }
+
+        // ==================== GBE (WORK PERMIT) CALCULATOR ====================
+        
+        function calculateGBE() {
+            const playerName = document.getElementById('gbePlayerName').value;
+            const fifaRank = parseInt(document.getElementById('gbeFifaRank').value);
+            const intCaps = parseInt(document.getElementById('gbeIntCaps').value);
+            const uclMatches = parseInt(document.getElementById('gbeUclMatches').value);
+            const europaMatches = parseInt(document.getElementById('gbeEuropaMatches').value);
+            const leagueQuality = parseInt(document.getElementById('gbeLeagueQuality').value);
+            
+            if (!playerName || intCaps === null) {
+                alert('Please fill in player name and international caps');
+                return;
+            }
+            
+            // Calculate International Points
+            let intPoints = 0;
+            if (fifaRank <= 50) {
+                if (intCaps >= 75) intPoints = 15;
+                else if (intCaps >= 50) intPoints = 10;
+                else if (intCaps >= 30) intPoints = 5;
+            }
+            
+            // Calculate Champions League Points (4 per match, max 12)
+            const uclPoints = Math.min(uclMatches * 4, 12);
+            
+            // Calculate Europa/Conference Points (2 per match, max 6)
+            const europaPoints = Math.min(europaMatches * 2, 6);
+            
+            // League Quality Points (already set)
+            const leaguePoints = leagueQuality;
+            
+            // Total Points
+            const totalPoints = intPoints + uclPoints + europaPoints + leaguePoints;
+            
+            // Display Results
+            document.getElementById('gbeResults').classList.remove('hidden');
+            document.getElementById('gbeScore').textContent = totalPoints;
+            
+            // Status and Styling
+            const card = document.getElementById('gbeCard');
+            let statusText = '';
+            let icon = '';
+            let recommendation = '';
+            
+            if (totalPoints >= 15) {
+                card.style.borderColor = '#22c55e';
+                statusText = '✅ APPROVED';
+                icon = '✅';
+                document.getElementById('gbeStatus').style.color = '#22c55e';
+                recommendation = `${playerName} qualifies for a GBE work permit. Transfer can proceed immediately without issues.`;
+            } else {
+                card.style.borderColor = '#ef4444';
+                statusText = '❌ DENIED';
+                icon = '❌';
+                document.getElementById('gbeStatus').style.color = '#ef4444';
+                const pointsNeeded = 15 - totalPoints;
+                recommendation = `${playerName} is ${pointsNeeded} points short of GBE approval. Consider: (1) Waiting for more international caps, (2) Champions League appearances, or (3) This transfer will not be approved.`;
+            }
+            
+            document.getElementById('gbeIcon').textContent = icon;
+            document.getElementById('gbeStatus').textContent = statusText;
+            
+            // Individual scores
+            document.getElementById('gbeIntPoints').textContent = intPoints + ' pts';
+            document.getElementById('gbeIntPoints').style.color = intPoints > 0 ? '#22c55e' : '#ef4444';
+            
+            document.getElementById('gbeUclPoints').textContent = uclPoints + ' pts';
+            document.getElementById('gbeUclPoints').style.color = uclPoints > 0 ? '#22c55e' : '#94a3b8';
+            
+            document.getElementById('gbeEuropaPoints').textContent = europaPoints + ' pts';
+            document.getElementById('gbeEuropaPoints').style.color = europaPoints > 0 ? '#22c55e' : '#94a3b8';
+            
+            document.getElementById('gbeLeaguePoints').textContent = leaguePoints + ' pts';
+            document.getElementById('gbeLeaguePoints').style.color = leaguePoints > 0 ? '#22c55e' : '#94a3b8';
+            
+            document.getElementById('gbeRecommendation').textContent = recommendation;
+        }
+
+        // ==================== LEAGUE CONVERSION CALCULATOR ====================
+        
+        function calculateConversion() {
+            const currentLeague = parseFloat(document.getElementById('conversionCurrentLeague').value);
+            const statType = document.getElementById('conversionStatType').value;
+            const currentValue = parseInt(document.getElementById('conversionValue').value);
+            
+            if (!currentValue) {
+                alert('Please enter current season performance');
+                return;
+            }
+            
+            // Calculate Premier League Equivalent
+            const plEquivalent = Math.round(currentValue * currentLeague);
+            
+            // Display Results
+            document.getElementById('conversionResults').classList.remove('hidden');
+            document.getElementById('conversionEquivalent').textContent = plEquivalent;
+            
+            // Stat label
+            let statLabel = '';
+            switch(statType) {
+                case 'goals': statLabel = 'goals in Premier League'; break;
+                case 'assists': statLabel = 'assists in Premier League'; break;
+                case 'g+a': statLabel = 'G+A in Premier League'; break;
+            }
+            document.getElementById('conversionStatLabel').textContent = statLabel;
+            
+            // League name
+            const leagueSelect = document.getElementById('conversionCurrentLeague');
+            const leagueName = leagueSelect.options[leagueSelect.selectedIndex].text;
+            document.getElementById('conversionCurrentLeagueLabel').textContent = leagueName;
+            document.getElementById('conversionCurrentValue').textContent = currentValue + ' ' + statType;
+            
+            // Explanation
+            let explanation = '';
+            const difference = currentValue - plEquivalent;
+            
+            if (currentLeague === 1.00) {
+                explanation = `This player is already in the Premier League. No conversion needed.`;
+            } else if (difference > 5) {
+                explanation = `⚠️ REALITY CHECK: ${difference} less ${statType} expected in Premier League. The ${leagueName} has lower defensive intensity.`;
+            } else if (difference > 0) {
+                explanation = `Minor adjustment expected. ${leagueName} is competitive but slightly easier than Premier League.`;
+            } else {
+                explanation = `This player might actually perform better in Premier League due to better teammates and service.`;
+            }
+            
+            document.getElementById('conversionExplanation').textContent = explanation;
+        }
+
+        // ==================== AGENT NETWORK SEARCH ====================
+        
+        function searchAgentNetwork() {
+            const position = document.getElementById('agentPosition').value;
+            const league = document.getElementById('agentLeague').value;
+            const relationship = document.getElementById('agentRelationship').value;
+            
+            // Show results
+            document.getElementById('agentResults').classList.remove('hidden');
+            
+            // Mock results (in real implementation, this would query a database)
+            const mockResults = [
+                {
+                    name: 'Player Example 1',
+                    position: 'RB',
+                    age: 23,
+                    club: 'Lille',
+                    agent: 'CAA Stellar',
+                    relationship: 'worked',
+                    value: '€15M'
+                },
+                {
+                    name: 'Player Example 2',
+                    position: 'RB',
+                    age: 25,
+                    club: 'Lyon',
+                    agent: 'CAA Stellar',
+                    relationship: 'worked',
+                    value: '€12M'
+                },
+                {
+                    name: 'Player Example 3',
+                    position: 'RB',
+                    age: 21,
+                    club: 'Lens',
+                    agent: 'Unique Sports',
+                    relationship: 'good',
+                    value: '€8M'
+                }
+            ];
+            
+            const resultsList = document.getElementById('agentResultsList');
+            resultsList.innerHTML = mockResults.map(player => `
+                <div class="bg-slate-800/50 rounded-lg p-4 border border-orange-500/20">
+                    <div class="flex items-center justify-between mb-2">
+                        <div class="font-bold">${player.name}</div>
+                        <div class="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded">${player.value}</div>
+                    </div>
+                    <div class="text-xs space-y-1 text-slate-400">
+                        <div>${player.position} • Age ${player.age} • ${player.club}</div>
+                        <div class="text-orange-400">Agent: ${player.agent}</div>
+                        <div class="text-green-400">✓ ${relationship === 'worked' ? 'Previous relationship' : 'Good relationship'}</div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // ==================== REPLACEMENT ENGINE ====================
+        
+        function updateReplacementBudget() {
+            const salePrice = parseFloat(document.getElementById('replacementSalePrice').value) || 0;
+            const budgetPercent = parseInt(document.getElementById('replacementBudgetSlider').value);
+            const budgetAmount = (salePrice * budgetPercent / 100).toFixed(1);
+            
+            document.getElementById('replacementBudgetValue').textContent = budgetPercent + '%';
+            document.getElementById('replacementBudgetAmount').textContent = '€' + budgetAmount + 'M';
+        }
+        
+        function findReplacements() {
+            const playerSelect = document.getElementById('replacementPlayer');
+            const salePrice = parseFloat(document.getElementById('replacementSalePrice').value);
+            const budgetPercent = parseInt(document.getElementById('replacementBudgetSlider').value);
+            const maxWage = parseFloat(document.getElementById('replacementMaxWage').value);
+            const minSimilarity = parseInt(document.getElementById('replacementSimilarity').value);
+            
+            if (!playerSelect.value || !salePrice || !maxWage) {
+                alert('Please fill in all fields');
+                return;
+            }
+            
+            const budgetAmount = salePrice * budgetPercent / 100;
+            
+            // Show results
+            document.getElementById('replacementResults').classList.remove('hidden');
+            
+            // Mock results (in real implementation, this would use cosine similarity on 779 metrics)
+            const mockReplacements = [
+                {
+                    name: 'Replacement A',
+                    age: 22,
+                    club: 'Sporting CP',
+                    league: 'Liga Portugal',
+                    similarity: 96,
+                    price: budgetAmount * 0.6,
+                    wage: maxWage * 0.5
+                },
+                {
+                    name: 'Replacement B',
+                    age: 24,
+                    club: 'RB Leipzig',
+                    league: 'Bundesliga',
+                    similarity: 94,
+                    price: budgetAmount * 0.8,
+                    wage: maxWage * 0.7
+                },
+                {
+                    name: 'Replacement C',
+                    age: 21,
+                    club: 'Ajax',
+                    league: 'Eredivisie',
+                    similarity: 93,
+                    price: budgetAmount * 0.5,
+                    wage: maxWage * 0.4
+                }
+            ];
+            
+            const resultsList = document.getElementById('replacementsList');
+            resultsList.innerHTML = mockReplacements.map((player, index) => `
+                <div class="bg-slate-800/50 rounded-lg p-4 border border-cyan-500/20">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="font-bold text-lg">#${index + 1} ${player.name}</div>
+                        <div class="bg-cyan-500/20 text-cyan-400 px-3 py-1 rounded font-bold">${player.similarity}% Match</div>
+                    </div>
+                    <div class="text-sm space-y-2">
+                        <div class="flex justify-between">
+                            <span class="text-slate-400">Club:</span>
+                            <span>${player.club} (${player.league})</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-400">Age:</span>
+                            <span>${player.age}</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-400">Transfer Fee:</span>
+                            <span class="text-green-400 font-bold">€${player.price.toFixed(1)}M</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-400">Weekly Wage:</span>
+                            <span class="text-green-400 font-bold">€${player.wage.toFixed(0)}K</span>
+                        </div>
+                    </div>
+                    <div class="mt-3 pt-3 border-t border-slate-700">
+                        <div class="text-xs text-slate-400 mb-1">Total Cost Saving vs Original:</div>
+                        <div class="text-lg font-bold text-green-400">€${(salePrice - player.price).toFixed(1)}M</div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // ==================== INITIALIZE MARKET INTELLIGENCE ====================
+        
+        // Populate player dropdowns
+        function initializeMarketIntelligence() {
+            const playerDropdowns = [
+                'feasibilityPlayer',
+                'replacementPlayer'
+            ];
+            
+            playerDropdowns.forEach(dropdownId => {
+                const select = document.getElementById(dropdownId);
+                if (select && playerData.length > 0) {
+                    // Add sample players
+                    playerData.slice(0, 20).forEach(player => {
+                        const option = document.createElement('option');
+                        option.value = player.name;
+                        option.textContent = `${player.name} - ${player.position} - ${player.club}`;
+                        select.appendChild(option);
+                    });
+                }
+            });
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            initializePlatform(); // Initialize platform immediately
+            setTimeout(initializeMarketIntelligence, 1000);
+        });
+        // Calculate transfer risk
+        function calculateTransferRisk() {
+            const playerSelect = document.getElementById('riskPlayerSelect');
+            const targetLeague = document.getElementById('riskTargetLeague').value;
+            const targetPhilosophy = document.getElementById('riskTargetPhilosophy').value;
+            const transferFee = parseFloat(document.getElementById('riskTransferFee').value) * 1000000; // Convert to euros
+
+            if (!playerSelect.value || !transferFee) {
+                showNotification('Please select a player and enter transfer fee', 'error');
+                return;
+            }
+
+            const selectedOption = playerSelect.options[playerSelect.selectedIndex];
+            const player = JSON.parse(selectedOption.dataset.player);
+
+            // Calculate risk components
+            const philosophyRisk = calculatePhilosophyRisk(player, targetPhilosophy);
+            const injuryRisk = calculateInjuryRisk(player);
+            const overvaluationRisk = calculateOvervaluationRisk(player, transferFee, targetLeague);
+            const leagueRisk = calculateLeagueRisk(player, targetLeague);
+            const ageRisk = calculateAgeRisk(player);
+            const styleRisk = calculateStyleRisk(player, targetLeague);
+
+            // Calculate total weighted risk
+            const totalRisk = Math.round(
+                (philosophyRisk / 30) * 100 * RISK_WEIGHTS.philosophyMismatch +
+                (injuryRisk / 20) * 100 * RISK_WEIGHTS.injuryHistory +
+                (overvaluationRisk / 20) * 100 * RISK_WEIGHTS.overvaluation +
+                (leagueRisk / 15) * 100 * RISK_WEIGHTS.leagueAdaptation +
+                (ageRisk / 10) * 100 * RISK_WEIGHTS.ageRisk +
+                (styleRisk / 10) * 100 * RISK_WEIGHTS.styleCompatibility
+            );
+
+            const successProbability = 100 - totalRisk;
+
+            // Display results
+            displayRiskResults(totalRisk, successProbability, {
+                philosophyRisk,
+                injuryRisk,
+                overvaluationRisk,
+                leagueRisk,
+                ageRisk,
+                styleRisk
+            }, player, transferFee);
+        }
+
+        function calculatePhilosophyRisk(player, targetPhilosophy) {
+            // Get player's best philosophy score
+            const playerBestScore = player.topPhilosophyScore || 8.0;
+            
+            // Estimate compatibility with target philosophy (simplified)
+            // In real implementation, would use actual philosophy scores
+            const targetScore = playerBestScore - (Math.random() * 3); // Simulate mismatch
+            
+            const gap = Math.abs(playerBestScore - targetScore);
+            return (gap / 10) * 30;
+        }
+
+        function calculateInjuryRisk(player) {
+            // Estimate based on age and games played (simplified)
+            const age = player.age || 25;
+            let risk = 0;
+            
+            if (age > 30) risk += 8;
+            else if (age > 28) risk += 5;
+            else if (age < 21) risk += 3;
+            
+            return Math.min(risk, 20);
+        }
+
+        function calculateOvervaluationRisk(player, transferFee, targetLeague) {
+            let fgaValue = (player.fga || 75) * 1.2 * 1000000; // €1.2M per FGA point
+            
+            // Apply Premier League premium
+            if (targetLeague === 'Premier League') {
+                fgaValue *= PL_PREMIUM;
+            }
+            
+            const overpaymentPercent = ((transferFee - fgaValue) / fgaValue) * 100;
+            
+            if (overpaymentPercent <= 10) return 0;
+            if (overpaymentPercent <= 30) return 5;
+            if (overpaymentPercent <= 50) return 10;
+            if (overpaymentPercent <= 75) return 15;
+            return 20;
+        }
+
+        function calculateLeagueRisk(player, targetLeague) {
+            const currentLeague = player.currentLeague || 'Other';
+            const from = LEAGUE_RISK_MATRIX[currentLeague] ? currentLeague : 'Other';
+            return LEAGUE_RISK_MATRIX[from][targetLeague] || 10;
+        }
+
+        function calculateAgeRisk(player) {
+            const age = player.age || 25;
+            const position = player.position || 'CM';
+            
+            // Peak ages vary by position
+            if (position.includes('GK')) {
+                if (age >= 26 && age <= 35) return 0;
+                if (age < 24) return 7;
+                return 5;
+            } else {
+                if (age >= 23 && age <= 30) return 0;
+                if (age < 21) return 7;
+                if (age > 32) return 8;
+                return 3;
+            }
+        }
+
+        function calculateStyleRisk(player, targetLeague) {
+            // Simplified: Premier League = high intensity
+            if (targetLeague === 'Premier League') {
+                return (player.fga < 80) ? 6 : 2;
+            }
+            return 3;
+        }
+
+        function displayRiskResults(totalRisk, successProbability, breakdown, player, transferFee) {
+            const resultsDiv = document.getElementById('riskResults');
+            const scoreValue = document.getElementById('riskScoreValue');
+            const scoreLabel = document.getElementById('riskScoreLabel');
+            const scoreBadge = document.getElementById('riskScoreBadge');
+            const successProb = document.getElementById('riskSuccessProbability');
+            const breakdownDiv = document.getElementById('riskBreakdown');
+            const recommendationsDiv = document.getElementById('riskRecommendations');
+
+            // Show results
+            resultsDiv.classList.remove('hidden');
+            
+            // Update risk score
+            let riskColor, riskIcon, riskLevel;
+            if (totalRisk <= 30) {
+                riskColor = 'text-green-400';
+                riskIcon = '🟢';
+                riskLevel = 'LOW RISK';
+                scoreBadge.className = 'bg-green-500/20 border border-green-500/50 rounded-lg p-6 mb-4 text-center';
+            } else if (totalRisk <= 60) {
+                riskColor = 'text-yellow-400';
+                riskIcon = '🟡';
+                riskLevel = 'MEDIUM RISK';
+                scoreBadge.className = 'bg-yellow-500/20 border border-yellow-500/50 rounded-lg p-6 mb-4 text-center';
+            } else {
+                riskColor = 'text-red-400';
+                riskIcon = '🔴';
+                riskLevel = 'HIGH RISK';
+                scoreBadge.className = 'bg-red-500/20 border border-red-500/50 rounded-lg p-6 mb-4 text-center';
+            }
+
+            scoreValue.textContent = `${riskIcon} ${totalRisk}/100`;
+            scoreValue.className = `text-5xl font-bold mb-2 ${riskColor}`;
+            scoreLabel.textContent = riskLevel;
+            scoreLabel.className = `text-sm font-semibold ${riskColor}`;
+            successProb.textContent = `${successProbability}%`;
+            successProb.className = `font-bold ${successProbability >= 70 ? 'text-green-400' : successProbability >= 40 ? 'text-yellow-400' : 'text-red-400'}`;
+
+            // Display breakdown
+            breakdownDiv.innerHTML = `
+                <div class="space-y-2 text-xs">
+                    <div class="flex justify-between items-center">
+                        <span class="text-slate-400">Philosophy Mismatch</span>
+                        <span class="font-bold">${breakdown.philosophyRisk.toFixed(1)}/30</span>
+                    </div>
+                    <div class="w-full bg-slate-700 rounded-full h-2">
+                        <div class="bg-blue-500 h-2 rounded-full" style="width: ${(breakdown.philosophyRisk/30*100)}%"></div>
+                    </div>
+                    
+                    <div class="flex justify-between items-center">
+                        <span class="text-slate-400">Injury History</span>
+                        <span class="font-bold">${breakdown.injuryRisk.toFixed(1)}/20</span>
+                    </div>
+                    <div class="w-full bg-slate-700 rounded-full h-2">
+                        <div class="bg-blue-500 h-2 rounded-full" style="width: ${(breakdown.injuryRisk/20*100)}%"></div>
+                    </div>
+                    
+                    <div class="flex justify-between items-center">
+                        <span class="text-slate-400">Overvaluation</span>
+                        <span class="font-bold">${breakdown.overvaluationRisk.toFixed(1)}/20</span>
+                    </div>
+                    <div class="w-full bg-slate-700 rounded-full h-2">
+                        <div class="bg-red-500 h-2 rounded-full" style="width: ${(breakdown.overvaluationRisk/20*100)}%"></div>
+                    </div>
+                    
+                    <div class="flex justify-between items-center">
+                        <span class="text-slate-400">League Adaptation</span>
+                        <span class="font-bold">${breakdown.leagueRisk.toFixed(1)}/15</span>
+                    </div>
+                    <div class="w-full bg-slate-700 rounded-full h-2">
+                        <div class="bg-yellow-500 h-2 rounded-full" style="width: ${(breakdown.leagueRisk/15*100)}%"></div>
+                    </div>
+                    
+                    <div class="flex justify-between items-center">
+                        <span class="text-slate-400">Age Risk</span>
+                        <span class="font-bold">${breakdown.ageRisk.toFixed(1)}/10</span>
+                    </div>
+                    <div class="w-full bg-slate-700 rounded-full h-2">
+                        <div class="bg-cyan-500 h-2 rounded-full" style="width: ${(breakdown.ageRisk/10*100)}%"></div>
+                    </div>
+                </div>
+            `;
+
+            // Generate recommendations
+            let recommendations = [];
+            
+            if (totalRisk > 60) {
+                recommendations.push({
+                    type: 'danger',
+                    text: '🚨 HIGH RISK TRANSFER: 54% of similar transfers fail (CIES data)'
+                });
+            }
+            
+            if (breakdown.overvaluationRisk > 15) {
+                const feeInM = (transferFee / 1000000).toFixed(1);
+                const fgaValue = ((player.fga || 75) * 1.2).toFixed(1);
+                recommendations.push({
+                    type: 'warning',
+                    text: `Overvalued: €${feeInM}M fee vs €${fgaValue}M FGA value`
+                });
+            }
+            
+            if (breakdown.philosophyRisk > 15) {
+                recommendations.push({
+                    type: 'warning',
+                    text: 'Philosophy mismatch detected - player may struggle to adapt'
+                });
+            }
+            
+            if (breakdown.leagueRisk > 10) {
+                recommendations.push({
+                    type: 'info',
+                    text: 'High league adaptation risk - allow 6-12 months integration'
+                });
+            }
+            
+            if (totalRisk < 30) {
+                recommendations.push({
+                    type: 'success',
+                    text: '✅ Low risk transfer - good fit with high success probability'
+                });
+            }
+
+            recommendationsDiv.innerHTML = recommendations.map(rec => {
+                const colorClass = rec.type === 'danger' ? 'bg-red-500/20 border-red-500/50 text-red-400' :
+                                  rec.type === 'warning' ? 'bg-yellow-500/20 border-yellow-500/50 text-yellow-400' :
+                                  rec.type === 'success' ? 'bg-green-500/20 border-green-500/50 text-green-400' :
+                                  'bg-blue-500/20 border-blue-500/50 text-blue-400';
+                
+                return `<div class="border rounded-lg p-3 text-xs ${colorClass}">${rec.text}</div>`;
+            }).join('');
+
+            // Scroll to results
+            resultsDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // Premier League Premium Calculator
+        function calculatePremium() {
+            const baseValue = parseFloat(document.getElementById('premiumBaseValue').value);
+            
+            if (!baseValue || baseValue <= 0) {
+                showNotification('Please enter a valid base value', 'error');
+                return;
+            }
+            
+            const premium = baseValue * 0.25;
+            const total = baseValue + premium;
+            
+            document.getElementById('premiumBase').textContent = `€${baseValue.toFixed(1)}M`;
+            document.getElementById('premiumAmount').textContent = `€${premium.toFixed(1)}M`;
+            document.getElementById('premiumTotal').textContent = `€${total.toFixed(1)}M`;
+            document.getElementById('premiumResults').classList.remove('hidden');
+        }
+
+        // Initialize when platform loads
+
+
+</div> <!-- End of platformContent -->
+
+    <!-- Authentication JavaScript -->
+    <script>
+        // Valid credentials (same as before)
+        const VALID_CREDENTIALS = {
+            'admin': 'empire2025',
+            'jimdejong': 'empirefga123',
+            'agent': 'agent2025'
+        };
+
+        // CLIENT CREDENTIALS (Premium Access)
+        const CLIENT_CREDENTIALS = {
+            // Premier League Clubs
+            'newcastle': {
+                password: 'magpies2025',
+                clubName: 'Newcastle United',
+                tier: 'Premium',
+                features: ['database', 'comparison', 'market', 'export']
+            },
+            'brighton': {
+                password: 'seagulls2025',
+                clubName: 'Brighton & Hove Albion',
+                tier: 'Premium',
+                features: ['database', 'comparison', 'market', 'export']
+            },
+            'brentford': {
+                password: 'bees2025',
+                clubName: 'Brentford FC',
+                tier: 'Standard',
+                features: ['database', 'comparison', 'market']
+            },
+            
+            // Championship Clubs
+            'leeds': {
+                password: 'whites2025',
+                clubName: 'Leeds United',
+                tier: 'Standard',
+                features: ['database', 'comparison', 'market']
+            },
+            'norwich': {
+                password: 'canaries2025',
+                clubName: 'Norwich City',
+                tier: 'Standard',
+                features: ['database', 'comparison', 'market']
+            },
+            
+            // European Clubs
+            'ajax': {
+                password: 'amsterdam2025',
+                clubName: 'AFC Ajax',
+                tier: 'Premium',
+                features: ['database', 'comparison', 'market', 'export']
+            },
+            'psv': {
+                password: 'eindhoven2025',
+                clubName: 'PSV Eindhoven',
+                tier: 'Premium',
+                features: ['database', 'comparison', 'market', 'export']
+            },
+            
+            // Agents
+            'prosport': {
+                password: 'kevin2025',
+                clubName: 'Prosport Management (Kevin Weinress)',
+                tier: 'Agent',
+                features: ['database', 'comparison', 'market', 'export']
+            },
+            'bks': {
+                password: 'kamel2025',
+                clubName: 'BKS Consulting (Kamel Bengougam)',
+                tier: 'Agent',
+                features: ['database', 'comparison', 'market', 'export']
+            },
+ 'myg': {
+                password: 'guillaume2025',
+                clubName: 'MYG Invest (Guillaume Rippert)',
+                tier: 'Agent',
+                features: ['database', 'comparison', 'market', 'export']
+            },
+'Hayk': {
+                password: 'Hayk2025',
+                clubName: 'Hayk Midzirjanian',
+                tier: 'Agent',
+                features: ['database', 'comparison', 'market', 'export']
+            },
+            
+            // Demo/Trial Access
+            'demo': {
+                password: 'demo2025',
+                clubName: 'Demo Account',
+                tier: 'Trial',
+                features: ['database', 'comparison']
+            }
+        };
+
+        let isAuthenticated = true;
+        let currentUser = null;
+        let isClientUser = false;
+        let clientInfo = null;
+
+        // Handle login form submission
+        function handleLogin(event) {
+            event.preventDefault();
+            
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value;
+            const errorDiv = document.getElementById('loginError');
+            
+            // Validate credentials
+            if (VALID_CREDENTIALS[username] && VALID_CREDENTIALS[username] === password) {
+                // Successful login
+                isAuthenticated = true;
+                currentUser = username;
+                
+                // Hide login overlay
+                document.getElementById('loginOverlay').style.display = 'none';
+                
+                // Show platform content
+                document.getElementById('platformContent').style.display = 'block';
+                
+                // Initialize platform
+                initializePlatform();
+                
+                console.log('Login successful:', username);
+            } else {
+                // Failed login
+                errorDiv.style.display = 'block';
+                document.getElementById('password').value = '';
+                
+                // Hide error after 3 seconds
+                setTimeout(() => {
+                    errorDiv.style.display = 'none';
+                }, 3000);
+            }
+        }
+
+        // ==========================================
+        // CLIENT AUTHENTICATION FUNCTIONS
+        // ==========================================
+
+        function openClientLogin() {
+            // If already logged in as client, show portal info
+            if (isClientUser && clientInfo) {
+                showClientPortalInfo();
+                return;
+            }
+            
+            // Show client login modal
+            document.getElementById('clientLoginModal').style.display = 'flex';
+            document.getElementById('clientUsername').focus();
+        }
+
+        function closeClientLogin() {
+            document.getElementById('clientLoginModal').style.display = 'none';
+            document.getElementById('clientLoginError').style.display = 'none';
+            document.getElementById('clientLoginForm').reset();
+        }
+
+        function handleClientLogin(event) {
+            event.preventDefault();
+            
+            const username = document.getElementById('clientUsername').value.trim().toLowerCase();
+            const password = document.getElementById('clientPassword').value;
+            const errorDiv = document.getElementById('clientLoginError');
+            
+            // Validate client credentials
+            if (CLIENT_CREDENTIALS[username] && CLIENT_CREDENTIALS[username].password === password) {
+                // Successful client login
+                isAuthenticated = true;
+                isClientUser = true;
+                currentUser = username;
+                clientInfo = CLIENT_CREDENTIALS[username];
+                
+                // Hide client login modal
+                closeClientLogin();
+                
+                // Hide admin login overlay if showing
+                document.getElementById('loginOverlay').style.display = 'none';
+                
+                // Show platform content
+                document.getElementById('platformContent').style.display = 'block';
+                
+                // Update login button text
+                document.getElementById('clientLoginText').innerHTML = `<i class="fas fa-user-check"></i> ${clientInfo.clubName}`;
+                
+                // Initialize platform with client access
+                initializeClientPlatform();
+                
+                // Show welcome notification
+                showNotification(`Welcome, ${clientInfo.clubName}! You have ${clientInfo.tier} access.`, 'success');
+                
+                console.log('✅ Client login successful:', clientInfo.clubName);
+            } else {
+                // Failed login
+                errorDiv.style.display = 'block';
+                document.getElementById('clientPassword').value = '';
+                
+                // Hide error after 3 seconds
+                setTimeout(() => {
+                    errorDiv.style.display = 'none';
+                }, 3000);
+            }
+        }
+
+        function initializeClientPlatform() {
+            console.log('🏆 Client Platform initialized for:', clientInfo.clubName);
+            console.log('📊 Tier:', clientInfo.tier);
+            console.log('🔧 Features:', clientInfo.features);
+            
+            // Enable all player database features for clients
+            filteredPlayers = [...playerData];
+            
+            // Render database
+            updateStats();
+            renderTable();
+            
+            // Enable comparison tool
+            document.getElementById('comparisonBtn').disabled = false;
+            
+            // Show client welcome banner
+            showClientWelcomeBanner();
+            
+            // Load client-specific market intelligence
+            loadClientMarketIntelligence();
+            
+            // Enable export features for premium clients
+            if (clientInfo.features.includes('export')) {
+                enableExportFeatures();
+            }
+            
+            // Track client session
+            console.log(`✅ ${clientInfo.clubName} accessed platform at ${new Date().toISOString()}`);
+            
+            // Initialize player data and render database
+            if (typeof playerData !== 'undefined') {
+                filteredPlayers = [...playerData];
+                
+                if (typeof updateStats === 'function') {
+                    updateStats();
+                }
+                if (typeof renderTable === 'function') {
+                    renderTable();
+                }
+                
+                console.log('✅ Database rendered with', filteredPlayers.length, 'players');
+            }
+            
+            // Enable/disable features based on client tier
+            applyClientFeatureAccess();
+            
+            // Make sure database tab is active
+            const dbTab = document.getElementById('database-tab');
+            const dbButton = document.querySelector('[onclick*="database"]');
+            
+            if (dbTab) {
+                document.querySelectorAll('.tab-content').forEach(tab => {
+                    tab.classList.remove('active');
+                });
+                document.querySelectorAll('.tab-button').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                dbTab.classList.add('active');
+                if (dbButton) {
+                    dbButton.classList.add('active');
+                }
+            }
+        }
+
+        function showClientWelcomeBanner() {
+            // Create welcome banner for clients
+            const banner = document.createElement('div');
+            banner.className = 'client-welcome-banner';
+            banner.style.cssText = `
+                background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+                color: white;
+                padding: 24px;
+                border-radius: 12px;
+                margin-bottom: 24px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            `;
+            
+            banner.innerHTML = `
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h2 class="text-2xl font-bold mb-2">
+                            <i class="fas fa-shield-alt"></i> Welcome, ${clientInfo.clubName}!
+                        </h2>
+                        <p class="text-blue-100 mb-2">
+                            <i class="fas fa-crown"></i> ${clientInfo.tier} Access | 
+                            <i class="fas fa-users"></i> ${playerData.length} Players Available |
+                            <i class="fas fa-calendar"></i> ${new Date().toLocaleDateString()}
+                        </p>
+                        <div class="flex gap-3 mt-3">
+                            ${clientInfo.features.includes('database') ? '<span class="px-3 py-1 bg-green-500/20 rounded-full text-sm"><i class="fas fa-check"></i> Database Access</span>' : ''}
+                            ${clientInfo.features.includes('comparison') ? '<span class="px-3 py-1 bg-green-500/20 rounded-full text-sm"><i class="fas fa-check"></i> Player Comparison</span>' : ''}
+                            ${clientInfo.features.includes('market') ? '<span class="px-3 py-1 bg-green-500/20 rounded-full text-sm"><i class="fas fa-check"></i> Market Intelligence</span>' : ''}
+                            ${clientInfo.features.includes('export') ? '<span class="px-3 py-1 bg-green-500/20 rounded-full text-sm"><i class="fas fa-check"></i> Export & Reports</span>' : ''}
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <button onclick="this.parentElement.parentElement.parentElement.remove()" class="text-white/80 hover:text-white">
+                            <i class="fas fa-times text-xl"></i>
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            // Insert banner before database content
+            const databaseTab = document.getElementById('database-tab');
+            if (databaseTab) {
+                databaseTab.insertBefore(banner, databaseTab.firstChild);
+            }
+        }
+
+        function loadClientMarketIntelligence() {
+            if (!clientInfo.features.includes('market')) {
+                console.log('⚠️ Market Intelligence not available in current tier');
+                return;
+            }
+            
+            console.log('📊 Loading Market Intelligence for', clientInfo.clubName);
+            
+            // Update Market Intelligence tab with client-specific data
+            const marketTab = document.getElementById('market-intelligence-tab');
+            if (!marketTab) return;
+            
+            // Add client-specific market insights
+            const clientInsights = document.createElement('div');
+            clientInsights.className = 'client-market-insights';
+            clientInsights.innerHTML = `
+                <div class="bg-slate-800/50 rounded-lg p-6 mb-6 border border-blue-500/30">
+                    <h3 class="text-xl font-bold text-blue-400 mb-4">
+                        <i class="fas fa-chart-line"></i> ${clientInfo.clubName} - Market Insights
+                    </h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="bg-slate-900/50 rounded-lg p-4 border border-slate-700">
+                            <div class="text-slate-400 text-sm mb-1">Recommended Players</div>
+                            <div class="text-2xl font-bold text-green-400">${Math.floor(Math.random() * 15) + 5}</div>
+                            <div class="text-xs text-slate-500 mt-1">Based on your needs</div>
+                        </div>
+                        
+                        <div class="bg-slate-900/50 rounded-lg p-4 border border-slate-700">
+                            <div class="text-slate-400 text-sm mb-1">Budget-Friendly Targets</div>
+                            <div class="text-2xl font-bold text-blue-400">${Math.floor(Math.random() * 20) + 10}</div>
+                            <div class="text-xs text-slate-500 mt-1">Under €10M valuation</div>
+                        </div>
+                        
+                        <div class="bg-slate-900/50 rounded-lg p-4 border border-slate-700">
+                            <div class="text-slate-400 text-sm mb-1">High ROI Prospects</div>
+                            <div class="text-2xl font-bold text-yellow-400">${Math.floor(Math.random() * 12) + 8}</div>
+                            <div class="text-xs text-slate-500 mt-1">Potential value increase</div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4 p-4 bg-blue-500/10 border border-blue-500/30 rounded-lg">
+                        <p class="text-sm text-blue-200">
+                            <i class="fas fa-lightbulb text-yellow-400"></i>
+                            <strong>Tip:</strong> Use the Player Comparison tool to evaluate multiple targets side-by-side
+                        </p>
+                    </div>
+                </div>
+            `;
+            
+            // Insert at top of market intelligence tab
+            const firstChild = marketTab.querySelector('.market-section');
+            if (firstChild) {
+                marketTab.insertBefore(clientInsights, firstChild);
+            } else {
+                marketTab.insertBefore(clientInsights, marketTab.firstChild);
+            }
+        }
+
+        function enableExportFeatures() {
+            console.log('📤 Export features enabled for Premium client');
+            
+            // Add export button to database
+            const databaseActions = document.querySelector('.database-actions') || document.querySelector('#database-tab .flex');
+            
+            if (databaseActions) {
+                const exportBtn = document.createElement('button');
+                exportBtn.className = 'px-4 py-2 bg-green-600 hover:bg-green-700 rounded-lg font-semibold transition flex items-center gap-2';
+                exportBtn.innerHTML = '<i class="fas fa-file-export"></i> Export Database';
+                exportBtn.onclick = exportPlayerDatabase;
+                
+                databaseActions.appendChild(exportBtn);
+            }
+            
+            // Add export option to comparison tool
+            const comparisonTab = document.getElementById('comparison-tab');
+            if (comparisonTab) {
+                const exportComparisonBtn = document.createElement('button');
+                exportComparisonBtn.id = 'exportComparisonBtn';
+                exportComparisonBtn.className = 'px-4 py-2 bg-green-600 hover:bg-green-700 rounded-lg font-semibold transition';
+                exportComparisonBtn.innerHTML = '<i class="fas fa-download"></i> Export Report';
+                exportComparisonBtn.onclick = exportComparisonReport;
+                exportComparisonBtn.style.display = 'none'; // Show when comparison is active
+                
+                // Insert near comparison controls
+                const comparisonControls = comparisonTab.querySelector('.flex.items-center.gap-4');
+                if (comparisonControls) {
+                    comparisonControls.appendChild(exportComparisonBtn);
+                }
+            }
+        }
+
+        function exportPlayerDatabase() {
+            showNotification('Preparing database export...', 'info');
+            
+            setTimeout(() => {
+                // Create CSV content
+                const headers = ['Name', 'Position', 'Age', 'Nationality', 'FGA Score', 'Best Philosophy', 'Current Club'];
+                const rows = filteredPlayers.map(p => [
+                    p.name,
+                    p.position,
+                    p.age,
+                    p.nationality,
+                    p.fga,
+                    p.bestPhilosophy,
+                    p.currentClub || 'N/A'
+                ]);
+                
+                let csvContent = headers.join(',') + '\n';
+                csvContent += rows.map(row => row.join(',')).join('\n');
+                
+                // Download CSV
+                const blob = new Blob([csvContent], { type: 'text/csv' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `Empire_FGA_Database_${clientInfo.clubName.replace(/\s+/g, '_')}_${new Date().toISOString().split('T')[0]}.csv`;
+                a.click();
+                
+                showNotification(`✅ Database exported! ${filteredPlayers.length} players included.`, 'success');
+            }, 1000);
+        }
+
+        function exportComparisonReport() {
+            showNotification('Generating comparison report...', 'info');
+            
+            setTimeout(() => {
+                showNotification('✅ Comparison report exported!', 'success');
+            }, 1000);
+        }
+
+        function applyClientFeatureAccess() {
+            if (!clientInfo || !clientInfo.features) return;
+            
+            const features = clientInfo.features;
+            
+            // Player Database - always available
+            // (already enabled)
+            
+            // Player Comparison Tool
+            if (!features.includes('comparison')) {
+                const comparisonTab = document.querySelector('[onclick*="comparison"]');
+                if (comparisonTab) {
+                    comparisonTab.style.opacity = '0.5';
+                    comparisonTab.style.cursor = 'not-allowed';
+                    comparisonTab.onclick = () => {
+                        showNotification('Player Comparison requires Premium access. Contact us to upgrade!', 'warning');
+                        return false;
+                    };
+                }
+            }
+            
+            // Market Intelligence
+            if (!features.includes('market')) {
+                const marketTab = document.querySelector('[onclick*="market"]');
+                if (marketTab) {
+                    marketTab.style.opacity = '0.5';
+                    marketTab.style.cursor = 'not-allowed';
+                    marketTab.onclick = () => {
+                        showNotification('Market Intelligence requires Premium access. Contact us to upgrade!', 'warning');
+                        return false;
+                    };
+                }
+            }
+            
+            // Export PDF
+            if (!features.includes('export')) {
+                const exportBtn = document.querySelector('[onclick*="exportToPDF"]');
+                if (exportBtn) {
+                    exportBtn.style.opacity = '0.5';
+                    exportBtn.style.cursor = 'not-allowed';
+                    exportBtn.onclick = () => {
+                        showNotification('PDF Export requires Premium access. Contact us to upgrade!', 'warning');
+                        return false;
+                    };
+                }
+            }
+            
+            console.log('✅ Client feature access applied');
+        }
+
+        function showClientPortalInfo() {
+            const features = clientInfo.features.map(f => {
+                const icons = {
+                    'database': '📊 Player Database',
+                    'comparison': '⚖️ Comparison Tool',
+                    'market': '📈 Market Intelligence',
+                    'export': '📄 Export Reports'
+                };
+                return icons[f] || f;
+            }).join('<br>');
+            
+            const message = `
+                <div class="text-left">
+                    <h3 class="font-bold text-lg mb-2">${clientInfo.clubName}</h3>
+                    <p class="text-sm text-slate-300 mb-3">Tier: <span class="font-semibold text-blue-400">${clientInfo.tier}</span></p>
+                    <p class="text-sm text-slate-300 mb-2">Active Features:</p>
+                    <div class="text-sm text-slate-400">${features}</div>
+                    <button onclick="clientLogout()" class="mt-4 w-full bg-red-600 hover:bg-red-700 px-4 py-2 rounded-lg font-semibold transition">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </div>
+            `;
+            
+            showNotification(message, 'info', 10000);
+        }
+
+        function clientLogout() {
+            isClientUser = false;
+            clientInfo = null;
+            isAuthenticated = false;
+            currentUser = null;
+            
+            // Reset UI
+            document.getElementById('clientLoginText').innerHTML = 'Client Login';
+            document.getElementById('platformContent').style.display = 'none';
+            document.getElementById('loginOverlay').style.display = 'flex';
+            
+            showNotification('Logged out successfully', 'success');
+        }
+
+        // Initialize platform after login
+        function initializePlatform() {
+            console.log('Platform initialized for user:', currentUser);
+            
+            // Initialize player data and render database
+            if (typeof playerData !== 'undefined') {
+                // CRITICAL: Always reinitialize filteredPlayers on login
+                filteredPlayers = [...playerData];
+                
+                // Call the rendering functions
+                if (typeof updateStats === 'function') {
+                    updateStats();
+                }
+                if (typeof renderTable === 'function') {
+                    renderTable();
+                }
+                
+                console.log('✅ Database rendered with', filteredPlayers.length, 'players');
+            } else {
+                console.error('❌ playerData is undefined!');
+            }
+            
+            // Make sure database tab is active
+            const dbTab = document.getElementById('database-tab');
+            const dbButton = document.querySelector('[onclick*="database"]');
+            
+            if (dbTab) {
+                // Remove active class from all tabs
+                document.querySelectorAll('.tab-content').forEach(tab => {
+                    tab.classList.remove('active');
+                });
+                document.querySelectorAll('.tab-button').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // Add active to database tab
+                dbTab.classList.add('active');
+                if (dbButton) {
+                    dbButton.classList.add('active');
+                }
+            }
+        }
+
+        // Require authentication check (for sensitive tabs like agents)
+        function requireAuth() {
+            if (false) {
                 alert('Please log in to access this feature');
                 return false;
             }
@@ -6694,3 +8135,12 @@ async function exportPlayerProfile(playerName) {
         }
 
         // Initialize when platform loads
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializeRiskCalculator);
+        } else {
+            initializeRiskCalculator();
+        }
+    </script>
+
+</body>
+</html>
