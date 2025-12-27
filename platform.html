@@ -2674,20 +2674,38 @@ fetch('complete_player_database.json')
         console.log('✅ Loading', data.length, 'players...');
         
         // Convert to platform format
-        playerData = data.map(p => ({
-            name: p.name || '',
-            player_id: p.player_id || null,
-            image_url: p.image_url || '',
-            profileHtml: p.filename || '',
-            position: p.position || '',
-            age: p.age || null,
-            nationality: p.nationality || '',
-            fga: p.fga_rating || 0,
-            bestPhilosophy: p.top_philosophy || '',
-            agent: p.agent || '',
-            agentCompany: p.agentCompany || '',
-            currentClub: p.club || ''
-        }));
+        playerData = data.map(p => {
+            // Extract nationality from position string if nationality is "Unknown"
+            let nationality = p.nationality || '';
+            if (nationality === 'Unknown' || !nationality) {
+                // Try to extract from position string like "Central Midfielder (Professional) · Wales · Born: 26 Dec 1990"
+                const posMatch = (p.position || '').match(/·\s*([A-Za-z\s]+)\s*·\s*Born:/);
+                if (posMatch) {
+                    nationality = posMatch[1].trim();
+                }
+            }
+            
+            // Extract club from position string if club is "Legend"
+            let currentClub = p.club || '';
+            if (currentClub === 'Legend') {
+                currentClub = 'Retired/Legend';
+            }
+            
+            return {
+                name: p.name || '',
+                player_id: p.player_id || null,
+                image_url: p.image_url || '',
+                profileHtml: p.filename || '',
+                position: p.position || '',
+                age: p.age || null,
+                nationality: nationality,
+                fga: p.fga_rating || 0,
+                bestPhilosophy: p.top_philosophy || '',
+                agent: p.agent || '',
+                agentCompany: p.agentCompany || '',
+                currentClub: currentClub
+            };
+        });
         
         console.log('✅ LOADED', playerData.length, 'PLAYERS!');
         
