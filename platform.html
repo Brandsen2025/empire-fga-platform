@@ -483,7 +483,7 @@
             <div id="database-tab" class="tab-content active">
                 <div class="text-center mb-8">
                     <h1 class="text-4xl font-bold mb-4 gradient-text">Player Database</h1>
-                    <p class="text-xl text-slate-300">Search 616 players analyzed with 779 metrics and 60 tactical philosophies</p>
+                    <p class="text-xl text-slate-300">Search 25000 players analyzed with 779 metrics and 60 tactical philosophies</p>
                 </div>
 
                 <!-- Stats Dashboard -->
@@ -6987,30 +6987,42 @@ async function exportPlayerProfile(playerName) {
         // ==================== MARKET INTELLIGENCE FUNCTIONS ====================
         
         // Market Intelligence Sub-Tab Navigation
-        function showMarketSection(sectionId, clickedButton) {
-            // Hide all market sections
-            document.querySelectorAll('.market-section').forEach(section => {
-                section.classList.add('hidden');
-            });
-            
-            // Remove active class from all tabs
-            document.querySelectorAll('.market-sub-tab').forEach(tab => {
-                tab.classList.remove('active', 'bg-blue-600');
-                tab.classList.add('bg-slate-800');
-            });
-            
-            // Show selected section
-            const targetSection = document.getElementById(`market-${sectionId}`);
-            if (targetSection) {
-                targetSection.classList.remove('hidden');
-            }
-            
-            // Activate clicked tab
-            if (clickedButton) {
-                clickedButton.classList.add('active', 'bg-blue-600');
-                clickedButton.classList.remove('bg-slate-800');
-            }
-        }
+        ```javascript
+function showMarketSection(sectionId, clickedButton) {
+    console.log('🔍 Switching to section:', sectionId);
+    
+    // Hide all market sections
+    const sections = document.querySelectorAll('.market-section');
+    sections.forEach(section => {
+        section.classList.add('hidden');
+        section.style.display = 'none';
+    });
+    
+    // Remove active class from all tabs
+    document.querySelectorAll('.market-sub-tab').forEach(tab => {
+        tab.classList.remove('active', 'bg-blue-600');
+        tab.classList.add('bg-slate-800');
+    });
+    
+    // Show selected section
+    const targetSection = document.getElementById(`market-${sectionId}`);
+    if (targetSection) {
+        targetSection.classList.remove('hidden');
+        targetSection.style.display = 'block';
+        console.log('✅ Showing section:', `market-${sectionId}`);
+    } else {
+        console.error('❌ Section not found:', `market-${sectionId}`);
+    }
+    
+    // Activate clicked tab
+    if (clickedButton) {
+        clickedButton.classList.add('active', 'bg-blue-600');
+        clickedButton.classList.remove('bg-slate-800');
+    }
+}
+```
+
+---
 
         // ==================== FEASIBILITY FILTER ====================
         
@@ -7677,6 +7689,143 @@ async function exportPlayerProfile(playerName) {
         }
 
         // Initialize when platform loads
+```html
+<button onclick="showMarketSection('analysis', this)" class="market-sub-tab bg-slate-800 hover:bg-slate-700 px-4 py-2 rounded-lg font-semibold whitespace-nowrap transition">
+    💎 Market Analysis
+</button>
+```
+
+```html
+<!-- SECTION: MARKET ANALYSIS -->
+<div id="market-analysis" class="market-section hidden">
+    <div class="bg-gradient-to-r from-green-900/30 to-slate-900/30 border border-green-500/30 rounded-xl p-6 mb-6">
+        <h2 class="text-2xl font-bold mb-4 text-green-300">💎 Market Analysis - Real-Time Insights</h2>
+        
+        <!-- Undervalued Players -->
+        <div class="mb-8">
+            <h3 class="text-xl font-bold mb-4 text-cyan-400">📉 Top Undervalued Players</h3>
+            <p class="text-slate-400 mb-4">Players trading below 70% of their peak value</p>
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead class="bg-slate-800">
+                        <tr>
+                            <th class="px-4 py-3 text-left">Player</th>
+                            <th class="px-4 py-3 text-left">Position</th>
+                            <th class="px-4 py-3">Age</th>
+                            <th class="px-4 py-3">Current Value</th>
+                            <th class="px-4 py-3">Peak Value</th>
+                            <th class="px-4 py-3">Discount %</th>
+                        </tr>
+                    </thead>
+                    <tbody id="undervalued-players">
+                        <div class="mb-8">
+            <h3 class="text-xl font-bold mb-4 text-cyan-400">📉 Top Undervalued Players</h3>
+            <p class="text-slate-400 mb-4">Players trading below 70% of their peak value</p>
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead class="bg-slate-800">
+                        <tr>
+                            <th class="px-4 py-3 text-left">Player</th>
+                            <th class="px-4 py-3 text-left">Position</th>
+                            <th class="px-4 py-3">Age</th>
+                            <th class="px-4 py-3">Current Value</th>
+                            <th class="px-4 py-3">Peak Value</th>
+                            <th class="px-4 py-3">Discount %</th>
+                        </tr>
+                    </thead>
+                    <tbody id="undervalued-players">
+                        <!-- Populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+                    
+
+        <!-- Rising Stars -->
+        <div class="mb-8">
+            <h3 class="text-xl font-bold mb-4 text-yellow-400">⭐ Rising Stars (U23)</h3>
+            <p class="text-slate-400 mb-4">High-value young players with elite potential</p>
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead class="bg-slate-800">
+                        <tr>
+                            <th class="px-4 py-3 text-left">Player</th>
+                            <th class="px-4 py-3 text-left">Position</th>
+                            <th class="px-4 py-3">Age</th>
+                            <th class="px-4 py-3">Value</th>
+                            <th class="px-4 py-3">Goals</th>
+                            <th class="px-4 py-3">Assists</th>
+                        </tr>
+                    </thead>
+                    <tbody id="rising-stars">
+                        <div class="mb-8">
+            <h3 class="text-xl font-bold mb-4 text-yellow-400">⭐ Rising Stars (U23)</h3>
+            <p class="text-slate-400 mb-4">High-value young players with elite potential</p>
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead class="bg-slate-800">
+                        <tr>
+                            <th class="px-4 py-3 text-left">Player</th>
+                            <th class="px-4 py-3 text-left">Position</th>
+                            <th class="px-4 py-3">Age</th>
+                            <th class="px-4 py-3">Value</th>
+                            <th class="px-4 py-3">Goals</th>
+                            <th class="px-4 py-3">Assists</th>
+                        </tr>
+                    </thead>
+                    <tbody id="rising-stars">
+                        <!-- Populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+                    
+
+        <!-- Injury Risks -->
+        <div class="mb-8">
+            <h3 class="text-xl font-bold mb-4 text-red-400">⚠️ Injury Risk Assessment</h3>
+            <p class="text-slate-400 mb-4">Players with significant injury history (90+ days)</p>
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead class="bg-slate-800">
+                        <tr>
+                            <th class="px-4 py-3 text-left">Player</th>
+                            <th class="px-4 py-3 text-left">Position</th>
+                            <th class="px-4 py-3">Age</th>
+                            <th class="px-4 py-3">Days Injured</th>
+                            <th class="px-4 py-3">Games Missed</th>
+                            <th class="px-4 py-3">Value</th>
+                        </tr>
+                    </thead>
+                    <tbody id="injury-risks">
+                        <div class="mb-8">
+            <h3 class="text-xl font-bold mb-4 text-red-400">⚠️ Injury Risk Assessment</h3>
+            <p class="text-slate-400 mb-4">Players with significant injury history (90+ days)</p>
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead class="bg-slate-800">
+                        <tr>
+                            <th class="px-4 py-3 text-left">Player</th>
+                            <th class="px-4 py-3 text-left">Position</th>
+                            <th class="px-4 py-3">Age</th>
+                            <th class="px-4 py-3">Days Injured</th>
+                            <th class="px-4 py-3">Games Missed</th>
+                            <th class="px-4 py-3">Value</th>
+                        </tr>
+                    </thead>
+                    <tbody id="injury-risks">
+                        <!-- Populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+                   
+```
+
+---
 
 
 </div> <!-- End of platformContent -->
