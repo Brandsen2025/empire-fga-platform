@@ -2674,6 +2674,35 @@ fetch('complete_player_database.json')
         console.log('✅ Loading', data.length, 'players...');
         
         // Convert to platform format
+        // Country code mapping
+        const countryCodeMap = {
+            'ITA': 'Italy', 'ESP': 'Spain', 'FRA': 'France', 'GER': 'Germany', 'ENG': 'England',
+            'BRA': 'Brazil', 'ARG': 'Argentina', 'NED': 'Netherlands', 'POR': 'Portugal',
+            'SRB': 'Serbia', 'SEN': 'Senegal', 'CRO': 'Croatia', 'IRL': 'Ireland',
+            'DEN': 'Denmark', 'SCO': 'Scotland', 'BEL': 'Belgium', 'URU': 'Uruguay',
+            'POL': 'Poland', 'MAR': 'Morocco', 'SWE': 'Sweden', 'SUI': 'Switzerland',
+            'NGA': 'Nigeria', 'CIV': 'Ivory Coast', 'CMR': 'Cameroon', 'GHA': 'Ghana',
+            'ALG': 'Algeria', 'NOR': 'Norway', 'USA': 'United States', 'AUT': 'Austria',
+            'CZE': 'Czech Republic', 'TUR': 'Turkey', 'GRE': 'Greece', 'MEX': 'Mexico',
+            'CHI': 'Chile', 'COL': 'Colombia', 'JPN': 'Japan', 'KOR': 'South Korea',
+            'WAL': 'Wales', 'NZL': 'New Zealand', 'AUS': 'Australia', 'RSA': 'South Africa',
+            'EGY': 'Egypt', 'TUN': 'Tunisia', 'ISR': 'Israel', 'PAR': 'Paraguay',
+            'VEN': 'Venezuela', 'ECU': 'Ecuador', 'PER': 'Peru', 'BOL': 'Bolivia',
+            'CAN': 'Canada', 'CRC': 'Costa Rica', 'JAM': 'Jamaica', 'MLI': 'Mali',
+            'BFA': 'Burkina Faso', 'GUI': 'Guinea', 'CGO': 'Congo', 'GAB': 'Gabon',
+            'ANG': 'Angola', 'ZIM': 'Zimbabwe', 'UGA': 'Uganda', 'KEN': 'Kenya',
+            'RUS': 'Russia', 'UKR': 'Ukraine', 'HUN': 'Hungary', 'ROU': 'Romania',
+            'SVK': 'Slovakia', 'SVN': 'Slovenia', 'BUL': 'Bulgaria', 'NIR': 'Northern Ireland',
+            'FIN': 'Finland', 'ISL': 'Iceland', 'ALB': 'Albania', 'MKD': 'North Macedonia',
+            'BIH': 'Bosnia and Herzegovina', 'MNE': 'Montenegro', 'KVX': 'Kosovo'
+        };
+        
+        // Reverse mapping (full name to code)
+        const countryNameToCode = {};
+        for (let code in countryCodeMap) {
+            countryNameToCode[countryCodeMap[code]] = code;
+        }
+        
         playerData = data.map(p => {
             // Extract nationality from position string
             let nationality = p.nationality || '';
@@ -2689,6 +2718,11 @@ fetch('complete_player_database.json')
                 if (natMatch) {
                     nationality = natMatch[1].trim();
                 }
+            }
+            
+            // Convert 3-letter code to full name
+            if (nationality && nationality.length === 3 && countryCodeMap[nationality.toUpperCase()]) {
+                nationality = countryCodeMap[nationality.toUpperCase()];
             }
             
             // Extract age from birth date if age is null
