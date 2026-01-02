@@ -2790,14 +2790,16 @@ fetch('complete_player_database.json')
             nationality: p.nat || 'Unknown',
             age: p.age || null,
             club: p.club || 'Unknown',
-            fga_rating: p.fga || null,  // FIXED: Use p.fga not p.fga_rating
+            fga_rating: p.fga || null,
             has_fga_rating: p.rated || false,
             height: p.h || null,
             foot: p.ft || null,
             agent: p.ag || null,
             contract_expires: p.con || null,
             is_eu: p.eu !== undefined ? p.eu : null,
-            tier: p.rated ? 'FGA Rated' : 'Profile'
+            tier: p.rated ? 'FGA Rated' : 'Profile',
+            filename: p.file || null,
+            profileHtml: p.file || null
         }));
         
         console.log('✅ LOADED', playerData.length, 'PLAYERS!');
