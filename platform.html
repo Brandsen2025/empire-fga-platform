@@ -2790,7 +2790,7 @@ fetch('complete_player_database.json')
             nationality: p.nat || 'Unknown',
             age: p.age || null,
             club: p.club || 'Unknown',
-            fga_rating: p.fga_rating || null,
+            fga_rating: p.fga || null,  // FIXED: Use p.fga not p.fga_rating
             has_fga_rating: p.rated || false,
             height: p.h || null,
             foot: p.ft || null,
