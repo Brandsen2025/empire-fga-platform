@@ -3456,6 +3456,11 @@ fetch('complete_player_database.json')
                 renderMarketIntelligence();
             } else if (tabName === 'squad') {
                 initializeSquadBuilder();
+            } else if (tabName === 'rated-players') {
+                // Initialize rated players search
+                if (typeof searchRatedPlayers === 'function') {
+                    setTimeout(() => searchRatedPlayers(), 100);
+                }
             }
         }
         
@@ -3466,7 +3471,9 @@ fetch('complete_player_database.json')
                 'market': 'Market Intelligence',
                 'philosophy': 'Philosophy Heatmap',
                 'squad': 'Squad Builder',
-                'agents': 'Scout Network'
+                'agents': 'Scout Network',
+                'rated-players': 'Rated Players',
+                'rate-new': 'Rate New Player'
             };
             return labels[tabName] || '';
         }
