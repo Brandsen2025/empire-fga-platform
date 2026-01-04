@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Login | Empire FGA Scouting Network</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+        * { font-family: 'Inter', sans-serif; }
+        .login-box {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.95) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        .input-field {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            transition: all 0.3s ease;
+        }
+        .input-field:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+            outline: none;
+        }
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-white min-h-screen flex items-center justify-center bg-grid relative overflow-hidden">
+
+    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 via-cyan-400 to-blue-600"></div>
+    
+    <div class="w-full max-w-md p-6 relative z-10">
+        <div class="login-box rounded-2xl p-8">
+            <div class="text-center mb-8">
+                <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" 
+                     alt="Empire FGA" class="h-16 w-auto mx-auto mb-4">
+                <h1 class="text-2xl font-bold text-white mb-2">Secure Client Portal</h1>
+                <p class="text-slate-400 text-sm">Enter your agency or club credentials.</p>
+            </div>
+
+            <form id="loginForm" onsubmit="handleLogin(event)">
+                <div class="space-y-5">
+                    <div>
+                        <label class="block text-sm font-medium text-slate-300 mb-2">Client ID / Username</label>
+                        <input type="text" id="username" class="input-field w-full pl-4 pr-4 py-3 rounded-lg text-white" placeholder="e.g. brandsen" required autofocus>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-slate-300 mb-2">Access Code</label>
+                        <input type="password" id="password" class="input-field w-full pl-4 pr-4 py-3 rounded-lg text-white" placeholder="••••••••" required>
+                    </div>
+
+                    <div id="errorMessage" class="hidden p-3 bg-red-500/10 border border-red-500/20 rounded-lg text-red-400 text-sm text-center">
+                        <i class="fas fa-circle-exclamation mr-2"></i> Invalid credentials.
+                    </div>
+
+                    <button type="submit" id="loginBtn" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-4 rounded-lg transition-all">
+                        <span>Authenticate</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const CREDENTIALS = {
+            // Brandsen Sports Agency (NEW)
+            'brandsen': {
+                pass: 'brandsen2025',
+                redirect: 'brandsen_dashboard.html',
+                name: 'Brandsen Sports Agency'
+            },
+            
+            // Existing Clients
+            'firstwave': { pass: 'stefani2025', redirect: 'stefani_miglioranzi_dashboard.html', name: 'First Wave Sports' },
+            'prosport': { pass: 'kevin2025', redirect: 'kevin_weinress_dashboard.html', name: 'Prosport Management' },
+            'bks': { pass: 'kamel2025', redirect: 'platform.html', name: 'BKS Consulting' },
+            'myg': { pass: 'guillaume2025', redirect: 'guillaume_rippert_dashboard.html', name: 'MYG Invest' },
+            
+            // Demo
+            'demo': { pass: 'demo2025', redirect: 'platform.html', name: 'Demo User' }
+        };
+
+        function handleLogin(e) {
+            e.preventDefault();
+            const userIn = document.getElementById('username').value.trim().toLowerCase();
+            const passIn = document.getElementById('password').value;
+            const errorMsg = document.getElementById('errorMessage');
+            const loginBtn = document.getElementById('loginBtn');
+
+            errorMsg.classList.add('hidden');
+            loginBtn.querySelector('span').innerText = 'Verifying...';
+
+            setTimeout(() => {
+                if (CREDENTIALS[userIn] && CREDENTIALS[userIn].pass === passIn) {
+                    const userData = CREDENTIALS[userIn];
+                    localStorage.setItem('empire_user', JSON.stringify({
+                        username: userIn, name: userData.name, loginTime: new Date().toISOString()
+                    }));
+                    window.location.href = userData.redirect;
+                } else {
+                    errorMsg.classList.remove('hidden');
+                    document.getElementById('password').value = '';
+                    loginBtn.querySelector('span').innerText = 'Authenticate';
+                }
+            }, 800);
+        }
+    </script>
+</body>
+</html>

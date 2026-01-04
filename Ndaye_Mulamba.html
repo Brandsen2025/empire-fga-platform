@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ndaye Mulamba — Empire FGA Heritage Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg: #071122;
+            --card: #0b1624;
+            --white: #f0f6fc;
+            --muted: #8b949e;
+            --accent1: #0b5bb0;
+            --accent2: #ffd24d;
+            --success: #238636;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background:
+                radial-gradient(900px 500px at 8% 12%, rgba(11, 91, 176, 0.08), transparent 15%),
+                radial-gradient(800px 400px at 92% 88%, rgba(255, 210, 77, 0.05), transparent 10%),
+                var(--bg);
+            color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+
+        header {
+            max-width: 1300px;
+            margin: 20px auto;
+            padding: 0 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header img {
+            height: 52px;
+            object-fit: contain;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-title {
+            font-size: 22px;
+            font-weight: 900;
+            color: var(--accent2);
+            letter-spacing: -0.5px;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 20px auto;
+            padding: 22px;
+            display: grid;
+            grid-template-columns: 380px 1fr;
+            gap: 28px;
+        }
+
+        .card {
+            background: var(--card);
+            padding: 24px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            margin-bottom: 24px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .photo {
+            width: 100%;
+            height: 540px;
+            object-fit: cover;
+            object-position: center 10%;
+            border-radius: 12px;
+            border: 3px solid var(--accent2);
+            background: #0b1624;
+            margin-bottom: 20px;
+        }
+
+        .title {
+            font-size: 38px;
+            font-weight: 950;
+            margin-bottom: 6px;
+            color: var(--white);
+            letter-spacing: -1px;
+        }
+
+        .sub {
+            color: var(--accent2);
+            margin-bottom: 12px;
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .pill {
+            display: inline-block;
+            background: rgba(11, 91, 176, 0.15);
+            padding: 8px 16px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--white);
+            margin: 6px 8px 6px 0;
+            border: 1px solid rgba(255, 210, 77, 0.2);
+        }
+
+        .rating-badge {
+            position: absolute;
+            right: 24px;
+            top: 24px;
+            background: linear-gradient(135deg, #ffd24d 0%, #0b5bb0 100%);
+            color: #071122;
+            font-weight: 950;
+            padding: 15px 22px;
+            border-radius: 18px;
+            font-size: 32px;
+            box-shadow: 0 15px 45px rgba(11, 91, 176, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding-bottom: 12px;
+        }
+
+        .section-header h2 {
+            font-size: 26px;
+            font-weight: 900;
+            color: var(--white);
+        }
+
+        .section-header .icon {
+            font-size: 24px;
+        }
+
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .metric-item {
+            margin-bottom: 10px;
+        }
+
+        .metric-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .metric-name {
+            font-weight: 700;
+            color: var(--white);
+            font-size: 14px;
+        }
+
+        .metric-score {
+            color: var(--accent2);
+            font-weight: 900;
+            font-size: 16px;
+        }
+
+        .metric-bar {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .metric-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent1) 0%, var(--accent2) 100%);
+            border-radius: 4px;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px dotted rgba(255, 255, 255, 0.08);
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .info-value {
+            color: var(--white);
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .lead-text {
+            font-size: 17px;
+            color: var(--white);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .muted-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 18px;
+            border-radius: 12px;
+            color: var(--muted);
+            font-size: 15px;
+        }
+
+        .highlight-text {
+            color: var(--accent2);
+            font-weight: 800;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th,
+        td {
+            padding: 14px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 14px;
+        }
+
+        th {
+            background: rgba(11, 91, 176, 0.1);
+            color: var(--accent2);
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        .stat-badge {
+            background: var(--accent1);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-weight: 800;
+            font-size: 12px;
+        }
+
+        .timeline-item {
+            padding: 18px;
+            border-left: 4px solid var(--accent2);
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .timeline-date {
+            font-weight: 900;
+            color: var(--accent2);
+            font-size: 14px;
+            margin-bottom: 6px;
+        }
+
+        .video-container {
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            aspect-ratio: 16/9;
+            background: #000;
+            border: 1px solid rgba(255, 210, 77, 0.2);
+            margin-top: 15px;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .chemistry-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .chemistry-item {
+            text-align: center;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .chemistry-name {
+            font-weight: 800;
+            color: var(--white);
+            font-size: 13px;
+        }
+
+        .chemistry-level {
+            font-size: 11px;
+            color: var(--accent2);
+            text-transform: uppercase;
+            font-weight: 900;
+            background: rgba(255, 210, 77, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-top: 5px;
+            display: inline-block;
+        }
+
+        .visual-canvas {
+            height: 480px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        footer {
+            max-width: 1300px;
+            margin: 40px auto 20px;
+            padding: 40px 22px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        @media (max-width: 1024px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .photo {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-left">
+            <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ"
+                alt="Empire Scouting Network">
+            <div class="header-title">EMPIRE FGA SCOUTING NETWORK</div>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- Sidebar -->
+        <aside>
+            <div class="card">
+                <div class="rating-badge">94.8</div>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXTo49ozVqegzsgXOsFS5TebroPaonDLLXnA&s"
+                    alt="Ndaye Mulamba" class="photo">
+                <div class="title">Ndaye Mulamba</div>
+                <div class="sub">The Record Breaker</div>
+
+                <div class="section-header" style="margin-top: 20px;">
+                    <h2>Biographic Stats</h2>
+                </div>
+                <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">Pierre Ndaye
+                        Mulamba</span></div>
+                <div class="info-row"><span class="info-label">Birth Date</span><span class="info-value">Nov 4,
+                        1948</span></div>
+                <div class="info-row"><span class="info-label">Nickname</span><span class="info-value">Mutumbula
+                        (Assassin)</span></div>
+                <div class="info-row"><span class="info-label">Height</span><span class="info-value">1.78m</span></div>
+                <div class="info-row"><span class="info-label">Position</span><span class="info-value">Forward / Inside
+                        Right</span></div>
+                <div class="info-row"><span class="info-label">Foot</span><span class="info-value">Right (Elite)</span>
+                </div>
+                <div class="info-row"><span class="info-label">Heritage Status</span><span
+                        class="info-value">Continental Legend</span></div>
+                <div class="info-row"><span class="info-label">Primary Club</span><span class="info-value">AS Vita
+                        Club</span></div>
+            </div>
+
+            <div class="card">
+                <div class="section-header">
+                    <h2>Legacy Record</h2>
+                </div>
+                <div class="info-row"><span class="info-label">AFCON Goals (1974)</span><span
+                        class="stat-badge">9</span></div>
+                <div class="info-row"><span class="info-label">AFCON Titles</span><span class="info-value">1
+                        (1974)</span></div>
+                <div class="info-row"><span class="info-label">World Cup Apps</span><span class="info-value">1974
+                        Captain</span></div>
+                <div class="info-row"><span class="info-label">African Cup (Club)</span><span class="info-value">Winner
+                        1973</span></div>
+                <div class="info-row"><span class="info-label">Vita Club Goals</span><span class="info-value">116</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main>
+
+            <!-- 1. Global Impact Analysis -->
+            <div class="card">
+                <div class="section-header">
+                    <span class="icon">🌍</span>
+                    <h2>Global Impact Analysis</h2>
+                </div>
+                <p class="lead-text">
+                    Ndaye Mulamba remains the standard-bearer for offensive efficiency in African football history. His
+                    1974 African Cup of Nations campaign, where he scored <span class="highlight-text">9 goals in a
+                        single tournament</span>, is a record that has withstood the tests of over 50 years. As the
+                    focal point of the legendary Zaire "Leopards," Mulamba combined clinical finishing with a deceptive
+                    physical presence. He was the first sub-Saharan player to truly capture the imagination of global
+                    scouts during the 1974 World Cup qualifiers, defining an era of Zairean dominance.
+                </p>
+                <div class="muted-box">
+                    <span class="highlight-text">Heritage Verdict:</span> An "Elite Predator." His movement in the final
+                    third was revolutionized for the 70s, pre-empting the modern "Inverted Forward" role. A national
+                    hero twice-over, for club and country.
+                </div>
+            </div>
+
+            <!-- 2. Core FGA Intelligence Metrics -->
+            <div class="card">
+                <div class="section-header">
+                    <span class="icon">📊</span>
+                    <h2>Core FGA Intelligence Metrics</h2>
+                </div>
+
+                <h3>Tier 1: Scoring Instincts (60% Weight)</h3>
+                <div class="metric-grid" style="margin-top: 15px;">
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">FIN (Finishing)</span><span
+                                class="metric-score">9.9</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width: 99%"></div>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">POS (Attacking Positioning)</span><span
+                                class="metric-score">9.7</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width: 97%"></div>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">CLU (Clutch Factor)</span><span
+                                class="metric-score">9.8</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width: 98%"></div>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">SPD (Sprinting Velocity)</span><span
+                                class="metric-score">8.9</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width: 89%"></div>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">AMB (Ambidexterity)</span><span
+                                class="metric-score">8.5</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">DRI (Tight Control)</span><span
+                                class="metric-score">9.2</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width: 92%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 25px;">Tier 2: Leadership & Tactical Presence (30% Weight)</h3>
+                <div class="metric-grid" style="margin-top: 15px;">
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">LEA (Captaincy/Influence)</span><span
+                                class="metric-score">9.6</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width: 96%"></div>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">WRK (Offensive Workrate)</span><span
+                                class="metric-score">8.8</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width: 88%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. 60-Philosophy Framework Analysis -->
+            <div class="card">
+                <div class="section-header">
+                    <span class="icon">🧠</span>
+                    <h2>60-Philosophy Framework Analysis</h2>
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <span class="pill">Cruyff Score: 9.7/10</span>
+                    <span class="pill">Ferguson Score: 9.5/10</span>
+                    <span class="pill">Simeone Score: 9.4/10</span>
+                </div>
+                <div class="muted-box">
+                    Mulamba possessed the "Cruyffian Intelligence"—a player who understood space and timing like a total
+                    footballer. His ability to stay at the clinical peak for over a decade aligns with the "Ferguson
+                    Longevity" doctrine, while his grit during the 1974 World Cup chaos mirrored the "Simeone Grinta."
+                </div>
+            </div>
+
+            <!-- 4. Psychological Profile & Personality -->
+            <div class="card">
+                <div class="section-header">
+                    <span class="icon">🧪</span>
+                    <h2>Psychological Profile & Personality</h2>
+                </div>
+                <div class="two-col">
+                    <div>
+                        <div class="info-row"><span class="info-label">Mental Toughness</span><span
+                                class="info-value">Elite</span></div>
+                        <div class="info-row"><span class="info-label">Big Game Mentality</span><span
+                                class="info-value">Absolute</span></div>
+                        <div class="metric-item" style="margin-top: 15px;">
+                            <div class="metric-header"><span class="metric-name">Drive to Win</span><span
+                                    class="metric-score">9.9</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 99%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="small" style="padding-left: 20px;">
+                        Known for his quiet but lethal focus. Mulamba didn't need many touches to influence a game. He
+                        possessed a "Predator Mindset"—conserving energy for the decisive moments. His leadership during
+                        the 1974 bonus disputes showed a player deeply committed to the fairness and dignity of his
+                        teammates.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 5. Key Relationships & Dynamics -->
+            <div class="card">
+                <div class="section-header">
+                    <span class="icon">🤝</span>
+                    <h2>Key Relationships & Dynamics</h2>
+                </div>
+                <div class="chemistry-grid">
+                    <div class="chemistry-item">
+                        <div class="chemistry-name">Kazadi Muamba</div>
+                        <div class="chemistry-level">Defensive Trust</div>
+                    </div>
+                    <div class="chemistry-item">
+                        <div class="chemistry-name">Mwepu Ilunga</div>
+                        <div class="chemistry-level">Tactical Support</div>
+                    </div>
+                    <div class="chemistry-item">
+                        <div class="chemistry-name">Blagoje Vidinić</div>
+                        <div class="chemistry-level">Teacher/Coach</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. Complete Career Statistics -->
+            <div class="card">
+                <div class="section-header">
+                    <span class="icon">📈</span>
+                    <h2>Detailed Career History</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Period</th>
+                                <th>Club</th>
+                                <th>Apps</th>
+                                <th>Goals</th>
+                                <th>Major Achievement</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1972-1988</td>
+                                <td>AS Vita Club</td>
+                                <td>224</td>
+                                <td>116</td>
+                                <td>Champions Cup '73</td>
+                            </tr>
+                            <tr>
+                                <td>1974 (Int)</td>
+                                <td>Zaire National</td>
+                                <td>AFCON</td>
+                                <td>9</td>
+                                <td>Tournament Record</td>
+                            </tr>
+                            <tr>
+                                <td>1971-1972</td>
+                                <td>AS Bantous</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>Emergence</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- 7. Key Matches & Milestones -->
+                <div class="card">
+                    <div class="section-header">
+                        <span class="icon">⚡</span>
+                        <h2>Key Matches & Milestones</h2>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">March 14, 1974 | AFCON Final Replay</div>
+                        <p class="small">Scored twice in the replay against Zambia to secure Zaire's second AFCON title.
+                        </p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">June 14, 1974 | World Cup Debut</div>
+                        <p class="small">Captained Zaire in their historic first match against Scotland in West Germany.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 8. Video Intelligence / Highlights -->
+                <div class="card">
+                    <div class="section-header">
+                        <span class="icon">📹</span>
+                        <h2>Video Intelligence</h2>
+                    </div>
+                    <p class="small">Archival footage analysis of the "Assassin's" movement. Watch the Zaire '74
+                        highlights below.</p>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/SOmvWkC5_g8" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <!-- 9. Player Comparison -->
+                <div class="card">
+                    <div class="section-header">
+                        <span class="icon">📊</span>
+                        <h2>Heritage Comparison</h2>
+                    </div>
+                    <div class="visual-canvas">
+                        <canvas id="radarChart"></canvas>
+                    </div>
+                    <p class="small" style="text-align: center; margin-top: 15px;">
+                        Comparing Ndaye Mulamba vs <span class="highlight-text">Samuel Eto'o</span> and <span
+                            style="color: red;">Typical 70s African Forwards</span>.
+                    </p>
+                </div>
+
+                <!-- 10. Future Projection / Legacy -->
+                <div class="card">
+                    <div class="section-header">
+                        <span class="icon">🚀</span>
+                        <h2>Legacy Projection</h2>
+                    </div>
+                    <div class="two-col">
+                        <div>
+                            <div class="info-row"><span class="info-label">Heritage Index</span><span
+                                    class="stat-badge">99.1</span></div>
+                            <div class="info-row"><span class="info-label">Stat Standing</span><span
+                                    class="info-value">All-Time AFCON King</span></div>
+                        </div>
+                        <p class="small" style="padding-left: 20px;">
+                            Mulamba's legacy is immortalized by his single-tournament goal record. He proved that
+                            African strikers could compete at the highest technical levels of the global game. His name
+                            is synonymous with the Golden Age of Congolese football.
+                        </p>
+                    </div>
+                </div>
+
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Empire FGA Scouting Network. Heritage Division Archive.</p>
+        <p style="margin-top: 8px; opacity: 0.6;">African Greatness • Historical Performance • Zaire 1974</p>
+    </footer>
+
+    <script>
+        const ctx = document.getElementById('radarChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['Finishing', 'Positioning', 'Vision', 'Leadership', 'Consistency', 'Speed', 'Technique', 'Pressure Res.'],
+                datasets: [{
+                    label: 'Ndaye Mulamba (Peak)',
+                    data: [9.9, 9.7, 8.8, 9.6, 9.4, 8.9, 9.2, 9.8],
+                    borderColor: '#ffd24d',
+                    backgroundColor: 'rgba(255, 210, 77, 0.15)',
+                    borderWidth: 4,
+                    pointBackgroundColor: '#ffd24d'
+                }, {
+                    label: 'Samuel Eto\'o (Reference)',
+                    data: [9.8, 9.6, 8.5, 9.0, 9.5, 9.7, 9.0, 9.4],
+                    borderColor: '#ffffff',
+                    backgroundColor: 'transparent',
+                    borderWidth: 2,
+                    borderDash: [5, 5]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        max: 10,
+                        ticks: { stepSize: 2, display: false },
+                        grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                        angleLines: { color: 'rgba(255, 255, 255, 0.1)' },
+                        pointLabels: { color: '#f0f6fc', font: { size: 12, weight: '700' } }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: { color: '#f0f6fc', font: { weight: '800' } }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

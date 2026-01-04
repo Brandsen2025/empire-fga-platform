@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anan Khalaili — Empire FGA Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg: #0b121e;
+            --card: #151c2c;
+            --white: #f0f6fc;
+            --muted: #9e9ea5;
+            --union-yellow: #ffde00;
+            --union-blue: #003399;
+            --accent1: #ffde00;
+            --accent2: #003399;
+            --accent3: #9e9ea5
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(circle at 10% 20%, rgba(255, 222, 0, 0.05), transparent 25%), var(--bg);
+            color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            font-family: 'Inter', sans-serif
+        }
+
+        header {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 0 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        header img {
+            height: 50px;
+            object-fit: contain
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+        .header-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--white);
+            letter-spacing: -0.5px
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 22px;
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 26px
+        }
+
+        .card {
+            background: var(--card);
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            position: relative;
+            margin-bottom: 18px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2)
+        }
+
+        .photo {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+            object-position: center 10%;
+            border-radius: 10px;
+            border: 3px solid var(--union-yellow);
+            background: #111
+        }
+
+        .title {
+            font-size: 34px;
+            font-weight: 900;
+            margin: 14px 0;
+            color: var(--white)
+        }
+
+        .sub {
+            color: var(--muted);
+            margin-bottom: 10px;
+            font-size: 14px
+        }
+
+        .pill {
+            display: inline-block;
+            background: rgba(255, 222, 0, 0.1);
+            padding: 7px 12px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--white);
+            margin: 6px 8px 6px 0;
+            border: 1px solid rgba(255, 222, 0, 0.3)
+        }
+
+        .pill.gold {
+            background: linear-gradient(135deg, #ffd70033, #ffd70011);
+            border-color: #ffd70055;
+            color: #ffd700;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+            color: var(--white);
+            font-size: 14px
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            vertical-align: top;
+            text-align: left
+        }
+
+        th {
+            background: linear-gradient(90deg, var(--union-blue), #1a1a1a);
+            font-weight: 800;
+            color: var(--white);
+            text-transform: uppercase;
+            font-size: 12px
+        }
+
+        .rating-badge {
+            position: absolute;
+            right: 18px;
+            top: 18px;
+            background: linear-gradient(135deg, #ffde00, #ffffff);
+            color: #000000;
+            font-weight: 900;
+            padding: 12px 18px;
+            border-radius: 16px;
+            font-size: 26px;
+            box-shadow: 0 10px 30px rgba(255, 222, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1)
+        }
+
+        .section {
+            margin-top: 18px
+        }
+
+        .section h2 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--union-yellow);
+            margin-bottom: 16px
+        }
+
+        .section h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--muted);
+            margin: 16px 0 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px
+        }
+
+        .small {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6
+        }
+
+        .lead {
+            color: var(--white);
+            font-size: 16px;
+            line-height: 1.5
+        }
+
+        .visual-canvas {
+            background: transparent;
+            border-radius: 8px;
+            padding: 12px;
+            height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed rgba(255, 255, 255, 0.1)
+        }
+
+        .muted-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 8px;
+            color: var(--muted)
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06)
+        }
+
+        .info-row:last-child {
+            border-bottom: none
+        }
+
+        .info-label {
+            color: var(--muted);
+            font-size: 14px
+        }
+
+        .info-value {
+            color: var(--white);
+            font-weight: 600;
+            font-size: 14px
+        }
+
+        .metric-item {
+            margin: 14px 0
+        }
+
+        .metric-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px
+        }
+
+        .metric-name {
+            font-weight: 600;
+            color: var(--muted);
+            font-size: 13px;
+            font-family: monospace
+        }
+
+        .metric-score {
+            color: var(--white);
+            font-weight: 800;
+            font-size: 15px
+        }
+
+        .metric-bar {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 3px;
+            overflow: hidden
+        }
+
+        .metric-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ffde00 0%, #9e9ea5 100%);
+            border-radius: 3px
+        }
+
+        .metric-fill.tier3 {
+            background: linear-gradient(90deg, #ffffff 0%, #e0e0e0 100%)
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .video-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #003399, #151c2c);
+            color: var(--white);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px
+        }
+
+        @media(max-width:980px) {
+            .container {
+                grid-template-columns: 1fr
+            }
+
+            .photo {
+                height: 320px
+            }
+
+            .visual-canvas {
+                height: auto
+            }
+
+            .two-col {
+                grid-template-columns: 1fr
+            }
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+            gap: 10px;
+            margin-top: 10px
+        }
+
+        .form-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center
+        }
+
+        .form-rating {
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--accent1);
+            margin-bottom: 4px
+        }
+
+        .form-opponent {
+            font-size: 10px;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px
+        }
+
+        .form-stats {
+            font-size: 9px;
+            color: var(--white);
+            margin-top: 4px
+        }
+
+        .moments-list {
+            margin-top: 10px
+        }
+
+        .moment-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05)
+        }
+
+        .moment-item:last-child {
+            border-bottom: none
+        }
+
+        .moment-year {
+            font-weight: 800;
+            color: var(--accent1);
+            font-size: 14px;
+            min-width: 45px
+        }
+
+        .moment-desc {
+            font-size: 13px;
+            color: var(--white);
+            line-height: 1.4
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ"
+                alt="Empire Scouting Network">
+            <div class="header-title">EMPIRE FGA SCOUTING NETWORK</div>
+        </div>
+        <div
+            style="font-size:12px; color:var(--union-yellow); font-weight:700; border:1px solid var(--union-yellow); padding:5px 10px; border-radius:4px;">
+            FGA SYSTEM v2.1</div>
+    </header>
+    <div class="container">
+        <div>
+            <div class="card">
+                <img src="https://theisraelproject.org/wp-content/uploads/2024/05/Anan_Khalaili.jpg" alt="Anan Khalaili"
+                    class="photo">
+                <div class="title">Anan Khalaili</div>
+                <div class="sub">The Explosive Architect • Union SG • RW</div>
+                <div class="rating-badge">85.4</div>
+                <div class="section">
+                    <div class="stat-box"><span class="stat-value">🇮🇱 Israel</span><span class="stat-label">Born 2004
+                            • Age: 21 • Height: 1.83m • Elite Athleticism • Creative Inside Forward</span></div>
+                </div>
+                <div class="section">
+                    <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">Anan
+                            Khalaili</span></div>
+                    <div class="info-row"><span class="info-label">Club</span><span class="info-value">Union SG</span>
+                    </div>
+                    <div class="info-row"><span class="info-label">Position</span><span class="info-value">RW / LW /
+                            ST</span></div>
+                    <div class="info-row"><span class="info-label">Primary Foot</span><span
+                            class="info-value">Right</span></div>
+                    <div class="info-row"><span class="info-label">International</span><span class="info-value">Israel
+                            (Senior)</span></div>
+                </div>
+                <div class="section">
+                    <h3>Market Context</h3>
+                    <div class="info-row"><span class="info-label">Market Value</span><span
+                            class="info-value">€12.0M</span></div>
+                    <div class="info-row"><span class="info-label">Contract To</span><span class="info-value">Jun
+                            2028</span></div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="card">
+                <h2>🌍 Global Impact Analysis</h2>
+                <p class="lead">Anan Khalaili has rapidly emerged as one of the most **electrifying youth prospects** in
+                    European football. His move to **Union SG** marks the next stage of his development as a high-volume
+                    attacking architect who combines world-class explosive acceleration (9.4 PAC) with technical
+                    sophistication (8.9 DRI). Khalaili is not a traditional touchline winger; he excels as an
+                    'Architect' who drifts into half-spaces to create high-probability scoring chances (9.1 CRE). His
+                    performances for Israel at the U20 World Cup and senior level have demonstrated a temperament for
+                    big-game scenarios and elite physical durability (8.8 STA). Tactically, he is the perfect fit for
+                    "Dutch School" positional systems that demands high-frequency movement and technical interchange
+                    (9.2 Michels Suitability). While he is naturally right-footed, his ability to cut inside and strike
+                    with precision makes him a dual-threat weapon. For elite clubs looking for a high-ceiling,
+                    multi-functional attacker who can dominate transition phases and break down low blocks, Khalaili
+                    represents a premier investment with massive resale potential.</p>
+                <div class="muted-box"><strong style="color:var(--union-yellow)">Scout Note:</strong> World-class first
+                    step. Elite ball-carrying metrics. Highly versatile positioning. Resale trend positive.
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>📊 Core FGA Intelligence Metrics</h2>
+
+                <h3>Tier 1: Attacking & Physical (Automated)</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">PAC (Pace)</span><span
+                                    class="metric-score">9.4</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:94%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">DRI (Dribbling)</span><span
+                                    class="metric-score">8.9</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:89%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">FIN (Finishing)</span><span
+                                    class="metric-score">8.5</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CRE (Creativity)</span><span
+                                    class="metric-score">9.1</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:91%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">STA (Stamina)</span><span
+                                    class="metric-score">8.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:88%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">OFF (Off ball)</span><span
+                                    class="metric-score">8.7</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:87%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Tier 2: Psychological & Mental</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">ANT (Anticipation)</span><span
+                                    class="metric-score">8.6</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:86%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">DET (Determination)</span><span
+                                    class="metric-score">9.0</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CPX (Composure)</span><span
+                                    class="metric-score">8.4</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:84%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">AGG (Intensity)</span><span
+                                    class="metric-score">8.5</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width:85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Tier 3: Scout Assessment (FGA Standard)</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">POT (Potential)</span><span
+                                    class="metric-score" style="color:var(--white)">9.3</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill tier3" style="width:93%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">IQ (Tactical IQ)</span><span
+                                    class="metric-score" style="color:var(--white)">8.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill tier3" style="width:88%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">REL (Reliability)</span><span
+                                    class="metric-score" style="color:var(--white)">8.4</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill tier3" style="width:84%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">VAL (Value Trend)</span><span
+                                    class="metric-score" style="color:var(--white)">9.5</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill tier3" style="width:95%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>🧠 60-Philosophy Framework Analysis</h2>
+                <h3>System Suitability (Ultimate Framework)</h3>
+                <div>
+                    <span class="pill gold">Michels Total (QP1) 9.2</span>
+                    <span class="pill gold">Cruyff Inside (RF1) 9.0</span>
+                    <span class="pill">Guardiola Positional (QU1) 8.9</span>
+                    <span class="pill">Klopp Transition (HS1) 8.7</span>
+                </div>
+                <div class="muted-box" style="margin-top:14px;"><strong>Empire FGA Ultimate Integration:</strong>
+                    <div style="display: flex; justify-content: space-between; margin-top: 8px;">
+                        <span>Ultimate 60-Philosophy FGA (HS1): <strong>9.1</strong></span>
+                        <span>Empire Master Rating (IM1): <strong>85.4</strong></span>
+                    </div>
+                </div>
+                <div class="muted-box" style="margin-top:14px;"><strong>Primary DNA:</strong> Dutch School Total (Fluid
+                    technical creativity & positional intelligence).
+                    <strong>Secondary:</strong> Argentine School Dynamic (High-intensity athleticism & explosive
+                    verticality).
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>📈 Career Statistics</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Season</th>
+                            <th>Club</th>
+                            <th>League</th>
+                            <th>Apps</th>
+                            <th>G</th>
+                            <th>A</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2025/26</td>
+                            <td>Union SG</td>
+                            <td>Pro League</td>
+                            <td>20</td>
+                            <td>2</td>
+                            <td>8</td>
+                        </tr>
+                        <tr>
+                            <td>2024/25</td>
+                            <td>Union SG</td>
+                            <td>Pro League</td>
+                            <td>34</td>
+                            <td>4</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td>2023/24</td>
+                            <td>Maccabi Haifa</td>
+                            <td>Ligat ha'Al</td>
+                            <td>31</td>
+                            <td>8</td>
+                            <td>6</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h2>🔥 Recent Form (Last 5 Matches)</h2>
+                <div class="form-grid">
+                    <div class="form-item">
+                        <div class="form-rating">7.5</div>
+                        <div class="form-opponent">vs Zulte Waregem</div>
+                        <div class="form-stats">90' • 2 K-PAS • 3 DRI</div>
+                    </div>
+                    <div class="form-item">
+                        <div class="form-rating">6.7</div>
+                        <div class="form-opponent">vs Charleroi</div>
+                        <div class="form-stats">85' • 1 SH • 80% PAS</div>
+                    </div>
+                    <div class="form-item">
+                        <div class="form-rating">8.8</div>
+                        <div class="form-opponent">vs Marseille (UCL)</div>
+                        <div class="form-stats">90' • 1 G • 1 A • 5 KP</div>
+                    </div>
+                    <div class="form-item">
+                        <div class="form-rating">6.9</div>
+                        <div class="form-opponent">vs KAA Gent</div>
+                        <div class="form-stats">72' • 2 DRI • 1 TC</div>
+                    </div>
+                    <div class="form-item">
+                        <div class="form-rating">7.2</div>
+                        <div class="form-opponent">vs Anderlecht</div>
+                        <div class="form-stats">90' • 1 G-CRE • 4 REC</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>🏆 Key Career Moments & Iconic Matches</h2>
+                <div class="moments-list">
+                    <div class="moment-item">
+                        <div class="moment-year">2025</div>
+                        <div class="moment-desc"><strong>Iconic Match: USG vs Marseille</strong> - Delivered a
+                            world-class UCL performance with a goal and assist.</div>
+                    </div>
+                    <div class="moment-item">
+                        <div class="moment-year">2024</div>
+                        <div class="moment-desc"><strong>Belgian Super Cup Win</strong> - Won his first major European
+                            trophy on his debut.</div>
+                    </div>
+                    <div class="moment-item">
+                        <div class="moment-year">2023</div>
+                        <div class="moment-desc"><strong>U20 World Cup Heroics</strong> - Scored the game-winner against
+                            Uzbekistan to lead Israel to 3rd place.</div>
+                    </div>
+                    <div class="moment-item">
+                        <div class="moment-year">2022</div>
+                        <div class="moment-desc"><strong>Maccabi Haifa Debut</strong> - Breakthrough into the senior
+                            team as the most anticipated academy graduate.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>📊 Player Comparison (vs Elite Wingers)</h2>
+                <div class="visual-canvas"><canvas id="radarChart"></canvas></div>
+                <div class="muted-box" style="margin-top:14px;"><strong>Metric Benchmarks:</strong> Arda Güler
+                    (Technical ref), Leroy Sané (Explosive ref), Bukayo Saka (Efficiency ref).</div>
+            </div>
+
+            <div class="card">
+                <h2>🎯 Scout's Final Verdict</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Elite Attributes</h3>
+                        <div class="pill gold">Pace (9.4)</div>
+                        <div class="pill gold">Potential (9.3)</div>
+                        <div class="pill">Creativity (9.1)</div>
+                        <div class="pill">Determination (9.0)</div>
+                        <div class="pill">Value Trend (9.5)</div>
+                    </div>
+                    <div>
+                        <h3>Summary</h3>
+                        <p class="small"><strong>VERDICT: THE GENERATIONAL ARCHITECT (Rating: 85.4)</strong><br><br>
+                            Anan Khalaili (85.4) is a rare blend of **elite raw athleticism** and **mature tactical
+                            intelligence**. His potential (9.3) is among the highest for his age group in Europe today.
+                            At Union SG, he is projected to become the definitive offensive hub, mirroring the
+                            trajectory of top-tier 'Architect' wingers like Bukayo Saka or Arda Güler. His value trend
+                            (9.5) reflects the heavy interest from top-tier CL clubs who recognize his unique ability to
+                            dismantle high-pressure blocks. While his defensive work rate is still developing, his sheer
+                            gravitational pull in the final third makes him a foundational piece for any elite technical
+                            project. A future €50M+ star.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const ctx = document.getElementById('radarChart').getContext('2d'); new Chart(ctx, { type: 'radar', data: { labels: ['Pace', 'Dribbling', 'Creativity', 'Finishing', 'Stamina', 'Anticipation', 'Determination', 'Tactical IQ'], datasets: [{ label: 'Anan Khalaili (2025)', data: [9.4, 8.9, 9.1, 8.5, 8.8, 8.6, 9.0, 8.8], borderColor: '#ffde00', backgroundColor: 'rgba(255, 222, 0, 0.2)', borderWidth: 3, pointBackgroundColor: '#ffde00', pointBorderColor: '#fff', pointRadius: 5 }, { label: 'Arda Güler', data: [8.2, 9.6, 9.8, 8.8, 8.0, 9.4, 9.2, 9.8], borderColor: '#f44336', backgroundColor: 'transparent', borderWidth: 2, borderDash: [3, 3], pointRadius: 3 }, { label: 'Leroy Sané', data: [9.8, 9.2, 8.5, 8.2, 8.4, 8.2, 8.0, 8.4], borderColor: '#4caf50', backgroundColor: 'transparent', borderWidth: 2, borderDash: [3, 3], pointRadius: 3 }, { label: 'Bukayo Saka', data: [8.8, 9.0, 9.4, 9.2, 9.2, 9.4, 9.6, 9.5], borderColor: '#003399', backgroundColor: 'transparent', borderWidth: 2, borderDash: [3, 3], pointRadius: 3 }] }, options: { responsive: true, maintainAspectRatio: true, scales: { r: { beginAtZero: true, max: 10, ticks: { display: false, stepSize: 2 }, grid: { color: 'rgba(255,255,255,0.08)' }, pointLabels: { color: '#f0f6fc', font: { size: 12, weight: '600' } } } }, plugins: { legend: { position: 'bottom', labels: { color: '#f0f6fc', font: { size: 13, weight: '600' }, padding: 15, usePointStyle: true } } } } });
+    </script>
+</body>
+
+</html>
