@@ -3262,8 +3262,8 @@ fetch('complete_player_database.json')
             contract_expires: p.con || null,
             is_eu: p.eu !== undefined ? p.eu : null,
             tier: p.rated ? 'FGA Rated' : 'Profile',
-            filename: p.file || null,
-            profile_html: p.file || null
+            filename: p.file || p.profile_html || null,
+            profile_html: p.profile_html || p.file || null
         }));
         
         console.log('✅ LOADED', playerData.length, 'PLAYERS!');
