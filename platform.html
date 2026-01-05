@@ -9336,10 +9336,24 @@ async function exportPlayerProfile(playerName) {
                     tierBg = 'background: linear-gradient(135deg, #a78bfa, #8b5cf6);';
                 }
 
+                // Image avatar code
+                const imageUrl = p.image_url || (p.player_id ? `https://img.a.transfermarkt.technology/portrait/big/${p.player_id}.jpg` : null);
+                const nameParts = (p.name || '').trim().split(' ').filter(part => part.length > 0);
+                const initials = nameParts.length === 0 ? '⚽' : 
+                                nameParts.length === 1 ? nameParts[0].substring(0, 2).toUpperCase() :
+                                (nameParts[0][0] + nameParts[nameParts.length - 1][0]).toUpperCase();
+                
+                let avatarHtml;
+                if (imageUrl && imageUrl !== 'null') {
+                    avatarHtml = `<img src="${imageUrl}" alt="${p.name}" style="width:40px;height:40px;border-radius:50%;object-fit:cover;margin-right:10px;" onerror="this.style.display='none';" loading="lazy" />`;
+                } else {
+                    avatarHtml = `<div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#3b82f6,#1d4ed8);display:inline-flex;align-items:center;justify-content:center;font-weight:bold;font-size:14px;margin-right:10px;">${initials}</div>`;
+                }
+
                 return `
                     <tr class="border-t border-slate-700 hover:bg-blue-900/10 transition">
                         <td class="px-4 py-3 text-slate-500 font-semibold">${i + 1}</td>
-                        <td class="px-4 py-3 font-bold text-white">${p.name}</td>
+                        <td class="px-4 py-3 font-bold text-white"><div style="display:flex;align-items:center;">${avatarHtml}<span>${p.name}</span></div></td>
                         <td class="px-4 py-3 text-center">${p.age || 'N/A'}</td>
                         <td class="px-4 py-3 text-center">
                             <span class="px-2 py-1 bg-blue-600/30 rounded text-xs font-bold">${p.position}</span>
