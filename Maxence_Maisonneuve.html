@@ -4,18 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ndaye Mulamba — Empire FGA Heritage Profile</title>
+    <title>Lucy Bronze — Empire FGA Scouting Profile</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         :root {
-            --bg: #071122;
-            --card: #0b1624;
+            --bg: #0b0e14;
+            --card: #151921;
             --white: #f0f6fc;
             --muted: #8b949e;
-            --accent1: #0b5bb0;
-            --accent2: #ffd24d;
+            --accent1: #034694;
+            /* Chelsea Blue */
+            --accent2: #ffffff;
+            --gold: #DBA111;
+            /* Gold */
             --success: #238636;
         }
 
@@ -31,8 +34,8 @@
             margin: 0;
             padding: 0;
             background:
-                radial-gradient(900px 500px at 8% 12%, rgba(11, 91, 176, 0.08), transparent 15%),
-                radial-gradient(800px 400px at 92% 88%, rgba(255, 210, 77, 0.05), transparent 10%),
+                radial-gradient(900px 500px at 8% 12%, rgba(3, 70, 148, 0.15), transparent 15%),
+                radial-gradient(800px 400px at 92% 88%, rgba(219, 161, 17, 0.1), transparent 10%),
                 var(--bg);
             color: var(--white);
             -webkit-font-smoothing: antialiased;
@@ -63,7 +66,7 @@
         .header-title {
             font-size: 22px;
             font-weight: 900;
-            color: var(--accent2);
+            color: var(--gold);
             letter-spacing: -0.5px;
         }
 
@@ -83,17 +86,17 @@
             border: 1px solid rgba(255, 255, 255, 0.05);
             position: relative;
             margin-bottom: 24px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
         }
 
         .photo {
             width: 100%;
             height: 540px;
             object-fit: cover;
-            object-position: center 10%;
+            object-position: center 20%;
             border-radius: 12px;
-            border: 3px solid var(--accent2);
-            background: #0b1624;
+            border: 3px solid var(--accent1);
+            background: #151921;
             margin-bottom: 20px;
         }
 
@@ -106,7 +109,7 @@
         }
 
         .sub {
-            color: var(--accent2);
+            color: var(--gold);
             margin-bottom: 12px;
             font-size: 16px;
             font-weight: 700;
@@ -116,31 +119,32 @@
 
         .pill {
             display: inline-block;
-            background: rgba(11, 91, 176, 0.15);
+            background: rgba(3, 70, 148, 0.2);
             padding: 8px 16px;
             border-radius: 999px;
             font-weight: 700;
             font-size: 13px;
             color: var(--white);
             margin: 6px 8px 6px 0;
-            border: 1px solid rgba(255, 210, 77, 0.2);
+            border: 1px solid rgba(219, 161, 17, 0.2);
         }
 
         .rating-badge {
             position: absolute;
             right: 24px;
             top: 24px;
-            background: linear-gradient(135deg, #ffd24d 0%, #0b5bb0 100%);
-            color: #071122;
+            background: linear-gradient(135deg, #034694 0%, #DBA111 100%);
+            color: #ffffff;
             font-weight: 950;
             padding: 15px 22px;
             border-radius: 18px;
             font-size: 32px;
-            box-shadow: 0 15px 45px rgba(11, 91, 176, 0.3);
+            box-shadow: 0 15px 45px rgba(3, 70, 148, 0.4);
             display: flex;
             align-items: center;
             justify-content: center;
             line-height: 1;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .section-header {
@@ -185,7 +189,7 @@
         }
 
         .metric-score {
-            color: var(--accent2);
+            color: var(--gold);
             font-weight: 900;
             font-size: 16px;
         }
@@ -199,7 +203,7 @@
 
         .metric-fill {
             height: 100%;
-            background: linear-gradient(90deg, var(--accent1) 0%, var(--accent2) 100%);
+            background: linear-gradient(90deg, var(--accent1) 0%, var(--gold) 100%);
             border-radius: 4px;
         }
 
@@ -243,7 +247,7 @@
         }
 
         .highlight-text {
-            color: var(--accent2);
+            color: var(--gold);
             font-weight: 800;
         }
 
@@ -262,8 +266,8 @@
         }
 
         th {
-            background: rgba(11, 91, 176, 0.1);
-            color: var(--accent2);
+            background: rgba(3, 70, 148, 0.1);
+            color: var(--gold);
             font-weight: 900;
             text-transform: uppercase;
             font-size: 12px;
@@ -281,7 +285,7 @@
 
         .timeline-item {
             padding: 18px;
-            border-left: 4px solid var(--accent2);
+            border-left: 4px solid var(--gold);
             background: rgba(255, 255, 255, 0.02);
             border-radius: 8px;
             margin-bottom: 15px;
@@ -289,7 +293,7 @@
 
         .timeline-date {
             font-weight: 900;
-            color: var(--accent2);
+            color: var(--gold);
             font-size: 14px;
             margin-bottom: 6px;
         }
@@ -332,10 +336,10 @@
 
         .chemistry-level {
             font-size: 11px;
-            color: var(--accent2);
+            color: var(--gold);
             text-transform: uppercase;
             font-weight: 900;
-            background: rgba(255, 210, 77, 0.1);
+            background: rgba(219, 161, 17, 0.1);
             padding: 2px 6px;
             border-radius: 4px;
             margin-top: 5px;
@@ -360,13 +364,29 @@
             font-size: 13px;
         }
 
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 20px;
+            align-items: start;
+        }
+
+        .small {
+            font-size: 14px;
+            color: var(--muted);
+        }
+
         @media (max-width: 1024px) {
             .container {
                 grid-template-columns: 1fr;
             }
 
             .photo {
-                height: 400px;
+                height: 450px;
+            }
+
+            .two-col {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -388,45 +408,43 @@
         <aside>
             <div class="card">
                 <div class="rating-badge">95.8</div>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXTo49ozVqegzsgXOsFS5TebroPaonDLLXnA&s"
-                    alt="Ndaye Mulamba" class="photo">
-                <div class="title">Ndaye Mulamba</div>
-                <div class="sub">The Record Breaker</div>
+                <img src="https://ichef.bbci.co.uk/ace/standard/1024/cpsprodpb/9b1a/live/21349fd0-9c48-11ef-9ea5-614305eed3b2.jpg"
+                    alt="Lucy Bronze" class="photo">
+                <div class="title">Lucy Bronze</div>
+                <div class="sub">The Lioness Queen / Bronze</div>
 
                 <div class="section-header" style="margin-top: 20px;">
                     <h2>Biographic Stats</h2>
                 </div>
-                <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">Pierre Ndaye
-                        Mulamba</span></div>
-                <div class="info-row"><span class="info-label">Birth Date</span><span class="info-value">Nov 4,
-                        1948</span></div>
-                <div class="info-row"><span class="info-label">Nickname</span><span class="info-value">Mutumbula
-                        (Assassin)</span></div>
-                <div class="info-row"><span class="info-label">Height</span><span class="info-value">1.78m</span></div>
-                <div class="info-row"><span class="info-label">Position</span><span class="info-value">Forward / Inside
-                        Right</span></div>
-                <div class="info-row"><span class="info-label">Foot</span><span class="info-value">Right (Elite)</span>
-                </div>
-                <div class="info-row"><span class="info-label">Heritage Status</span><span
-                        class="info-value">Continental Legend</span></div>
-                <div class="info-row"><span class="info-label">Primary Club</span><span class="info-value">AS Vita
-                        Club</span></div>
+                <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">Lucia Roberta
+                        Tough Bronze</span></div>
+                <div class="info-row"><span class="info-label">Birth Date</span><span class="info-value">Oct 28,
+                        1991</span></div>
+                <div class="info-row"><span class="info-label">Birthplace</span><span
+                        class="info-value">Berwick-upon-Tweed, England</span></div>
+                <div class="info-row"><span class="info-label">Height</span><span class="info-value">1.72m</span></div>
+                <div class="info-row"><span class="info-label">Position</span><span class="info-value">Right Back /
+                        RWB</span></div>
+                <div class="info-row"><span class="info-label">Foot</span><span class="info-value">Right
+                        (Dominant)</span></div>
+                <div class="info-row"><span class="info-label">Current Club</span><span class="info-value">Chelsea FC
+                        Women</span></div>
+                <div class="info-row"><span class="info-label">National Caps</span><span class="info-value">120+
+                        (England)</span></div>
             </div>
 
             <div class="card">
                 <div class="section-header">
                     <h2>Legacy Record</h2>
                 </div>
-                <div class="info-row"><span class="info-label">AFCON Goals (1974)</span><span
-                        class="stat-badge">9</span></div>
-                <div class="info-row"><span class="info-label">AFCON Titles</span><span class="info-value">1
-                        (1974)</span></div>
-                <div class="info-row"><span class="info-label">World Cup Apps</span><span class="info-value">1974
-                        Captain</span></div>
-                <div class="info-row"><span class="info-label">African Cup (Club)</span><span class="info-value">Winner
-                        1973</span></div>
-                <div class="info-row"><span class="info-label">Vita Club Goals</span><span class="info-value">116</span>
-                </div>
+                <div class="info-row"><span class="info-label">Euro Championships</span><span class="stat-badge">2X
+                        Winner</span></div>
+                <div class="info-row"><span class="info-label">UEFA Women's CL</span><span class="info-value">5X
+                        Champion</span></div>
+                <div class="info-row"><span class="info-label">Ballon d'Or</span><span class="info-value">Runner-up
+                        (2019)</span></div>
+                <div class="info-row"><span class="info-label">FGA Tier</span><span class="info-value">Legacy / Greatest
+                        RB Ever</span></div>
             </div>
         </aside>
 
@@ -440,17 +458,16 @@
                     <h2>Global Impact Analysis</h2>
                 </div>
                 <p class="lead-text">
-                    Ndaye Mulamba remains the standard-bearer for offensive efficiency in African football history. His
-                    1974 African Cup of Nations campaign, where he scored <span class="highlight-text">9 goals in a
-                        single tournament</span>, is a record that has withstood the tests of over 50 years. As the
-                    focal point of the legendary Zaire "Leopards," Mulamba combined clinical finishing with a deceptive
-                    physical presence. He was the first sub-Saharan player to truly capture the imagination of global
-                    scouts during the 1974 World Cup qualifiers, defining an era of Zairean dominance.
+                    Lucy Bronze is the <span class="highlight-text">greatest right-back</span> in the history of women's
+                    football. Her dominance across three elite European clubs (Lyon, Barcelona, Chelsea) and two
+                    European Championships define her as the ultimate<span class="highlight-text"> two-way
+                        full-back</span>. Bronze transformed the position from a purely defensive role into an attacking
+                    weapon, combining relentless athleticism with world-class technical ability.
                 </p>
                 <div class="muted-box">
-                    <span class="highlight-text">Heritage Verdict:</span> An "Elite Predator." His movement in the final
-                    third was revolutionized for the 70s, pre-empting the modern "Inverted Forward" role. A national
-                    hero twice-over, for club and country.
+                    <span class="highlight-text">Scout Verdict:</span> "The Complete Package." Bronze represents the
+                    peak of modern full-back play—elite defensive positioning, devastating overlapping runs, and a
+                    mental fortitude that defines champions. She is the FGA benchmark for all defensive full-backs.
                 </div>
             </div>
 
@@ -461,66 +478,66 @@
                     <h2>Core FGA Intelligence Metrics</h2>
                 </div>
 
-                <h3>Tier 1: Scoring Instincts (60% Weight)</h3>
+                <h3>Tier 1: Defensive & Attacking Dual-Threat (60% Weight)</h3>
                 <div class="metric-grid" style="margin-top: 15px;">
                     <div class="metric-item">
-                        <div class="metric-header"><span class="metric-name">FIN (Finishing)</span><span
+                        <div class="metric-header"><span class="metric-name">ATH (Physical Dominance)</span><span
                                 class="metric-score">9.9</span></div>
                         <div class="metric-bar">
                             <div class="metric-fill" style="width: 99%"></div>
                         </div>
                     </div>
                     <div class="metric-item">
-                        <div class="metric-header"><span class="metric-name">POS (Attacking Positioning)</span><span
-                                class="metric-score">9.7</span></div>
-                        <div class="metric-bar">
-                            <div class="metric-fill" style="width: 97%"></div>
-                        </div>
-                    </div>
-                    <div class="metric-item">
-                        <div class="metric-header"><span class="metric-name">CLU (Clutch Factor)</span><span
+                        <div class="metric-header"><span class="metric-name">TAC (1v1 Defending)</span><span
                                 class="metric-score">9.8</span></div>
                         <div class="metric-bar">
                             <div class="metric-fill" style="width: 98%"></div>
                         </div>
                     </div>
                     <div class="metric-item">
-                        <div class="metric-header"><span class="metric-name">SPD (Sprinting Velocity)</span><span
-                                class="metric-score">8.9</span></div>
+                        <div class="metric-header"><span class="metric-name">CRO (Attacking Delivery)</span><span
+                                class="metric-score">9.7</span></div>
                         <div class="metric-bar">
-                            <div class="metric-fill" style="width: 89%"></div>
+                            <div class="metric-fill" style="width: 97%"></div>
                         </div>
                     </div>
                     <div class="metric-item">
-                        <div class="metric-header"><span class="metric-name">AMB (Ambidexterity)</span><span
-                                class="metric-score">8.5</span></div>
+                        <div class="metric-header"><span class="metric-name">STA (90-Minute Intensity)</span><span
+                                class="metric-score">9.9</span></div>
                         <div class="metric-bar">
-                            <div class="metric-fill" style="width: 85%"></div>
+                            <div class="metric-fill" style="width: 99%"></div>
                         </div>
                     </div>
                     <div class="metric-item">
-                        <div class="metric-header"><span class="metric-name">DRI (Tight Control)</span><span
-                                class="metric-score">9.2</span></div>
+                        <div class="metric-header"><span class="metric-name">IQ (Positional Reading)</span><span
+                                class="metric-score">9.8</span></div>
                         <div class="metric-bar">
-                            <div class="metric-fill" style="width: 92%"></div>
+                            <div class="metric-fill" style="width: 98%"></div>
                         </div>
                     </div>
-                </div>
-
-                <h3 style="margin-top: 25px;">Tier 2: Leadership & Tactical Presence (30% Weight)</h3>
-                <div class="metric-grid" style="margin-top: 15px;">
                     <div class="metric-item">
-                        <div class="metric-header"><span class="metric-name">LEA (Captaincy/Influence)</span><span
+                        <div class="metric-header"><span class="metric-name">SPD (Recovery Pace)</span><span
                                 class="metric-score">9.6</span></div>
                         <div class="metric-bar">
                             <div class="metric-fill" style="width: 96%"></div>
                         </div>
                     </div>
+                </div>
+
+                <h3 style="margin-top: 25px;">Tier 2: Leadership & Mentality (30% Weight)</h3>
+                <div class="metric-grid" style="margin-top: 15px;">
                     <div class="metric-item">
-                        <div class="metric-header"><span class="metric-name">WRK (Offensive Workrate)</span><span
-                                class="metric-score">8.8</span></div>
+                        <div class="metric-header"><span class="metric-name">LEA (Vocal Command)</span><span
+                                class="metric-score">9.8</span></div>
                         <div class="metric-bar">
-                            <div class="metric-fill" style="width: 88%"></div>
+                            <div class="metric-fill" style="width: 98%"></div>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">MEN (Championship Mentality)</span><span
+                                class="metric-score">10.0</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width: 100%"></div>
                         </div>
                     </div>
                 </div>
@@ -533,14 +550,15 @@
                     <h2>60-Philosophy Framework Analysis</h2>
                 </div>
                 <div style="margin-bottom: 20px;">
-                    <span class="pill">Cruyff Score: 9.7/10</span>
-                    <span class="pill">Ferguson Score: 9.5/10</span>
-                    <span class="pill">Simeone Score: 9.4/10</span>
+                    <span class="pill">Emma Hayes Score: 10.0/10</span>
+                    <span class="pill">Guardiola Score: 9.6/10</span>
+                    <span class="pill">Wiegman Score: 9.9/10</span>
                 </div>
                 <div class="muted-box">
-                    Mulamba possessed the "Cruyffian Intelligence"—a player who understood space and timing like a total
-                    footballer. His ability to stay at the clinical peak for over a decade aligns with the "Ferguson
-                    Longevity" doctrine, while his grit during the 1974 World Cup chaos mirrored the "Simeone Grinta."
+                    Bronze is the "Ultimate System Player." She has thrived in every tactical setup across Lyon's
+                    dominance, Barcelona's tiki-taka, and Chelsea's physicality. Her fit with "Emma Hayes' Masterclass"
+                    is perfect—providing width, defensive security, and attacking unpredictability. In "Guardiola
+                    Systems," her ball retention and progressive passing would be elite-tier.
                 </div>
             </div>
 
@@ -552,23 +570,23 @@
                 </div>
                 <div class="two-col">
                     <div>
-                        <div class="info-row"><span class="info-label">Mental Toughness</span><span
+                        <div class="info-row"><span class="info-label">Big Game Performer</span><span
                                 class="info-value">Elite</span></div>
-                        <div class="info-row"><span class="info-label">Big Game Mentality</span><span
-                                class="info-value">Absolute</span></div>
+                        <div class="info-row"><span class="info-label">Mental Toughness</span><span
+                                class="info-value">Sovereign</span></div>
                         <div class="metric-item" style="margin-top: 15px;">
-                            <div class="metric-header"><span class="metric-name">Drive to Win</span><span
-                                    class="metric-score">9.9</span></div>
+                            <div class="metric-header"><span class="metric-name">Pressure Immunity</span><span
+                                    class="metric-score">10.0</span></div>
                             <div class="metric-bar">
-                                <div class="metric-fill" style="width: 99%"></div>
+                                <div class="metric-fill" style="width: 100%"></div>
                             </div>
                         </div>
                     </div>
                     <p class="small" style="padding-left: 20px;">
-                        Known for his quiet but lethal focus. Mulamba didn't need many touches to influence a game. He
-                        possessed a "Predator Mindset"—conserving energy for the decisive moments. His leadership during
-                        the 1974 bonus disputes showed a player deeply committed to the fairness and dignity of his
-                        teammates.
+                        Lucy possesses a "Champion's Aura." Her psychological profile is defined by an unshakeable
+                        belief in her abilities and an insatiable hunger for trophies. She is the player who raises her
+                        level in finals, delivering iconic performances when stakes are highest. Her leadership extends
+                        beyond the pitch—she is a mentor, a role model, and an inspiration.
                     </p>
                 </div>
             </div>
@@ -581,16 +599,16 @@
                 </div>
                 <div class="chemistry-grid">
                     <div class="chemistry-item">
-                        <div class="chemistry-name">Kazadi Muamba</div>
-                        <div class="chemistry-level">Defensive Trust</div>
+                        <div class="chemistry-name">Alexia Putellas</div>
+                        <div class="chemistry-level">Barcelona Axis</div>
                     </div>
                     <div class="chemistry-item">
-                        <div class="chemistry-name">Mwepu Ilunga</div>
-                        <div class="chemistry-level">Tactical Support</div>
+                        <div class="chemistry-name">Lauren James</div>
+                        <div class="chemistry-level">Chelsea Synergy</div>
                     </div>
                     <div class="chemistry-item">
-                        <div class="chemistry-name">Blagoje Vidinić</div>
-                        <div class="chemistry-level">Teacher/Coach</div>
+                        <div class="chemistry-name">Keira Walsh</div>
+                        <div class="chemistry-level">England Core</div>
                     </div>
                 </div>
             </div>
@@ -600,115 +618,129 @@
                 <div class="section-header">
                     <span class="icon">📈</span>
                     <h2>Detailed Career History</h2>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Period</th>
-                                <th>Club</th>
-                                <th>Apps</th>
-                                <th>Goals</th>
-                                <th>Major Achievement</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1972-1988</td>
-                                <td>AS Vita Club</td>
-                                <td>224</td>
-                                <td>116</td>
-                                <td>Champions Cup '73</td>
-                            </tr>
-                            <tr>
-                                <td>1974 (Int)</td>
-                                <td>Zaire National</td>
-                                <td>AFCON</td>
-                                <td>9</td>
-                                <td>Tournament Record</td>
-                            </tr>
-                            <tr>
-                                <td>1971-1972</td>
-                                <td>AS Bantous</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>Emergence</td>
-                            </tr>
-                        </tbody>
-                    </table>
                 </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Period</th>
+                            <th>Club / Team</th>
+                            <th>Apps</th>
+                            <th>Honors</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2024-Pres</td>
+                            <td>Chelsea FC</td>
+                            <td>40+</td>
+                            <td>WSL, FA Cup, League Cup, Euros '25</td>
+                        </tr>
+                        <tr>
+                            <td>2022-24</td>
+                            <td>FC Barcelona</td>
+                            <td>~60</td>
+                            <td>2x UWCL, 2x Liga F</td>
+                        </tr>
+                        <tr>
+                            <td>2017-20</td>
+                            <td>Olympique Lyonnais</td>
+                            <td>~90</td>
+                            <td>3x UWCL, 3x Division 1</td>
+                        </tr>
+                        <tr>
+                            <td>2014-17</td>
+                            <td>Manchester City</td>
+                            <td>~80</td>
+                            <td>WSL, FA Cup</td>
+                        </tr>
+                        <tr>
+                            <td>2009-Pres</td>
+                            <td>England Senior</td>
+                            <td>120+</td>
+                            <td>2x Euros, World Cup Finalist</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-                <!-- 7. Key Matches & Milestones -->
-                <div class="card">
-                    <div class="section-header">
-                        <span class="icon">⚡</span>
-                        <h2>Key Matches & Milestones</h2>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date">March 14, 1974 | AFCON Final Replay</div>
-                        <p class="small">Scored twice in the replay against Zambia to secure Zaire's second AFCON title.
-                        </p>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date">June 14, 1974 | World Cup Debut</div>
-                        <p class="small">Captained Zaire in their historic first match against Scotland in West Germany.
-                        </p>
-                    </div>
+            <!-- 7. Key Matches & Milestones -->
+            <div class="card">
+                <div class="section-header">
+                    <span class="icon">⚡</span>
+                    <h2>Key Matches & Milestones</h2>
                 </div>
-
-                <!-- 8. Video Intelligence / Highlights -->
-                <div class="card">
-                    <div class="section-header">
-                        <span class="icon">📹</span>
-                        <h2>Video Intelligence</h2>
-                    </div>
-                    <p class="small">Archival footage analysis of the "Assassin's" movement. Watch the Zaire '74
-                        highlights below.</p>
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/SOmvWkC5_g8" allowfullscreen></iframe>
-                    </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">April 2025 | Title-Winning Header</div>
+                    <p class="small">Scored the decisive goal vs Manchester United to secure Chelsea's unbeaten WSL
+                        title.</p>
                 </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">May 2024 | 3rd UWCL with Barcelona</div>
+                    <p class="small">Won her fifth Champions League title, cementing her as the most decorated defender
+                        in history.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">July 2022 | Euro 2022 Triumph</div>
+                    <p class="small">Instrumental in England's first major trophy, dominating from right-back throughout
+                        the tournament.</p>
+                </div>
+            </div>
 
-                <!-- 9. Player Comparison -->
-                <div class="card">
-                    <div class="section-header">
-                        <span class="icon">📊</span>
-                        <h2>Heritage Comparison</h2>
+            <!-- 8. Video Intelligence / Highlights -->
+            <div class="card">
+                <div class="section-header">
+                    <span class="icon">📹</span>
+                    <h2>Video Intelligence</h2>
+                </div>
+                <p class="small">Analysis of Bronze's overlapping runs and defensive recoveries.</p>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/8v_sh_OIs00" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <!-- 9. Player Comparison -->
+            <div class="card">
+                <div class="section-header">
+                    <span class="icon">📊</span>
+                    <h2>Elite Full-Back Comparison</h2>
+                </div>
+                <div class="visual-canvas">
+                    <canvas id="radarChart"></canvas>
+                </div>
+                <p class="small" style="text-align: center; margin-top: 15px;">
+                    Comparing Lucy Bronze vs <span class="highlight-text">Ellie Carpenter</span> and <span
+                        style="color: #ffffff; opacity: 0.5;">RB Average (Elite)</span>.
+                </p>
+            </div>
+
+            <!-- 10. Future Projection / Legacy -->
+            <div class="card">
+                <div class="section-header">
+                    <span class="icon">🚀</span>
+                    <h2>Legacy Projection</h2>
+                </div>
+                <div class="two-col">
+                    <div>
+                        <div class="info-row"><span class="info-label">Heritage Index</span><span
+                                class="stat-badge">99.5</span></div>
+                        <div class="info-row"><span class="info-label">Future Role</span><span class="info-value">Global
+                                Hall of Fame</span></div>
                     </div>
-                    <div class="visual-canvas">
-                        <canvas id="radarChart"></canvas>
-                    </div>
-                    <p class="small" style="text-align: center; margin-top: 15px;">
-                        Comparing Ndaye Mulamba vs <span class="highlight-text">Samuel Eto'o</span> and <span
-                            style="color: red;">Typical 70s African Forwards</span>.
+                    <p class="small" style="padding-left: 20px;">
+                        Lucy Bronze's legacy as the greatest right-back in women's football history is unassailable. Her
+                        trophy cabinet, individual accolades, and sustained excellence across multiple leagues have set
+                        a standard that may never be matched. She will be remembered as the player who redefined what a
+                        full-back could be.
                     </p>
                 </div>
-
-                <!-- 10. Future Projection / Legacy -->
-                <div class="card">
-                    <div class="section-header">
-                        <span class="icon">🚀</span>
-                        <h2>Legacy Projection</h2>
-                    </div>
-                    <div class="two-col">
-                        <div>
-                            <div class="info-row"><span class="info-label">Heritage Index</span><span
-                                    class="stat-badge">99.1</span></div>
-                            <div class="info-row"><span class="info-label">Stat Standing</span><span
-                                    class="info-value">All-Time AFCON King</span></div>
-                        </div>
-                        <p class="small" style="padding-left: 20px;">
-                            Mulamba's legacy is immortalized by his single-tournament goal record. He proved that
-                            African strikers could compete at the highest technical levels of the global game. His name
-                            is synonymous with the Golden Age of Congolese football.
-                        </p>
-                    </div>
-                </div>
+            </div>
 
         </main>
     </div>
 
     <footer>
-        <p>&copy; 2026 Empire FGA Scouting Network. Heritage Division Archive.</p>
-        <p style="margin-top: 8px; opacity: 0.6;">African Greatness • Historical Performance • Zaire 1974</p>
+        <p>&copy; 2026 Empire FGA Scouting Network. Legacy Pillar Archive.</p>
+        <p style="margin-top: 8px; opacity: 0.6;">Cerebral Innovation • Global Icon • Lucy Bronze</p>
     </footer>
 
     <script>
@@ -716,17 +748,17 @@
         new Chart(ctx, {
             type: 'radar',
             data: {
-                labels: ['Finishing', 'Positioning', 'Vision', 'Leadership', 'Consistency', 'Speed', 'Technique', 'Pressure Res.'],
+                labels: ['Strength', 'Tackling', 'Crossing', 'Stamina', 'IQ', 'Speed', 'Leadership', 'Mentality'],
                 datasets: [{
-                    label: 'Ndaye Mulamba (Peak)',
-                    data: [9.9, 9.7, 8.8, 9.6, 9.4, 8.9, 9.2, 9.8],
-                    borderColor: '#ffd24d',
-                    backgroundColor: 'rgba(255, 210, 77, 0.15)',
+                    label: 'Lucy Bronze',
+                    data: [9.9, 9.8, 9.7, 9.9, 9.8, 9.6, 9.8, 10.0],
+                    borderColor: '#034694',
+                    backgroundColor: 'rgba(3, 70, 148, 0.15)',
                     borderWidth: 4,
-                    pointBackgroundColor: '#ffd24d'
+                    pointBackgroundColor: '#034694'
                 }, {
-                    label: 'Samuel Eto\'o (Reference)',
-                    data: [9.8, 9.6, 8.5, 9.0, 9.5, 9.7, 9.0, 9.4],
+                    label: 'Ellie Carpenter (Reference)',
+                    data: [8.5, 8.8, 8.6, 9.2, 9.0, 9.5, 8.0, 8.8],
                     borderColor: '#ffffff',
                     backgroundColor: 'transparent',
                     borderWidth: 2,
