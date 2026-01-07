@@ -1,5 +1,5 @@
 // ==========================================
-// 1. DATA: PLAYERS DATABASE (250.000 Players)
+// 1. DATA: PLAYERS DATABASE
 // ==========================================
 
 // Player Image URLs
@@ -20,8 +20,7 @@ const playerImages = {
     "Marta Vieira da Silva": "https://b.fssta.com/uploads/application/soccer/headshots/33378.vresize.350.350.medium.1.png",
     "Duda Sampaio": "https://b.fssta.com/uploads/application/soccer/headshots/113074.vresize.350.350.medium.1.png",
     "Yamila Rodríguez": "https://b.fssta.com/uploads/application/soccer/headshots/115645.vresize.350.350.medium.1.png",
-    "Yamila Tara Rodríguez": "https://b.fssta.com/uploads/application/soccer/headshots/115645.vresize.350.350.medium.1.png"
-,
+    "Yamila Tara Rodríguez": "https://b.fssta.com/uploads/application/soccer/headshots/115645.vresize.350.350.medium.1.png",
     "Debinha": "https://cdn-headshots.theathletic.com/soccer/THU3t0wSfh3Md9mE_400x400.png",
     "Débora Cristiane de Oliveira": "https://cdn-headshots.theathletic.com/soccer/THU3t0wSfh3Md9mE_400x400.png",
     "Alexandra Popp": "https://www.fifplay.com/img/fc/24/players/226302.webp",
@@ -40,28 +39,53 @@ const playerImages = {
     "Lena Oberdorf": "https://b.fssta.com/uploads/application/soccer/headshots/69929.vresize.350.350.medium.1.png",
     "Lena Sophie Oberdorf": "https://b.fssta.com/uploads/application/soccer/headshots/69929.vresize.350.350.medium.1.png",
     "Fridolina Rolfö": "https://b.fssta.com/uploads/application/soccer/headshots/44942.vresize.350.350.medium.1.png",
-    "Pamela Ballivian": "https://img.sofascore.com/api/v1/player/1894590/image",
+    "Pamela Ballivian": "https://img.sofascore.com/api/v1/player/1894590/image"
 };
 
 function getPlayerImage(playerName) {
     return playerImages[playerName] || null;
 }
 
-
-{"name": "Aaron Ramsey", "pos": "Central Midfielder", "nat": "Wales", "age": 34, "club": "Pumas UNAM", "fga": 85.8, "rated": true, "profile_html": "Aaron_Ramsey.html"}, 
-{"name": "Abdoulaye Camara", "pos": "Central Midfielder", "nat": "France/Guinea", "age": 18, "club": "Udinese", "fga": 74.0, "rated": true, "profile_html": "Abdoulaye_Camara.html"}, 
-{"name": "Abdukodir Khusanov", "pos": "Centre-Back", "nat": "Uzbekistan", "age": 20, "club": "Manchester City", "fga": 76.5, "rated": true, "profile_html": "Abdukodir_Khusanov.html"}, 
-{"name": "Abdul Fatawu Issahaku", "pos": "Winger", "nat": "Ghana", "age": null, "club": "Leicester City", "fga": 84.7, "rated": true, "profile_html": "Abdul_Fatawu_Issahaku.html"}, 
-{"name": "Abedi "Pelé" Ayew", "pos": "Attacking Midfielder (Retired)", "nat": "Ghana", "age": 61, "club": "Legend", "fga": 92.5, "rated": true, "profile_html": "Abedi_Pelé_Ayew.html"}, 
-{"name": "Aboubacar Bassinga", "pos": "CM", "nat": "Côte d'Ivoire", "age": 20, "club": "AD Ceuta", "fga": 70.2, "rated": true, "profile_html": "Aboubacar_Bassinga.html"}, 
-{"name": "Ademir da Guia", "pos": "Attacking Midfielder (Retired)", "nat": "Brazil", "age": null, "club": "Legend", "fga": 93.5, "rated": true, "profile_html": "Ademir_Da_Guia.html"}, 
-{"name": "Ademir Marques Menezes", "pos": "Forward (Retired) · ", "nat": "Unknown", "age": null, "club": "Legend", "fga": 95.0, "rated": true, "profile_html": "Ademir_Marques_Menezes.html"}, 
-{"name": "Adne Midtskogen", "pos": "Centre-Back", "nat": "Norway", "age": null, "club": "Legend", "fga": 76.5, "rated": true, "profile_html": "Adne_Midtskogen.html"}, 
-{"name": "Adolfo Nef", "pos": "Goalkeeper (Retired)", "nat": "Unknown", "age": null, "club": "Legend", "fga": 90.5, "rated": true, "profile_html": "Adolfo_Nef.html"}, 
-{"name": "Adolfo Pedernera", "pos": "Inside Forward (Retired)", "nat": "Argentina", "age": null, "club": "Legend", "fga": 95.5, "rated": true, "profile_html": "Adolfo_Pedernera.html"}, 
-{"name": "Adolfo "El Tren" Valencia", "pos": "Striker (Legend)", "nat": "Colombia", "age": null, "club": "Legend", "fga": 89.0, "rated": true, "profile_html": "Adolfo_El_Tren_Valencia.html"}, 
-{"name": "Adrián González Morales", "pos": "Midfielder (Retired)", "nat": "Spain", "age": null, "club": "Legend", "fga": 87.5, "rated": true, "profile_html": "Adrián_González_Morales.html"}, 
-{"name": "Sergio Adrián Guillermo", "pos": "Right Winger (Retired(", "nat": "Argentina", "age": null, "club": "Legend", "fga": 83.5, "rated": true, "profile_html": "Sergio_Adrián_Guillermo.html"}, 
-{"name": "Adrian Jimenez", "pos": "Experienced", "nat": "SPAIN", "age": null, "club": "Legend", "fga": 75.5, "rated": true, "profile_html": "Adrian_Jimenez.html"}, {"name": "Clarence Awoudor", "pos": "NCAA Assist Leader", "nat": "France", "age": null, "club": "Legend", "fga": 71.0, "rated": true, "profile_html": "Clarence_Awoudor.html"}, 
-{"name": "Adrien Perez", "pos": "First\n              ", "nat": "USA", "age": null, "club": "Legend", "fga": 77.5, "rated": true, "profile_html": "Adrien_Perez.html"}, {"name": "Agon Mucolli", "pos": "FC Fredericia", "nat": "Playmaker", "age": null, "club": "Legend", "fga": 77.5, "rated": true, "profile_html": "Agon_Mucolli.html"}, {"name": "Agustín Aranzábal", "pos": "Defender (Historical", "nat": "Unknown", "age": null, "club": "Legend", "fga": 91.5, "rated": true, "profile_html": "Agustin_Aranzabal.html"}, {"name": "Agustín Rossi", "pos": "Goalkeeper · Argenti", "nat": "Unknown", "age": null, "club": "Legend", "fga": 84.0, "rated": true, "profile_html": "Agustin_Rossi.html"}, {"name": "Agustin Urzi", "pos": "Former Banfield Tale", "nat": "ARGENTINA", "age": null, "club": "Legend", "fga": 78.5, "rated": true, "profile_html": "Agustin_Urzi.html"}, {"name": "Ahmed Bonnah", "pos": "Östersunds FK", "nat": "Sweden", "age": null, "club": "Legend", "fga": 73.5, "rated": true, "profile_html": "Ahmed_Bonnah.html"}, {"name": "Alan Shearer", "pos": "Centre-Forward (Lege", "nat": "Unknown", "age": null, "club": "Legend", "fga": 91.5, "rated": true, "profile_html": "Alan_Shearer.html"}, {"name": "Alan Virginius", "pos": "U20 World Cup Captai", "nat": "France", "age": null, "club": "Legend", "fga": 82.6, "rated": true, "profile_html": "Alan_Virginius.html"}, {"name": "Albeiro Usuriaga", "pos": "Striker · Colombia ·", "nat": "Unknown", "age": null, "club": "Legend", "fga": 81.7, "rated": true, "profile_html": "Albeiro_Usuriaga.html"}, {"name": "Alberto Spencer", "pos": "Forward (Retired) · ", "nat": "Unknown", "age": null, "club": "Legend", "fga": 94.5, "rated": true, "profile_html": "Alberto_Spencer.html"}, {"name": "Albin Sporrong", "pos": "Östersunds FK", "nat": "Sweden", "age": null, "club": "Legend", "fga": 72.0, "rated": true, "profile_html": "Albin_Sporrong.html"}, {"name": "Aleksandar Stankovic", "pos": "Defensive Midfielder", "nat": "Unknown", "age": null, "club": "Legend", "fga": 79.5, "rated": true, "profile_html": "Aleksandar_Stankovic.html"}, 
-{"name": "Aleksandr Borodyuk", "pos": "Forward / Attacking ", "nat": "Unknown", "age": null, "club": "Legend", "fga": 87.5, "rated": true, "profile_html": "Aleksandr_Borodyuk.html"}, {"name": "Alessandro Del Piero", "pos": "Position: SS/CF  · N", "nat": "Unknown", "age": null, "club": "Legend", "fga": 98.5, "rated": true, "profile_html": "Alessandro_Del_Piero.html"}, {"name": "Alessandro Milani", "pos": "Left-Back · Venezuel", "nat": "Unknown", "age": null, "club": "Legend", "fga": 70.5, "rated": true, "profile_html": "Alessandro_Milani.html"}, {"name": "Alessandro Nesta", "pos": "2006 World Cup Winne", "nat": "LEGEND", "age": null, "club": "Legend", "fga": 95.5, "rated": true, "profile_html": "Alessandro_Nesta.html"}, {"name": "Alessandro Vogt", "pos": "Top 5 Tactical DNA M", "nat": "Unknown", "age": null, "club": "Legend", "fga": 85.9, "rated": true, "profile_html": "Alessandro_Vogt.html"}, {"name": "Alessio Marcaccini", "pos": "Goalkeeper · Italy ·", "nat": "Unknown", "age": null, "club": "Legend", "fga": 71.5, "rated": true, "profile_html": "Alessio_Marcaccini.html"}, {"name": "Álex Aguinaga", "pos": "Attacking Midfielder", "nat": "Unknown", "age": null, "club": "Legend", "fga": 90.5, "rated": true, "profile_html": "Alex_Aguinaga.html"}, {"name": "Alex Cropley", "pos": "Midfielder (Historic", "nat": "Unknown", "age": null, "club": "Legend", "fga": 89.5, "rated": true, "profile_html": "Alex_Cropley.html"}, {"name": "Álex Jiménez", "pos": "Right Back / Fullbac", "nat": "Unknown", "age": null, "club": "Legend", "fga": 81.5, "rated": true, "profile_html": "Alex_Jimenez.html"}, {"name": "Alexander Sørloth", "pos": "Striker · Norway · B", "nat": "Unknown", "age": null, "club": "Legend", "fga": 91.0, "rated": true, "profile_html": "Alexander_Sørloth.html"}, {"name": "Alexandre Valbon", "pos": "National 2 Midfielde", "nat": "France", "age": null, "club": "Legend", "fga": 76.8, "rated": true, "profile_html": "Alexandre_Valbon.html"}, {"name": "Alexis Mac Allister", "pos": "Midfielder · Argenti", "nat": "Unknown", "age": null, "club": "Legend", "fga": 94.0, "rated": true, "profile_html": "Alexis_Mac_Allister.html"},
+// Fixed Player Data Array
+const playerData = [
+    {"name": "Aaron Ramsey", "pos": "Central Midfielder", "nat": "Wales", "age": 34, "club": "Pumas UNAM", "fga": 85.8, "rated": true, "profile_html": "Aaron_Ramsey.html"}, 
+    {"name": "Abdoulaye Camara", "pos": "Central Midfielder", "nat": "France/Guinea", "age": 18, "club": "Udinese", "fga": 74.0, "rated": true, "profile_html": "Abdoulaye_Camara.html"}, 
+    {"name": "Abdukodir Khusanov", "pos": "Centre-Back", "nat": "Uzbekistan", "age": 20, "club": "Manchester City", "fga": 76.5, "rated": true, "profile_html": "Abdukodir_Khusanov.html"}, 
+    {"name": "Abdul Fatawu Issahaku", "pos": "Winger", "nat": "Ghana", "age": null, "club": "Leicester City", "fga": 84.7, "rated": true, "profile_html": "Abdul_Fatawu_Issahaku.html"}, 
+    {"name": "Abedi \"Pelé\" Ayew", "pos": "Attacking Midfielder (Retired)", "nat": "Ghana", "age": 61, "club": "Legend", "fga": 92.5, "rated": true, "profile_html": "Abedi_Pelé_Ayew.html"}, 
+    {"name": "Aboubacar Bassinga", "pos": "CM", "nat": "Côte d'Ivoire", "age": 20, "club": "AD Ceuta", "fga": 70.2, "rated": true, "profile_html": "Aboubacar_Bassinga.html"}, 
+    {"name": "Ademir da Guia", "pos": "Attacking Midfielder (Retired)", "nat": "Brazil", "age": null, "club": "Legend", "fga": 93.5, "rated": true, "profile_html": "Ademir_Da_Guia.html"}, 
+    {"name": "Ademir Marques Menezes", "pos": "Forward (Retired) · ", "nat": "Unknown", "age": null, "club": "Legend", "fga": 95.0, "rated": true, "profile_html": "Ademir_Marques_Menezes.html"}, 
+    {"name": "Adne Midtskogen", "pos": "Centre-Back", "nat": "Norway", "age": null, "club": "Legend", "fga": 76.5, "rated": true, "profile_html": "Adne_Midtskogen.html"}, 
+    {"name": "Adolfo Nef", "pos": "Goalkeeper (Retired)", "nat": "Unknown", "age": null, "club": "Legend", "fga": 90.5, "rated": true, "profile_html": "Adolfo_Nef.html"}, 
+    {"name": "Adolfo Pedernera", "pos": "Inside Forward (Retired)", "nat": "Argentina", "age": null, "club": "Legend", "fga": 95.5, "rated": true, "profile_html": "Adolfo_Pedernera.html"}, 
+    {"name": "Adolfo \"El Tren\" Valencia", "pos": "Striker (Legend)", "nat": "Colombia", "age": null, "club": "Legend", "fga": 89.0, "rated": true, "profile_html": "Adolfo_El_Tren_Valencia.html"}, 
+    {"name": "Adrián González Morales", "pos": "Midfielder (Retired)", "nat": "Spain", "age": null, "club": "Legend", "fga": 87.5, "rated": true, "profile_html": "Adrián_González_Morales.html"}, 
+    {"name": "Sergio Adrián Guillermo", "pos": "Right Winger (Retired(", "nat": "Argentina", "age": null, "club": "Legend", "fga": 83.5, "rated": true, "profile_html": "Sergio_Adrián_Guillermo.html"}, 
+    {"name": "Adrian Jimenez", "pos": "Experienced", "nat": "SPAIN", "age": null, "club": "Legend", "fga": 75.5, "rated": true, "profile_html": "Adrian_Jimenez.html"}, 
+    {"name": "Clarence Awoudor", "pos": "NCAA Assist Leader", "nat": "France", "age": null, "club": "Legend", "fga": 71.0, "rated": true, "profile_html": "Clarence_Awoudor.html"}, 
+    {"name": "Adrien Perez", "pos": "First", "nat": "USA", "age": null, "club": "Legend", "fga": 77.5, "rated": true, "profile_html": "Adrien_Perez.html"}, 
+    {"name": "Agon Mucolli", "pos": "FC Fredericia", "nat": "Playmaker", "age": null, "club": "Legend", "fga": 77.5, "rated": true, "profile_html": "Agon_Mucolli.html"}, 
+    {"name": "Agustín Aranzábal", "pos": "Defender (Historical", "nat": "Unknown", "age": null, "club": "Legend", "fga": 91.5, "rated": true, "profile_html": "Agustin_Aranzabal.html"}, 
+    {"name": "Agustín Rossi", "pos": "Goalkeeper · Argenti", "nat": "Unknown", "age": null, "club": "Legend", "fga": 84.0, "rated": true, "profile_html": "Agustin_Rossi.html"}, 
+    {"name": "Agustin Urzi", "pos": "Former Banfield Tale", "nat": "ARGENTINA", "age": null, "club": "Legend", "fga": 78.5, "rated": true, "profile_html": "Agustin_Urzi.html"}, 
+    {"name": "Ahmed Bonnah", "pos": "Östersunds FK", "nat": "Sweden", "age": null, "club": "Legend", "fga": 73.5, "rated": true, "profile_html": "Ahmed_Bonnah.html"}, 
+    {"name": "Alan Shearer", "pos": "Centre-Forward (Lege", "nat": "Unknown", "age": null, "club": "Legend", "fga": 91.5, "rated": true, "profile_html": "Alan_Shearer.html"}, 
+    {"name": "Alan Virginius", "pos": "U20 World Cup Captai", "nat": "France", "age": null, "club": "Legend", "fga": 82.6, "rated": true, "profile_html": "Alan_Virginius.html"}, 
+    {"name": "Albeiro Usuriaga", "pos": "Striker · Colombia ·", "nat": "Unknown", "age": null, "club": "Legend", "fga": 81.7, "rated": true, "profile_html": "Albeiro_Usuriaga.html"}, 
+    {"name": "Alberto Spencer", "pos": "Forward (Retired) · ", "nat": "Unknown", "age": null, "club": "Legend", "fga": 94.5, "rated": true, "profile_html": "Alberto_Spencer.html"}, 
+    {"name": "Albin Sporrong", "pos": "Östersunds FK", "nat": "Sweden", "age": null, "club": "Legend", "fga": 72.0, "rated": true, "profile_html": "Albin_Sporrong.html"}, 
+    {"name": "Aleksandar Stankovic", "pos": "Defensive Midfielder", "nat": "Unknown", "age": null, "club": "Legend", "fga": 79.5, "rated": true, "profile_html": "Aleksandar_Stankovic.html"}, 
+    {"name": "Aleksandr Borodyuk", "pos": "Forward / Attacking ", "nat": "Unknown", "age": null, "club": "Legend", "fga": 87.5, "rated": true, "profile_html": "Aleksandr_Borodyuk.html"}, 
+    {"name": "Alessandro Del Piero", "pos": "Position: SS/CF  · N", "nat": "Unknown", "age": null, "club": "Legend", "fga": 98.5, "rated": true, "profile_html": "Alessandro_Del_Piero.html"}, 
+    {"name": "Alessandro Milani", "pos": "Left-Back · Venezuel", "nat": "Unknown", "age": null, "club": "Legend", "fga": 70.5, "rated": true, "profile_html": "Alessandro_Milani.html"}, 
+    {"name": "Alessandro Nesta", "pos": "2006 World Cup Winne", "nat": "LEGEND", "age": null, "club": "Legend", "fga": 95.5, "rated": true, "profile_html": "Alessandro_Nesta.html"}, 
+    {"name": "Alessandro Vogt", "pos": "Top 5 Tactical DNA M", "nat": "Unknown", "age": null, "club": "Legend", "fga": 85.9, "rated": true, "profile_html": "Alessandro_Vogt.html"}, 
+    {"name": "Alessio Marcaccini", "pos": "Goalkeeper · Italy ·", "nat": "Unknown", "age": null, "club": "Legend", "fga": 71.5, "rated": true, "profile_html": "Alessio_Marcaccini.html"}, 
+    {"name": "Álex Aguinaga", "pos": "Attacking Midfielder (Retired)", "nat": "Unknown", "age": null, "club": "Legend", "fga": 90.5, "rated": true, "profile_html": "Alex_Aguinaga.html"}, 
+    {"name": "Alex Cropley", "pos": "Midfielder (Retired)", "nat": "England", "age": null, "club": "Legend", "fga": 89.5, "rated": true, "profile_html": "Alex_Cropley.html"}, 
+    {"name": "Álex Jiménez", "pos": "Right Back / Fullbac", "nat": "Unknown", "age": null, "club": "Legend", "fga": 81.5, "rated": true, "profile_html": "Alex_Jimenez.html"}, 
+    {"name": "Alexander Sørloth", "pos": "Striker · Norway · B", "nat": "Unknown", "age": null, "club": "Legend", "fga": 91.0, "rated": true, "profile_html": "Alexander_Sorloth.html"}, 
+    {"name": "Alexandre Valbon", "pos": "Central Midfielder", "nat": "France", "age": null, "club": "Legend", "fga": 76.8, "rated": true, "profile_html": "Alexandre_Valbon.html"}, 
+    {"name": "Alexis Mac Allister", "pos": "Central Midfielder", "nat": "Argentina", "age": null, "club": "Legend", "fga": 94.0, "rated": true, "profile_html": "Alexis_Mac_Allister.html"}
+];
