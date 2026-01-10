@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neymar Jr — Empire FGA Profile</title>
+    <title>Rui Costa — Empire FGA Profile</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -14,9 +14,9 @@
             --card: #0f1724;
             --white: #f0f6fc;
             --muted: #8b949e;
-            --accent1: #e30613; /* Empire Red */
-            --accent2: #d4af37; /* Gold */
-            --accent3: #009c3b; /* Brazil Green Hint */
+            --accent1: #4B0082; /* Fiorentina Purple */
+            --accent2: #d4af37; /* Legend Gold */
+            --accent3: #DA291C; /* Portugal Red */
         }
 
         * {
@@ -31,7 +31,7 @@
             margin: 0;
             padding: 0;
             background:
-                radial-gradient(900px 500px at 8% 12%, rgba(227, 6, 19, 0.08), transparent 10%),
+                radial-gradient(900px 500px at 8% 12%, rgba(75, 0, 130, 0.08), transparent 10%),
                 radial-gradient(800px 400px at 92% 88%, rgba(212, 175, 55, 0.04), transparent 8%),
                 var(--bg);
             color: var(--white);
@@ -83,14 +83,21 @@
             margin-bottom: 18px;
         }
 
-        .photo {
-            width: 100%;
-            height: 520px;
-            object-fit: cover;
-            object-position: top;
+        .photo-container {
+             width: 100%;
+            height: 480px;
+            background: #0b1624;
             border-radius: 10px;
             border: 3px solid var(--accent2);
-            background: #0b1624;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the action shot fills the card beautifully */
+            object-position: center 20%; /* Focus on upper body/action */
             filter: contrast(1.1) saturate(1.1);
         }
 
@@ -109,7 +116,7 @@
 
         .pill {
             display: inline-block;
-            background: rgba(227, 6, 19, 0.12);
+            background: rgba(75, 0, 130, 0.2);
             padding: 7px 12px;
             border-radius: 999px;
             font-weight: 700;
@@ -136,22 +143,23 @@
         }
 
         th {
-            background: linear-gradient(90deg, rgba(227, 6, 19, 0.85), rgba(212, 175, 55, 0.85));
+            background: linear-gradient(90deg, rgba(75, 0, 130, 0.85), rgba(212, 175, 55, 0.85));
             font-weight: 800;
-            color: #071122;
+            color: #ffffff;
         }
 
         .rating-badge {
             position: absolute;
             right: 18px;
             top: 18px;
-            background: linear-gradient(90deg, #d4af37, #e30613);
+            background: linear-gradient(90deg, #d4af37, #DA291C);
             color: #ffffff;
             font-weight: 900;
             padding: 12px 18px;
             border-radius: 16px;
             font-size: 26px;
-            box-shadow: 0 10px 30px rgba(227, 6, 19, 0.18);
+            box-shadow: 0 10px 30px rgba(75, 0, 130, 0.2);
+            z-index: 10;
         }
 
         .section {
@@ -289,7 +297,7 @@
         }
 
         .stat-box {
-            background: rgba(227, 6, 19, 0.12);
+            background: rgba(75, 0, 130, 0.2);
             border: 1px solid rgba(212, 175, 55, 0.18);
             padding: 14px;
             border-radius: 8px;
@@ -345,7 +353,7 @@
                 grid-template-columns: 1fr;
             }
 
-            .photo {
+            .photo-container {
                 height: 320px;
             }
 
@@ -379,44 +387,46 @@
         <!-- Sidebar -->
         <div>
             <div class="card">
-                <img src="https://media.cnn.com/api/v1/images/stellar/prod/230307102122-01-neymar-021423.jpg?c=original"
-                    alt="Neymar Jr" class="photo">
-                <div class="title">Neymar Jr.</div>
-                <div class="sub">O Craque • Brazil All-Time Top Scorer • Joga Bonito</div>
+                <div class="photo-container">
+                    <img src="https://thumbs.dreamstime.com/b/rui-costa-action-match-milan-italy-november-g-meazza-san-siro-stadium-football-championship-seria-ac-as-roma-189202562.jpg"
+                        alt="Rui Costa" class="photo">
+                </div>
+                <div class="title">Rui Costa</div>
+                <div class="sub">O Maestro • The Prince • Elegance Personified</div>
 
-                <div class="rating-badge">97.5</div>
+                <div class="rating-badge">95.5</div>
 
                 <div class="section">
                     <div class="stat-box" style="margin-bottom: 10px;">
                         <span class="stat-value">10.0</span>
-                        <span class="stat-label">Technique & Flair</span>
+                        <span class="stat-label">Creative Vision Index</span>
                     </div>
                 </div>
 
                 <div class="section">
-                    <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">Neymar da Silva Santos Jr.</span></div>
-                    <div class="info-row"><span class="info-label">Birth Date</span><span class="info-value">Feb 5, 1992</span></div>
-                    <div class="info-row"><span class="info-label">Status</span><span class="info-value">Active Icon</span>
+                    <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">Rui Manuel César Costa</span></div>
+                    <div class="info-row"><span class="info-label">Birth Date</span><span class="info-value">Mar 29, 1972</span></div>
+                    <div class="info-row"><span class="info-label">Status</span><span class="info-value">Icon (Retired)</span>
                     </div>
-                    <div class="info-row"><span class="info-label">Birthplace</span><span class="info-value">Mogi das Cruzes, BRA</span></div>
-                    <div class="info-row"><span class="info-label">Height</span><span class="info-value">1.75m</span>
+                    <div class="info-row"><span class="info-label">Birthplace</span><span class="info-value">Amadora, Portugal</span></div>
+                    <div class="info-row"><span class="info-label">Height</span><span class="info-value">1.80m</span>
                     </div>
                     <div class="info-row"><span class="info-label">Position</span><span
-                            class="info-value">LW / CAM / False 9</span></div>
-                    <div class="info-row"><span class="info-label">Foot</span><span class="info-value">Right (Dual Threat)</span>
+                            class="info-value">Attacking Midfielder (#10)</span></div>
+                    <div class="info-row"><span class="info-label">Foot</span><span class="info-value">Right</span>
                     </div>
-                    <div class="info-row"><span class="info-label">Key Number</span><span class="info-value">#10 / #11</span></div>
-                    <div class="info-row"><span class="info-label">National Team</span><span class="info-value">Brazil (128/79)</span></div>
+                    <div class="info-row"><span class="info-label">Key Number</span><span class="info-value">#10</span></div>
+                    <div class="info-row"><span class="info-label">National Team</span><span class="info-value">Portugal (94/26)</span></div>
                 </div>
 
                 <div class="section">
                     <h3>Quick Stats</h3>
-                    <div class="info-row"><span class="info-label">Career Goals</span><span
-                            class="info-value">430+ (Clubs/Country)</span></div>
-                    <div class="info-row"><span class="info-label">Brazil Record</span><span class="info-value">Top Scorer (79)</span></div>
-                    <div class="info-row"><span class="info-label">UCL Winner</span><span class="info-value">2015 (Treble)</span></div>
-                    <div class="info-row"><span class="info-label">Libertadores</span><span class="info-value">Winner (2011)</span></div>
-                    <div class="info-row"><span class="info-label">Transfer Record</span><span class="info-value">€222M (World Rec)</span>
+                    <div class="info-row"><span class="info-label">Career Assists</span><span
+                            class="info-value">200+</span></div>
+                    <div class="info-row"><span class="info-label">Champions League</span><span class="info-value">1 (AC Milan)</span></div>
+                    <div class="info-row"><span class="info-label">Serie A</span><span class="info-value">1 (AC Milan)</span></div>
+                    <div class="info-row"><span class="info-label">Golden Gen</span><span class="info-value">U-20 World Cup '91</span></div>
+                    <div class="info-row"><span class="info-label">Role</span><span class="info-value">Player & President</span>
                     </div>
                 </div>
             </div>
@@ -429,10 +439,10 @@
             <div class="card">
                 <h2>🌍 Global Impact Analysis</h2>
                 <p class="lead">
-                    Neymar Jr. is the bridge between the analog genius of Ronaldinho and the modern systems of today. He is widely considered one of the greatest technical players in history, possessing a mastery of the ball that defies logic. As the primary figure of the "MSN" trio at Barcelona, he reached the pinnacle of club football. For Brazil, he shouldered the expectations of a nation for over a decade, surpassing Pelé as the Seleção's all-time top scorer. He is the personification of <strong>"Ousadia e Alegria"</strong> (Daring and Joy), bringing street football artistry to the Champions League stage.
+                    Rui Costa was the embodiment of the classical number 10, a "trequartista" whose elegance and vision defined an era of Serie A. Revered as "O Maestro," he dictated the tempo of games with an almost telepathic understanding of space and movement. His prime at Fiorentina, where he formed an unforgettable partnership with Gabriel Batistuta, remains a high point of 90s football nostalgia. He later added trophies to his legacy at AC Milan, winning the Champions League and solidifying his status as one of the greatest playmakers of his generation.
                 </p>
                 <div class="muted-box">
-                    <strong style="color: var(--accent2);">Legacy Highlights:</strong> 2015 Treble Winner • 2011 Puskás Award • Brazil All-Time Top Scorer • Only player to score in UCL and Libertadores Finals victories.
+                    <strong style="color: var(--accent2);">Legacy Highlights:</strong> 2003 Champions League Winner • FIFA 100 List • Key member of Portugal's "Golden Generation" • Fiorentina & Benfica Icon • UEFA Team of the Year Nominee.
                 </div>
             </div>
 
@@ -444,14 +454,7 @@
                 <div class="two-col">
                     <div>
                         <div class="metric-item">
-                            <div class="metric-header"><span class="metric-name">DRI (Dribbling)</span><span
-                                    class="metric-score">10.0</span></div>
-                            <div class="metric-bar">
-                                <div class="metric-fill" style="width: 100%"></div>
-                            </div>
-                        </div>
-                        <div class="metric-item">
-                            <div class="metric-header"><span class="metric-name">TEC (Technique)</span><span
+                            <div class="metric-header"><span class="metric-name">VIS (Vision)</span><span
                                     class="metric-score">10.0</span></div>
                             <div class="metric-bar">
                                 <div class="metric-fill" style="width: 100%"></div>
@@ -459,60 +462,67 @@
                         </div>
                         <div class="metric-item">
                             <div class="metric-header"><span class="metric-name">PAS (Passing)</span><span
-                                    class="metric-score">9.5</span></div>
-                            <div class="metric-bar">
-                                <div class="metric-fill" style="width: 95%"></div>
-                            </div>
-                        </div>
-                        <div class="metric-item">
-                            <div class="metric-header"><span class="metric-name">VIS (Vision)</span><span
                                     class="metric-score">9.8</span></div>
                             <div class="metric-bar">
                                 <div class="metric-fill" style="width: 98%"></div>
                             </div>
                         </div>
                         <div class="metric-item">
-                            <div class="metric-header"><span class="metric-name">ACC (Acceleration)</span><span
-                                    class="metric-score">9.5</span></div>
+                            <div class="metric-header"><span class="metric-name">TEC (Technique)</span><span
+                                    class="metric-score">9.7</span></div>
                             <div class="metric-bar">
-                                <div class="metric-fill" style="width: 95%"></div>
+                                <div class="metric-fill" style="width: 97%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">DRI (Dribbling)</span><span
+                                    class="metric-score">9.2</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 92%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">LON (Long Shots)</span><span
+                                    class="metric-score">9.0</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 90%"></div>
                             </div>
                         </div>
                     </div>
                     <div>
                         <div class="metric-item">
                             <div class="metric-header"><span class="metric-name">FIN (Finishing)</span><span
-                                    class="metric-score">9.2</span></div>
+                                    class="metric-score">8.2</span></div>
                             <div class="metric-bar">
-                                <div class="metric-fill" style="width: 92%"></div>
+                                <div class="metric-fill" style="width: 82%"></div>
                             </div>
                         </div>
                         <div class="metric-item">
-                            <div class="metric-header"><span class="metric-name">FLA (Flair)</span><span
-                                    class="metric-score">10.0</span></div>
+                            <div class="metric-header"><span class="metric-name">SPD (Pace)</span><span
+                                    class="metric-score">8.0</span></div>
                             <div class="metric-bar">
-                                <div class="metric-fill" style="width: 100%"></div>
-                            </div>
-                        </div>
-                        <div class="metric-item">
-                            <div class="metric-header"><span class="metric-name">FRE (Free Kicks)</span><span
-                                    class="metric-score">9.0</span></div>
-                            <div class="metric-bar">
-                                <div class="metric-fill" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        <div class="metric-item">
-                            <div class="metric-header"><span class="metric-name">OFF (Off-Ball)</span><span
-                                    class="metric-score">9.2</span></div>
-                            <div class="metric-bar">
-                                <div class="metric-fill" style="width: 92%"></div>
+                                <div class="metric-fill" style="width: 80%"></div>
                             </div>
                         </div>
                         <div class="metric-item">
                             <div class="metric-header"><span class="metric-name">AGI (Agility)</span><span
-                                    class="metric-score">9.8</span></div>
+                                    class="metric-score">8.5</span></div>
                             <div class="metric-bar">
-                                <div class="metric-fill" style="width: 98%"></div>
+                                <div class="metric-fill" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">FRE (Free Kicks)</span><span
+                                    class="metric-score">8.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">WRK (Work Rate)</span><span
+                                    class="metric-score">8.4</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 84%"></div>
                             </div>
                         </div>
                     </div>
@@ -521,38 +531,31 @@
                 <h3>Tier 2: Semi-Automated Metrics (30% Weight)</h3>
                 <div class="two-col">
                     <div class="metric-item">
-                        <div class="metric-header"><span class="metric-name">MOV (Movement)</span><span
-                                class="metric-score">9.4</span></div>
+                        <div class="metric-header"><span class="metric-name">FLA (Flair)</span><span
+                                class="metric-score">9.8</span></div>
                         <div class="metric-bar">
-                            <div class="metric-fill" style="width: 94%"></div>
+                            <div class="metric-fill" style="width: 98%"></div>
                         </div>
                     </div>
                     <div class="metric-item">
-                        <div class="metric-header"><span class="metric-name">BAL (Balance)</span><span
-                                class="metric-score">9.0</span></div>
+                        <div class="metric-header"><span class="metric-name">CMP (Composure)</span><span
+                                class="metric-score">9.7</span></div>
                         <div class="metric-bar">
-                            <div class="metric-fill" style="width: 90%"></div>
+                            <div class="metric-fill" style="width: 97%"></div>
                         </div>
                     </div>
                     <div class="metric-item">
-                        <div class="metric-header"><span class="metric-name">1v1 (Isolation)</span><span
-                                class="metric-score">10.0</span></div>
+                        <div class="metric-header"><span class="metric-name">FTO (First Touch)</span><span
+                                class="metric-score">9.9</span></div>
                         <div class="metric-bar">
-                            <div class="metric-fill" style="width: 100%"></div>
+                            <div class="metric-fill" style="width: 99%"></div>
                         </div>
                     </div>
                     <div class="metric-item">
-                        <div class="metric-header"><span class="metric-name">CRE (Creativity)</span><span
-                                class="metric-score">10.0</span></div>
+                        <div class="metric-header"><span class="metric-name">TAC (Tactical IQ)</span><span
+                                class="metric-score">9.5</span></div>
                         <div class="metric-bar">
-                            <div class="metric-fill" style="width: 100%"></div>
-                        </div>
-                    </div>
-                    <div class="metric-item">
-                        <div class="metric-header"><span class="metric-name">COM (Composure)</span><span
-                                class="metric-score">9.2</span></div>
-                        <div class="metric-bar">
-                            <div class="metric-fill" style="width: 92%"></div>
+                            <div class="metric-fill" style="width: 95%"></div>
                         </div>
                     </div>
                 </div>
@@ -561,24 +564,17 @@
                 <div class="two-col">
                     <div>
                         <div class="metric-item">
-                            <div class="metric-header"><span class="metric-name">MEN (Mentality)</span><span
-                                    class="metric-score">8.0</span></div>
+                            <div class="metric-header"><span class="metric-name">LEA (Leadership)</span><span
+                                    class="metric-score">9.2</span></div>
                             <div class="metric-bar">
-                                <div class="metric-fill" style="width: 80%"></div>
+                                <div class="metric-fill" style="width: 92%"></div>
                             </div>
                         </div>
                         <div class="metric-item">
-                            <div class="metric-header"><span class="metric-name">JOY (Entertainment)</span><span
-                                    class="metric-score">10.0</span></div>
+                            <div class="metric-header"><span class="metric-name">BIG (Big Game)</span><span
+                                    class="metric-score">9.0</span></div>
                             <div class="metric-bar">
-                                <div class="metric-fill" style="width: 100%"></div>
-                            </div>
-                        </div>
-                        <div class="metric-item">
-                            <div class="metric-header"><span class="metric-name">CLU (Clutch)</span><span
-                                    class="metric-score">9.5</span></div>
-                            <div class="metric-bar">
-                                <div class="metric-fill" style="width: 95%"></div>
+                                <div class="metric-fill" style="width: 90%"></div>
                             </div>
                         </div>
                     </div>
@@ -597,13 +593,6 @@
                                 <div class="metric-fill" style="width: 100%"></div>
                             </div>
                         </div>
-                        <div class="metric-item">
-                            <div class="metric-header"><span class="metric-name">LEA (Leadership)</span><span
-                                    class="metric-score">8.5</span></div>
-                            <div class="metric-bar">
-                                <div class="metric-fill" style="width: 85%"></div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -611,39 +600,39 @@
             <!-- 60 Philosophy Framework -->
             <div class="card">
                 <h2>🧠 60-Philosophy Framework Analysis</h2>
-                <p class="small" style="margin-bottom: 12px;">Neymar's tactical DNA mapped across 60 legendary coaching philosophies.</p>
+                <p class="small" style="margin-bottom: 12px;">Rui Costa's tactical DNA as the quintessential #10.</p>
 
                 <h3>Top 10 Philosophy Fits</h3>
                 <div>
-                    <span class="pill">SB1: "Philosophy_40_Santana_JogaBonito" 10.0/10</span>
-                    <span class="pill">SE1: "Philosophy_43_Menotti_Artistry" 9.8/10</span>
-                    <span class="pill">QO1: "Philosophy_01_Cruyff_Intelligence" 9.5/10</span>
-                    <span class="pill">QU1: "Philosophy_07_Guardiola_Positional" 9.2/10</span>
-                    <span class="pill">QP1: "Philosophy_02_Michels_Total" 8.5/10</span>
-                    <span class="pill">RX1: "Philosophy_36_Wenger_Development" 9.4/10</span>
-                    <span class="pill">RA1: "Philosophy_13_Pellegrini_Elegance" 9.3/10</span>
-                    <span class="pill">SC1: "Philosophy_41_Zagallo_Tactical" 9.0/10</span>
-                    <span class="pill">RM1: "Philosophy_25_Venables_Tactical" 8.8/10</span>
-                    <span class="pill">RY1: "Philosophy_37_Roux_Provincial" (Creative Freedom) 9.1/10</span>
+                    <span class="pill">SE1: "Philosophy_43_Menotti_Artistry" 9.9/10</span>
+                    <span class="pill">QO1: "Philosophy_01_Cruyff_Intelligence" 9.8/10</span>
+                    <span class="pill">RE1: "Philosophy_17_Lippi_Sophistication" 9.5/10</span>
+                    <span class="pill">RI1: "Philosophy_21_Cesarini_Maquina" 9.4/10</span>
+                    <span class="pill">RA1: "Philosophy_13_Pellegrini_Elegance" 9.2/10</span>
+                    <span class="pill">SB1: "Philosophy_40_Santana_JogaBonito" 9.1/10</span>
+                    <span class="pill">RX1: "Philosophy_36_Wenger_Development" 9.0/10</span>
+                    <span class="pill">SL1: "Philosophy_50_Liedholm_Swedish_Italian" 8.8/10</span>
+                    <span class="pill">QU1: "Philosophy_07_Guardiola_Positional" 8.5/10</span>
+                    <span class="pill">RG1: "Philosophy_19_Trapattoni_Mastery" 8.2/10</span>
                 </div>
 
                 <h3>School Averages</h3>
                 <div class="metric-item">
-                    <div class="metric-header"><span class="metric-name">Brazilian Joga Bonito</span><span class="metric-score">10.0</span></div>
+                    <div class="metric-header"><span class="metric-name">Artistry & Elegance (Menotti/Pellegrini)</span><span class="metric-score">9.80</span></div>
                     <div class="metric-bar">
-                        <div class="metric-fill" style="width: 100%"></div>
+                        <div class="metric-fill" style="width: 98%"></div>
                     </div>
                 </div>
                 <div class="metric-item">
-                    <div class="metric-header"><span class="metric-name">Spanish Technical (Barca Era)</span><span class="metric-score">9.60</span></div>
+                    <div class="metric-header"><span class="metric-name">Italian Tactical Sophistication</span><span class="metric-score">9.40</span></div>
                     <div class="metric-bar">
-                        <div class="metric-fill" style="width: 96%"></div>
+                        <div class="metric-fill" style="width: 94%"></div>
                     </div>
                 </div>
                 <div class="metric-item">
-                    <div class="metric-header"><span class="metric-name">European Pragmatism</span><span class="metric-score">7.50</span></div>
+                    <div class="metric-header"><span class="metric-name">Dutch Technical Intelligence</span><span class="metric-score">9.50</span></div>
                     <div class="metric-bar">
-                        <div class="metric-fill" style="width: 75%"></div>
+                        <div class="metric-fill" style="width: 95%"></div>
                     </div>
                 </div>
             </div>
@@ -655,35 +644,35 @@
                     <div>
                         <h3>Core Traits</h3>
                         <div class="info-row"><span class="info-label">Personality Type</span><span
-                                class="info-value">ESFP (The Entertainer)</span></div>
+                                class="info-value">INFJ (The Advocate)</span></div>
                         <div class="info-row"><span class="info-label">On-Pitch Role</span><span
-                                class="info-value">The Creator</span></div>
+                                class="info-value">The Conductor</span></div>
                         <div class="metric-item">
-                            <div class="metric-header"><span class="metric-name">Creativity</span><span
-                                    class="metric-score">10.0</span></div>
+                            <div class="metric-header"><span class="metric-name">Composure</span><span
+                                    class="metric-score">9.7</span></div>
                             <div class="metric-bar">
-                                <div class="metric-fill" style="width: 100%"></div>
+                                <div class="metric-fill" style="width: 97%"></div>
                             </div>
                         </div>
                         <div class="metric-item">
-                            <div class="metric-header"><span class="metric-name">Provocation</span><span
-                                    class="metric-score">10.0</span></div>
+                            <div class="metric-header"><span class="metric-name">Intelligence</span><span
+                                    class="metric-score">9.9</span></div>
                             <div class="metric-bar">
-                                <div class="metric-fill" style="width: 100%"></div>
+                                <div class="metric-fill" style="width: 99%"></div>
                             </div>
                         </div>
                         <div class="metric-item">
-                            <div class="metric-header"><span class="metric-name">Pressure Handling</span><span
-                                    class="metric-score">9.2</span></div>
+                            <div class="metric-header"><span class="metric-name">Professionalism</span><span
+                                    class="metric-score">9.5</span></div>
                             <div class="metric-bar">
-                                <div class="metric-fill" style="width: 92%"></div>
+                                <div class="metric-fill" style="width: 95%"></div>
                             </div>
                         </div>
                     </div>
                     <div>
                         <h3>Analysis</h3>
                         <p class="small">
-                            Neymar is the ultimate footballing extrovert. He plays to entertain, often blurring the line between efficiency and showmanship. His psychological profile is complex; he invites pressure and tackles, using provocation as a tool to destabilize defenders. While criticized for his emotional volatility, his ability to demand the ball in critical moments (e.g., the 6-1 Remontada) proves elite mental fortitude in possession.
+                            Rui Costa was the thinking man's footballer. He processed the game frames ahead of everyone else, seeing passes that others couldn't. His temperament was cool and unflappable, a leader who commanded respect through his sheer genius and consistency rather than shouting. He carried the creative burden for Fiorentina and Portugal for years, a responsibility he handled with immense grace and professionalism.
                         </p>
                     </div>
                 </div>
@@ -693,20 +682,20 @@
             <div class="card">
                 <h2>🤝 Key Relationships & Dynamics</h2>
                 <div class="timeline-item">
-                    <div class="timeline-date">Lionel Messi (The Brother)</div>
-                    <div class="timeline-event">Formed the greatest trio in history (MSN). Messi mentored Neymar at Barcelona, and later they reunited at PSG. Neymar famously said: "I play to make Leo happy."</div>
+                    <div class="timeline-date">Gabriel Batistuta (The Perfect Partner)</div>
+                    <div class="timeline-event">The most telepathic playmaker-striker duo of the 90s. At Fiorentina, Rui Costa's visionary through balls were the primary supply for "Batigol's" thunderous finishes.</div>
                 </div>
                 <div class="timeline-item">
-                    <div class="timeline-date">Tite (The Father Figure)</div>
-                    <div class="timeline-event">Under Tite's management for Brazil, Neymar was given total freedom and responsibility. Tite defended him fiercely against critics, building the Seleção's system entirely around his #10.</div>
+                    <div class="timeline-date">Luís Figo (The Golden Generation)</div>
+                    <div class="timeline-event">Together, they were the creative heart of Portugal for a decade. While Figo was the explosive winger, Rui Costa was the central conductor, orchestrating the play from the #10 position.</div>
                 </div>
                 <div class="timeline-item">
-                    <div class="timeline-date">Ganso (The Twin)</div>
-                    <div class="timeline-event">At Santos, Neymar and Ganso were the "Meninos da Vila" who conquered South America. Their telepathic connection in 2010-2011 redefined Brazilian club football.</div>
+                    <div class="timeline-date">Andriy Shevchenko (The Milan Connection)</div>
+                    <div class="timeline-event">At AC Milan, Rui Costa adapted his game to feed one of Europe's deadliest strikers. Their link-up was key to Milan's Champions League and Serie A triumphs.</div>
                 </div>
                 <div class="timeline-item">
-                    <div class="timeline-date">Kylian Mbappé (The Rival/Partner)</div>
-                    <div class="timeline-event">A complex dynamic at PSG. Initially a mentorship, it evolved into a power struggle for the spotlight, yet produced devastating on-field combinations.</div>
+                    <div class="timeline-date">Carlo Ancelotti (The Tactician)</div>
+                    <div class="timeline-event">The coach who masterminded Milan's 2003 Champions League win. Ancelotti's "Christmas Tree" formation was built around creative midfielders like Rui Costa and Pirlo.</div>
                 </div>
             </div>
 
@@ -719,52 +708,45 @@
                             <th>Club/Competition</th>
                             <th>Years</th>
                             <th>Matches</th>
-                            <th>Goals</th>
-                            <th>Assists</th>
+                            <th>G/A</th>
+                            <th>Honors</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>Santos</strong></td>
-                            <td>2009-2013</td>
-                            <td>225</td>
-                            <td>136</td>
-                            <td>64</td>
+                            <td><strong>Benfica</strong></td>
+                            <td>1991-94/06-08</td>
+                            <td>179</td>
+                            <td>30 G / 40+ A</td>
+                            <td>Primeira Liga, Cup</td>
                         </tr>
                         <tr>
-                            <td><strong>FC Barcelona</strong></td>
-                            <td>2013-2017</td>
-                            <td>186</td>
-                            <td>105</td>
-                            <td>76</td>
+                            <td><strong>Fiorentina</strong></td>
+                            <td>1994-2001</td>
+                            <td>276</td>
+                            <td>50 G / 70+ A</td>
+                            <td>2x Coppa Italia</td>
                         </tr>
                         <tr>
-                            <td><strong>PSG</strong></td>
-                            <td>2017-2023</td>
-                            <td>173</td>
-                            <td>118</td>
-                            <td>77</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Al Hilal</strong></td>
-                            <td>2023-Present</td>
-                            <td>10+</td>
-                            <td>2+</td>
-                            <td>5+</td>
+                            <td><strong>AC Milan</strong></td>
+                            <td>2001-2006</td>
+                            <td>192</td>
+                            <td>11 G / 50+ A</td>
+                            <td>UCL, Serie A, Cup</td>
                         </tr>
                          <tr>
-                            <td><strong>Brazil</strong></td>
-                            <td>2010-Present</td>
-                            <td>128</td>
-                            <td>79</td>
-                            <td>59</td>
+                            <td><strong>Portugal</strong></td>
+                            <td>1993-2004</td>
+                            <td>94</td>
+                            <td>26 G</td>
+                            <td>U20 World Cup</td>
                         </tr>
-                        <tr style="background: rgba(227, 6, 19, 0.15);">
+                        <tr style="background: rgba(75, 0, 130, 0.2);">
                             <td><strong>TOTAL CAREER</strong></td>
-                            <td><strong>2009-2026</strong></td>
-                            <td><strong>720+</strong></td>
-                            <td><strong>440+</strong></td>
-                            <td><strong>280+</strong></td>
+                            <td><strong>1991-2008</strong></td>
+                            <td><strong>741</strong></td>
+                            <td><strong>117 G / 160+ A</strong></td>
+                            <td><strong>Iconic #10</strong></td>
                         </tr>
                     </tbody>
                 </table>
@@ -773,33 +755,33 @@
                 <div class="trophy-grid">
                     <div class="trophy-box">
                         <div class="trophy-icon">🏆</div>
-                        <div class="trophy-title">UCL Winner</div>
-                        <div class="trophy-year">2015 (Barcelona)</div>
+                        <div class="trophy-title">Champions League</div>
+                        <div class="trophy-year">2003 (Milan)</div>
                     </div>
                     <div class="trophy-box">
-                        <div class="trophy-icon">🌎</div>
-                        <div class="trophy-title">Libertadores</div>
-                        <div class="trophy-year">2011 (Santos)</div>
+                        <div class="trophy-icon">🇮🇹</div>
+                        <div class="trophy-title">Serie A</div>
+                        <div class="trophy-year">2004 (Milan)</div>
                     </div>
                     <div class="trophy-box">
-                        <div class="trophy-icon">🥇</div>
-                        <div class="trophy-title">Olympic Gold</div>
-                        <div class="trophy-year">2016 (Rio)</div>
+                        <div class="trophy-icon">🇮🇹</div>
+                        <div class="trophy-title">Coppa Italia</div>
+                        <div class="trophy-year">1996, 2001, 2003</div>
                     </div>
                     <div class="trophy-box">
-                        <div class="trophy-icon">🇫🇷</div>
-                        <div class="trophy-title">Ligue 1</div>
-                        <div class="trophy-year">5x Winner</div>
+                        <div class="trophy-icon">🇵🇹</div>
+                        <div class="trophy-title">Primeira Liga</div>
+                        <div class="trophy-year">1994 (Benfica)</div>
                     </div>
                     <div class="trophy-box">
-                        <div class="trophy-icon">🇪🇸</div>
-                        <div class="trophy-title">La Liga</div>
-                        <div class="trophy-year">2x Winner</div>
+                        <div class="trophy-icon">🌍</div>
+                        <div class="trophy-title">U-20 World Cup</div>
+                        <div class="trophy-year">1991 (Portugal)</div>
                     </div>
                     <div class="trophy-box">
-                        <div class="trophy-icon">⚽</div>
-                        <div class="trophy-title">Puskás Award</div>
-                        <div class="trophy-year">2011 (vs Flamengo)</div>
+                        <div class="trophy-icon">🌟</div>
+                        <div class="trophy-title">FIFA 100</div>
+                        <div class="trophy-year">Pelé's List</div>
                     </div>
                 </div>
             </div>
@@ -808,32 +790,47 @@
             <div class="card">
                 <h2>⚡ Key Matches & Milestones</h2>
                 <div class="timeline-item">
-                    <div class="timeline-date">Jun 22, 2011 | The Coronation</div>
-                    <div class="timeline-event"><strong>Santos 2-1 Peñarol (Libertadores Final).</strong> Neymar scores the opening goal to bring the Libertadores back to Santos for the first time since Pelé (1963).</div>
+                    <div class="timeline-date">Jun 30, 1991 | Golden Generation</div>
+                    <div class="timeline-event">Scores the winning penalty for Portugal against Brazil to win the FIFA U-20 World Cup final in Lisbon. The birth of the "Golden Generation".</div>
                 </div>
                 <div class="timeline-item">
-                    <div class="timeline-date">Jun 6, 2015 | The Treble Sealer</div>
-                    <div class="timeline-event"><strong>Barcelona 3-1 Juventus (UCL Final).</strong> Scores the 97th-minute goal to seal the Champions League title and the treble, finishing as the tournament's joint-top scorer.</div>
+                    <div class="timeline-date">May 18, 1996 | Fiorentina Hero</div>
+                    <div class="timeline-event">Leads Fiorentina to a Coppa Italia final victory over Atalanta, ending the club's 20-year trophy drought and cementing his iconic status in Florence.</div>
                 </div>
                 <div class="timeline-item">
-                    <div class="timeline-date">Mar 8, 2017 | La Remontada</div>
-                    <div class="timeline-event"><strong>Barcelona 6-1 PSG.</strong> Perhaps the greatest individual performance in UCL history. With 7 minutes left and needing 3 goals, Neymar scores a free-kick, a penalty, and assists Roberto's winner. "1% Chance, 99% Faith."</div>
+                    <div class="timeline-date">Jun 20, 2000 | Euro 2000 Stunner</div>
+                    <div class="timeline-event">Scores a spectacular long-range goal against England in a classic 3-2 comeback victory for Portugal, showcasing his big-game mentality on the international stage.</div>
                 </div>
                 <div class="timeline-item">
-                    <div class="timeline-date">Aug 20, 2016 | National Redemption</div>
-                    <div class="timeline-event"><strong>Brazil 1-1 Germany (Olympics Final).</strong> Scores a stunning free-kick and the winning penalty at the Maracanã to give Brazil its first-ever Olympic Gold Medal.</div>
+                    <div class="timeline-date">May 28, 2003 | The Pinnacle</div>
+                    <div class="timeline-event">Starts for AC Milan in the Champions League Final against Juventus at Old Trafford. Milan wins on penalties, and Rui Costa achieves the biggest club honor of his career.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">May 11, 2008 | The Emotional Farewell</div>
+                    <div class="timeline-event">Plays his final professional match for his boyhood club Benfica at the Estádio da Luz, subbed off to a standing ovation that lasts for several minutes. A perfect end to a legendary career.</div>
                 </div>
             </div>
 
             <!-- Player Comparison -->
             <div class="card">
-                <h2>📊 Player Comparison (The Magicians)</h2>
+                <h2>📊 Player Comparison (The Maestros)</h2>
                 <div class="visual-canvas">
                     <canvas id="radarChart" style="max-width: 100%; max-height: 100%;"></canvas>
                 </div>
                 <p class="small" style="text-align: center; margin-top: 12px;">
-                    Comparing Neymar Jr. vs Ronaldinho (Prime), Vinícius Jr., and Eden Hazard (Prime).
+                    Comparing Rui Costa vs Zinedine Zidane, Kaká, and Juan Román Riquelme.
                 </p>
+            </div>
+
+            <!-- Video Highlights (Embedded) -->
+            <div class="card">
+                <h2>🎥 Maestro in Action</h2>
+                <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; border: 1px solid rgba(212, 175, 55, 0.2);">
+                    <video controls style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #000;">
+                        <source src="https://www.dropbox.com/scl/fi/e9puhvabo8b2dv0m60c4o/Rui-Costa.mp4?rlkey=bq19vqczjwrwcbyfwfq7zy8nb&raw=1" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
             </div>
 
             <!-- Miscellaneous -->
@@ -842,24 +839,24 @@
                 <div class="two-col">
                     <div>
                         <h3>Historical Records</h3>
-                        <div class="info-row"><span class="info-label">Transfer Fee</span><span
-                                class="info-value">€222M (World Record)</span></div>
-                        <div class="info-row"><span class="info-label">Brazil Goals</span><span
-                                class="info-value">79 (1st All-Time)</span></div>
-                        <div class="info-row"><span class="info-label">Sponsors</span><span class="info-value">Puma, Red Bull</span></div>
+                        <div class="info-row"><span class="info-label">Transfer Fee (2001)</span><span
+                                class="info-value">€42 Million (Record)</span></div>
+                        <div class="info-row"><span class="info-label">Current Role</span><span
+                                class="info-value">Benfica President</span></div>
+                        <div class="info-row"><span class="info-label">Hall of Fame</span><span class="info-value">AC Milan</span></div>
                         <div class="info-row"><span class="info-label">Languages</span><span
-                                class="info-value">PT, ES, FR, EN</span></div>
-                        <div class="info-row"><span class="info-label">Signature</span><span class="info-value">The Rainbow Flick</span></div>
+                                class="info-value">PT, IT, EN, ES</span></div>
+                        <div class="info-row"><span class="info-label">Idol</span><span class="info-value">Eusébio</span></div>
                     </div>
                     <div>
                         <h3>Cultural Impact</h3>
-                        <div class="info-row"><span class="info-label">Nickname</span><span class="info-value">Ney / Juninho</span></div>
-                        <div class="info-row"><span class="info-label">Style Icon</span><span
-                                class="info-value">Haircuts, Fashion</span></div>
-                        <div class="info-row"><span class="info-label">Playstyle</span><span class="info-value">Ginga / Street</span></div>
-                        <div class="info-row"><span class="info-label">Controversy</span><span
-                                class="info-value">Rolling / Simulation</span></div>
-                        <div class="info-row"><span class="info-label">Quote</span><span class="info-value">"Ousadia e Alegria"</span></div>
+                        <div class="info-row"><span class="info-label">Nickname</span><span class="info-value">Il Principe (The Prince)</span></div>
+                        <div class="info-row"><span class="info-label">Signature Move</span><span
+                                class="info-value">Outside Boot Pass</span></div>
+                        <div class="info-row"><span class="info-label">Socks</span><span class="info-value">Rolled Down</span></div>
+                        <div class="info-row"><span class="info-label">Florence Status</span><span
+                                class="info-value">Honorary Citizen</span></div>
+                        <div class="info-row"><span class="info-label">Quote</span><span class="info-value">"I played for the fans."</span></div>
                     </div>
                 </div>
             </div>
@@ -868,13 +865,13 @@
     </div>
 
     <footer
-        style="background: var(--card); padding: 30px; text-align: center; border-top: 1px solid rgba(227, 6, 19, 0.12); margin-top: 30px;">
+        style="background: var(--card); padding: 30px; text-align: center; border-top: 1px solid rgba(75, 0, 130, 0.2); margin-top: 30px;">
         <p style="color: var(--muted); font-size: 13px;">
             <strong style="color: var(--accent2);">Empire FGA Scouting Network</strong> — 779 Proprietary Metrics •
             60-Philosophy Framework
         </p>
         <p style="color: var(--muted); font-size: 11px; margin-top: 6px;">
-            Data validated from FIFA Archives, CBF Records & UEFA Champions League History.
+            Data validated from Serie A Historical Archives, UEFA & FPF Portugal.
         </p>
     </footer>
 
@@ -883,10 +880,10 @@
         new Chart(ctx, {
             type: 'radar',
             data: {
-                labels: ['Dribbling', 'Creativity', 'Passing', 'Finishing', 'Flair', 'Speed', 'Physicality', 'Work Rate'],
+                labels: ['Vision', 'Passing', 'Technique', 'Dribbling', 'Long Shot', 'Pace', 'Flair', 'Composure'],
                 datasets: [{
-                    label: 'Neymar Jr. (Prime)',
-                    data: [10.0, 10.0, 9.5, 9.2, 10.0, 9.5, 7.0, 7.5],
+                    label: 'Rui Costa',
+                    data: [10.0, 9.8, 9.7, 9.2, 9.0, 8.0, 9.8, 9.7],
                     borderColor: '#d4af37',
                     backgroundColor: 'rgba(212, 175, 55, 0.15)',
                     borderWidth: 3,
@@ -894,24 +891,23 @@
                     pointBorderColor: '#fff',
                     pointRadius: 5
                 }, {
-                    label: 'Ronaldinho (Prime)',
-                    data: [10.0, 10.0, 9.2, 8.8, 10.0, 8.8, 8.0, 6.0],
+                    label: 'Zinedine Zidane',
+                    data: [9.8, 9.7, 10.0, 9.8, 8.8, 8.2, 9.5, 10.0],
                     borderColor: '#fff',
                     backgroundColor: 'rgba(255,255,255,0.05)',
                     borderWidth: 2,
                     pointRadius: 4
                 }, {
-                    label: 'Vinícius Jr.',
-                    data: [9.8, 8.5, 8.2, 9.0, 9.5, 10.0, 8.5, 9.0],
-                    borderColor: '#00ff00',
-                    backgroundColor: 'rgba(0, 255, 0, 0.05)',
+                    label: 'Kaká',
+                    data: [9.0, 9.2, 9.4, 9.5, 9.0, 9.6, 9.0, 9.2],
+                    borderColor: '#DA291C',
+                    backgroundColor: 'rgba(218, 41, 28, 0.08)',
                     borderWidth: 2,
-                    pointRadius: 4,
-                    borderDash: [5, 5]
+                    pointRadius: 4
                 }, {
-                    label: 'Eden Hazard',
-                    data: [9.9, 9.2, 8.8, 8.5, 9.5, 9.0, 8.5, 7.0],
-                    borderColor: '#0000ff',
+                    label: 'Riquelme',
+                    data: [10.0, 10.0, 9.5, 9.4, 8.5, 6.5, 9.6, 9.5],
+                    borderColor: '#8b949e',
                     backgroundColor: 'transparent',
                     borderWidth: 2,
                     pointRadius: 4,

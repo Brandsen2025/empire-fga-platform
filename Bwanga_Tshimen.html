@@ -4,19 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marino Hinestroza — Empire FGA Scouting Profile</title>
+    <title>Bwanga Tshimen — Empire FGA Heritage Profile</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         :root {
-            --bg: #071122;
-            --card: #0b1624;
-            --white: #f0f6fc;
-            --muted: #8b949e;
-            --accent1: #0b5bb0;
-            --accent2: #ffd24d;
-            --success: #238636;
+            --bg: #0d0d0c;
+            --card: #1a1a18;
+            --white: #f8f8f2;
+            --muted: #94948d;
+            --accent1: #ffcc00;
+            /* Zaire Gold */
+            --accent2: #00843d;
+            /* Zaire Green */
+            --gold: #d4af37;
+            --success: #28a745;
         }
 
         * {
@@ -31,8 +34,8 @@
             margin: 0;
             padding: 0;
             background:
-                radial-gradient(900px 500px at 8% 12%, rgba(11, 91, 176, 0.08), transparent 15%),
-                radial-gradient(800px 400px at 92% 88%, rgba(255, 210, 77, 0.05), transparent 10%),
+                radial-gradient(900px 500px at 8% 12%, rgba(255, 204, 0, 0.1), transparent 15%),
+                radial-gradient(800px 400px at 92% 88%, rgba(0, 132, 61, 0.1), transparent 10%),
                 var(--bg);
             color: var(--white);
             -webkit-font-smoothing: antialiased;
@@ -62,9 +65,10 @@
 
         .header-title {
             font-size: 22px;
-            font-weight: 900;
-            color: var(--accent2);
-            letter-spacing: -0.5px;
+            font-weight: 950;
+            color: var(--gold);
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         .container {
@@ -80,10 +84,10 @@
             background: var(--card);
             padding: 24px;
             border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.2);
             position: relative;
             margin-bottom: 24px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.6);
         }
 
         .photo {
@@ -92,8 +96,9 @@
             object-fit: cover;
             object-position: center 10%;
             border-radius: 12px;
-            border: 3px solid var(--accent2);
-            background: #0b1624;
+            border: 3px solid var(--gold);
+            filter: sepia(0.2) contrast(1.1);
+            background: #1a1a18;
             margin-bottom: 20px;
         }
 
@@ -106,41 +111,42 @@
         }
 
         .sub {
-            color: var(--accent2);
+            color: var(--gold);
             margin-bottom: 12px;
             font-size: 16px;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
         }
 
         .pill {
             display: inline-block;
-            background: rgba(11, 91, 176, 0.15);
+            background: rgba(212, 175, 55, 0.15);
             padding: 8px 16px;
             border-radius: 999px;
             font-weight: 700;
             font-size: 13px;
-            color: var(--white);
+            color: var(--gold);
             margin: 6px 8px 6px 0;
-            border: 1px solid rgba(255, 210, 77, 0.2);
+            border: 1px solid rgba(212, 175, 55, 0.3);
         }
 
         .rating-badge {
             position: absolute;
             right: 24px;
             top: 24px;
-            background: linear-gradient(135deg, #ffd24d 0%, #0b5bb0 100%);
-            color: #071122;
+            background: linear-gradient(135deg, #d4af37 0%, #00843d 100%);
+            color: var(--white);
             font-weight: 950;
             padding: 15px 22px;
             border-radius: 18px;
             font-size: 32px;
-            box-shadow: 0 15px 45px rgba(11, 91, 176, 0.3);
+            box-shadow: 0 15px 45px rgba(212, 175, 55, 0.4);
             display: flex;
             align-items: center;
             justify-content: center;
             line-height: 1;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .section-header {
@@ -148,14 +154,15 @@
             align-items: center;
             gap: 12px;
             margin-bottom: 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
             padding-bottom: 12px;
         }
 
         .section-header h2 {
             font-size: 26px;
             font-weight: 900;
-            color: var(--white);
+            color: var(--gold);
+            text-transform: uppercase;
         }
 
         .section-header .icon {
@@ -185,21 +192,21 @@
         }
 
         .metric-score {
-            color: var(--accent2);
+            color: var(--gold);
             font-weight: 900;
             font-size: 16px;
         }
 
         .metric-bar {
             height: 8px;
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 4px;
             overflow: hidden;
         }
 
         .metric-fill {
             height: 100%;
-            background: linear-gradient(90deg, var(--accent1) 0%, var(--accent2) 100%);
+            background: linear-gradient(90deg, var(--gold) 0%, var(--accent2) 100%);
             border-radius: 4px;
         }
 
@@ -207,7 +214,7 @@
             display: flex;
             justify-content: space-between;
             padding: 12px 0;
-            border-bottom: 1px dotted rgba(255, 255, 255, 0.08);
+            border-bottom: 1px dotted rgba(212, 175, 55, 0.2);
         }
 
         .info-row:last-child {
@@ -234,8 +241,8 @@
         }
 
         .muted-box {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(212, 175, 55, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.1);
             padding: 18px;
             border-radius: 12px;
             color: var(--muted);
@@ -243,7 +250,7 @@
         }
 
         .highlight-text {
-            color: var(--accent2);
+            color: var(--gold);
             font-weight: 800;
         }
 
@@ -257,13 +264,13 @@
         td {
             padding: 14px;
             text-align: left;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
             font-size: 14px;
         }
 
         th {
-            background: rgba(11, 91, 176, 0.1);
-            color: var(--accent2);
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--gold);
             font-weight: 900;
             text-transform: uppercase;
             font-size: 12px;
@@ -271,8 +278,8 @@
         }
 
         .stat-badge {
-            background: var(--success);
-            color: white;
+            background: var(--gold);
+            color: black;
             padding: 4px 10px;
             border-radius: 6px;
             font-weight: 800;
@@ -281,7 +288,7 @@
 
         .timeline-item {
             padding: 18px;
-            border-left: 4px solid var(--accent2);
+            border-left: 4px solid var(--gold);
             background: rgba(255, 255, 255, 0.02);
             border-radius: 8px;
             margin-bottom: 15px;
@@ -289,7 +296,7 @@
 
         .timeline-date {
             font-weight: 900;
-            color: var(--accent2);
+            color: var(--gold);
             font-size: 14px;
             margin-bottom: 6px;
         }
@@ -300,7 +307,7 @@
             overflow: hidden;
             aspect-ratio: 16/9;
             background: #000;
-            border: 1px solid rgba(255, 210, 77, 0.2);
+            border: 1px solid rgba(212, 175, 55, 0.3);
             margin-top: 15px;
         }
 
@@ -332,10 +339,10 @@
 
         .chemistry-level {
             font-size: 11px;
-            color: var(--accent2);
+            color: var(--gold);
             text-transform: uppercase;
             font-weight: 900;
-            background: rgba(255, 210, 77, 0.1);
+            background: rgba(212, 175, 55, 0.1);
             padding: 2px 6px;
             border-radius: 4px;
             margin-top: 5px;
@@ -355,9 +362,21 @@
             margin: 40px auto 20px;
             padding: 40px 22px;
             text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
             color: var(--muted);
             font-size: 13px;
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 20px;
+            align-items: start;
+        }
+
+        .small {
+            font-size: 14px;
+            color: var(--muted);
         }
 
         @media (max-width: 1024px) {
@@ -366,7 +385,11 @@
             }
 
             .photo {
-                height: 400px;
+                height: 450px;
+            }
+
+            .two-col {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -378,7 +401,7 @@
         <div class="header-left">
             <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ"
                 alt="Empire Scouting Network">
-            <div class="header-title">EMPIRE FGA SCOUTING NETWORK</div>
+            <div class="header-title">EMPIRE HERITAGE ARCHIVE</div>
         </div>
     </header>
 
@@ -387,44 +410,45 @@
         <!-- Sidebar -->
         <aside>
             <div class="card">
-                <div class="rating-badge">78.4</div>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKbLE5U-hIUMuEzjkQLJeGVBSCC8mQeKms5Q&s"
-                    alt="Marino Hinestroza" class="photo">
-                <div class="title">Marino Hinestroza</div>
-                <div class="sub">Dynamic Winger</div>
+                <div class="rating-badge">88.5</div>
+                <img src="https://pbs.twimg.com/media/EP_f_BfW4AA_m_i?format=jpg&name=large" alt="Bwanga Tshimen"
+                    class="photo">
+                <div class="title">Bwanga Tshimen</div>
+                <div class="sub">The Black Beckenbauer</div>
 
                 <div class="section-header" style="margin-top: 20px;">
-                    <h2>Biographic Stats</h2>
+                    <h2>Historical Stats</h2>
                 </div>
-                <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">Marino
-                        Hinestroza Angulo</span></div>
-                <div class="info-row"><span class="info-label">Birth Date</span><span class="info-value">July 8,
-                        2002</span></div>
-                <div class="info-row"><span class="info-label">Birthplace</span><span class="info-value">Cali,
-                        Colombia</span></div>
-                <div class="info-row"><span class="info-label">Height</span><span class="info-value">1.70m</span></div>
-                <div class="info-row"><span class="info-label">Position</span><span class="info-value">Right Winger
-                        (Inverted)</span></div>
-                <div class="info-row"><span class="info-label">Foot</span><span class="info-value">Left</span></div>
-                <div class="info-row"><span class="info-label">Market Value</span><span class="info-value">€1.5M -
-                        €2.0M</span></div>
-                <div class="info-row"><span class="info-label">Current Club</span><span class="info-value">Atlético
-                        Nacional</span></div>
+                <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">Raymond Bwanga
+                        Tshimen</span></div>
+                <div class="info-row"><span class="info-label">Birth Date</span><span class="info-value">January 4,
+                        1949</span></div>
+                <div class="info-row"><span class="info-label">Birthplace</span><span class="info-value">Elisabethville,
+                        Zaire (DRC)</span></div>
+                <div class="info-row"><span class="info-label">Height</span><span class="info-value">1.82m (Est.)</span>
+                </div>
+                <div class="info-row"><span class="info-label">Position</span><span class="info-value">Sweeper /
+                        Center-Back</span></div>
+                <div class="info-row"><span class="info-label">Golden Era</span><span class="info-value">1970 -
+                        1980</span></div>
+                <div class="info-row"><span class="info-label">Club Career</span><span class="info-value">TP Mazembe (16
+                        Seasons)</span></div>
+                <div class="info-row"><span class="info-label">National Apps</span><span class="info-value">28 Caps
+                        (Zaire)</span></div>
             </div>
 
             <div class="card">
                 <div class="section-header">
-                    <h2>Professional Record</h2>
+                    <h2>Legacy Record</h2>
                 </div>
-                <div class="info-row"><span class="info-label">Total G/A (2025)</span><span class="stat-badge">17</span>
-                </div>
-                <div class="info-row"><span class="info-label">Matches</span><span class="info-value">58</span></div>
-                <div class="info-row"><span class="info-label">Avg. Min/Match</span><span class="info-value">75'</span>
-                </div>
-                <div class="info-row"><span class="info-label">Pass Completion</span><span class="info-value">82%</span>
-                </div>
-                <div class="info-row"><span class="info-label">Dribble Success</span><span class="info-value">64%</span>
-                </div>
+                <div class="info-row"><span class="info-label">African PotY</span><span class="stat-badge">1973
+                        Winner</span></div>
+                <div class="info-row"><span class="info-label">World Cup</span><span class="info-value">1974
+                        Participant</span></div>
+                <div class="info-row"><span class="info-label">IFFHS DRC PotC</span><span class="info-value">#1
+                        Overall</span></div>
+                <div class="info-row"><span class="info-label">CAF Top 200</span><span class="info-value">Historic
+                        Pillar</span></div>
             </div>
         </aside>
 
@@ -438,17 +462,18 @@
                     <h2>Global Impact Analysis</h2>
                 </div>
                 <p class="lead-text">
-                    Marino Hinestroza has emerged as one of the most productive inverted wingers in the 2025 Categoría
-                    Primera A season. Following his loan move to Atlético Nacional, he has transformed from a raw talent
-                    into a high-utility attacker. His profile is characterized by <span class="highlight-text">explosive
-                        verticality</span> and a refined capacity for creative output on his left foot. With 10 assists
-                    in 2025, he has become a top-tier provider in South American domestic competition, attracting
-                    significant interest from MLS and Liga MX scouting networks.
+                    Bwanga Tshimen is the <span class="highlight-text">architect of African defensive prestige</span>.
+                    As the first-ever defender to win the African Footballer of the Year (1973), he shattered the
+                    continental ceiling for technical ball-playing CBs. Known as the <span class="highlight-text">"Black
+                        Beckenbauer,"</span> he was the cerebral heart of the Zaire 1974 World Cup squad, combining
+                    elite reading of the game with a majestic composure that remains the standard for Congolese
+                    defenders today.
                 </p>
                 <div class="muted-box">
-                    <span class="highlight-text">Scouting Verdict:</span> A high-tempo threat who excels in transition.
-                    Primary value lies in 1v1 isolation and the ability to cut inside to deliver precision assists. His
-                    43% goal involvement rate during the 2025 campaign marks him as an elite offensive asset.
+                    <span class="highlight-text">Heritage Verdict:</span> A "Defensive Maestro." Bwanga's value
+                    transcended physical tackling; he was a playmaker from the back who dictated the tempo of TP
+                    Mazembe's golden era. His role in Zaire's historic qualification for West Germany 1974 solidified
+                    his status as a global pioneer.
                 </div>
             </div>
 
@@ -456,66 +481,66 @@
             <div class="card">
                 <div class="section-header">
                     <span class="icon">📊</span>
-                    <h2>Core FGA Intelligence Metrics</h2>
+                    <h2>Core FGA Intelligence Metrics (Heritage Scale)</h2>
                 </div>
 
-                <h3>Tier 1: Technical Execution (60% Weight)</h3>
+                <h3>Tier 1: Leadership & Technical (60% Weight)</h3>
                 <div class="metric-grid" style="margin-top: 15px;">
                     <div class="metric-item">
-                        <div class="metric-header"><span class="metric-name">DRI (Dribbling/1v1)</span><span
-                                class="metric-score">8.9</span></div>
+                        <div class="metric-header"><span class="metric-name">IQ (Tactical Reading)</span><span
+                                class="metric-score">8.8</span></div>
                         <div class="metric-bar">
-                            <div class="metric-fill" style="width: 89%"></div>
+                            <div class="metric-fill" style="width: 88%"></div>
                         </div>
                     </div>
                     <div class="metric-item">
-                        <div class="metric-header"><span class="metric-name">ACC (Acceleration)</span><span
-                                class="metric-score">9.2</span></div>
+                        <div class="metric-header"><span class="metric-name">PAS (Build-up Command)</span><span
+                                class="metric-score">9.8</span></div>
                         <div class="metric-bar">
-                            <div class="metric-fill" style="width: 92%"></div>
+                            <div class="metric-fill" style="width: 98%"></div>
                         </div>
                     </div>
                     <div class="metric-item">
-                        <div class="metric-header"><span class="metric-name">CRO (Crossing Precision)</span><span
+                        <div class="metric-header"><span class="metric-name">COM (Sovereign Composure)</span><span
+                                class="metric-score">9.9</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width: 99%"></div>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">INT (Interceptions)</span><span
+                                class="metric-score">9.7</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width: 97%"></div>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">POS (Sweeper Depth)</span><span
+                                class="metric-score">9.9</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width: 99%"></div>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">LEA (Generalship)</span><span
+                                class="metric-score">10.0</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width: 100%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 25px;">Tier 2: Physicality & Impact (30% Weight)</h3>
+                <div class="metric-grid" style="margin-top: 15px;">
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">AER (Aerial Command)</span><span
                                 class="metric-score">8.4</span></div>
                         <div class="metric-bar">
                             <div class="metric-fill" style="width: 84%"></div>
                         </div>
                     </div>
                     <div class="metric-item">
-                        <div class="metric-header"><span class="metric-name">SHO (Finishing/Shot Power)</span><span
-                                class="metric-score">7.8</span></div>
-                        <div class="metric-bar">
-                            <div class="metric-fill" style="width: 78%"></div>
-                        </div>
-                    </div>
-                    <div class="metric-item">
-                        <div class="metric-header"><span class="metric-name">AGI (Agility/Balance)</span><span
-                                class="metric-score">9.1</span></div>
-                        <div class="metric-bar">
-                            <div class="metric-fill" style="width: 91%"></div>
-                        </div>
-                    </div>
-                    <div class="metric-item">
-                        <div class="metric-header"><span class="metric-name">VIS (Field Vision)</span><span
-                                class="metric-score">8.2</span></div>
-                        <div class="metric-bar">
-                            <div class="metric-fill" style="width: 82%"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <h3 style="margin-top: 25px;">Tier 2: Tactical Intelligence (30% Weight)</h3>
-                <div class="metric-grid" style="margin-top: 15px;">
-                    <div class="metric-item">
-                        <div class="metric-header"><span class="metric-name">POS (Positioning Bias)</span><span
-                                class="metric-score">8.0</span></div>
-                        <div class="metric-bar">
-                            <div class="metric-fill" style="width: 80%"></div>
-                        </div>
-                    </div>
-                    <div class="metric-item">
-                        <div class="metric-header"><span class="metric-name">WRK (Offensive Work Rate)</span><span
+                        <div class="metric-header"><span class="metric-name">ATH (Athletic Prowess)</span><span
                                 class="metric-score">8.5</span></div>
                         <div class="metric-bar">
                             <div class="metric-fill" style="width: 85%"></div>
@@ -531,13 +556,15 @@
                     <h2>60-Philosophy Framework Analysis</h2>
                 </div>
                 <div style="margin-bottom: 20px;">
-                    <span class="pill">Bielsa Intensity (Philosophy_45_Bielsa_Intensity) 9.1/10</span>
-                    <span class="pill">Guardiola Positional (Philosophy_07_Guardiola_Positional) 8.8/10</span>
-                    <span class="pill">Mourinho Warfare (Philosophy_57_Mourinho_Warfare) 8.5/10</span>
+                    <span class="pill">Beckenbauer Libero (Philosophy_35_Beckenbauer_Libero) 9.9/10</span>
+                    <span class="pill">Baresi Score: 9.8/10</span>
+                    <span class="pill">Vidic Score: 9.1/10</span>
                 </div>
                 <div class="muted-box">
-                    Hinestroza fits the "Vertical Transitions" profile perfectly. He thrives in systems that permit
-                    late-entry runs and prioritize early isolation of the winger against a single fullback.
+                    Bwanga was the "Sweeper Supreme." His game was built on the "Libero" archetype popularized by Franz
+                    Beckenbauer; he was responsible for starting every attack while maintaining a flawless defensive
+                    line. His anticipation mirrors the elite "Baresi IQ," where positioning rendered physical tackling
+                    secondary. Though not a "Vidian" bruiser, his aerial dominance made him a multi-faceted threat.
                 </div>
             </div>
 
@@ -549,22 +576,23 @@
                 </div>
                 <div class="two-col">
                     <div>
-                        <div class="info-row"><span class="info-label">Mental Fortitude</span><span
-                                class="info-value">High</span></div>
-                        <div class="info-row"><span class="info-label">Aggression Index</span><span
-                                class="info-value">Medium</span></div>
+                        <div class="info-row"><span class="info-label">Leadership</span><span class="info-value">Silent
+                                Commander</span></div>
+                        <div class="info-row"><span class="info-label">Resilience</span><span
+                                class="info-value">Historic Peak</span></div>
                         <div class="metric-item" style="margin-top: 15px;">
-                            <div class="metric-header"><span class="metric-name">Clutch Performance</span><span
-                                    class="metric-score">8.6</span></div>
+                            <div class="metric-header"><span class="metric-name">Game Intelligence</span><span
+                                    class="metric-score">8.8</span></div>
                             <div class="metric-bar">
-                                <div class="metric-fill" style="width: 86%"></div>
+                                <div class="metric-fill" style="width: 88%"></div>
                             </div>
                         </div>
                     </div>
                     <p class="small" style="padding-left: 20px;">
-                        Marino displays a high level of confidence in 1v1 scenarios. He does not shy away from failure,
-                        consistently attempting high-difficulty carries. His discipline has improved significantly in
-                        2025, recording only 5 yellow cards despite his aggressive playstyle.
+                        Bwanga displayed a "Stoic Authority." His psychological profile was that of a
+                        general—unflappable under the immense pressure of the 1974 World Cup stage. He led by example,
+                        using technical excellence to instill confidence in his teammates during the highest-stakes
+                        moments of African football history.
                     </p>
                 </div>
             </div>
@@ -577,16 +605,16 @@
                 </div>
                 <div class="chemistry-grid">
                     <div class="chemistry-item">
-                        <div class="chemistry-name">Alfredo Morelos</div>
-                        <div class="chemistry-level">Elite Linkage</div>
+                        <div class="chemistry-name">Etepe Kakoko</div>
+                        <div class="chemistry-level">Attacking Outlet</div>
                     </div>
                     <div class="chemistry-item">
-                        <div class="chemistry-name">Andrés Román</div>
-                        <div class="chemistry-level">Overlapping Synch</div>
+                        <div class="chemistry-name">Mwamba Kazadi</div>
+                        <div class="chemistry-level">Last Line Link</div>
                     </div>
                     <div class="chemistry-item">
-                        <div class="chemistry-name">Jorman Campuzano</div>
-                        <div class="chemistry-level">Cover Support</div>
+                        <div class="chemistry-name">Lobo Mwepu</div>
+                        <div class="chemistry-level">Defensive Partner</div>
                     </div>
                 </div>
             </div>
@@ -595,39 +623,39 @@
             <div class="card">
                 <div class="section-header">
                     <span class="icon">📈</span>
-                    <h2>Complete Career Statistics</h2>
+                    <h2>Detailed Career History</h2>
                 </div>
                 <table>
                     <thead>
                         <tr>
-                            <th>Season</th>
-                            <th>Club</th>
-                            <th>Apps</th>
-                            <th>Goals</th>
-                            <th>Assists</th>
+                            <th>Period</th>
+                            <th>Club / Team</th>
+                            <th>Apps/Caps</th>
+                            <th>Honors</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>2025</td>
-                            <td>Atlético Nacional</td>
-                            <td>58</td>
-                            <td>7</td>
-                            <td>10</td>
+                            <td>1965-1981</td>
+                            <td>TP Mazembe</td>
+                            <td>300+</td>
+                            <td>African PotY ('73)</td>
+                            <td>Club Legend</td>
                         </tr>
                         <tr>
-                            <td>2024</td>
-                            <td>Atlético Nacional</td>
-                            <td>32</td>
-                            <td>4</td>
+                            <td>1974</td>
+                            <td>Zaire (WC)</td>
                             <td>3</td>
+                            <td>First Sub-Saharan Rep</td>
+                            <td>Historic Pioneer</td>
                         </tr>
                         <tr>
-                            <td>2023</td>
-                            <td>Columbus Crew / Pachuca</td>
-                            <td>18</td>
-                            <td>1</td>
-                            <td>1</td>
+                            <td>1970-1976</td>
+                            <td>Zaire National</td>
+                            <td>28</td>
+                            <td>2 Goals</td>
+                            <td>Defensive General</td>
                         </tr>
                     </tbody>
                 </table>
@@ -640,13 +668,19 @@
                     <h2>Key Matches & Milestones</h2>
                 </div>
                 <div class="timeline-item">
-                    <div class="timeline-date">Oct 12, 2025 | The Superclásico Assist</div>
-                    <p class="small">Delivered a game-winning cross for Morelos in the 1-0 victory over Medellín.</p>
+                    <div class="timeline-date">June 1974 | World Cup vs West Germany</div>
+                    <p class="small">Faced the legendary Beckenbauer in a generational clash of sweepers on the world
+                        stage.</p>
                 </div>
                 <div class="timeline-item">
-                    <div class="timeline-date">Nov 2025 | Double Victory</div>
-                    <p class="small">Mainstay in the squad that claimed both the Liga Clausura and Copa Colombia titles.
-                    </p>
+                    <div class="timeline-date">Dec 1973 | African POTY</div>
+                    <p class="small">Became the first defender to ever win the continent's most prestigious individual
+                        award.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">1967 | African Champions Cup</div>
+                    <p class="small">Led TP Mazembe to consecutive continental titles, establishing the club's
+                        dominance.</p>
                 </div>
             </div>
 
@@ -654,12 +688,11 @@
             <div class="card">
                 <div class="section-header">
                     <span class="icon">📹</span>
-                    <h2>Video Intelligence</h2>
+                    <h2>Modern Comparison Intelligence</h2>
                 </div>
-                <p class="small">Observed high-velocity dribbling and crossing proficiency. Watch his 2025 highlights
-                    below.</p>
+                <p class="small">Analysis of Bwanga's style vs modern technical sweepers.</p>
                 <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/S2q_8fI8J4o" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/5H-7q_2qjFk" allowfullscreen></iframe>
                 </div>
             </div>
 
@@ -667,34 +700,35 @@
             <div class="card">
                 <div class="section-header">
                     <span class="icon">📊</span>
-                    <h2>Player Comparison</h2>
+                    <h2>Heritage Defender Comparison</h2>
                 </div>
                 <div class="visual-canvas">
                     <canvas id="radarChart"></canvas>
                 </div>
                 <p class="small" style="text-align: center; margin-top: 15px;">
-                    Comparing Hinestroza's 2025 Profile vs <span class="highlight-text">Luis Díaz (Nacional
-                        phase)</span> and <span style="color: red;">Typical Liga BetPlay Wingers</span>.
+                    Comparing Bwanga Tshimen vs <span class="highlight-text">Franz Beckenbauer (Peak)</span> and <span
+                        style="color: #ffffff; opacity: 0.5;">70s Defender Average</span>.
                 </p>
             </div>
 
-            <!-- 10. Future Projection -->
+            <!-- 10. Future Projection / Legacy -->
             <div class="card">
                 <div class="section-header">
                     <span class="icon">🚀</span>
-                    <h2>Future Projection</h2>
+                    <h2>Legacy Projection</h2>
                 </div>
                 <div class="two-col">
                     <div>
-                        <div class="info-row"><span class="info-label">Potential Ceiling</span><span
-                                class="stat-badge">86.2</span></div>
-                        <div class="info-row"><span class="info-label">Likely Destination</span><span
-                                class="info-value">European Mid-Table / MLS</span></div>
+                        <div class="info-row"><span class="info-label">Heritage Index</span><span
+                                class="stat-badge">89.1</span></div>
+                        <div class="info-row"><span class="info-label">Status</span><span class="info-value">Immortal
+                                Congolese Icon</span></div>
                     </div>
                     <p class="small" style="padding-left: 20px;">
-                        Hinestroza is entering his physical prime. His statistical trajectory suggests he is ready for a
-                        high-intensity league transition. Focus needed on defensive tracking to reach European elite
-                        standards.
+                        Bwanga Tshimen's legacy is the bedrock of Congolese football pride. He proved that an African
+                        defender could be the most technically gifted player on the pitch. His influence is seen in
+                        every modern "ball-playing" CB from the region, and he remains the gold standard for leadership
+                        and tactical intelligence in the continent's history.
                     </p>
                 </div>
             </div>
@@ -703,8 +737,8 @@
     </div>
 
     <footer>
-        <p>&copy; 2026 Empire FGA Scouting Network. All technical data is strictly proprietary.</p>
-        <p style="margin-top: 8px; opacity: 0.6;">Heritage Intelligence • Performance Data • Technical Command</p>
+        <p>&copy; 2026 Empire FGA Scouting Network. Sovereign Heritage Archive.</p>
+        <p style="margin-top: 8px; opacity: 0.6;">Defensive Innovation • Historic Brilliance • Bwanga Tshimen</p>
     </footer>
 
     <script>
@@ -712,17 +746,17 @@
         new Chart(ctx, {
             type: 'radar',
             data: {
-                labels: ['Acceleration', 'Dribbling', 'Crossing', 'Finishing', 'Vision', 'Stamina', 'Agility', 'Flair'],
+                labels: ['Technical build-up', 'Vision/Passing', 'Interceptions', 'Composure', 'High Line Position', 'Leadership', 'Aerial Strength', 'IQ'],
                 datasets: [{
-                    label: 'Marino Hinestroza (2025)',
-                    data: [9.2, 8.9, 8.4, 7.8, 8.2, 8.4, 9.1, 8.7],
-                    borderColor: '#ffd24d',
-                    backgroundColor: 'rgba(255, 210, 77, 0.15)',
+                    label: 'Bwanga Tshimen',
+                    data: [8.8, 8.7, 8.6, 8.8, 8.8, 8.9, 8.4, 8.8],
+                    borderColor: '#d4af37',
+                    backgroundColor: 'rgba(212, 175, 55, 0.15)',
                     borderWidth: 4,
-                    pointBackgroundColor: '#ffd24d'
+                    pointBackgroundColor: '#d4af37'
                 }, {
-                    label: 'Luis Díaz (Nacional Peer)',
-                    data: [9.5, 9.3, 8.6, 8.5, 8.5, 9.0, 9.4, 9.0],
+                    label: 'F. Beckenbauer (Ref)',
+                    data: [9.9, 9.9, 9.8, 10.0, 9.8, 10.0, 9.5, 10.0],
                     borderColor: '#ffffff',
                     backgroundColor: 'transparent',
                     borderWidth: 2,
@@ -737,14 +771,14 @@
                         beginAtZero: true,
                         max: 10,
                         ticks: { stepSize: 2, display: false },
-                        grid: { color: 'rgba(255, 255, 255, 0.1)' },
-                        angleLines: { color: 'rgba(255, 255, 255, 0.1)' },
-                        pointLabels: { color: '#f0f6fc', font: { size: 12, weight: '700' } }
+                        grid: { color: 'rgba(212, 175, 55, 0.1)' },
+                        angleLines: { color: 'rgba(212, 175, 55, 0.1)' },
+                        pointLabels: { color: '#f8f8f2', font: { size: 12, weight: '700' } }
                     }
                 },
                 plugins: {
                     legend: {
-                        labels: { color: '#f0f6fc', font: { weight: '800' } }
+                        labels: { color: '#f8f8f2', font: { weight: '800' } }
                     }
                 }
             }

@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anthony Patti — Empire FGA Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg: #0a191e;
+            --card: #122b35;
+            --white: #f0f6fc;
+            --muted: #8b949e;
+            --accent1: #004e7c;
+            /* Greenville Blue */
+            --accent2: #d4af37;
+            /* Gold */
+            --brazil-green: #009c3b;
+            --brazil-yellow: #ffdf00;
+            --shadow: rgba(0, 78, 124, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background:
+                radial-gradient(900px 500px at 8% 12%, rgba(0, 156, 59, 0.1), transparent 10%),
+                radial-gradient(800px 400px at 92% 88%, rgba(212, 175, 55, 0.08), transparent 8%),
+                var(--bg);
+            color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            font-family: 'Inter', sans-serif;
+        }
+
+        header {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 0 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header img {
+            height: 48px;
+            object-fit: contain;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--accent2);
+            letter-spacing: -0.5px;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 22px;
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 26px;
+        }
+
+        .card {
+            background: var(--card);
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            position: relative;
+            margin-bottom: 22px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .photo {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+            object-position: top;
+            border-radius: 10px;
+            border: 3px solid var(--accent2);
+            background: #0b1624;
+        }
+
+        .title {
+            font-size: 34px;
+            font-weight: 900;
+            margin: 14px 0 6px;
+            color: var(--white);
+            letter-spacing: -1px;
+        }
+
+        .sub {
+            color: var(--accent2);
+            margin-bottom: 12px;
+            font-size: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .rating-badge {
+            position: absolute;
+            right: 18px;
+            top: 18px;
+            background: linear-gradient(135deg, var(--accent2), #b8860b);
+            color: #000;
+            font-weight: 900;
+            padding: 12px 18px;
+            border-radius: 16px;
+            font-size: 26px;
+            box-shadow: 0 10px 30px var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .section h2 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--accent2);
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent2);
+            margin: 20px 0 12px;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .info-label {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .info-value {
+            color: var(--white);
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .metric-item {
+            margin: 16px 0;
+        }
+
+        .metric-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .metric-name {
+            font-weight: 600;
+            color: var(--white);
+            font-size: 13px;
+        }
+
+        .metric-score {
+            color: var(--accent2);
+            font-weight: 800;
+            font-size: 15px;
+        }
+
+        .metric-bar {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .metric-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent2) 0%, #ffdf00 100%);
+            border-radius: 4px;
+        }
+
+        .timeline-item {
+            padding: 16px;
+            border-left: 3px solid var(--accent2);
+            margin: 14px 0;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .timeline-date {
+            color: var(--accent2);
+            font-weight: 800;
+            margin-bottom: 6px;
+            font-size: 14px;
+        }
+
+        .timeline-event {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .stat-box {
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 16px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 32px;
+            font-weight: 900;
+            color: var(--accent2);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 4px;
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+            color: var(--white);
+            font-size: 14px;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            text-align: left;
+        }
+
+        th {
+            background: rgba(212, 175, 55, 0.1);
+            font-weight: 800;
+            color: var(--accent2);
+            text-transform: uppercase;
+            font-size: 12px;
+        }
+
+        .muted-box {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 16px;
+            border-radius: 8px;
+            margin-top: 12px;
+            font-size: 14px;
+            line-height: 1.6;
+            border-left: 4px solid var(--accent2);
+        }
+
+        @media (max-width: 980px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-left">
+            <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ"
+                alt="Empire Scouting Network">
+            <div class="header-title">EMPIRE FGA SCOUTING NETWORK</div>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- Sidebar -->
+        <div>
+            <div class="card">
+                <img src="https://cdn1.sportngin.com/attachments/photo/074a-208172129/Patti_Cropped_large.jpg"
+                    alt="Anthony Patti" class="photo">
+                <div class="title">Anthony Patti</div>
+                <div class="sub">Modern Center-Back • Brazilian-American • USL Rising Star</div>
+
+                <div class="rating-badge">78.4</div>
+
+                <div class="section">
+                    <div class="stat-box" style="margin-bottom: 10px;">
+                        <span class="stat-value">84%</span>
+                        <span class="stat-label">Pass Completion Rate</span>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">Anthony
+                            Patti</span></div>
+                    <div class="info-row"><span class="info-label">Born</span><span class="info-value">Nov 28, 2002
+                            (Bahia, Brazil)</span></div>
+                    <div class="info-row"><span class="info-label">Nationality</span><span class="info-value">Brazil /
+                            USA 🇧🇷🇺🇸</span></div>
+                    <div class="info-row"><span class="info-label">Position</span><span class="info-value">Center-Back /
+                            Left-Back</span></div>
+                    <div class="info-row"><span class="info-label">Current Club</span><span
+                            class="info-value">Greenville Triumph SC</span></div>
+                    <div class="info-row"><span class="info-label">Foot</span><span class="info-value">Right (High
+                            Technicality)</span></div>
+                    <div class="info-row"><span class="info-label">Height</span><span class="info-value">1.83m</span>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>Technical Archetype</h3>
+                    <div class="info-row"><span class="info-label">Style</span><span class="info-value">The Brazilian
+                            Distributor</span></div>
+                    <div class="info-row"><span class="info-label">Archetype</span><span class="info-value">Ball-Playing
+                            Center-Back</span></div>
+                    <div class="info-row"><span class="info-label">Role</span><span class="info-value">Deep-Lying
+                            Builder</span></div>
+                    <div class="info-row"><span class="info-label">Legacy</span><span class="info-value">USL Potential
+                            Elite</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div>
+
+            <!-- Global Impact -->
+            <div class="card">
+                <h2>🌍 Global Impact & Legacy Analysis</h2>
+                <p class="lead">
+                    Anthony Patti represents the new wave of USL-based defensive talent: technically proficient,
+                    tactically flexible, and deeply influenced by international footballing heritages. Born in Brazil
+                    and developed in the highly competitive Texas youth system, Patti bridges the gap between South
+                    American flair and American athleticism.
+                </p>
+                <div class="muted-box">
+                    <strong style="color: var(--accent2);">Development Pathway:</strong> Solar Academy Champion •
+                    Mercer/UTRGV Collegiate Standout • NISA Breakthrough with Albion San Diego • Current Greenville
+                    Triumph Cornerstone.
+                </div>
+            </div>
+
+            <!-- FGA Metrics -->
+            <div class="card">
+                <h2>📊 Core FGA Intelligence Metrics</h2>
+
+                <h3>Tier 1: Distribution & Ball Mastery (60% Weight)</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">PAS (Short Passing)</span><span
+                                    class="metric-score">8.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">LON (Long Ball Accuracy)</span><span
+                                    class="metric-score">8.4</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 84%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">TEC (Technical Fluidity)</span><span
+                                    class="metric-score">8.7</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 87%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CON (Ball Control)</span><span
+                                    class="metric-score">8.2</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 82%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Tier 2: Defensive Solidity (30% Weight)</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">INT (Interceptions)</span><span
+                                    class="metric-score">8.1</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 81%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">POS (Defensive Positioning)</span><span
+                                    class="metric-score">8.3</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 83%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Tier 3: Athletic & Mental Tiers (10% Weight)</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CALM (Composure under
+                                    Pressure)</span><span class="metric-score">8.9</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 89%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">AGI (Agility)</span><span
+                                    class="metric-score">7.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 78%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 60 Philosophy Framework -->
+            <div class="card">
+                <h2>🧠 60-Philosophy Framework Analysis</h2>
+                <p class="small" style="margin-bottom: 12px;">Patti is optimized for high-possession systems that build
+                    from the back, utilizing his Brazilian roots to find vertical passing lanes.</p>
+
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Positional Play (Philosophy_07_Guardiola_Positional)</span><span
+                                    class="metric-score">8.6</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 86%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Attacking Defense
+                                    (Gasperini)</span><span class="metric-score">8.2</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 82%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Vertical Tiki-Taka (Philosophy_18_Sacchi_Pressing)</span><span
+                                    class="metric-score">8.4</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 84%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Bielsa Intensity (Philosophy_45_Bielsa_Intensity)</span><span
+                                    class="metric-score">7.5</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Psychological Profile -->
+            <div class="card">
+                <h2>🧪 Psychological Profile & Personality</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>The "Calculated Calm"</h3>
+                        <p class="small">Patti's mental game is defined by emotional stability and high processing
+                            speeds:</p>
+                        <div class="info-row"><span class="info-label">Composure</span><span class="info-value">Very
+                                High</span></div>
+                        <div class="info-row"><span class="info-label">Decision Making</span><span
+                                class="info-value">Refined</span></div>
+                        <div class="info-row"><span class="info-label">Adaptability</span><span
+                                class="info-value">Exceptional</span></div>
+                        <div class="info-row"><span class="info-label">Focus</span><span class="info-value">High</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Analysis</h3>
+                        <p class="small">
+                            Patti attributes his calm demeanor to his Brazilian heritage, allowing him to stay unruffled
+                            in high-stakes defensive situations. Scouts note his ability to maintain technical form
+                            while under intense pressure, a trait that makes him a rare asset in lower-league tiers
+                            where physicality often overrides composure.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Relationships -->
+            <div class="card">
+                <h2>🤝 Key Relationships & Dynamics</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">Rick Wright (Head Coach, Greenville)</div>
+                    <div class="timeline-event">Wright has entrusted Patti with becoming a core part of the Triumph
+                        backline, emphasizing his ball-playing abilities to initiate transitions.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Solar Academy Coaching Staff</div>
+                    <div class="timeline-event">Crucial in his development from a high-scoring youth midfielder to a
+                        disciplined, technically elite defensive anchor.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Jan Engels (UTRGV Teammate)</div>
+                    <div class="timeline-event">His time at UTRGV alongside elite international talents like Engels
+                        helped sharpen his tactical understanding of European-style defensive structures.</div>
+                </div>
+            </div>
+
+            <!-- Career Statistics -->
+            <div class="card">
+                <h2>📈 Complete Career Statistics & Honors</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Club/Level</th>
+                            <th>Tenure</th>
+                            <th>Apps/Starts</th>
+                            <th>G/A</th>
+                            <th>Legacy</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Greenville Triumph</td>
+                            <td>2025-Pres.</td>
+                            <td>15</td>
+                            <td>0/1</td>
+                            <td>Active Core</td>
+                        </tr>
+                        <tr>
+                            <td>Lexington SC</td>
+                            <td>2024</td>
+                            <td>3</td>
+                            <td>0/0</td>
+                            <td>Transition Phase</td>
+                        </tr>
+                        <tr>
+                            <td>Albion San Diego</td>
+                            <td>2023</td>
+                            <td>26</td>
+                            <td>4/1</td>
+                            <td>NISA Breakthrough</td>
+                        </tr>
+                        <tr>
+                            <td>UTRGV (Collegiate)</td>
+                            <td>2022</td>
+                            <td>11</td>
+                            <td>2/0</td>
+                            <td>D1 Adaptation</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 style="margin-top: 18px;">Major Honors</h3>
+                <div class="trophy-grid">
+                    <div class="trophy-box">
+                        <div class="trophy-title">USYS National Champ</div>
+                        <div class="trophy-year">Youth (Solar)</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-title">Dallas Cup Champ</div>
+                        <div class="trophy-year">Youth (Solar)</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-title">District MVP</div>
+                        <div class="trophy-year">High School</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Matches -->
+            <div class="card">
+                <h2>⚡ Key Matches & Milestones</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">Oct 31, 2025 | League Consistency</div>
+                    <div class="timeline-event">Completes a high-volume season with Greenville, cementing his place as a
+                        reliable USL starter.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2023 Season | Albion San Diego</div>
+                    <div class="timeline-event">Records 23 professional starts in a single NISA season, proving his
+                        durability and tactical readiness.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Youth Career | Solar Academy</div>
+                    <div class="timeline-event">Wins the USYS National Championship, a foundational moment in his
+                        journey to professional soccer.</div>
+                </div>
+            </div>
+
+            <!-- Player Comparison -->
+            <div class="card">
+                <h2>📊 Player Comparison (Modern Ball-Playing CB)</h2>
+                <div class="visual-canvas">
+                    <canvas id="radarChart"></canvas>
+                </div>
+                <p class="small" style="text-align: center; margin-top: 12px;">Comparing Patti to standard USL CBs and
+                    Emerging European Prospects.</p>
+            </div>
+
+            <!-- Miscellaneous -->
+            <div class="card">
+                <h2>📝 Miscellaneous Data</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Biographical Details</h3>
+                        <div class="info-row"><span class="info-label">Born in</span><span class="info-value">Salvador,
+                                Brazil</span></div>
+                        <div class="info-row"><span class="info-label">Moved to US</span><span class="info-value">Age 5
+                                (Dallas)</span></div>
+                        <div class="info-row"><span class="info-label">Languages</span><span class="info-value">English,
+                                Portuguese</span></div>
+                    </div>
+                    <div>
+                        <h3>Technical Coaching Notes</h3>
+                        <div class="info-row"><span class="info-label">Primary Foot</span><span class="info-value">Right
+                                (High Accuracy)</span></div>
+                        <div class="info-row"><span class="info-label">Versatility</span><span class="info-value">CB /
+                                LB / CDM</span></div>
+                        <div class="info-row"><span class="info-label">Future Ceiling</span><span class="info-value">MLS
+                                Potential</span></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer
+        style="background: var(--card); padding: 30px; text-align: center; border-top: 1px solid rgba(212, 175, 55, 0.2); margin-top: 30px;">
+        <p style="color: var(--muted); font-size: 13px;">
+            <strong style="color: var(--accent2);">Empire FGA Scouting Network</strong> — Technical Analysis Platform
+        </p>
+    </footer>
+
+    <script>
+        const ctx = document.getElementById('radarChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['Passing', 'Technicality', 'Composure', 'Interceptions', 'Positioning', 'Vision', 'Strength', 'Pace'],
+                datasets: [{
+                    label: 'Anthony Patti',
+                    data: [8.8, 8.7, 8.9, 8.1, 8.3, 8.2, 7.8, 7.5],
+                    borderColor: '#d4af37',
+                    backgroundColor: 'rgba(212, 175, 55, 0.15)',
+                    borderWidth: 3,
+                    pointBackgroundColor: '#d4af37'
+                }, {
+                    label: 'USL Avg CB',
+                    data: [6.5, 6.0, 6.8, 7.5, 7.8, 6.2, 8.2, 7.2],
+                    borderColor: '#f0f6fc',
+                    borderDash: [5, 5],
+                    borderWidth: 2,
+                    pointRadius: 0
+                }]
+            },
+            options: {
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        max: 10,
+                        grid: { color: 'rgba(255,255,255,0.05)' },
+                        angleLines: { color: 'rgba(255,255,255,0.05)' },
+                        ticks: { display: false }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
