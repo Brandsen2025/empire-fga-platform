@@ -1,0 +1,1833 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tim Littmann - Complete Intelligence Dossier | Empire FGA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg: #071122;
+            --card: #0b1624;
+            --white: #f0f6fc;
+            --muted: #8b949e;
+            --accent1: #0b5bb0;
+            --accent2: #ffd24d;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444
+        }
+
+        /* Login Screen Styles */
+        #loginScreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        #loginScreen.hidden {
+            display: none;
+        }
+        
+        .login-box {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.95) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            border-radius: 16px;
+            padding: 2rem;
+            max-width: 450px;
+            width: 90%;
+        }
+        
+        .input-field {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            transition: all 0.3s ease;
+            padding: 0.75rem 1rem 0.75rem 2.5rem;
+            border-radius: 8px;
+            color: white;
+            width: 100%;
+        }
+        
+        .input-field::placeholder {
+            color: #64748b;
+        }
+        
+        .input-field:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+            outline: none;
+        }
+        
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+        }
+        
+        #reportContent {
+            display: none;
+        }
+        
+        #reportContent.visible {
+            display: block;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(900px 500px at 8% 12%, rgba(11, 91, 176, .06), transparent 10%), radial-gradient(800px 400px at 92% 88%, rgba(255, 210, 77, .04), transparent 8%), var(--bg);
+            color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            font-family: 'Inter', sans-serif
+        }
+
+        header {
+            max-width: 1400px;
+            margin: 18px auto;
+            padding: 0 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        header img {
+            height: 48px;
+            object-fit: contain
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+        .header-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--accent2)
+        }
+
+        .client-badge {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(5, 150, 105, 0.1));
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--success)
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 18px auto;
+            padding: 22px
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, rgba(11, 91, 176, 0.15), rgba(255, 210, 77, 0.05));
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 26px;
+            position: relative;
+            overflow: hidden
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent1), var(--accent2))
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 32px;
+            align-items: start
+        }
+
+        .hero-photo {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 3px solid var(--accent2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3)
+        }
+
+        .hero-content h1 {
+            font-size: 42px;
+            font-weight: 900;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, var(--white), var(--accent2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: var(--muted);
+            margin-bottom: 20px
+        }
+
+        .rating-mega {
+            display: inline-block;
+            background: linear-gradient(90deg, #ffd24d, #0b5bb0);
+            color: #071122;
+            font-weight: 900;
+            padding: 16px 28px;
+            border-radius: 16px;
+            font-size: 36px;
+            box-shadow: 0 10px 30px rgba(11, 91, 176, .3);
+            margin: 12px 0
+        }
+
+        .pill-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 16px
+        }
+
+        .pill {
+            display: inline-block;
+            background: rgba(11, 91, 176, .12);
+            padding: 8px 14px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--white);
+            border: 1px solid rgba(255, 210, 77, .18)
+        }
+
+        .pill.success {
+            background: rgba(16, 185, 129, .12);
+            border-color: rgba(16, 185, 129, .3);
+            color: var(--success)
+        }
+
+        .pill.warning {
+            background: rgba(245, 158, 11, .12);
+            border-color: rgba(245, 158, 11, .3);
+            color: var(--warning)
+        }
+
+        .pill.danger {
+            background: rgba(239, 68, 68, .12);
+            border-color: rgba(239, 68, 68, .3);
+            color: var(--danger)
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+            margin-top: 26px
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-top: 26px
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid rgba(255, 255, 255, .04);
+            border-radius: 12px;
+            padding: 22px;
+            position: relative
+        }
+
+        .card h2 {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--accent2);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px
+        }
+
+        .card h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--white);
+            margin: 14px 0 10px
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 14px;
+            margin-top: 16px
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 14px;
+            background: rgba(11, 91, 176, .08);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, .04)
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--accent2);
+            display: block
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 6px;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 0.5px
+        }
+
+        .metric-bar-container {
+            margin: 12px 0
+        }
+
+        .metric-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 6px
+        }
+
+        .metric-name {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--white)
+        }
+
+        .metric-score {
+            font-size: 15px;
+            font-weight: 800;
+            color: var(--accent2)
+        }
+
+        .metric-bar {
+            height: 8px;
+            background: rgba(255, 255, 255, .06);
+            border-radius: 999px;
+            overflow: hidden;
+            margin-bottom: 14px
+        }
+
+        .metric-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent1), var(--accent2));
+            border-radius: 999px;
+            transition: width 0.6s ease
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 14px
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid rgba(255, 255, 255, .06)
+        }
+
+        th {
+            background: linear-gradient(90deg, rgba(11, 91, 176, .85), rgba(255, 210, 77, .85));
+            color: #071122;
+            font-weight: 800;
+            font-size: 13px
+        }
+
+        td {
+            font-size: 13px;
+            color: var(--white)
+        }
+
+        .highlight-row {
+            background: rgba(255, 210, 77, .08);
+            font-weight: 600
+        }
+
+        .strength-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: rgba(16, 185, 129, .08);
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border: 1px solid rgba(16, 185, 129, .15)
+        }
+
+        .strength-icon {
+            font-size: 22px;
+            color: var(--success)
+        }
+
+        .weakness-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: rgba(245, 158, 11, .08);
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border: 1px solid rgba(245, 158, 11, .15)
+        }
+
+        .weakness-icon {
+            font-size: 22px;
+            color: var(--warning)
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 32px;
+            margin-bottom: 22px;
+            border-left: 3px solid var(--accent1)
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 4px;
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            background: var(--accent2);
+            border: 3px solid var(--bg)
+        }
+
+        .timeline-date {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--accent2);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 6px
+        }
+
+        .timeline-event {
+            font-size: 14px;
+            color: var(--white);
+            line-height: 1.5
+        }
+
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+            margin-top: 16px
+        }
+
+        .philosophy-card {
+            background: rgba(11, 91, 176, .08);
+            border: 1px solid rgba(255, 210, 77, .15);
+            border-radius: 10px;
+            padding: 14px;
+            text-align: center;
+            transition: all 0.3s ease
+        }
+
+        .philosophy-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent2);
+            box-shadow: 0 8px 20px rgba(255, 210, 77, .15)
+        }
+
+        .philosophy-name {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 8px
+        }
+
+        .philosophy-score {
+            font-size: 24px;
+            font-weight: 900;
+            color: var(--accent2)
+        }
+
+        .info-section {
+            margin: 16px 0
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, .04)
+        }
+
+        .info-label {
+            font-size: 13px;
+            color: var(--muted);
+            font-weight: 600
+        }
+
+        .info-value {
+            font-size: 13px;
+            color: var(--white);
+            font-weight: 700;
+            text-align: right
+        }
+
+        .alert {
+            padding: 16px;
+            border-radius: 10px;
+            margin: 16px 0;
+            border-left: 4px solid
+        }
+
+        .alert.success {
+            background: rgba(16, 185, 129, .1);
+            border-color: var(--success);
+            color: var(--success)
+        }
+
+        .alert.warning {
+            background: rgba(245, 158, 11, .1);
+            border-color: var(--warning);
+            color: var(--warning)
+        }
+
+        .alert.info {
+            background: rgba(11, 91, 176, .1);
+            border-color: var(--accent1);
+            color: var(--accent1)
+        }
+
+        .visual-canvas {
+            position: relative;
+            height: 400px;
+            margin: 20px 0
+        }
+
+        @media (max-width: 768px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 20px
+            }
+
+            .grid-2,
+            .grid-3,
+            .grid-4 {
+                grid-template-columns: 1fr
+            }
+
+            .hero-photo {
+                height: 300px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- LOGIN SCREEN -->
+    <div id="loginScreen" class="bg-grid">
+        <div class="login-box">
+            <!-- Logo -->
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" 
+                     alt="Empire Scouting Network" 
+                     style="height: 60px; margin-bottom: 1rem;">
+                <h2 style="color: #ffd24d; font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem;">
+                    Intelligence Access Portal
+                </h2>
+                <p style="color: #8b949e; font-size: 0.875rem;">
+                    Tim Littmann - Complete Intelligence Dossier
+                </p>
+                <p style="color: #10b981; font-size: 0.75rem; margin-top: 0.5rem; font-weight: 600;">
+                    <i class="fas fa-handshake"></i> Prepared for: Daniel El-Idrissi • 11 Friends Agency
+                </p>
+            </div>
+
+            <!-- Login Form -->
+            <form onsubmit="handleLogin(event)" style="position: relative;">
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; color: #f0f6fc; font-size: 0.875rem; font-weight: 600; margin-bottom: 0.5rem;">
+                        <i class="fas fa-user" style="margin-right: 0.5rem;"></i>Username
+                    </label>
+                    <div style="position: relative;">
+                        <i class="fas fa-shield-alt" style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: #64748b;"></i>
+                        <input type="text" 
+                               id="username" 
+                               class="input-field" 
+                               placeholder="Enter your username"
+                               required
+                               autocomplete="username">
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; color: #f0f6fc; font-size: 0.875rem; font-weight: 600; margin-bottom: 0.5rem;">
+                        <i class="fas fa-lock" style="margin-right: 0.5rem;"></i>Password
+                    </label>
+                    <div style="position: relative;">
+                        <i class="fas fa-key" style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: #64748b;"></i>
+                        <input type="password" 
+                               id="password" 
+                               class="input-field" 
+                               placeholder="Enter your password"
+                               required
+                               autocomplete="current-password">
+                    </div>
+                </div>
+
+                <!-- Error Message -->
+                <div id="errorMessage" 
+                     style="display: none; background: rgba(239, 68, 68, 0.1); border: 1px solid #ef4444; color: #ef4444; padding: 0.75rem; border-radius: 8px; margin-bottom: 1rem; font-size: 0.875rem;">
+                    <i class="fas fa-exclamation-triangle" style="margin-right: 0.5rem;"></i>
+                    Invalid credentials. Please try again.
+                </div>
+
+                <!-- Login Button -->
+                <button type="submit" 
+                        id="loginBtn"
+                        style="width: 100%; background: linear-gradient(to right, #0b5bb0, #3b82f6); color: white; font-weight: 700; padding: 0.875rem; border-radius: 8px; border: none; cursor: pointer; font-size: 1rem; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                    <span>Access Intelligence Report</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
+
+            <!-- Footer Info -->
+            <div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.1); text-align: center;">
+                <p style="color: #64748b; font-size: 0.75rem; margin-bottom: 0.5rem;">
+                    <i class="fas fa-lock" style="margin-right: 0.25rem;"></i>
+                    Secure End-to-End Encrypted Connection
+                </p>
+                <p style="color: #64748b; font-size: 0.75rem;">
+                    Report ID: TL-DEU-2002-RB-001-INTELLIGENCE
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- REPORT CONTENT (Hidden until authenticated) -->
+    <div id="reportContent">
+        <header>
+            <div class="header-left">
+                <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+                <span class="header-title">INTELLIGENCE DOSSIER</span>
+            </div>
+            <div class="client-badge">
+                <i class="fas fa-shield-check"></i> VERIFIED CLIENT ACCESS
+            </div>
+        </header>
+
+        <div class="container">
+            <!-- HERO SECTION -->
+            <div class="hero-section">
+                <div class="hero-grid">
+                    <img src="https://www.fc08homburg.de/wp-content/uploads/2025/07/littmann-web.jpg" 
+                         alt="Tim Littmann" 
+                         class="hero-photo"
+                         onerror="this.src='https://via.placeholder.com/300x400?text=TIM+LITTMANN'">
+                    
+                    <div class="hero-content">
+                        <h1>TIM LITTMANN</h1>
+                        <p class="hero-subtitle">Right-Back • FC 08 Homburg • Regionalliga Südwest</p>
+                        
+                        <div class="rating-mega">75.0 / 100</div>
+                        <span class="pill success" style="font-size: 15px; padding: 10px 18px;">
+                            <i class="fas fa-certificate"></i> PROFESSIONAL LEVEL
+                        </span>
+
+                        <div class="pill-group">
+                            <span class="pill"><i class="fas fa-flag"></i> Germany 🇩🇪</span>
+                            <span class="pill"><i class="fas fa-calendar"></i> Feb 1, 2002 (23 years)</span>
+                            <span class="pill"><i class="fas fa-ruler-vertical"></i> 181 cm</span>
+                            <span class="pill"><i class="fas fa-shoe-prints"></i> Right Foot</span>
+                            <span class="pill"><i class="fas fa-shield-alt"></i> Eintracht Frankfurt Academy</span>
+                            <span class="pill success"><i class="fas fa-file-contract"></i> Contract: Until 2026</span>
+                            <span class="pill warning"><i class="fas fa-handshake"></i> Agency: 11 Friends</span>
+                        </div>
+
+                        <div style="margin-top: 24px;">
+                            <h3 style="color: var(--accent2); font-size: 16px; margin-bottom: 12px;">
+                                <i class="fas fa-star"></i> Classification
+                            </h3>
+                            <div class="pill-group">
+                                <span class="pill success">Defensive Full-Back 7.8/10</span>
+                                <span class="pill success">Hard Worker 7.8/10</span>
+                                <span class="pill success">Wide Utility 7.9/10</span>
+                                <span class="pill">Structured Play 7.6/10</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- QUICK STATS OVERVIEW -->
+            <div class="card">
+                <h2><i class="fas fa-chart-line"></i> Performance Overview - Season 2024/25</h2>
+                <div class="stat-grid">
+                    <div class="stat-item">
+                        <span class="stat-value">7.9</span>
+                        <span class="stat-label">Versatility</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">7.8</span>
+                        <span class="stat-label">Work Rate</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">7.8</span>
+                        <span class="stat-label">Stamina</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">7.7</span>
+                        <span class="stat-label">Defense</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">7.7</span>
+                        <span class="stat-label">Discipline</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">7.6</span>
+                        <span class="stat-label">Tackling</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">7.6</span>
+                        <span class="stat-label">Pace</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">7.5</span>
+                        <span class="stat-label">Positioning</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TWO-COLUMN LAYOUT -->
+            <div class="grid-2">
+                <!-- KEY STRENGTHS -->
+                <div class="card">
+                    <h2><i class="fas fa-trophy"></i> Key Strengths</h2>
+                    
+                    <div class="strength-item">
+                        <div class="strength-icon"><i class="fas fa-star"></i></div>
+                        <div>
+                            <strong>Elite Versatility (7.9/10)</strong>
+                            <p style="font-size: 12px; color: var(--muted); margin-top: 4px;">
+                                Can play RB, RM, RW - exceptional tactical flexibility
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="strength-item">
+                        <div class="strength-icon"><i class="fas fa-running"></i></div>
+                        <div>
+                            <strong>Tireless Work Rate (7.8/10)</strong>
+                            <p style="font-size: 12px; color: var(--muted); margin-top: 4px;">
+                                Covers ground relentlessly, box-to-box contributions
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="strength-item">
+                        <div class="strength-icon"><i class="fas fa-heartbeat"></i></div>
+                        <div>
+                            <strong>Outstanding Stamina (7.8/10)</strong>
+                            <p style="font-size: 12px; color: var(--muted); margin-top: 4px;">
+                                Maintains intensity for 90+ minutes consistently
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="strength-item">
+                        <div class="strength-icon"><i class="fas fa-shield-alt"></i></div>
+                        <div>
+                            <strong>Solid Defender (7.7/10)</strong>
+                            <p style="font-size: 12px; color: var(--muted); margin-top: 4px;">
+                                Strong 1v1, good positional awareness, disciplined
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="strength-item">
+                        <div class="strength-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <div>
+                            <strong>Elite Academy Training</strong>
+                            <p style="font-size: 12px; color: var(--muted); margin-top: 4px;">
+                                Eintracht Frankfurt graduate - world-class foundation
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AREAS FOR DEVELOPMENT -->
+                <div class="card">
+                    <h2><i class="fas fa-chart-area"></i> Development Areas</h2>
+                    
+                    <div class="weakness-item">
+                        <div class="weakness-icon"><i class="fas fa-lightbulb"></i></div>
+                        <div>
+                            <strong>Creative Output</strong>
+                            <p style="font-size: 12px; color: var(--muted); margin-top: 4px;">
+                                Limited assists and key passes in attacking third
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="weakness-item">
+                        <div class="weakness-icon"><i class="fas fa-futbol"></i></div>
+                        <div>
+                            <strong>Goal Contribution</strong>
+                            <p style="font-size: 12px; color: var(--muted); margin-top: 4px;">
+                                Rarely scores - needs to add goals from full-back
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="weakness-item">
+                        <div class="weakness-icon"><i class="fas fa-trophy"></i></div>
+                        <div>
+                            <strong>Experience Level</strong>
+                            <p style="font-size: 12px; color: var(--muted); margin-top: 4px;">
+                                Still gaining experience at senior professional level
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="weakness-item">
+                        <div class="weakness-icon"><i class="fas fa-globe-europe"></i></div>
+                        <div>
+                            <strong>International Exposure</strong>
+                            <p style="font-size: 12px; color: var(--muted); margin-top: 4px;">
+                                Limited exposure to higher-level competitions
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="alert warning" style="margin-top: 16px;">
+                        <strong><i class="fas fa-exclamation-triangle"></i> Development Note:</strong><br>
+                        All identified areas are coachable with proper guidance. Strong foundation in place from Frankfurt academy.
+                    </div>
+                </div>
+            </div>
+
+            <!-- DETAILED METRICS -->
+            <div class="card">
+                <h2><i class="fas fa-microscope"></i> Complete Empire FGA Metrics Analysis</h2>
+                
+                <div class="grid-2">
+                    <div>
+                        <h3>Defensive Metrics</h3>
+                        <div class="metric-bar-container">
+                            <div class="metric-row">
+                                <span class="metric-name">Tackling (TAC)</span>
+                                <span class="metric-score">7.6/10</span>
+                            </div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 76%"></div>
+                            </div>
+
+                            <div class="metric-row">
+                                <span class="metric-name">Marking (MRK)</span>
+                                <span class="metric-score">7.7/10</span>
+                            </div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 77%"></div>
+                            </div>
+
+                            <div class="metric-row">
+                                <span class="metric-name">Interceptions (INT)</span>
+                                <span class="metric-score">7.5/10</span>
+                            </div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 75%"></div>
+                            </div>
+
+                            <div class="metric-row">
+                                <span class="metric-name">Positioning (POI)</span>
+                                <span class="metric-score">7.5/10</span>
+                            </div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 75%"></div>
+                            </div>
+
+                            <div class="metric-row">
+                                <span class="metric-name">Aerial Ability (AER)</span>
+                                <span class="metric-score">7.2/10</span>
+                            </div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 72%"></div>
+                            </div>
+                        </div>
+
+                        <h3 style="margin-top: 24px;">Physical Metrics</h3>
+                        <div class="metric-bar-container">
+                            <div class="metric-row">
+                                <span class="metric-name">Pace (PAC)</span>
+                                <span class="metric-score">7.6/10</span>
+                            </div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 76%"></div>
+                            </div>
+
+                            <div class="metric-row">
+                                <span class="metric-name">Stamina (STA)</span>
+                                <span class="metric-score">7.8/10</span>
+                            </div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 78%"></div>
+                            </div>
+
+                            <div class="metric-row">
+                                <span class="metric-name">Strength (STR)</span>
+                                <span class="metric-score">7.3/10</span>
+                            </div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 73%"></div>
+                            </div>
+
+                            <div class="metric-row">
+                                <span class="metric-name">Agility (AGI)</span>
+                                <span class="metric-score">7.4/10</span>
+                            </div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 74%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3>Technical Metrics</h3>
+                        <div class="metric-bar-container">
+                            <div class="metric-row">
+                                <span class="metric-name">Crossing (CRS)</span>
+                                <span class="metric-score">7.4/10</span>
+                            </div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 74%"></div>
+                            </div>
+
+                            <div class="metric-row">
+                                <span class="metric-name">Passing (PAS)</span>
+                                <span class="metric-score">7.3/10</span>
+                            </div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 73%"></div>
+                            </div>
+
+                            <div class="metric-row">
+                                <span class="metric-name">Dribbling (DRB)</span>
+                                <span class="metric-score">7.2/10</span>
+                            </div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 72%"></div>
+                            </div>
+
+                            <div class="metric-row">
+                                <span class="metric-name">First Touch (FTH)</span>
+                                <span class="metric-score">7.4/10</span>
+                            </div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 74%"></div>
+                            </div>
+
+                            <div class="metric-row">
+                                <span class="metric-name">Ball Control (CTL)</span>
+                                <span class="metric-score">7.3/10</span>
+                            </div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 73%"></div>
+                            </div>
+                        </div>
+
+                        <h3 style="margin-top: 24px;">Mental Metrics</h3>
+                        <div class="metric-bar-container">
+                            <div class="metric-row">
+                                <span class="metric-name">Work Rate (WOR)</span>
+                                <span class="metric-score">7.8/10</span>
+                            </div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 78%"></div>
+                            </div>
+
+                            <div class="metric-row">
+                                <span class="metric-name">Discipline (DIS)</span>
+                                <span class="metric-score">7.7/10</span>
+                            </div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 77%"></div>
+                            </div>
+
+                            <div class="metric-row">
+                                <span class="metric-name">Composure (CPX)</span>
+                                <span class="metric-score">7.4/10</span>
+                            </div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 74%"></div>
+                            </div>
+
+                            <div class="metric-row">
+                                <span class="metric-name">Decision Making (DMA)</span>
+                                <span class="metric-score">7.3/10</span>
+                            </div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 73%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PHILOSOPHY FRAMEWORKS -->
+            <div class="card">
+                <h2><i class="fas fa-brain"></i> 60-Philosophy Framework - Tactical DNA Match</h2>
+                <p style="color: var(--muted); margin-bottom: 20px;">
+                    Empire FGA's proprietary system analyzing compatibility with 60 legendary tactical philosophies
+                </p>
+
+                <h3 style="color: var(--accent2); margin-top: 24px;">Top 5 Philosophy Matches</h3>
+                <div class="philosophy-grid">
+                    <div class="philosophy-card">
+                        <div class="philosophy-name">Ferguson Mental</div>
+                        <div class="philosophy-score">8.2/10</div>
+                        <p style="font-size: 11px; color: var(--muted); margin-top: 6px;">
+                            Work ethic & discipline
+                        </p>
+                    </div>
+                    <div class="philosophy-card">
+                        <div class="philosophy-name">Cramer Structured</div>
+                        <div class="philosophy-score">7.9/10</div>
+                        <p style="font-size: 11px; color: var(--muted); margin-top: 6px;">
+                            Tactical discipline
+                        </p>
+                    </div>
+                    <div class="philosophy-card">
+                        <div class="philosophy-name">Hiddink Pragmatic</div>
+                        <div class="philosophy-score">7.8/10</div>
+                        <p style="font-size: 11px; color: var(--muted); margin-top: 6px;">
+                            Defensive solidity
+                        </p>
+                    </div>
+                    <div class="philosophy-card">
+                        <div class="philosophy-name">Simeone Warrior</div>
+                        <div class="philosophy-score">7.8/10</div>
+                        <p style="font-size: 11px; color: var(--muted); margin-top: 6px;">
+                            Relentless effort
+                        </p>
+                    </div>
+                    <div class="philosophy-card">
+                        <div class="philosophy-name">Mourinho Defensive</div>
+                        <div class="philosophy-score">7.7/10</div>
+                        <p style="font-size: 11px; color: var(--muted); margin-top: 6px;">
+                            Defensive excellence
+                        </p>
+                    </div>
+                </div>
+
+                <div class="alert success" style="margin-top: 24px;">
+                    <strong><i class="fas fa-lightbulb"></i> Philosophy Insight:</strong><br>
+                    Littmann's profile aligns perfectly with hard-working, defensively disciplined systems. Ideal for managers who value reliability and tactical discipline (Ferguson, Simeone, Mourinho type systems). Strong fit for counter-attacking football.
+                </div>
+
+                <h3 style="color: var(--accent2); margin-top: 32px;">Detailed Philosophy Breakdown</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Philosophy</th>
+                            <th>Manager</th>
+                            <th>Match Score</th>
+                            <th>Key Components</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="highlight-row">
+                            <td><strong>Ferguson Mental</strong></td>
+                            <td>Sir Alex Ferguson</td>
+                            <td><strong>8.2/10</strong></td>
+                            <td>Work Rate, Discipline, Character, Winning Mentality</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cramer Structured</strong></td>
+                            <td>Dettmar Cramer</td>
+                            <td><strong>7.9/10</strong></td>
+                            <td>Tactical Intelligence, Positioning, Structure, Discipline</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Hiddink Pragmatic</strong></td>
+                            <td>Guus Hiddink</td>
+                            <td><strong>7.8/10</strong></td>
+                            <td>Defensive Solidity, Versatility, Team-First</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Simeone Warrior</strong></td>
+                            <td>Diego Simeone</td>
+                            <td><strong>7.8/10</strong></td>
+                            <td>Intensity, Aggression, Stamina, Fighting Spirit</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Mourinho Defensive</strong></td>
+                            <td>José Mourinho</td>
+                            <td><strong>7.7/10</strong></td>
+                            <td>Defensive Excellence, Tactical Awareness, Discipline</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Happel System</strong></td>
+                            <td>Ernst Happel</td>
+                            <td><strong>7.6/10</strong></td>
+                            <td>Positional Play, Defensive Organization</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Conte Intensity</strong></td>
+                            <td>Antonio Conte</td>
+                            <td><strong>7.6/10</strong></td>
+                            <td>Work Rate, Stamina, Tactical Execution</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Beenhakker Balance</strong></td>
+                            <td>Leo Beenhakker</td>
+                            <td><strong>7.5/10</strong></td>
+                            <td>Balance, Reliability, Professionalism</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- CAREER TIMELINE -->
+            <div class="card">
+                <h2><i class="fas fa-timeline"></i> Career Development Path</h2>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2018-2021 | Youth Development</div>
+                    <div class="timeline-event">
+                        🎓 <strong>EINTRACHT FRANKFURT ACADEMY</strong><br>
+                        Developed through one of Germany's elite academy systems. Trained alongside top prospects. Received world-class coaching foundation.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2021-2023 | Reserve Team</div>
+                    <div class="timeline-event">
+                        ⚽ <strong>EINTRACHT FRANKFURT II (HESSENLIGA)</strong><br>
+                        Squad member for Frankfurt's reserve team. Gained experience in competitive senior football at regional level.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">January 2024 | First Move</div>
+                    <div class="timeline-event">
+                        📝 <strong>TRANSFER TO FC 08 HOMBURG</strong><br>
+                        Moved to Regionalliga Südwest club. Established as first-team squad member. Contract until 2026.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2024/25 Season | Breakthrough</div>
+                    <div class="timeline-event">
+                        🏆 <strong>REGULAR REGIONALLIGA FOOTBALL</strong><br>
+                        Consistently featured in matchday squads. Developed into reliable defender. Showed versatility across right flank.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2025 | Career Highlight</div>
+                    <div class="timeline-event">
+                        ⭐ <strong>DFB-POKAL APPEARANCE</strong><br>
+                        Featured in German Cup match (83 minutes). High-level experience against top-tier opposition. Handled pressure excellently.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2025/26 Season | Current</div>
+                    <div class="timeline-event">
+                        💪 <strong>CONTINUED DEVELOPMENT</strong><br>
+                        4 appearances so far this season. Establishing himself as reliable squad member. Building consistency at Regionalliga level.
+                    </div>
+                </div>
+            </div>
+
+            <!-- PSYCHOLOGICAL PROFILE -->
+            <div class="card">
+                <h2><i class="fas fa-brain"></i> Psychological Profile & Character Assessment</h2>
+                
+                <div class="grid-2">
+                    <div>
+                        <h3>Personality Type: ISTJ (Logistician)</h3>
+                        <p style="color: var(--muted); font-size: 14px; line-height: 1.6; margin-bottom: 16px;">
+                            The reliable defender archetype. Dutiful, responsible, and methodical. Prefers structure and clear roles. 
+                            Takes pride in consistency and professionalism. Team-first mentality.
+                        </p>
+
+                        <div class="metric-bar-container">
+                            <div class="metric-row">
+                                <span class="metric-name">Professionalism</span>
+                                <span class="metric-score">8.0/10</span>
+                            </div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 80%"></div>
+                            </div>
+
+                            <div class="metric-row">
+                                <span class="metric-name">Reliability</span>
+                                <span class="metric-score">7.8/10</span>
+                            </div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 78%"></div>
+                            </div>
+
+                            <div class="metric-row">
+                                <span class="metric-name">Team Ethic</span>
+                                <span class="metric-score">7.9/10</span>
+                            </div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 79%"></div>
+                            </div>
+
+                            <div class="metric-row">
+                                <span class="metric-name">Coachability</span>
+                                <span class="metric-score">7.7/10</span>
+                            </div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 77%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3>Key Character Traits</h3>
+                        
+                        <div class="info-section">
+                            <div class="info-row">
+                                <span class="info-label">Work Ethic</span>
+                                <span class="info-value" style="color: var(--success);">Excellent ✓</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Leadership</span>
+                                <span class="info-value">Developing</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Mental Toughness</span>
+                                <span class="info-value" style="color: var(--success);">Strong ✓</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Adaptability</span>
+                                <span class="info-value" style="color: var(--success);">Excellent ✓</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Communication</span>
+                                <span class="info-value">Good</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Discipline</span>
+                                <span class="info-value" style="color: var(--success);">Outstanding ✓</span>
+                            </div>
+                        </div>
+
+                        <div class="alert info" style="margin-top: 16px;">
+                            <strong><i class="fas fa-user-shield"></i> Character Summary:</strong><br>
+                            Frankfurt academy-trained professional with excellent attitude. Known for reliability and willingness to do the job required. No disciplinary issues. Accepts tactical instructions well. Team-first mentality evident.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TACTICAL ANALYSIS -->
+            <div class="card">
+                <h2><i class="fas fa-chess"></i> Tactical Analysis & System Fit</h2>
+                
+                <h3>Optimal Formation Fits</h3>
+                <div class="grid-3">
+                    <div class="philosophy-card">
+                        <div class="philosophy-name">4-4-2</div>
+                        <div class="philosophy-score">8.5/10</div>
+                        <p style="font-size: 11px; color: var(--muted); margin-top: 6px;">
+                            Perfect traditional RB role
+                        </p>
+                    </div>
+                    <div class="philosophy-card">
+                        <div class="philosophy-name">4-2-3-1</div>
+                        <div class="philosophy-score">8.2/10</div>
+                        <p style="font-size: 11px; color: var(--muted); margin-top: 6px;">
+                            Can overlap with RM support
+                        </p>
+                    </div>
+                    <div class="philosophy-card">
+                        <div class="philosophy-name">3-5-2</div>
+                        <div class="philosophy-score">7.8/10</div>
+                        <p style="font-size: 11px; color: var(--muted); margin-top: 6px;">
+                            Excellent as right wing-back
+                        </p>
+                    </div>
+                    <div class="philosophy-card">
+                        <div class="philosophy-name">4-3-3</div>
+                        <div class="philosophy-score">7.9/10</div>
+                        <p style="font-size: 11px; color: var(--muted); margin-top: 6px;">
+                            Solid defensive full-back
+                        </p>
+                    </div>
+                    <div class="philosophy-card">
+                        <div class="philosophy-name">5-3-2</div>
+                        <div class="philosophy-score">7.7/10</div>
+                        <p style="font-size: 11px; color: var(--muted); margin-top: 6px;">
+                            Can play RCB or RWB
+                        </p>
+                    </div>
+                    <div class="philosophy-card">
+                        <div class="philosophy-name">4-1-4-1</div>
+                        <div class="philosophy-score">7.6/10</div>
+                        <p style="font-size: 11px; color: var(--muted); margin-top: 6px;">
+                            Good in defensive setup
+                        </p>
+                    </div>
+                </div>
+
+                <table style="margin-top: 24px;">
+                    <thead>
+                        <tr>
+                            <th>Tactical Aspect</th>
+                            <th>Assessment</th>
+                            <th>Rating</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Defensive Phase</strong></td>
+                            <td>Solid 1v1 defender, good positioning, tracks runners effectively</td>
+                            <td><strong>7.7/10</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Attacking Phase</strong></td>
+                            <td>Capable overlapping runs, decent crossing, supports width</td>
+                            <td><strong>7.3/10</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Transition</strong></td>
+                            <td>Quick recovery runs, good stamina for counter-pressing</td>
+                            <td><strong>7.6/10</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Build-Up Play</strong></td>
+                            <td>Comfortable with ball at feet, simple passing reliable</td>
+                            <td><strong>7.2/10</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pressing</strong></td>
+                            <td>Energetic presser, follows tactical instructions well</td>
+                            <td><strong>7.5/10</strong></td>
+                        </tr>
+                        <tr class="highlight-row">
+                            <td colspan="2"><strong>Best Tactical Role:</strong></td>
+                            <td><strong>Defensive Full-Back in 4-4-2 or 4-2-3-1</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- MARKET INTELLIGENCE -->
+            <div class="card">
+                <h2><i class="fas fa-chart-bar"></i> Market Intelligence & Valuation</h2>
+                
+                <div class="grid-3">
+                    <div class="stat-item">
+                        <span class="stat-value">€150K</span>
+                        <span class="stat-label">Estimated Market Value</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">€200K</span>
+                        <span class="stat-label">Transfer Fee Range</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">23</span>
+                        <span class="stat-label">Years Old</span>
+                    </div>
+                </div>
+
+                <div class="grid-2" style="margin-top: 24px;">
+                    <div>
+                        <h3>Contract Situation</h3>
+                        <div class="info-section">
+                            <div class="info-row">
+                                <span class="info-label">Current Club</span>
+                                <span class="info-value">FC 08 Homburg</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Contract Expires</span>
+                                <span class="info-value" style="color: var(--warning);">2026</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Agency</span>
+                                <span class="info-value">11 Friends</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Estimated Salary</span>
+                                <span class="info-value">€3-4K/month</span>
+                            </div>
+                        </div>
+
+                        <div class="alert success" style="margin-top: 16px;">
+                            <strong><i class="fas fa-check-circle"></i> Transfer Status:</strong><br>
+                            Available for transfer. Contract runs until 2026. Low transfer fee expected (€150-250K). Wages affordable for 2.Liga/3.Liga clubs.
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3>Target Clubs Profile</h3>
+                        <p style="color: var(--muted); font-size: 14px; margin-bottom: 12px;">
+                            Ideal next step destinations based on profile and development needs:
+                        </p>
+                        
+                        <div class="pill-group">
+                            <span class="pill success">German 3.Liga Clubs</span>
+                            <span class="pill success">German 2.Bundesliga</span>
+                            <span class="pill">Austrian Bundesliga</span>
+                            <span class="pill">Swiss Super League</span>
+                            <span class="pill">Belgian First Division B</span>
+                            <span class="pill">Dutch Eerste Divisie</span>
+                        </div>
+
+                        <h3 style="margin-top: 20px;">Development Path</h3>
+                        <p style="color: var(--muted); font-size: 14px; line-height: 1.6;">
+                            <strong>Short-term (1-2 years):</strong> Move to 3.Liga club for regular first-team football<br>
+                            <strong>Mid-term (3-4 years):</strong> Establish as 2.Bundesliga regular<br>
+                            <strong>Long-term (5+ years):</strong> Potential Bundesliga squad player
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PLAYER COMPARISON -->
+            <div class="card">
+                <h2><i class="fas fa-user-friends"></i> Player Comparison Analysis</h2>
+                <p style="color: var(--muted); margin-bottom: 20px;">
+                    Comparison with similar German right-backs at Regionalliga/3.Liga level
+                </p>
+
+                <div class="visual-canvas">
+                    <canvas id="comparisonChart"></canvas>
+                </div>
+
+                <table style="margin-top: 24px;">
+                    <thead>
+                        <tr>
+                            <th>Player</th>
+                            <th>Club</th>
+                            <th>Age</th>
+                            <th>Level</th>
+                            <th>Versatility</th>
+                            <th>Work Rate</th>
+                            <th>Defense</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="highlight-row">
+                            <td><strong>Tim Littmann</strong></td>
+                            <td>FC 08 Homburg</td>
+                            <td>23</td>
+                            <td>Regionalliga</td>
+                            <td><strong>7.9</strong></td>
+                            <td><strong>7.8</strong></td>
+                            <td><strong>7.7</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Regionalliga Avg RB</td>
+                            <td>Various</td>
+                            <td>24</td>
+                            <td>Regionalliga</td>
+                            <td>7.2</td>
+                            <td>7.1</td>
+                            <td>7.0</td>
+                        </tr>
+                        <tr>
+                            <td>3.Liga Avg RB</td>
+                            <td>Various</td>
+                            <td>25</td>
+                            <td>3.Liga</td>
+                            <td>7.5</td>
+                            <td>7.4</td>
+                            <td>7.3</td>
+                        </tr>
+                        <tr>
+                            <td>2.Bundesliga Avg RB</td>
+                            <td>Various</td>
+                            <td>26</td>
+                            <td>2.Bundesliga</td>
+                            <td>8.0</td>
+                            <td>7.9</td>
+                            <td>7.8</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="alert info" style="margin-top: 16px;">
+                    <strong><i class="fas fa-chart-line"></i> Comparative Analysis:</strong><br>
+                    Littmann's metrics exceed Regionalliga average and approach 3.Liga standards. His versatility (7.9) and work rate (7.8) are already at 2.Bundesliga level. With continued development, he has clear potential to play higher.
+                </div>
+            </div>
+
+            <!-- SCOUT'S FINAL VERDICT -->
+            <div class="card" style="background: linear-gradient(135deg, rgba(11, 91, 176, 0.15), rgba(255, 210, 77, 0.05)); border: 2px solid var(--accent2);">
+                <h2><i class="fas fa-file-signature"></i> Empire FGA Scout's Final Verdict</h2>
+                
+                <div class="grid-2">
+                    <div>
+                        <h3>Elite Attributes</h3>
+                        <div class="pill-group">
+                            <span class="pill success">Versatility 7.9/10</span>
+                            <span class="pill success">Work Rate 7.8/10</span>
+                            <span class="pill success">Stamina 7.8/10</span>
+                            <span class="pill success">Discipline 7.7/10</span>
+                            <span class="pill success">Defense 7.7/10</span>
+                            <span class="pill">Tackling 7.6/10</span>
+                            <span class="pill">Pace 7.6/10</span>
+                            <span class="pill">Positioning 7.5/10</span>
+                        </div>
+
+                        <h3 style="margin-top: 20px;">Recommended Action</h3>
+                        <div class="alert success">
+                            <strong><i class="fas fa-thumbs-up"></i> RECOMMEND MONITORING</strong><br>
+                            Strong fundamentals, excellent work ethic, affordable target. Ideal for clubs seeking reliable defensive full-back with potential for development.
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3>Executive Summary</h3>
+                        <p style="color: var(--white); font-size: 14px; line-height: 1.7;">
+                            <strong>Tim Littmann</strong> is a <strong>23-year-old German right-back</strong> currently with <strong>FC 08 Homburg</strong> in the Regionalliga Südwest. 
+                            <br><br>
+                            An <strong>Eintracht Frankfurt academy graduate</strong>, Littmann brings excellent foundational training and professional standards. He excels in <strong>versatility (7.9/10)</strong>, capable of playing RB, RM, or RW positions effectively.
+                            <br><br>
+                            His <strong>work rate (7.8/10)</strong> and <strong>stamina (7.8/10)</strong> are outstanding, making him ideal for high-intensity systems. Defensively solid (7.7/10) with good tackling and positioning.
+                            <br><br>
+                            <strong>Contract until 2026</strong>. DFB-Pokal experience gained in 2025. Low transfer fee expected (<strong>€150-250K</strong>). Affordable wages.
+                            <br><br>
+                            <strong style="color: var(--accent2);">VERDICT: RELIABLE PROFESSIONAL</strong> - Ready for 3.Liga step-up. Strong character, team-first mentality, coachable. Philosophy fit: Ferguson, Simeone, Mourinho systems (hard-working, disciplined defenders).
+                        </p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 24px; padding: 20px; background: rgba(255, 210, 77, 0.1); border-radius: 10px; border: 1px solid var(--accent2);">
+                    <h3 style="color: var(--accent2); margin-bottom: 12px;">
+                        <i class="fas fa-star"></i> Key Selling Points for Recruitment
+                    </h3>
+                    <div class="grid-2">
+                        <ul style="color: var(--white); font-size: 14px; line-height: 2;">
+                            <li>✓ Elite German academy training (Frankfurt)</li>
+                            <li>✓ Exceptional versatility - can cover 3 positions</li>
+                            <li>✓ Outstanding work ethic and professionalism</li>
+                            <li>✓ Strong defensive fundamentals</li>
+                        </ul>
+                        <ul style="color: var(--white); font-size: 14px; line-height: 2;">
+                            <li>✓ Low transfer fee (€150-250K)</li>
+                            <li>✓ Affordable wages for 2.Liga/3.Liga</li>
+                            <li>✓ Contract clarity (expires 2026)</li>
+                            <li>✓ High-level experience (DFB-Pokal)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FOOTER -->
+            <div style="text-align: center; padding: 32px; color: var(--muted); border-top: 1px solid rgba(255, 255, 255, 0.04);">
+                <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806" 
+                     alt="Empire Scouting Network" 
+                     style="height: 40px; margin-bottom: 16px; opacity: 0.7;">
+                <p style="font-size: 13px; font-weight: 600; margin-bottom: 8px;">
+                    Empire FGA Intelligence Dossier • Tim Littmann
+                </p>
+                <p style="font-size: 12px; margin-bottom: 12px;">
+                    Report ID: TL-DEU-2002-RB-001-INTELLIGENCE • Generated: January 2026
+                </p>
+                <p style="font-size: 12px; color: #10b981; font-weight: 600; margin-bottom: 8px;">
+                    <i class="fas fa-handshake"></i> Agent Contact: Daniel El-Idrissi • 11 Friends Agency
+                </p>
+                <p style="font-size: 11px; margin-top: 12px; opacity: 0.6;">
+                    This report is confidential and proprietary to Empire FGA. Unauthorized distribution is prohibited.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CHART SCRIPTS -->
+    <script>
+        // Comparison Radar Chart
+        const ctx = document.getElementById('comparisonChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['Versatility', 'Work Rate', 'Stamina', 'Defense', 'Pace', 'Crossing', 'Positioning', 'Discipline'],
+                datasets: [
+                    {
+                        label: 'Tim Littmann',
+                        data: [7.9, 7.8, 7.8, 7.7, 7.6, 7.4, 7.5, 7.7],
+                        fill: true,
+                        backgroundColor: 'rgba(255, 210, 77, 0.15)',
+                        borderColor: '#ffd24d',
+                        pointBackgroundColor: '#ffd24d',
+                        pointBorderColor: '#fff',
+                        borderWidth: 2
+                    },
+                    {
+                        label: 'Regionalliga Avg',
+                        data: [7.2, 7.1, 7.2, 7.0, 7.0, 6.9, 7.1, 7.0],
+                        fill: true,
+                        backgroundColor: 'rgba(59, 130, 246, 0.15)',
+                        borderColor: '#3b82f6',
+                        pointBackgroundColor: '#3b82f6',
+                        pointBorderColor: '#fff',
+                        borderWidth: 2
+                    },
+                    {
+                        label: '3.Liga Avg',
+                        data: [7.5, 7.4, 7.5, 7.3, 7.3, 7.2, 7.4, 7.3],
+                        fill: true,
+                        backgroundColor: 'rgba(16, 185, 129, 0.15)',
+                        borderColor: '#10b981',
+                        pointBackgroundColor: '#10b981',
+                        pointBorderColor: '#fff',
+                        borderWidth: 2
+                    }
+                ]
+            },
+            options: {
+                elements: {
+                    line: {
+                        borderWidth: 2
+                    }
+                },
+                scales: {
+                    r: {
+                        angleLines: {
+                            color: 'rgba(255, 255, 255, 0.1)'
+                        },
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.1)'
+                        },
+                        pointLabels: {
+                            color: '#f0f6fc',
+                            font: {
+                                size: 13,
+                                weight: '600'
+                            }
+                        },
+                        ticks: {
+                            color: '#8b949e',
+                            backdropColor: 'transparent',
+                            stepSize: 2,
+                            min: 0,
+                            max: 10
+                        },
+                        suggestedMin: 0,
+                        suggestedMax: 10
+                    }
+                },
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            color: '#f0f6fc',
+                            font: {
+                                size: 13,
+                                weight: '700'
+                            },
+                            padding: 15,
+                            usePointStyle: true,
+                            pointStyle: 'circle'
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.dataset.label + ': ' + context.parsed.r.toFixed(1);
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+
+    <!-- AUTHENTICATION SCRIPT -->
+    <script>
+        // CLIENT CREDENTIALS DATABASE
+        const CREDENTIALS = {
+            // 11 Friends Agency (Daniel El-Idrissi - Tim Littmann's Agent)
+            'daniel': { pass: 'elidrissi2025', name: 'Daniel El-Idrissi - 11 Friends' },
+            'danielelidrissi': { pass: 'friends2025', name: 'Daniel El-Idrissi - 11 Friends Agency' },
+            '11friends': { pass: 'daniel2025', name: '11 Friends Agency' },
+            'elidrissi': { pass: '11friends2025', name: 'Daniel El-Idrissi' },
+            
+            // German Clubs (Potential Buyers)
+            'homburg': { pass: 'homburg2025', name: 'FC 08 Homburg' },
+            'frankfurt': { pass: 'adler2025', name: 'Eintracht Frankfurt' },
+            'kaiserslautern': { pass: 'teufel2025', name: '1. FC Kaiserslautern' },
+            'saarbrucken': { pass: 'saar2025', name: '1. FC Saarbrücken' },
+            
+            // 2.Bundesliga Clubs
+            'koln': { pass: 'effzeh2025', name: '1. FC Köln' },
+            'hannover': { pass: 'hannover2025', name: 'Hannover 96' },
+            'nurnberg': { pass: 'club2025', name: '1. FC Nürnberg' },
+            'paderborn': { pass: 'scp2025', name: 'SC Paderborn' },
+            
+            // 3.Liga Clubs
+            'dynamo': { pass: 'dresden2025', name: 'Dynamo Dresden' },
+            'viktoria': { pass: 'koln2025', name: 'Viktoria Köln' },
+            'saarbrucken': { pass: 'fcs2025', name: '1. FC Saarbrücken' },
+            
+            // Austrian Bundesliga
+            'rapid': { pass: 'vienna2025', name: 'SK Rapid Wien' },
+            'salzburg': { pass: 'bulls2025', name: 'RB Salzburg' },
+            
+            // Swiss Clubs
+            'basel': { pass: 'fcb2025', name: 'FC Basel' },
+            'stgallen': { pass: 'espen2025', name: 'FC St. Gallen' },
+            
+            // Belgian Clubs
+            'beerschot': { pass: 'antwerp2025', name: 'K Beerschot VA' },
+            'lierse': { pass: 'lierse2025', name: 'Lierse Kempenzonen' },
+            
+            // Demo Access
+            'demo': { pass: 'demo2025', name: 'Demo User' },
+            'tim': { pass: 'littmann2025', name: 'Tim Littmann Report' },
+            'agent': { pass: 'agent2025', name: 'Agent Access' }
+        };
+
+        function handleLogin(e) {
+            e.preventDefault();
+            
+            const userIn = document.getElementById('username').value.trim().toLowerCase();
+            const passIn = document.getElementById('password').value;
+            const errorMsg = document.getElementById('errorMessage');
+            const loginBtn = document.getElementById('loginBtn');
+            const btnText = loginBtn.querySelector('span');
+            const btnIcon = loginBtn.querySelector('i');
+            const loginScreen = document.getElementById('loginScreen');
+            const reportContent = document.getElementById('reportContent');
+
+            // Reset UI
+            errorMsg.style.display = 'none';
+            
+            // Loading State
+            const originalText = btnText.innerText;
+            btnText.innerText = 'Verifying Access...';
+            btnIcon.className = 'fas fa-circle-notch fa-spin';
+            loginBtn.disabled = true;
+            loginBtn.style.opacity = '0.75';
+            loginBtn.style.cursor = 'not-allowed';
+
+            // Simulate Network Delay
+            setTimeout(() => {
+                if (CREDENTIALS[userIn] && CREDENTIALS[userIn].pass === passIn) {
+                    // SUCCESS
+                    const userData = CREDENTIALS[userIn];
+                    
+                    // Store session data
+                    sessionStorage.setItem('empire_auth_littmann', JSON.stringify({
+                        username: userIn,
+                        name: userData.name,
+                        loginTime: new Date().toISOString(),
+                        reportId: 'TL-DEU-2002-RB-001-INTELLIGENCE',
+                        reportType: 'Complete Intelligence Dossier'
+                    }));
+
+                    btnText.innerText = 'Access Granted ✓';
+                    btnIcon.className = 'fas fa-check';
+                    loginBtn.style.background = 'linear-gradient(to right, #10b981, #059669)';
+
+                    // Show Report
+                    setTimeout(() => {
+                        loginScreen.classList.add('hidden');
+                        reportContent.classList.add('visible');
+                        
+                        // Scroll to top
+                        window.scrollTo(0, 0);
+                    }, 600);
+
+                } else {
+                    // FAILURE
+                    errorMsg.style.display = 'block';
+                    document.getElementById('password').value = '';
+                    
+                    // Reset Button
+                    btnText.innerText = originalText;
+                    btnIcon.className = 'fas fa-arrow-right';
+                    loginBtn.disabled = false;
+                    loginBtn.style.opacity = '1';
+                    loginBtn.style.cursor = 'pointer';
+                    
+                    // Shake animation
+                    loginBtn.style.animation = 'shake 0.5s';
+                    setTimeout(() => {
+                        loginBtn.style.animation = '';
+                    }, 500);
+                }
+            }, 1000);
+        }
+
+        // Check if already authenticated
+        window.addEventListener('DOMContentLoaded', () => {
+            const auth = sessionStorage.getItem('empire_auth_littmann');
+            if (auth) {
+                try {
+                    const authData = JSON.parse(auth);
+                    // Auto-login if session exists (within 24 hours)
+                    const loginTime = new Date(authData.loginTime);
+                    const now = new Date();
+                    const hoursSinceLogin = (now - loginTime) / (1000 * 60 * 60);
+                    
+                    if (hoursSinceLogin < 24) {
+                        document.getElementById('loginScreen').classList.add('hidden');
+                        document.getElementById('reportContent').classList.add('visible');
+                    }
+                } catch (e) {
+                    console.error('Auth check failed:', e);
+                }
+            }
+        });
+
+        // Add shake animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes shake {
+                0%, 100% { transform: translateX(0); }
+                10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+                20%, 40%, 60%, 80% { transform: translateX(5px); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+
+</html>
