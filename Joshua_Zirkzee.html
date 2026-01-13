@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Joshua Zirkzee — Empire FGA Complete Profile</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    :root{
+      --bg:#070b14;
+      --card:#0f1724;
+      --white:#f0f6fc;
+      --muted:#8b949e;
+      --accent1:#f97316; /* Orange hint (Netherlands) */
+      --accent2:#111827; /* Dark for contrast */
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{
+      background:
+        radial-gradient(900px 500px at 8% 12%, rgba(249,115,22,.10), transparent 10%),
+        radial-gradient(800px 400px at 92% 88%, rgba(17,24,39,.75), transparent 8%),
+        var(--bg);
+      color:var(--white);
+      -webkit-font-smoothing:antialiased;
+      font-family:'Inter',sans-serif;
+    }
+    header{
+      max-width:1300px;margin:18px auto;padding:0 22px;display:flex;align-items:center;justify-content:space-between
+    }
+    .header-left{display:flex;align-items:center;gap:12px}
+    header img{height:44px;object-fit:contain;border-radius:6px;background:rgba(255,255,255,.03)}
+    .header-title{font-size:20px;font-weight:800;color:#fefce8}
+    .container{max-width:1300px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:26px}
+    .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,.05);position:relative;margin-bottom:18px}
+    .photo{width:100%;height:520px;object-fit:cover;object-position:center top;border-radius:10px;border:3px solid var(--accent1);background:#020617;filter:contrast(1.08)}
+    .title{font-size:34px;font-weight:900;margin:14px 0;color:var(--white)}
+    .sub{color:var(--muted);margin-bottom:10px;font-size:14px}
+    .rating-badge{position:absolute;right:18px;top:18px;background:linear-gradient(90deg,#f97316,#facc15);color:#0b1120;font-weight:900;padding:12px 18px;border-radius:16px;font-size:26px;box-shadow:0 10px 30px rgba(249,115,22,.35)}
+    .section{margin-top:18px}
+    .section h2{font-size:24px;font-weight:800;color:#fed7aa;margin-bottom:16px}
+    .section h3{font-size:18px;font-weight:700;color:#fed7aa;margin:16px 0 12px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .pill{display:inline-block;background:rgba(249,115,22,.14);padding:7px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--white);margin:6px 8px 6px 0;border:1px solid rgba(250,204,21,.35)}
+    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
+    th,td{padding:10px;border:1px solid rgba(255,255,255,.06);vertical-align:top;text-align:left}
+    th{background:linear-gradient(90deg, rgba(249,115,22,.90), rgba(15,23,42,.98));font-weight:800;color:#0b1120}
+    .info-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+    .info-row:last-child{border-bottom:none}
+    .info-label{color:var(--muted);font-size:14px}
+    .info-value{color:var(--white);font-weight:600;font-size:14px}
+    .stat-box{background:rgba(249,115,22,.16);border:1px solid rgba(15,23,42,.45);padding:14px;border-radius:8px;text-align:center}
+    .stat-value{font-size:28px;font-weight:900;color:#fed7aa;display:block}
+    .stat-label{font-size:12px;color:var(--muted);margin-top:4px}
+    .muted-box{background:rgba(15,23,42,.8);border:1px solid rgba(249,115,22,.2);padding:12px;border-radius:8px;margin-top:8px;color:var(--muted)}
+    .metric-item{margin:14px 0}
+    .metric-header{display:flex;justify-content:space-between;margin-bottom:6px}
+    .metric-name{font-weight:600;color:var(--white);font-size:13px}
+    .metric-score{color:#fed7aa;font-weight:800;font-size:15px}
+    .metric-bar{height:6px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden}
+    .metric-fill{height:100%;background:linear-gradient(90deg,#f97316,#facc15)}
+    .timeline-item{padding:14px;border-left:3px solid #f97316;margin:12px 0;background:rgba(15,23,42,.8);border-radius:6px}
+    .timeline-date{color:#fed7aa;font-weight:700;margin-bottom:6px;font-size:14px}
+    .timeline-event{color:var(--muted);font-size:14px;line-height:1.5}
+    .visual-canvas{background:transparent;border-radius:8px;padding:12px;height:420px;display:flex;align-items:center;justify-content:center;border:1px dashed rgba(249,115,22,.35)}
+    .trophy-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+    .trophy-box{text-align:center;padding:16px;background:rgba(15,23,42,.9);border-radius:8px;border:1px solid rgba(249,115,22,.18)}
+    .trophy-icon{font-size:32px;margin-bottom:8px}
+    .trophy-title{font-weight:700;color:#fed7aa;font-size:13px}
+    .trophy-year{color:var(--muted);font-size:12px}
+    @media(max-width:980px){
+      .container{grid-template-columns:1fr}
+      .photo{height:320px}
+      .visual-canvas{height:auto}
+      .two-col{grid-template-columns:1fr}
+      .trophy-grid{grid-template-columns:repeat(2,1fr)}
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-left">
+    <img src="https://1drv.ms/i/c/9e7ccff2a96af6d9/Edn2aqnyz3wggJ5OTA4AAAAB5IKWQ3jHeblDrfbY9_bnCA?e=Czvwh1" alt="Empire FGA">
+    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806" alt="Empire Scouting Network">
+    <div class="header-title">EMPIRE FGA SCOUTING NETWORK</div>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- SIDEBAR -->
+  <div>
+    <div class="card">
+      <img src="https://assets.goal.com/images/v3/blt012b52abea2af7d0/GOAL%20-%20Blank%20WEB%20-%20Facebook%20-%202025-10-17T071130.869.png?auto=webp&format=pjpg&width=3840&quality=60"
+           alt="Joshua Zirkzee" class="photo">
+      <div class="title">Joshua Zirkzee</div>
+      <div class="sub">Modern False 9 • Dutch Technical Target Man</div>
+
+      <div class="rating-badge">86.1</div>
+
+      <div class="section">
+        <div class="stat-box" style="margin-bottom:10px;">
+          <span class="stat-value">9.3</span>
+          <span class="stat-label">Link-Up Play Index</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">Joshua Orobosa Zirkzee</span></div>
+        <div class="info-row"><span class="info-label">Birth Date</span><span class="info-value">May 22, 2001</span></div>
+        <div class="info-row"><span class="info-label">Birthplace</span><span class="info-value">Schiedam, Netherlands</span></div>
+        <div class="info-row"><span class="info-label">Nationality</span><span class="info-value">Netherlands (NGA roots)</span></div>
+        <div class="info-row"><span class="info-label">Height</span><span class="info-value">1.93 m</span></div>
+        <div class="info-row"><span class="info-label">Position</span><span class="info-value">Centre Forward / False 9</span></div>
+        <div class="info-row"><span class="info-label">Preferred Foot</span><span class="info-value">Right</span></div>
+        <div class="info-row"><span class="info-label">Current Club</span><span class="info-value">Manchester United</span></div>
+        <div class="info-row"><span class="info-label">Shirt Number</span><span class="info-value">#17</span></div>
+      </div>
+
+      <div class="section">
+        <h3>Market Intel</h3>
+        <div class="info-row"><span class="info-label">Estimated Value</span><span class="info-value">€55–70M</span></div>
+        <div class="info-row"><span class="info-label">Contract</span><span class="info-value">2025–2030 (Man Utd)</span></div>
+        <div class="info-row"><span class="info-label">Empire Tier</span><span class="info-value">Elite Prospect – FGA 86.1</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div>
+
+    <!-- Global Impact -->
+    <div class="card">
+      <h2>🌍 Global Impact Analysis</h2>
+      <p class="lead">
+        Joshua Zirkzee represents the new generation of multi‑functional strikers: a 1.93 m forward with the feet of a No.10 and the body of a classic No.9. Formed at Bayern Munich and polished at Bologna, his breakout 2023‑24 season in Serie A made him one of Europe’s most coveted forwards. His move to Manchester United places him at the center of a rebuild that demands both goals and structure. He drops between the lines like a false nine, links play at a world‑class level, and still arrives in the box with timing and elegance. Stylistically, he sits somewhere between Berbatov, Firmino and Bergkamp in the modern game.
+      </p>
+      <div class="muted-box">
+        <strong style="color:#fed7aa;">Legacy Trajectory:</strong> Bayern debut scorer at 18 • Bologna franchise player • Flag‑bearer for a new Dutch attacking archetype (technical target‑man) • Now the creative hub of Manchester United’s forward line.
+      </div>
+    </div>
+
+    <!-- FGA Metrics -->
+    <div class="card">
+      <h2>📊 Core FGA Intelligence Metrics</h2>
+
+      <h3>Tier 1: Automated Metrics (60% Weight)</h3>
+      <div class="two-col">
+        <div>
+          <div class="metric-item">
+            <div class="metric-header"><span class="metric-name">FIN (Finishing)</span><span class="metric-score">8.6</span></div>
+            <div class="metric-bar"><div class="metric-fill" style="width:86%"></div></div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-header"><span class="metric-name">XPS (xG Conversion)</span><span class="metric-score">8.4</span></div>
+            <div class="metric-bar"><div class="metric-fill" style="width:84%"></div></div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-header"><span class="metric-name">OFF (Off-Ball Movement)</span><span class="metric-score">8.8</span></div>
+            <div class="metric-bar"><div class="metric-fill" style="width:88%"></div></div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-header"><span class="metric-name">HDR (Aerial Threat)</span><span class="metric-score">8.2</span></div>
+            <div class="metric-bar"><div class="metric-fill" style="width:82%"></div></div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-header"><span class="metric-name">WRK (Defensive Work)</span><span class="metric-score">7.8</span></div>
+            <div class="metric-bar"><div class="metric-fill" style="width:78%"></div></div>
+          </div>
+        </div>
+        <div>
+          <div class="metric-item">
+            <div class="metric-header"><span class="metric-name">TEC (First Touch & Skill)</span><span class="metric-score">9.3</span></div>
+            <div class="metric-bar"><div class="metric-fill" style="width:93%"></div></div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-header"><span class="metric-name">LNK (Link-Up Play)</span><span class="metric-score">9.3</span></div>
+            <div class="metric-bar"><div class="metric-fill" style="width:93%"></div></div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-header"><span class="metric-name">DRB (Dribbling)</span><span class="metric-score">8.9</span></div>
+            <div class="metric-bar"><div class="metric-fill" style="width:89%"></div></div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-header"><span class="metric-name">SPD (Top Speed)</span><span class="metric-score">7.9</span></div>
+            <div class="metric-bar"><div class="metric-fill" style="width:79%"></div></div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-header"><span class="metric-name">ACC (Acceleration)</span><span class="metric-score">7.7</span></div>
+            <div class="metric-bar"><div class="metric-fill" style="width:77%"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <h3>Tier 2: Semi‑Automated Metrics (30% Weight)</h3>
+      <div class="two-col">
+        <div class="metric-item">
+          <div class="metric-header"><span class="metric-name">POI (Position Intelligence)</span><span class="metric-score">9.0</span></div>
+          <div class="metric-bar"><div class="metric-fill" style="width:90%"></div></div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-header"><span class="metric-name">CPX (Composure)</span><span class="metric-score">9.2</span></div>
+          <div class="metric-bar"><div class="metric-fill" style="width:92%"></div></div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-header"><span class="metric-name">VER (Positional Versatility)</span><span class="metric-score">8.7</span></div>
+          <div class="metric-bar"><div class="metric-fill" style="width:87%"></div></div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-header"><span class="metric-name">STA (Stamina)</span><span class="metric-score">8.3</span></div>
+          <div class="metric-bar"><div class="metric-fill" style="width:83%"></div></div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-header"><span class="metric-name">CPI (Creative Index)</span><span class="metric-score">8.9</span></div>
+          <div class="metric-bar"><div class="metric-fill" style="width:89%"></div></div>
+        </div>
+      </div>
+
+      <h3>Tier 3: Manual Scout Assessment (10% Weight)</h3>
+      <div class="two-col">
+        <div>
+          <div class="metric-item">
+            <div class="metric-header"><span class="metric-name">DMA (Decision Making)</span><span class="metric-score">8.6</span></div>
+            <div class="metric-bar"><div class="metric-fill" style="width:86%"></div></div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-header"><span class="metric-name">CHR (Character)</span><span class="metric-score">8.4</span></div>
+            <div class="metric-bar"><div class="metric-fill" style="width:84%"></div></div>
+          </div>
+        </div>
+        <div>
+          <div class="metric-item">
+            <div class="metric-header"><span class="metric-name">CRS (Clutch Response)</span><span class="metric-score">8.3</span></div>
+            <div class="metric-bar"><div class="metric-fill" style="width:83%"></div></div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-header"><span class="metric-name">POT (Development Potential)</span><span class="metric-score">9.1</span></div>
+            <div class="metric-bar"><div class="metric-fill" style="width:91%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Philosophy -->
+    <div class="card">
+      <h2>🧠 60‑Philosophy Framework Analysis</h2>
+      <p class="small" style="margin-bottom:12px;">Zirkzee’s tactical DNA aligned with Empire’s legendary coaching archetypes.</p>
+
+      <h3>Top 10 Philosophy Fits</h3>
+      <div>
+        <span class="pill">Cruyff (Total Football) 9.4/10</span>
+        <span class="pill">Guardiola (Positional Play) 9.3/10</span>
+        <span class="pill">Nagelsmann (Hybrid 9/10) 9.2/10</span>
+        <span class="pill">Klopp (Pressing 9) 8.8/10</span>
+        <span class="pill">Ten Hag (Ajax Principles) 9.0/10</span>
+        <span class="pill">Sacchi (Collective Press) 8.6/10</span>
+        <span class="pill">Wenger (Technical CF) 8.9/10</span>
+        <span class="pill">Bielsa (Vertical Creativity) 8.7/10</span>
+        <span class="pill">Van Gaal (Structure) 8.5/10</span>
+        <span class="pill">Ancelotti (Free 9) 8.4/10</span>
+      </div>
+
+      <h3>School Averages</h3>
+      <div class="metric-item">
+        <div class="metric-header"><span class="metric-name">Dutch School (Total Football)</span><span class="metric-score">9.35</span></div>
+        <div class="metric-bar"><div class="metric-fill" style="width:93.5%"></div></div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-header"><span class="metric-name">Spanish Positional School</span><span class="metric-score">9.05</span></div>
+        <div class="metric-bar"><div class="metric-fill" style="width:90.5%"></div></div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-header"><span class="metric-name">German Pressing School</span><span class="metric-score">8.80</span></div>
+        <div class="metric-bar"><div class="metric-fill" style="width:88%"></div></div>
+      </div>
+    </div>
+
+    <!-- Recent Form -->
+    <div class="card">
+      <h2>🔥 Recent Form (Last 5 Matches – Manchester United)</h2>
+      <table>
+        <thead>
+        <tr>
+          <th>Opponent</th>
+          <th>Comp</th>
+          <th>Result</th>
+          <th>Minutes</th>
+          <th>G/A</th>
+          <th>FGA Rating</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>Liverpool</td>
+          <td>Premier League</td>
+          <td>D 2–2</td>
+          <td>90'</td>
+          <td>1G,1A</td>
+          <td>9.1</td>
+        </tr>
+        <tr>
+          <td>Chelsea</td>
+          <td>Premier League</td>
+          <td>W 3–1</td>
+          <td>84'</td>
+          <td>1G</td>
+          <td>8.4</td>
+        </tr>
+        <tr>
+          <td>Newcastle</td>
+          <td>Premier League</td>
+          <td>W 2–0</td>
+          <td>78'</td>
+          <td>1A</td>
+          <td>7.9</td>
+        </tr>
+        <tr>
+          <td>AC Milan</td>
+          <td>UCL</td>
+          <td>D 1–1</td>
+          <td>90'</td>
+          <td>1G</td>
+          <td>8.6</td>
+        </tr>
+        <tr>
+          <td>Bournemouth</td>
+          <td>Premier League</td>
+          <td>W 2–1</td>
+          <td>72'</td>
+          <td>1G</td>
+          <td>8.0</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Psychological -->
+    <div class="card">
+      <h2>🧪 Psychological Profile & Personality</h2>
+      <div class="two-col">
+        <div>
+          <h3>Core Traits</h3>
+          <div class="info-row"><span class="info-label">Personality Type</span><span class="info-value">ENFP – Creative Connector</span></div>
+          <div class="info-row"><span class="info-label">On-Pitch Archetype</span><span class="info-value">Artist Centre-Forward</span></div>
+          <div class="metric-item">
+            <div class="metric-header"><span class="metric-name">Creativity</span><span class="metric-score">9.4</span></div>
+            <div class="metric-bar"><div class="metric-fill" style="width:94%"></div></div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-header"><span class="metric-name">Confidence</span><span class="metric-score">8.9</span></div>
+            <div class="metric-bar"><div class="metric-fill" style="width:89%"></div></div>
+          </div>
+        </div>
+        <div>
+          <h3>Analysis</h3>
+          <p class="small">
+            Zirkzee plays with visible joy and imagination. He is less of a pure killer than a rhythm‑setter, dropping off the line, combining in tight spaces, and improvising solutions. His mentality is closer to an attacking midfielder than a traditional poacher, which means he sometimes prioritises the beautiful solution over the simple finish – both his greatest charm and biggest developmental area.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Key Relationships -->
+    <div class="card">
+      <h2>🤝 Key Relationships & Dynamics</h2>
+      <div class="timeline-item">
+        <div class="timeline-date">Thiago Motta (Bologna)</div>
+        <div class="timeline-event">The coach who unlocked his potential as a pressing, playmaking 9. Motta gave him full responsibility to link midfield and attack, accelerating his tactical growth.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Manchester United Young Core</div>
+        <div class="timeline-event">Forming natural partnerships with wide forwards and #10s who thrive on combination play, positioning him as the technical reference point in the final third.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Bayern Munich Academy</div>
+        <div class="timeline-event">Early exposure to elite standards, Champions League environment, and Lewandowski’s professionalism shaped his understanding of elite 9 behaviour.</div>
+      </div>
+    </div>
+
+    <!-- Career Statistics -->
+    <div class="card">
+      <h2>📈 Career Statistics (Summary)</h2>
+      <table>
+        <thead>
+        <tr>
+          <th>Club</th>
+          <th>Years</th>
+          <th>Apps</th>
+          <th>Goals</th>
+          <th>Notes</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td><strong>Bayern Munich</strong></td>
+          <td>2019–2021</td>
+          <td>17</td>
+          <td>4</td>
+          <td>Debut goals in Bundesliga & Pokal</td>
+        </tr>
+        <tr>
+          <td><strong>Parma (loan)</strong></td>
+          <td>2021</td>
+          <td>4</td>
+          <td>0</td>
+          <td>Limited minutes, important adaptation step</td>
+        </tr>
+        <tr>
+          <td><strong>Anderlecht (loan)</strong></td>
+          <td>2021–2022</td>
+          <td>47</td>
+          <td>18</td>
+          <td>Breakthrough scoring season</td>
+        </tr>
+        <tr>
+          <td><strong>Bologna</strong></td>
+          <td>2022–2025</td>
+          <td>70+</td>
+          <td>25+</td>
+          <td>Serie A star, all‑round 9 profile</td>
+        </tr>
+        <tr>
+          <td><strong>Manchester United</strong></td>
+          <td>2025–Present</td>
+          <td>15+</td>
+          <td>6+</td>
+          <td>New franchise forward</td>
+        </tr>
+        <tr style="background:rgba(249,115,22,.16);">
+          <td><strong>Total (Club)</strong></td>
+          <td><strong>2019–</strong></td>
+          <td><strong>150+</strong></td>
+          <td><strong>55+</strong></td>
+          <td><strong>Top‑5 league established</strong></td>
+        </tr>
+        </tbody>
+      </table>
+
+      <h3>Major Achievements</h3>
+      <div class="trophy-grid">
+        <div class="trophy-box">
+          <div class="trophy-icon">🏆</div>
+          <div class="trophy-title">Bundesliga & UCL Squad Titles</div>
+          <div class="trophy-year">With Bayern (as youngster)</div>
+        </div>
+        <div class="trophy-box">
+          <div class="trophy-icon">🌋</div>
+          <div class="trophy-title">Serie A Breakout</div>
+          <div class="trophy-year">2023–24 Bologna</div>
+        </div>
+        <div class="trophy-box">
+          <div class="trophy-icon">🧠</div>
+          <div class="trophy-title">Tactical 9 Archetype</div>
+          <div class="trophy-year">Modern reference profile</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Iconic Matches -->
+    <div class="card">
+      <h2>⚡ Iconic Matches & Milestones</h2>
+      <div class="timeline-item">
+        <div class="timeline-date">Dec 2019 | Freiburg vs Bayern</div>
+        <div class="timeline-event">Scores a 92nd‑minute winner minutes after coming on, announcing himself as Bayern’s new clutch prospect.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Feb 2024 | Bologna vs Inter</div>
+        <div class="timeline-event">Dominates one of Serie A’s best defences with a goal and an assist, showcasing his false‑nine toolkit.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Aug 2025 | Man Utd Debut</div>
+        <div class="timeline-event">Registers an assist on debut at Old Trafford, immediately transforming United’s build‑up structure.</div>
+      </div>
+    </div>
+
+    <!-- Miscellaneous -->
+    <div class="card">
+      <h2>📝 Miscellaneous Data</h2>
+      <div class="two-col">
+        <div>
+          <h3>Background</h3>
+          <div class="info-row"><span class="info-label">Youth Clubs</span><span class="info-value">VV Hekelingen, Spartaan ’20, Feyenoord, Bayern</span></div>
+          <div class="info-row"><span class="info-label">Heritage</span><span class="info-value">Dutch–Nigerian</span></div>
+          <div class="info-row"><span class="info-label">Preferred Role</span><span class="info-value">Free 9 linking midfield & attack</span></div>
+        </div>
+        <div>
+          <h3>Style & Culture</h3>
+          <div class="info-row"><span class="info-label">Comparisons</span><span class="info-value">Berbatov, Firmino, Bergkamp (lite)</span></div>
+          <div class="info-row"><span class="info-label">Body Language</span><span class="info-value">Relaxed, occasionally languid</span></div>
+          <div class="info-row"><span class="info-label">Risk Profile</span><span class="info-value">High creative risk, moderate volume finisher</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Radar Comparison -->
+    <div class="card">
+      <h2>📊 Player Comparison (Creative 9s)</h2>
+      <div class="visual-canvas">
+        <canvas id="radarChart" style="max-width:100%;max-height:100%;"></canvas>
+      </div>
+      <p class="small" style="text-align:center;margin-top:12px;">
+        Comparing Zirkzee vs Roberto Firmino (peak), Dimitar Berbatov (peak) and Kai Havertz (as 9).
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<footer style="background:var(--card);padding:30px;text-align:center;border-top:1px solid rgba(255,255,255,.12);margin-top:30px;">
+  <p style="color:var(--muted);font-size:13px;">
+    <strong style="color:#fed7aa;">Empire FGA Scouting Network</strong> — 779 Proprietary Metrics • 60‑Philosophy Framework
+  </p>
+  <p style="color:var(--muted);font-size:11px;margin-top:6px;">
+    Data aggregated from league data providers, FBref, Transfermarkt, national‑team records and Empire scout reports.
+  </p>
+</footer>
+
+<script>
+  const ctx = document.getElementById('radarChart').getContext('2d');
+  new Chart(ctx,{
+    type:'radar',
+    data:{
+      labels:['Finishing','Link-Up','Creativity','Aerial','Pace','Pressing','First Touch','Hold-Up'],
+      datasets:[
+        {
+          label:'Joshua Zirkzee',
+          data:[8.6,9.3,8.9,8.2,7.9,7.8,9.3,8.8],
+          borderColor:'#f97316',
+          backgroundColor:'rgba(249,115,22,.18)',
+          borderWidth:3,
+          pointBackgroundColor:'#f97316',
+          pointBorderColor:'#fff',
+          pointRadius:5
+        },
+        {
+          label:'Roberto Firmino (peak)',
+          data:[8.7,9.5,9.2,7.8,8.2,9.4,9.0,8.7],
+          borderColor:'#22c55e',
+          backgroundColor:'rgba(34,197,94,.08)',
+          borderWidth:2,
+          pointRadius:4
+        },
+        {
+          label:'Dimitar Berbatov (peak)',
+          data:[9.0,9.4,9.0,8.5,7.4,6.8,9.6,9.1],
+          borderColor:'#38bdf8',
+          backgroundColor:'rgba(56,189,248,.06)',
+          borderWidth:2,
+          pointRadius:4
+        },
+        {
+          label:'Kai Havertz (9 role)',
+          data:[8.2,8.8,8.7,7.6,8.1,8.5,8.9,8.0],
+          borderColor:'#e5e7eb',
+          backgroundColor:'transparent',
+          borderWidth:2,
+          pointRadius:4,
+          borderDash:[5,5]
+        }
+      ]
+    },
+    options:{
+      responsive:true,
+      maintainAspectRatio:true,
+      scales:{
+        r:{
+          beginAtZero:true,
+          max:10,
+          ticks:{stepSize:2,color:'#8b949e',backdropColor:'transparent',font:{size:11}},
+          grid:{color:'rgba(255,255,255,.08)'},
+          pointLabels:{color:'#f0f6fc',font:{size:12,weight:'600'}}
+        }
+      },
+      plugins:{
+        legend:{
+          labels:{
+            color:'#f0f6fc',
+            font:{size:13,weight:'600'},
+            padding:15,
+            usePointStyle:true
+          }
+        },
+        tooltip:{
+          backgroundColor:'rgba(15,23,42,.95)',
+          titleColor:'#fed7aa',
+          bodyColor:'#f0f6fc',
+          borderColor:'#f97316',
+          borderWidth:2,
+          padding:12,
+          callbacks:{
+            label:(ctx)=>`${ctx.dataset.label}: ${ctx.parsed.r}/10`
+          }
+        }
+      }
+    }
+  });
+</script>
+
+</body>
+</html>

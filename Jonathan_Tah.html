@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jonathan Tah — Empire FGA Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg: #070b14;
+            --card: #0f1724;
+            --white: #f0f6fc;
+            --muted: #8b949e;
+            --accent1: #c60a27; /* Bayern Red */
+            --accent2: #0052d9; /* Bayern Blue */
+            --accent3: #d4af37; /* Legend Gold */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background:
+                radial-gradient(900px 500px at 8% 12%, rgba(198, 10, 39, 0.08), transparent 10%),
+                radial-gradient(800px 400px at 92% 88%, rgba(0, 82, 217, 0.04), transparent 8%),
+                var(--bg);
+            color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            font-family: 'Inter', sans-serif;
+        }
+
+        header {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 0 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header img {
+            height: 48px;
+            object-fit: contain;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--accent3);
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 22px;
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 26px;
+        }
+
+        .card {
+            background: var(--card);
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            position: relative;
+            margin-bottom: 18px;
+        }
+
+        .photo {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+            object-position: top;
+            border-radius: 10px;
+            border: 3px solid var(--accent3);
+            background: #0b1624;
+            filter: contrast(1.1);
+        }
+
+        .title {
+            font-size: 34px;
+            font-weight: 900;
+            margin: 14px 0;
+            color: var(--white);
+        }
+
+        .sub {
+            color: var(--muted);
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .pill {
+            display: inline-block;
+            background: rgba(198, 10, 39, 0.12);
+            padding: 7px 12px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--white);
+            margin: 6px 8px 6px 0;
+            border: 1px solid rgba(0, 82, 217, 0.18);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+            color: var(--white);
+            font-size: 14px;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            vertical-align: top;
+            text-align: left;
+        }
+
+        th {
+            background: linear-gradient(90deg, rgba(198, 10, 39, 0.85), rgba(0, 82, 217, 0.85));
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .rating-badge {
+            position: absolute;
+            right: 18px;
+            top: 18px;
+            background: linear-gradient(90deg, #d4af37, #c60a27);
+            color: #fff;
+            font-weight: 900;
+            padding: 12px 18px;
+            border-radius: 16px;
+            font-size: 26px;
+            box-shadow: 0 10px 30px rgba(198, 10, 39, 0.18);
+        }
+
+        .section {
+            margin-top: 18px;
+        }
+
+        .section h2 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--accent3);
+            margin-bottom: 16px;
+        }
+
+        .section h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent3);
+            margin: 16px 0 12px;
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .small {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .lead {
+            color: var(--white);
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .visual-canvas {
+            background: transparent;
+            border-radius: 8px;
+            padding: 12px;
+            height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed rgba(0, 82, 217, 0.18);
+        }
+
+        .muted-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 8px;
+            color: var(--muted);
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .info-value {
+            color: var(--white);
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .metric-item {
+            margin: 14px 0;
+        }
+
+        .metric-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px;
+        }
+
+        .metric-name {
+            font-weight: 600;
+            color: var(--white);
+            font-size: 13px;
+        }
+
+        .metric-score {
+            color: var(--accent3);
+            font-weight: 800;
+            font-size: 15px;
+        }
+
+        .metric-bar {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .metric-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent2) 0%, var(--accent1) 100%);
+            border-radius: 3px;
+        }
+
+        .timeline-item {
+            padding: 14px;
+            border-left: 3px solid var(--accent3);
+            margin: 12px 0;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 6px;
+        }
+
+        .timeline-date {
+            color: var(--accent3);
+            font-weight: 700;
+            margin-bottom: 6px;
+            font-size: 14px;
+        }
+
+        .timeline-event {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .stat-box {
+            background: rgba(198, 10, 39, 0.12);
+            border: 1px solid rgba(0, 82, 217, 0.18);
+            padding: 14px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--accent3);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 4px;
+        }
+
+        .trophy-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .trophy-box {
+            text-align: center;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
+            border: 1px solid rgba(212, 175, 55, 0.12);
+        }
+
+        .trophy-icon {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .trophy-title {
+            font-weight: 700;
+            color: var(--accent3);
+            font-size: 13px;
+        }
+
+        .trophy-year {
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        @media (max-width: 980px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .photo {
+                height: 320px;
+            }
+
+            .visual-canvas {
+                height: auto;
+            }
+
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+
+            .trophy-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-left">
+            <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ"
+                alt="Empire Scouting Network">
+            <div class="header-title">EMPIRE FGA SCOUTING NETWORK</div>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- Sidebar -->
+        <div>
+            <div class="card">
+                <img src="https://derivates.kicker.de/image/upload/c_crop%2Cx_207%2Cy_51%2Cw_2215%2Ch_1246/w_1000%2Cq_auto/v1/2025/08/15/62a4ad5b-ab17-49d0-baf3-0ab09a9e4fc5.jpg"
+                    alt="Jonathan Tah" class="photo">
+                <div class="title">Jonathan Glao Tah</div>
+                <div class="sub">The Berlin Wall • Modern Stopper</div>
+
+                <div class="rating-badge">89.5</div>
+
+                <div class="section">
+                    <div class="stat-box" style="margin-bottom: 10px;">
+                        <span class="stat-value">9.8</span>
+                        <span class="stat-label">Aerial Dominance</span>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">Jonathan Tah</span></div>
+                    <div class="info-row"><span class="info-label">Birth Date</span><span class="info-value">Feb 11, 1996</span></div>
+                    <div class="info-row"><span class="info-label">Status</span><span class="info-value">Active • Bayern Munich</span>
+                    </div>
+                    <div class="info-row"><span class="info-label">Birthplace</span><span class="info-value">Hamburg, Germany</span></div>
+                    <div class="info-row"><span class="info-label">Height</span><span class="info-value">1.95m</span>
+                    </div>
+                    <div class="info-row"><span class="info-label">Position</span><span
+                            class="info-value">Centre-Back</span></div>
+                    <div class="info-row"><span class="info-label">Foot</span><span class="info-value">Right</span>
+                    </div>
+                    <div class="info-row"><span class="info-label">Key Number</span><span class="info-value">#4</span></div>
+                    <div class="info-row"><span class="info-label">National Team</span><span class="info-value">Germany (29/1)</span></div>
+                </div>
+
+                <div class="section">
+                    <h3>Quick Stats</h3>
+                    <div class="info-row"><span class="info-label">Bundesliga Apps</span><span
+                            class="info-value">250+</span></div>
+                    <div class="info-row"><span class="info-label">Goals</span><span class="info-value">15+</span></div>
+                    <div class="info-row"><span class="info-label">Euro 2024</span><span class="info-value">Semi-Finalist</span></div>
+                    <div class="info-row"><span class="info-label">Market Value</span><span class="info-value">€30M+</span></div>
+                    <div class="info-row"><span class="info-label">Captaincy</span><span class="info-value">Bayer 04 Vice-Captain</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div>
+
+            <!-- Global Impact -->
+            <div class="card">
+                <h2>🌍 Global Impact Analysis</h2>
+                <p class="lead">
+                    Jonathan Tah represents the evolution of the modern centre-back. A product of Hamburger SV's academy, he made his professional debut at just 17. After a transformative loan at Fortuna Düsseldorf, he became a cornerstone for Bayer 04 Leverkusen for nearly a decade, eventually captaining the side. His move to Bayern Munich in 2025 solidified his status as an elite defender. Tah combines immense physicality—standing at 1.95m with blistering recovery pace—with surprising technical comfort on the ball. A key figure for Germany, he was instrumental in their Euro 2024 run, forming a formidable partnership and showcasing his ability to perform on the biggest stages.
+                </p>
+                <div class="muted-box">
+                    <strong style="color: var(--accent3);">Legacy Highlights:</strong> Euro 2024 Semi-Finalist • Bayer 04 Vice-Captain • Bundesliga Team of the Season • Known for elite recovery speed for his size • A leader by example on and off the pitch.
+                </div>
+            </div>
+
+            <!-- FGA Metrics -->
+            <div class="card">
+                <h2>📊 Core FGA Intelligence Metrics</h2>
+
+                <h3>Tier 1: Automated Metrics (60% Weight)</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">STR (Strength)</span><span
+                                    class="metric-score">9.5</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">SPD (Speed/Recovery)</span><span
+                                    class="metric-score">9.2</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 92%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">AER (Aerial Duels)</span><span
+                                    class="metric-score">9.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 98%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">TAC (Tackling)</span><span
+                                    class="metric-score">8.9</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 89%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">INT (Interceptions)</span><span
+                                    class="metric-score">8.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 88%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">POS (Positioning)</span><span
+                                    class="metric-score">9.0</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">BUI (Build-Up)</span><span
+                                    class="metric-score">8.5</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">PAS (Passing)</span><span
+                                    class="metric-score">8.4</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 84%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CLN (Clearances)</span><span
+                                    class="metric-score">9.3</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 93%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">WRK (Work Rate)</span><span
+                                    class="metric-score">9.1</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 91%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Tier 2: Semi-Automated Metrics (30% Weight)</h3>
+                <div class="two-col">
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">COM (Composure)</span><span
+                                class="metric-score">9.2</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width: 92%"></div>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">VER (Versatility)</span><span
+                                class="metric-score">8.0</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">LEA (Leadership)</span><span
+                                class="metric-score">8.9</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width: 89%"></div>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">BRV (Bravery)</span><span
+                                class="metric-score">9.4</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width: 94%"></div>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">FLX (Flexibility)</span><span
+                                class="metric-score">8.2</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width: 82%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Tier 3: Manual Scout Assessment (10% Weight)</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">VOC (Vocal Organiser)</span><span
+                                    class="metric-score">8.7</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 87%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">BIG (Big Game Perf)</span><span
+                                    class="metric-score">8.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 88%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">RISK (Calculated Risk)</span><span
+                                    class="metric-score">8.1</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 81%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">TAC_I (Tactical Intel)</span><span
+                                    class="metric-score">9.0</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 60 Philosophy Framework -->
+            <div class="card">
+                <h2>🧠 60-Philosophy Framework Analysis</h2>
+                <p class="small" style="margin-bottom: 12px;">Tah's tactical DNA mapped across 60 legendary coaching
+                    philosophies.</p>
+
+                <h3>Top 10 Philosophy Fits</h3>
+                <div>
+                    <span class="pill">Klopp (Organised Chaos) 9.4/10</span>
+                    <span class="pill">Flick (High Line) 9.3/10</span>
+                    <span class="pill">Nagelsmann (Hybrid) 9.2/10</span>
+                    <span class="pill">Simeone (Defensive Solidity) 9.1/10</span>
+                    <span class="pill">Ancelotti (Player Mgmt) 8.9/10</span>
+                    <span class="pill">Conte (Automations) 8.8/10</span>
+                    <span class="pill">Alonso (Build-Up) 8.7/10</span>
+                    <span class="pill">Mourinho (Low Block) 8.5/10</span>
+                    <span class="pill">Heynckes (Balance) 8.6/10</span>
+                    <span class="pill">De Visser (Athleticism) 8.4/10</span>
+                </div>
+
+                <h3>School Averages</h3>
+                <div class="metric-item">
+                    <div class="metric-header"><span class="metric-name">German School (Pressing/High Line)</span><span class="metric-score">9.20</span></div>
+                    <div class="metric-bar">
+                        <div class="metric-fill" style="width: 92%"></div>
+                    </div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-header"><span class="metric-name">Italian School (Defensive Organisation)</span><span class="metric-score">8.85</span></div>
+                    <div class="metric-bar">
+                        <div class="metric-fill" style="width: 88.5%"></div>
+                    </div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-header"><span class="metric-name">Modern Masters (Tactical Flexibility)</span><span class="metric-score">8.95</span></div>
+                    <div class="metric-bar">
+                        <div class="metric-fill" style="width: 89.5%"></div>
+                    </div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-header"><span class="metric-name">Spanish School (Possession)</span><span class="metric-score">7.90</span></div>
+                    <div class="metric-bar">
+                        <div class="metric-fill" style="width: 79%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Psychological Profile -->
+            <div class="card">
+                <h2>🧪 Psychological Profile & Personality</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Core Traits</h3>
+                        <div class="info-row"><span class="info-label">Personality Type</span><span
+                                class="info-value">ISTJ (The Logistician)</span></div>
+                        <div class="info-row"><span class="info-label">On-Pitch Role</span><span
+                                class="info-value">The Organiser</span></div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Composure</span><span
+                                    class="metric-score">9.2</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 92%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Consistency</span><span
+                                    class="metric-score">9.5</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Professionalism</span><span
+                                    class="metric-score">9.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 98%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Analysis</h3>
+                        <p class="small">
+                            Jonathan Tah is the epitome of a modern professional. Calm, methodical, and fiercely dedicated. He is not a fiery orator but a leader through example and clear communication. His ISTJ personality makes him reliable, structured, and exceptionally consistent—qualities that have made him a defensive bedrock for both club and country. He handles pressure with a stoic mindset, rarely letting emotions dictate his performance. This mental fortitude, combined with his physical gifts, makes him a manager's dream.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Relationships -->
+            <div class="card">
+                <h2>🤝 Key Relationships & Dynamics</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">Edin Tera (Father Figure & Mentor)</div>
+                    <div class="timeline-event">The former Hamburger SV academy director who guided Tah through his formative years. Tera was instrumental in shaping his professional attitude and defending fundamentals.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Jonathan Schmid (Early Partner)</div>
+                    <div class="timeline-event">At SC Freiburg, Schmid's experience and leadership helped a young Tah transition to top-flight football, providing stability in his breakout season.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Jeremie Frimpong (Leverkusen Synergy)</div>
+                    <div class="timeline-event">A classic modern defensive partnership. Frimpong's aggressive forward runs were enabled by Tah's immense recovery pace and ability to cover the right channel single-handedly.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Xabi Alonso (Tactical Mentor)</div>
+                    <div class="timeline-event">Under Alonso, Tah refined his game, becoming more comfortable in build-up play and mastering the high defensive line. Alonso called him "the most underrated defender in Europe."</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Antonio Rüdiger (National Team Partnership)</div>
+                    <div class="timeline-event">Formed a formidable, complementary partnership for Germany at Euro 2024. Rüdiger's aggression and Tah's positional discipline created a balanced and highly effective defensive unit.</div>
+                </div>
+            </div>
+
+            <!-- Career Statistics -->
+            <div class="card">
+                <h2>📈 Complete Career Statistics</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Club/Competition</th>
+                            <th>Years</th>
+                            <th>Matches</th>
+                            <th>Goals</th>
+                            <th>Honors</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Hamburger SV II</strong></td>
+                            <td>2013-2015</td>
+                            <td>25</td>
+                            <td>4</td>
+                            <td>Regionalliga Champion</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Hamburger SV</strong></td>
+                            <td>2013-2015</td>
+                            <td>20</td>
+                            <td>2</td>
+                            <td>Bundesliga Survival</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Fortuna Düsseldorf (Loan)</strong></td>
+                            <td>2015-2016</td>
+                            <td>47</td>
+                            <td>1</td>
+                            <td>2. Bundesliga Promotion</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Bayer 04 Leverkusen</strong></td>
+                            <td>2015-2025</td>
+                            <td>365</td>
+                            <td>14</td>
+                            <td>DFL-Pokal Final, UCL QF</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Bayern Munich</strong></td>
+                            <td>2025-Present</td>
+                            <td>5+</td>
+                            <td>0</td>
+                            <td>Season Ongoing</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Germany</strong></td>
+                            <td>2016-Present</td>
+                            <td>29</td>
+                            <td>1</td>
+                            <td>Euro 2024 Semi-Final</td>
+                        </tr>
+                        <tr style="background: rgba(198, 10, 39, 0.15);">
+                            <td><strong>TOTAL CAREER</strong></td>
+                            <td><strong>2013-Present</strong></td>
+                            <td><strong>490+</strong></td>
+                            <td><strong>22+</strong></td>
+                            <td><strong>1x 2. BL, Euro SF</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Major Honors</h3>
+                <div class="trophy-grid">
+                    <div class="trophy-box">
+                        <div class="trophy-icon">🇩🇪</div>
+                        <div class="trophy-title">2. Bundesliga</div>
+                        <div class="trophy-year">2018 (Promotion)</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">🥈</div>
+                        <div class="trophy-title">Euro Semi-Finalist</div>
+                        <div class="trophy-year">2024 (Germany)</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">🏆</div>
+                        <div class="trophy-title">DFL-Pokal Final</div>
+                        <div class="trophy-year">2020, 2021 (Runner-up)</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">🥇</div>
+                        <div class="trophy-title">Bundesliga POTM</div>
+                        <div class="trophy-year">March 2022</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">⭐</div>
+                        <div class="trophy-title">Bundesliga TOTS</div>
+                        <div class="trophy-year">2021-22</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">🧢</div>
+                        <div class="trophy-title">Leverkusen Vice-Captain</div>
+                        <div class="trophy-year">2023-2025</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Matches -->
+            <div class="card">
+                <h2>⚡ Key Matches & Milestones</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">May 24, 2014 | Professional Debut</div>
+                    <div class="timeline-event">Makes his professional debut for Hamburger SV at 18, marking the start of a journey that would see him become one of Germany's most consistent defenders.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">May 2018 | Promotion with Leverkusen</div>
+                    <div class="timeline-event">After a successful loan at Fortuna Düsseldorf, he returns to Bayer 04 and helps secure their return to the Bundesliga, establishing himself as a top-tier defender.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Sep 6, 2016 | Germany Debut</div>
+                    <div class="timeline-event">Makes his senior debut for Germany in a World Cup qualifier against Norway, entering a golden generation of German defenders.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">May 2022 | Bundesliga Team of the Season</div>
+                    <div class="timeline-event">After a phenomenal season where he was a rock at the back for Leverkusen, he is rightfully named in the official Bundesliga Team of the Season.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Jul 2024 | Euro 2024 Semi-Final</div>
+                    <div class="timeline-event">Plays every minute of Germany's Euro 2024 campaign, forming a solid partnership with Rüdiger and delivering a man-of-the-match performance in the quarter-final.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Jul 1, 2025 | Bayern Munich Transfer</div>
+                    <div class="timeline-event">Completes a high-profile free transfer to Bayern Munich, signing a 4-year deal. The move is seen as a statement of intent for both player and club.</div>
+                </div>
+            </div>
+
+            <!-- Player Comparison -->
+            <div class="card">
+                <h2>📊 Player Comparison (Elite Modern Centre-Backs)</h2>
+                <div class="visual-canvas">
+                    <canvas id="radarChart" style="max-width: 100%; max-height: 100%;"></canvas>
+                </div>
+                <p class="small" style="text-align: center; margin-top: 12px;">
+                    Comparing Jonathan Tah vs. Rúben Dias, Dayot Upamecano, and Antonio Rüdiger.
+                </p>
+            </div>
+
+            <!-- Miscellaneous -->
+            <div class="card">
+                <h2>📝 Miscellaneous Data</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Historical Records</h3>
+                        <div class="info-row"><span class="info-label">Bundesliga Record</span><span
+                                class="info-value">250+ Apps (10+ Seasons)</span></div>
+                        <div class="info-row"><span class="info-label">Speed Record</span><span
+                                class="info-value">34.5 km/h (Peak Speed)</span></div>
+                        <div class="info-row"><span class="info-label">Youth</span><span class="info-value">St. Pauli, HSV Academies</span></div>
+                        <div class="info-row"><span class="info-label">Nationality</span><span
+                                class="info-value">German (Ivorian Heritage)</span></div>
+                        <div class="info-row"><span class="info-label">First Cap</span><span
+                                class="info-value">18 years, 211 days</span></div>
+                    </div>
+                    <div>
+                        <h3>Cultural Impact</h3>
+                        <div class="info-row"><span class="info-label">Nickname</span><span class="info-value">The Berlin Wall</span></div>
+                        <div class="info-row"><span class="info-label">Persona</span><span
+                                class="info-value">Calm, Professional, Leader</span></div>
+                        <div class="info-row"><span class="info-label">Role Model</span><span class="info-value">Widely respected in Germany</span></div>
+                        <div class="info-row"><span class="info-label">Marketability</span><span
+                                class="info-value">High (Clean Image)</span></div>
+                        <div class="info-row"><span class="info-label">Quote</span><span class="info-value">"I always want to improve, every single day."</span></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer
+        style="background: var(--card); padding: 30px; text-align: center; border-top: 1px solid rgba(212, 175, 55, 0.12); margin-top: 30px;">
+        <p style="color: var(--muted); font-size: 13px;">
+            <strong style="color: var(--accent3);">Empire FGA Scouting Network</strong> — 779 Proprietary Metrics •
+            60-Philosophy Framework
+        </p>
+        <p style="color: var(--muted); font-size: 11px; margin-top: 6px;">
+            Data validated from DFB, Bundesliga, Transfermarkt & Opta.
+        </p>
+    </footer>
+
+    <script>
+        const ctx = document.getElementById('radarChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['Pace', 'Strength', 'Aerial', 'Tackling', 'Positioning', 'Passing', 'Composure', 'Leadership'],
+                datasets: [{
+                    label: 'Jonathan Tah',
+                    data: [9.2, 9.5, 9.8, 8.9, 9.0, 8.5, 9.2, 8.9],
+                    borderColor: '#c60a27',
+                    backgroundColor: 'rgba(198, 10, 39, 0.15)',
+                    borderWidth: 3,
+                    pointBackgroundColor: '#c60a27',
+                    pointBorderColor: '#fff',
+                    pointRadius: 5
+                }, {
+                    label: 'Rúben Dias',
+                    data: [7.5, 9.0, 9.2, 9.1, 9.5, 9.2, 9.5, 9.4],
+                    borderColor: '#fff',
+                    backgroundColor: 'rgba(255,255,255,0.05)',
+                    borderWidth: 2,
+                    pointRadius: 4
+                }, {
+                    label: 'Dayot Upamecano',
+                    data: [9.4, 8.8, 8.5, 8.7, 8.4, 8.8, 8.2, 7.5],
+                    borderColor: '#d4af37',
+                    backgroundColor: 'rgba(212, 175, 55, 0.08)',
+                    borderWidth: 2,
+                    pointRadius: 4
+                }, {
+                    label: 'Antonio Rüdiger',
+                    data: [8.8, 9.3, 9.0, 9.2, 8.9, 8.0, 9.0, 8.5],
+                    borderColor: '#0052d9',
+                    backgroundColor: 'transparent',
+                    borderWidth: 2,
+                    pointRadius: 4,
+                    borderDash: [5, 5]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        max: 10,
+                        ticks: {
+                            stepSize: 2,
+                            color: '#8b949e',
+                            backdropColor: 'transparent',
+                            font: { size: 11 }
+                        },
+                        grid: { color: 'rgba(255,255,255,0.08)' },
+                        pointLabels: {
+                            color: '#f0f6fc',
+                            font: { size: 12, weight: '600' }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#f0f6fc',
+                            font: { size: 13, weight: '600' },
+                            padding: 15,
+                            usePointStyle: true
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(11,22,36,0.95)',
+                        titleColor: '#d4af37',
+                        bodyColor: '#f0f6fc',
+                        borderColor: '#d4af37',
+                        borderWidth: 2,
+                        padding: 12,
+                        callbacks: {
+                            label: function (context) {
+                                return context.dataset.label + ': ' + context.parsed.r + '/10';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>
