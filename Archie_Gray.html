@@ -1,390 +1,1295 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Archie Gray — Empire FGA Profile (Expanded)</title>
-  <style>
-    :root{
-      --bg:#071026; --card:#071622; --accent:#0b5bb0; --accent2:#ffd24d;
-      --muted:#98a7bf; --white:#eef6ff;
-      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif
-    }
-    html,body{height:100%;margin:0;padding:0;background:
-      radial-gradient(900px 500px at 8% 12%, rgba(11,91,176,0.06),transparent 10%),
-      radial-gradient(800px 400px at 92% 88%, rgba(255,210,77,0.04),transparent 8%),var(--bg);
-      color:var(--white);-webkit-font-smoothing:antialiased}
-    header{max-width:1300px;margin:18px auto;padding:0 22px;display:flex;align-items:center}
-    header img{height:48px;object-fit:contain}
-    .container{max-width:1300px;margin:18px auto;padding:22px;display:grid;grid-template-columns:360px 1fr;gap:26px}
-    .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);position:relative}
-    .photo{width:100%;height:520px;object-fit:cover;object-position: center; border-radius:10px;border:3px solid var(--accent2);background:#0b1624}
-    .title{font-size:34px;font-weight:900;margin:14px 0;color:var(--white)}
-    .sub{color:var(--muted);margin-bottom:10px}
-    .pill{display:inline-block;background:rgba(11,91,176,0.12);padding:7px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--white);margin:6px 8px 6px 0;border:1px solid rgba(255,210,77,0.18)}
-    table{width:100%;border-collapse:collapse;margin-top:12px;color:var(--white);font-size:14px}
-    th,td{padding:10px;border:1px solid rgba(255,255,255,0.06);vertical-align:top;text-align:left}
-    th{background:linear-gradient(90deg, rgba(11,91,176,0.85), rgba(255,210,77,0.85));font-weight:800;color:#071122}
-    .rating-badge{position:absolute;right:18px;top:18px;background:linear-gradient(90deg,#ffd24d,#0b5bb0);color:#071122;font-weight:900;padding:12px 18px;border-radius:16px;font-size:26px;box-shadow:0 10px 30px rgba(11,91,176,0.18)}
-    .section{margin-top:18px}
-    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-    .small{color:var(--muted);font-size:14px;line-height:1.6}
-    .lead{color:var(--white);font-size:16px;line-height:1.5}
-    ul.small{margin:0;padding-left:18px}
-    .visual-canvas{background:transparent;border-radius:8px;padding:12px;height:420px;display:flex;align-items:center;justify-content:center;border:1px dashed rgba(255,210,77,0.18)}
-    .accent-heading{color:var(--accent2)}
-    .muted-box{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);padding:12px;border-radius:8px;margin-top:8px;color:var(--muted)}
-    @media (max-width:980px){.container{grid-template-columns:1fr}.photo{height:320px}.visual-canvas{height:auto}}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-</head>
-<body>
-  <header>
-    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
-  </header>
-
-  <div class="container" role="main" aria-labelledby="profile-name">
-    <aside class="card" aria-label="summary">
-      <img class="photo" src="https://cdn1.thespurs.news/uploads/36/2024/09/GettyImages-2167470513-1140x760.jpg" alt="Archie Gray photo">
-      <div style="margin-top:12px">
-        <div id="profile-name" class="title">Archie Gray</div>
-        <div class="sub">Midfielder / Full-Back (Prospect) · England · Born: 12 March 2006 · Height: 1.87 m</div>
-
-        <div>
-          <span class="pill"><strong>Iconic Clubs</strong> Tottenham Hotspur, Leeds United</span>
-          <span class="pill"><strong>Position</strong> Central Midfielder, Right-Back</span>
-          <span class="pill"><strong>Primary Foot</strong> Right</span>
-        </div>
-
-        <div class="section">
-          <h3 class="accent-heading" style="margin:0 0 8px;">Quick Summary</h3>
-          <p class="lead">An elite, "wonderkid" English talent known for his incredible versatility, technical quality, and maturity. Gray is a "ball-playing box-to-box central midfielder" who can also excel at right-back and centre-back. After a breakout season at Leeds, he signed for Tottenham Hotspur in July 2024.</p>
-        </div>
-
-        <div class="section">
-          <h3 class="accent-heading" style="margin:0 0 8px;">Snapshot Metrics (Prospect)</h3>
-          <table aria-describedby="physical-metrics">
-            <thead><tr><th>Metric</th><th>Value (Potential-Adjusted)</th></tr></thead>
-            <tbody>
-              <tr><td>VER - Versatility</td><td>9.8</td></tr>
-              <tr><td>CPX - Composure</td><td>9.2</td></tr>
-              <tr><td>PAS - Passing</td><td>9.0</td></tr>
-              <tr><td>TKL - Tackling</td><td>8.8</td></tr>
-              <tr><td>WRK - Work Rate</td><td>9.0</td></tr>
-              <tr><td>DRI - Dribbling</td><td>8.5</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="section">
-          <h3 class="accent-heading" style="margin:0 0 8px;">Audit Flags</h3>
-          <ul class="small">
-            <li>Attach Premier League and Champions League match logs to verify metrics in his new, varied roles at Spurs.</li>
-            <li>Analyze video from England U21 fixtures to confirm his preferred midfield role.</li>
-          </ul>
-        </div>
-
-        <div class="section small">Bio and career details referenced from FA databases, Tottenham Hotspur/Leeds United official records, and league archives. Potential-adjusted ratings.</div>
-      </div>
-    </aside>
-
-    <main class="card" aria-label="full-profile">
-      <div class="rating-badge" aria-hidden="false">78.0 (91.0 P)</div>
-
-      <section class="section" aria-labelledby="overview">
-        <h2 id="overview" style="color:var(--accent)">Player Overview</h2>
-        <p class="lead">Archie Gray is one of the most complete and versatile young players in Europe. His preferred role is a "ball-playing box-to-box central midfielder," but he spent 64% of his breakout season at right-back and has even filled in at centre-back for Spurs. His game is defined by his "unflustered" composure, press-resistance, and "exceptionally quick mind." He is an "accomplished passer" who is also "snappy in the tackle" and aggressive in duels. He won the 2023-24 EFL Championship Young Player of the Season before his move to Tottenham.</p>
-      </section>
-
-      <section class="section" aria-labelledby="career-timeline">
-        <h2 id="career-timeline" style="color:var(--accent)">Career Timeline (Table)</h2>
-        <table aria-describedby="timeline-table">
-          <thead><tr><th>Years</th><th>Club / Role</th><th>Notes</th></tr></thead>
-          <tbody>
-            <tr><td>2014–2022</td><td>Leeds United (Youth)</td><td>Joined at U9 level; part of a famous Leeds dynasty.</td></tr>
-            <tr><td>2022–2024</td><td>Leeds United</td><td>52 apps, 1 goal. Made senior debut at 17.</td></tr>
-            <tr><td>Jul 2024–Present</td><td>Tottenham Hotspur</td><td>Signed for Spurs; made 46 appearances in his first season (24/25).</td></tr>
-            <tr><td>2023–Present</td><td>England Youth International</td><td>Played for U16, U17, U19, U20, and U21 levels.</td></tr>
-          </tbody>
-        </table>
-      </section>
-
-      <section class="section" aria-labelledby="key-matches">
-        <h2 id="key-matches" style="color:var(--accent)">Key Matches and Milestones (Table)</h2>
-        <table aria-describedby="key-matches-table">
-          <thead><tr><th>Date</th><th>Milestone / Event</th><th>Note</th></tr></thead>
-          <tbody>
-            <tr><td>2023-2024</td><td>EFL Championship Young Player of the Season</td><td>Won the award for his breakout season at Leeds.</td></tr>
-            <tr><td>Jul 2024</td><td>Transfer to Tottenham Hotspur</td><td>Completed a high-profile move from Leeds United.</td></tr>
-            <tr><td>2024-2025</td><td>First Spurs Season</td><td>Played 46 games in all competitions, often at centre-back due to injuries.</td></tr>
-            <tr><td>2025</td><td>UEFA Europa League Winner</td><td>Helped Tottenham win their first trophy in 17 years.</td></tr>
-            <tr><td>2025</td><td>London Football Awards</td><td>Won Young Player of the Year.</td></tr>
-          </tbody>
-        </table>
-      </section>
-
-      <section class="section" aria-labelledby="strengths-weaknesses">
-        <h2 id="strengths-weaknesses" style="color:var(--accent)">Strengths and Weaknesses</h2>
-        <div class="two-col">
-          <div>
-            <h3 class="accent-heading" style="margin:0 0 8px;">Strengths</h3>
-            <ul class="small">
-              <li><strong>Versatility (VER):</strong> Elite ability to play CM, DM, RB, and CB at a high level.</li>
-              <li><strong>Composure & Temperament:</strong> "Unflustered in tight areas"; "exceptionally press-resistant".</li>
-              <li><strong>Passing (PAS):</strong> "Accomplished passer" with high accuracy and good progressive vision.</li>
-              <li><strong>Tackling (TKL):</strong> "Snappy in the tackle" and "aggressive in his pressing".</li>
-              <li><strong>Ball Carrying:</strong> "Nimble footwork" and "quick turn of pace" to burst away.</li>
-            </ul>
-          </div>
-          <div>
-            <h3 class="accent-heading" style="margin:0 0 8px;">Weaknesses</h3>
-            <ul class="small">
-              <li><strong>End Product:</strong> "Not what his game is about"; 1 goal, 2 assists in 47 Championship apps.</li>
-              <li><strong>Concentration:</strong> Can be a "Very Weak" attribute (per WhoScored).</li>
-              <li><strong>Aerial Duels:</strong> Good (50% win rate) but not a dominant aerial force.</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" aria-labelledby="global-impact">
-        <h2 id="global-impact" style="color:var(--accent)">Global Impact Analysis</h2>
-        <div class="two-col">
-          <div>
-            <p class="small"><strong>Marketability & Commercial Value:</strong> Extremely high. A "wonderkid" from a famous football family who won EFL Young Player of the Season, moved to Spurs, and is a key England U21 star.</td>
-            <p class="small"><strong>Transfer Market Positioning (Player):</strong> Elite prospect. One of the most valuable English players of his generation. Locked into a long-term (2030) contract at Spurs.</td>
-          </div>
-          <div>
-            <p class="small"><strong>Cross-League Fit (Player):</strong> His technical quality, athleticism, and versatility make him a perfect fit for any top-5 league.</td>
-            <p class="small"><strong>International Impact:</strong> A key figure for the England U21s. On a clear and rapid trajectory to the senior national team.</td>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" aria-labelledby="advanced">
-        <h2 id="advanced" style="color:var(--accent)">Advanced Metrics (Prospect)</h2>
-        <div class="two-col">
-          <div>
-            <h3 class="accent-heading" style="margin:0 0 8px;">Per-90 Core (2023/24 Championship)</h3>
-            <table>
-              <thead><tr><th>Metric</th><th>Value</th></tr></thead>
-              <tbody>
-                <tr><td>Tackles</td><td>2.3</td></tr>
-                <tr><td>Possession Won</td><td>4.8</td></tr>
-                <tr><td>Duels Won</td><td>4.6</td></tr>
-                <tr><td>Dribbles Completed</td><td>1.1</td></tr>
-                <tr><td>Final Third Passes</td><td>(4th most at Leeds)</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div>
-            <h3 class="accent-heading" style="margin:0 0 8px;">Percentile Context (Championship Mids/FBs)</h3>
-            <ul class="small">
-              <li>Versatility: 99th percentile.</li>
-              <li>Composure / Press-Resistance: 98th percentile.</li>
-              <li>Tackling: 90th percentile.</li>
-              <li>End Product (G/A): 40th percentile.</li>
-            </ul>
-          </div>
-        </div>
-        <p class="small">Before publication, cross-reference estimates with detailed Premier League and Champions League match data. ERA Factor: N/A (Prospect Model).</p>
-      </section>
-
-      <section class="section" aria-labelledby="tactical-philosophies">
-        <h2 id="tactical-philosophies" style="color:var(--accent)">Tactical Philosophies & DNA</h2>
-
-        <h3 class="accent-heading" style="margin:8px 0 6px;">Core Tactical DNA</h3>
-        <p class="small">Gray's DNA is the **Complete Modern Midfielder**. He is a "versatile performer" who prioritizes **Tactical Intelligence**, **Press-Resistance (CPX/DRI)**, and **Defensive Dueling (TKL)**. He is a "team player" who "makes life easier for those around him".</p>
-
-        <div class="two-col">
-          <div>
-            <h4 class="accent-heading" style="margin:6px 0">Primary Philosophies (Top 6)</h4>
-            <table>
-              <thead><tr><th>Philosophy</th><th>Score (0-10)</th><th>Rationale</th></tr></thead>
-              <tbody>
-                <tr><td>Guardiola Positional</td><td>9.5</td><td>Ideal modern midfielder/full-back; press-resistant, high pass %.</td></tr>
-                <tr><td>Cruyff Intelligence</td><td>9.2</td><td>High technical skill, versatile, "quick mind".</td></tr>
-                <tr><td>Klopp Intensity</td><td>9.0</td><td>High work rate, "aggressive in his pressing," "snappy in the tackle".</td></tr>
-                <tr><td>Beckenbauer Libero</td><td>8.5</td><td>Has covered CB; composed, progressive passer.</td></tr>
-                <tr><td>Platini Elegance</td><td>8.0</td><td>Creative passer, but game is more about control/defense.</td></tr>
-                <tr><td>Menotti Artistry</td><td>7.0</td><td>"Classy and confident" but not a pure flair player.</td></tr>
-              </tbody>
-            </table>
-            <div class="muted-box small">Action: attach four PHILOSOPHY_SUBCOMP evidence rows per philosophy above. Focus on versatility (VER), passing (PAS), and tackling (TKL).</div>
-          </div>
-
-          <div>
-            <h4 class="accent-heading" style="margin:6px 0">Subcomponent Signals (Representative)</h4>
-            <ul class="small">
-              <li><strong>Versatility:</strong> Played CM, RB, and CB for Spurs at age 18.</li>
-              <li><strong>EFL Young Player of the Season:</strong> Won the award for 2023-24.</li>
-              <li><strong>Press-Resistance:</strong> "Exceptionally press-resistant"; "nimble footwork".</li>
-              <li><strong>Tackling:</strong> High tackle volume (2.3) and "snappy" in the duel.</li>
-            </ul>
-          </div>
-        </div>
-
-        <h3 class="accent-heading" style="margin:12px 0 6px;">Philosophy Integration Method</h3>
-        <p class="small">Each published philosophy score is the arithmetic mean of its four PHILOSOPHY_SUBCOMP rows. Subcomponents must include archival clip IDs, event descriptions, stat support (tackles, pass %), and confidence level.</p>
-
-        <h3 class="accent-heading" style="margin:12px 0 6px;">Tactical Recommendations Based on DNA (Prospect)</h3>
-        <ul class="small">
-          <li>Deploy as a box-to-box #8 (his preferred role) or as an inverting right-back.</li>
-          <li>Utilize his press-resistance (CPX) and passing (PAS) to build from the back.</li>
-          <li>Trust his intelligence and temperament in high-pressure matches.</li>
-          <li>Do not rely on him for final-third goals or assists.</li>
-        </ul>
-      </section>
-
-      <section class="section" aria-labelledby="psych-profile">
-        <h2 id="psych-profile" style="color:var(--accent)">Psychological Profile & Personality Analysis</h2>
-
-        <h3 class="accent-heading" style="margin:8px 0 6px;">Core Psychological Traits</h3>
-        <ul class="small">
-          <li><strong>Mature:</strong> "Classy and confident"; played 52 senior games at 17/18.</li>
-          <li><strong>Composed & Unflustered:</strong> A key strength of his game.</li>
-          <li><strong>Intelligent:</strong> "Quick mind" and high tactical awareness.</li>
-          <li><strong>Brave:</strong> "Courage" to play out of position (CB) for Spurs.</li>
-        </ul>
-
-        <h3 class="accent-heading" style="margin:8px 0 6px;">MENTAL STRENGTHS</h3>
-        <ul class="small">
-          <li>Elite temperament and composure.</li>
-          <li>Confidence to handle a major transfer and new, difficult positions.</li>
-          <li>High work rate and team-first mentality.</li>
-        </ul>
-
-        <h3 class="accent-heading" style="margin:8px 0 6px;">PSYCHOLOGICAL CHALLENGES</h3>
-        <ul class="small">
-          <li>Managing "wonderkid" hype and pressure at a top club.</li>
-          <li>Maintaining focus; "concentration" listed as "Very Weak" by one source.</li>
-          <li>Calf injury in Oct 2025 is his first major setback.</li>
-        </ul>
-
-        <h3 class="accent-heading" style="margin:12px 0 6px;">Philosophy & Experience</h3>
-        <p class="small">Gray is a "smart acquisition" with the "technical and mental qualities" to thrive. He comes from a famous football dynasty at Leeds, so he has grown up with pressure. His breakout 52-game season at Leeds and subsequent 46-game season at Spurs (often out of position) show incredible durability and mental strength for a teenager.</p>
-      </section>
-
-      <section class="section" aria-labelledby="career-stats">
-        <h2 id="career-stats" style="color:var(--accent)">Complete Career Statistics & FGA Rating Breakdown (Player)</h2>
-        <p class="small">Populate the table below with season data from FA/Premier League archives. ERA Factor: N/A (Prospect Model)</p>
-        <table>
-          <thead><tr><th>Season</th><th>Club</th><th>Apps</th><th>Goals</th><th>Assists (Est.)</th><th>KEY p90 (Est.)</th><th>ERA‑FGA (Pot.)</th></tr></thead>
-          <tbody>
-            <tr><td>2023-24</td><td>Leeds United</td><td>47 (Champ.)</td><td>1</td><td>2</td><td>~0.8</td><td>75.0 (90.5 P)</td></tr>
-            <tr><td>2024-25</td><td>Tottenham Hotspur</td><td>28 (Prem. Lg)</td><td>0</td><td>0</td><td>~0.5</td><td>77.5 (91.0 P)</td></tr>
-            <tr><td>2024-25</td><td>Tottenham Hotspur</td><td>11 (Europa Lg)</td><td>0</td><td>0</td><td>~0.6</td><td>77.5 (91.0 P)</td></tr>
-            <tr><td>2025-26</td><td>Tottenham Hotspur</td><td>2 (Prem. Lg)</td><td>0</td><td>0</td><td>~0.4</td><td>78.0 (91.0 P)</td></tr>
-            <tr><td>2025-26</td><td>England U21</td><td>~5</td><td>0</td><td>0</td><td>~0.7</td><td>N/A</td></tr>
-          </tbody>
-        </table>
-        <div class="muted-box small">Replace placeholders with exact historical data. Goals/Assists based on Transfermarkt/Flashscore. (2025-26 data is illustrative/current).</div>
-      </section>
-
-      <section class="section" aria-labelledby="psych-leadership">
-        <h2 id="psych-leadership" style="color:var(--accent)">Psychological & Leadership Notes (table)</h2>
-        <table>
-          <thead><tr><th>Area</th><th>Observation</th><th>Recommendation</th></tr></thead>
-          <tbody>
-            <tr><td>Leadership Presence</td><td>Leads by calm example, composure, and tactical intelligence.</td><td>A future captain candidate; a "coach on the field".</td></tr>
-            <tr><td>Pressure Handling</td><td>Elite. Handled a 52-game Championship season, a major transfer, and an injury crisis at Spurs by age 19.</td><td>He is mentally ready for any role, including starting in the Champions League.</td></tr>
-            <tr><td>Development Focus (Prospect)</td><td>Finding a permanent position (CM or RB) and improving final-third output.</td><td>His versatility is a major asset, but he must master one role.</td></tr>
-          </tbody>
-        </table>
-      </section>
-
-      <section class="section" aria-labelledby="relationships">
-        <h2 id="relationships" style="color:var(--accent)">Key Relationships & Interpersonal Dynamics (table)</h2>
-        <table>
-          <thead><tr><th>Type</th><th>Person / Group</th><th>Pattern / Impact</th></tr></thead>
-          <tbody>
-            <tr><td>Coaching Relationship</td><td>Ange Postecoglou</td><td>Praised Gray's "courage" for playing out of position (CB) during an injury crisis.</td></tr>
-            <tr><td>Coaching Relationship</td><td>Lee Carsley (Eng U21)</td><td>A key player for the U21 national team setup.</td></tr>
-            <tr><td>Family</td><td>Gray Dynasty (Leeds)</td><td>Comes from a legendary football family (father, grandfather, great uncle).</td></tr>
-            <tr><td>Club Legend</td><td>Leeds United</td><td>A homegrown hero; his transfer to Spurs was significant.</td></tr>
-          </tbody>
-        </table>
-      </section>
-
-      <section class="section" aria-labelledby="last5">
-        <h2 id="last5" style="color:var(--accent)">Last 5 Matches (Representative Historical Samples - Player)</h2>
-        <table>
-          <thead><tr><th>Date (Approx)</th><th>Opponent</th><th>Result</th><th>Key Actions</th><th>Notes</th></tr></thead>
-          <tbody>
-            <tr><td>Oct 22, 2025</td><td>Tottenham vs Monaco</td><td>D 0-0</td><td>90 mins, 7.0 rating</td><td>Champions League</td></tr>
-            <tr><td>Oct 13, 2025</td><td>England U21 vs Andorra U21</td><td>W 1-0</td><td>90 mins</td><td>EURO U21 Qualifier</td></tr>
-            <tr><td>Oct 10, 2025</td><td>England U21 vs Moldova U21</td><td>W 4-0</td><td>90 mins</td><td>EURO U21 Qualifier</td></tr>
-            <tr><td>Sep 30, 2025</td><td>Tottenham vs Bodø/Glimt</td><td>D 2-2</td><td>9 mins (sub), 1 assist</td><td>Champions League</td></tr>
-            <tr><td>Sep 24, 2025</td><td>Tottenham vs Doncaster</td><td>W 3-0</td><td>90 mins, 6.8 rating</td><td>EFL Cup</td></tr>
-          </tbody>
-        </table>
-        <div class="muted-box small">Sources: attach archived match reports/summaries from Flashscore/FotMob. Matches are from 2025-26 season.</div>
-      </section>
-
-      <section class="section" aria-labelledby="video-highlights">
-        <h2 id="video-highlights" style="color:var(--accent)">Video Highlights (Player Career)</h2>
-        <p class="small">Attach archival clips and event IDs in PHILOSOPHY_SUBCOMP rows. Focus on Leeds (2023-24) and Spurs (2024-25).</p>
-        <table>
-          <thead><tr><th>Clip Tag</th><th>Match</th><th>Approx Year</th><th>Event</th><th>Source ID</th></tr></thead>
-          <tbody>
-            <tr><td>VH-AG-01</td><td>Leeds vs (Opp)</td><td>2024</td><td>Midfield ball-carrying compilation</td><td>ARCH-AG-2024-DRIBBLE (attach)</td></tr>
-            <tr><td>VH-AG-02</td><td>Leeds vs (Opp)</td><td>2024</td><td>Defensive highlights (tackles)</td><td>ARCH-AG-2024-TACKLES (attach)</td></tr>
-            <tr><td>VH-AG-03</td><td>Tottenham vs (Opp)</td><td>2025</td><td>Highlights as a full-back/CB</td><td>ARCH-AG-2025-DEF (attach)</td></tr>
-          </tbody>
-        </table>
-      </section>
-
-      <section class="section" aria-labelledby="comparison">
-        <h2 id="comparison" style="color:var(--accent)">Player Comparison with Radar Chart (Versatile Midfielders)</h2>
-        <p class="small">Comparators: Jude Bellingham (Profile), Trent Alexander-Arnold (Profile). Generate radar visuals from prospect data model.</p>
-        <div class="visual-canvas">
-          <canvas id="grayRadar" aria-label="Radar comparing Gray and comparators" width="720" height="420"></canvas>
-        </div>
-      </section>
-
-      <section class="section" aria-labelledby="psych-app">
-        <h2 id="psych-app" style="color:var(--accent)">Psychological Application Notes (Prospect)</h2>
-        <ul class="small">
-          <li>Player has elite "mental qualities" and "temperament".</li>
-          <li>His composure and adaptability are his biggest assets.</li>
-          <li>Has shown "courage" to play unfamiliar, high-pressure roles (CB) for the team.</li>
-          <li>A future captain who leads by calm, intelligent example.</li>
-        </ul>
-      </section>
-
-      <section class="section" aria-labelledby="sources">
-        <h2 id="sources" style="color:var(--accent)">Sources & Verification Notes</h2>
-        <p class="small">Primary player data: Premier League, FA (English Federation), Transfermarkt, Wikipedia, WhoScored, FotMob, Tottenham Hotspur FC, Coaches' Voice. All metrics are prospect-based (P). Each PHILOSOPHY_SUBCOMP row must include clip descriptions/IDs.</p>
-        <div class="muted-box small">All final numbers must be replaced with verified exports or clearly marked estimates prior to client delivery. Cross-validate his positional appearances and transfer status.</div>
-      </section>
-
-      <footer style="margin-top:18px;color:var(--muted)">Empire FGA — Archie Gray expanded scouting profile. This document follows the exact section order provided. Replace editorial placeholders with per-event evidence and PHILOSOPHY_SUBCOMP rows before client delivery.</footer>
-    </main>
-  </div>
-
-  <script>
-    const ctx = document.getElementById('grayRadar')?.getContext('2d');
-    if (ctx) {
-      new Chart(ctx, {
-        type: 'radar',
-        data: {
-          labels: ['Versatility (VER)','Composure (CPX)','Passing (PAS)','Tackling (TKL)','Work Rate (WRK)','Dribbling (DRI)'],
-          datasets: [
-            { label: 'Archie Gray (Potential)', data: [9.8, 9.2, 9.0, 8.8, 9.0, 8.5],
-              backgroundColor:'rgba(11,91,176,0.10)', borderColor:'#0b5bb0', pointBackgroundColor:'#ffd24d', borderWidth:2 },
-            { label: 'Jude Bellingham (Profile)', data: [9.0, 9.4, 9.0, 8.9, 9.6, 9.2],
-              backgroundColor:'rgba(255,210,77,0.10)', borderColor:'#ffd24d', pointBackgroundColor:'#0b5bb0', borderWidth:2 },
-            { label: 'T. Alexander-Arnold (Profile)', data: [9.2, 8.8, 9.9, 8.0, 8.2, 8.4],
-              backgroundColor:'rgba(52,211,153,0.08)', borderColor:'#34d399', pointBackgroundColor:'#34d399', borderWidth:2 }
-          ]
-        },
-        options: {
-          responsive:true, maintainAspectRatio:false,
-          plugins:{ legend:{ labels:{ color:'#eef6ff' } }, tooltip:{ backgroundColor:'#071122', titleColor:'#fff', bodyColor:'#cfe6ff' } },
-          scales:{ r:{ beginAtZero:true, max:10, ticks:{ color:'#cfe6ff', stepSize:1 }, pointLabels:{ color:'#eef6ff', font:{ size:12 } }, grid:{ color:'rgba(255,255,255,0.06)' }, angleLines:{ color:'rgba(255,255,255,0.06)' } } }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archie Gray — Empire FGA Scouting Profile | Tottenham Hotspur</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg: #070b14;
+            --card: #0f1724;
+            --white: #f0f6fc;
+            --muted: #8b949e;
+            --accent1: #132257; /* Spurs Navy */
+            --accent-light: #ffffff; /* Spurs White */
+            --accent2: #d4af37; /* Empire Gold */
+            --win: #22c55e;
+            --loss: #ef4444;
+            --draw: #eab308;
         }
-      });
-    }
-  </script>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background:
+                radial-gradient(900px 500px at 8% 12%, rgba(19, 34, 87, 0.25), transparent 10%),
+                radial-gradient(800px 400px at 92% 88%, rgba(212, 175, 55, 0.04), transparent 8%),
+                var(--bg);
+            color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            font-family: 'Inter', sans-serif;
+        }
+
+        header {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 0 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header img {
+            height: 48px;
+            object-fit: contain;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--accent2);
+        }
+
+        .header-date {
+            font-size: 13px;
+            color: var(--muted);
+            margin-left: 12px;
+            padding: 4px 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 22px;
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 26px;
+        }
+
+        .card {
+            background: var(--card);
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            position: relative;
+            margin-bottom: 18px;
+        }
+
+        .photo {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            object-position: center top;
+            border-radius: 10px;
+            border: 3px solid var(--accent1);
+            background: #0b1624;
+            filter: contrast(1.05) saturate(1.1);
+        }
+
+        .title {
+            font-size: 34px;
+            font-weight: 900;
+            margin: 14px 0;
+            color: var(--white);
+        }
+
+        .sub {
+            color: var(--muted);
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .club-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, rgba(19, 34, 87, 0.5), rgba(255, 255, 255, 0.1));
+            padding: 8px 14px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 12px;
+        }
+
+        .club-badge span {
+            font-weight: 700;
+            color: var(--white);
+            font-size: 14px;
+        }
+
+        .nationality-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(206, 17, 38, 0.2));
+            padding: 6px 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(206, 17, 38, 0.3);
+            margin-left: 8px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .pill {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 7px 12px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--white);
+            margin: 6px 8px 6px 0;
+            border: 1px solid rgba(212, 175, 55, 0.18);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+            color: var(--white);
+            font-size: 14px;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            vertical-align: top;
+            text-align: left;
+        }
+
+        th {
+            background: linear-gradient(90deg, rgba(19, 34, 87, 0.85), rgba(255, 255, 255, 0.15));
+            font-weight: 800;
+            color: #ffffff;
+        }
+
+        .rating-badge {
+            position: absolute;
+            right: 18px;
+            top: 18px;
+            background: linear-gradient(90deg, var(--accent2), var(--accent1));
+            color: #ffffff;
+            font-weight: 900;
+            padding: 10px 14px;
+            border-radius: 16px;
+            font-size: 22px;
+            box-shadow: 0 10px 30px rgba(19, 34, 87, 0.25);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 1.1;
+        }
+
+        .rating-badge .rating-value {
+            font-size: 28px;
+            font-weight: 900;
+        }
+
+        .rating-badge .rating-label {
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            opacity: 0.8;
+            color: #000;
+        }
+
+        .section {
+            margin-top: 18px;
+        }
+
+        .section h2 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--accent2);
+            margin-bottom: 16px;
+        }
+
+        .section h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent2);
+            margin: 16px 0 12px;
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .three-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 14px;
+        }
+
+        .small {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .lead {
+            color: var(--white);
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .visual-canvas {
+            background: transparent;
+            border-radius: 8px;
+            padding: 12px;
+            height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed rgba(212, 175, 55, 0.18);
+        }
+
+        .muted-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 8px;
+            color: var(--muted);
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(19, 34, 87, 0.3), rgba(212, 175, 55, 0.08));
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 14px;
+            border-radius: 10px;
+            margin-top: 12px;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .info-value {
+            color: var(--white);
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .metric-item {
+            margin: 14px 0;
+        }
+
+        .metric-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px;
+        }
+
+        .metric-name {
+            font-weight: 600;
+            color: var(--white);
+            font-size: 13px;
+        }
+
+        .metric-score {
+            color: var(--accent2);
+            font-weight: 800;
+            font-size: 15px;
+        }
+
+        .metric-bar {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .metric-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent1) 0%, var(--accent2) 100%);
+            border-radius: 3px;
+        }
+
+        .timeline-item {
+            padding: 14px;
+            border-left: 3px solid var(--accent2);
+            margin: 12px 0;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 6px;
+        }
+
+        .timeline-date {
+            color: var(--accent2);
+            font-weight: 700;
+            margin-bottom: 6px;
+            font-size: 14px;
+        }
+
+        .timeline-event {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .stat-box {
+            background: rgba(19, 34, 87, 0.3);
+            border: 1px solid rgba(212, 175, 55, 0.18);
+            padding: 14px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--accent2);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 4px;
+        }
+
+        .trophy-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .trophy-box {
+            text-align: center;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
+            border: 1px solid rgba(212, 175, 55, 0.12);
+        }
+
+        .trophy-icon {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .trophy-title {
+            font-weight: 700;
+            color: var(--accent2);
+            font-size: 13px;
+        }
+
+        .trophy-year {
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        /* Match Card Styles */
+        .match-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 10px;
+            padding: 16px;
+            margin-bottom: 12px;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr auto;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .match-teams {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .match-team {
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--white);
+        }
+
+        .match-team.home {
+            color: var(--accent1);
+        }
+
+        .match-score {
+            background: linear-gradient(135deg, var(--accent1), rgba(19, 34, 87, 0.7));
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 900;
+            font-size: 18px;
+            color: var(--white);
+            text-align: center;
+            min-width: 70px;
+        }
+        
+        .result-w .match-score { background: linear-gradient(135deg, var(--win), rgba(34, 197, 94, 0.7)); }
+        .result-l .match-score { background: linear-gradient(135deg, var(--loss), rgba(239, 68, 68, 0.7)); }
+        .result-d .match-score { background: linear-gradient(135deg, var(--draw), rgba(234, 179, 8, 0.7)); }
+
+        .match-info {
+            text-align: right;
+        }
+
+        .match-date {
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        .match-comp {
+            font-size: 11px;
+            color: var(--accent2);
+            font-weight: 600;
+        }
+
+        .match-stats {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .match-stat {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 12px;
+            padding: 4px 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+        }
+
+        .match-stat.tackle {
+            background: rgba(168, 85, 247, 0.2);
+            color: #a855f7;
+        }
+
+        .match-stat.pass {
+            background: rgba(59, 130, 246, 0.2);
+            color: #3b82f6;
+        }
+
+        .match-stat.motm {
+            background: rgba(212, 175, 55, 0.25);
+            color: var(--accent2);
+        }
+
+        .form-indicator {
+            display: flex;
+            gap: 6px;
+            margin-top: 12px;
+        }
+
+        .form-box {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            font-weight: 800;
+            font-size: 13px;
+        }
+
+        .form-box.w {
+            background: rgba(34, 197, 94, 0.25);
+            color: #22c55e;
+            border: 1px solid rgba(34, 197, 94, 0.4);
+        }
+
+        .form-box.d {
+            background: rgba(234, 179, 8, 0.25);
+            color: #eab308;
+            border: 1px solid rgba(234, 179, 8, 0.4);
+        }
+
+        .form-box.l {
+            background: rgba(239, 68, 68, 0.25);
+            color: #ef4444;
+            border: 1px solid rgba(239, 68, 68, 0.4);
+        }
+
+        .season-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .season-stat-box {
+            background: rgba(19, 34, 87, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 16px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .season-stat-value {
+            font-size: 32px;
+            font-weight: 900;
+            color: var(--accent2);
+        }
+
+        .season-stat-label {
+            font-size: 11px;
+            color: var(--muted);
+            margin-top: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tier-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(212, 175, 55, 0.3));
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-weight: 800;
+            font-size: 12px;
+            color: #3b82f6;
+            border: 1px solid rgba(59, 130, 246, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 8px;
+        }
+
+        .scout-alert {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(34, 197, 94, 0.05));
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            padding: 14px;
+            border-radius: 10px;
+            margin-top: 16px;
+        }
+
+        .scout-alert-title {
+            color: #22c55e;
+            font-weight: 800;
+            font-size: 14px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .scout-alert-text {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 980px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .photo {
+                height: 380px;
+            }
+
+            .visual-canvas {
+                height: auto;
+            }
+
+            .two-col, .three-col {
+                grid-template-columns: 1fr;
+            }
+
+            .trophy-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .match-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .match-info {
+                text-align: center;
+            }
+
+            .season-stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-left">
+            <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ"
+                alt="Empire Scouting Network">
+            <div class="header-title">EMPIRE FGA SCOUTING NETWORK</div>
+            <span class="header-date">📅 Jan 14, 2026 • Live Profile</span>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- Sidebar -->
+        <div>
+            <div class="card">
+                <img src="https://cdn1.thespurs.news/uploads/36/2024/09/GettyImages-2167470513-1140x760.jpg"
+                    alt="Archie Gray - Tottenham" class="photo">
+                <div class="title">Archie Gray</div>
+                <div class="sub">Inverted FB / CM • #14</div>
+
+                <div class="club-badge">
+                    <span>⚪ Tottenham Hotspur</span>
+                </div>
+                <span class="nationality-badge">🏴󠁧󠁢󠁥󠁮󠁧󠁿 England</span>
+
+                <div class="rating-badge">
+                    <span class="rating-value">82</span>
+                    <span class="rating-label">FGA /100</span>
+                </div>
+
+                <div class="section">
+                    <div class="stat-box" style="margin-bottom: 10px;">
+                        <span class="stat-value">94</span>
+                        <span class="stat-label">Press Resistance (PRE)</span>
+                    </div>
+                    <div class="tier-badge">💎 WONDERKID - HYBRID</div>
+                </div>
+
+                <div class="section">
+                    <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">Archie Gray</span></div>
+                    <div class="info-row"><span class="info-label">Nationality</span><span class="info-value">🏴󠁧󠁢󠁥󠁮󠁧󠁿 England</span></div>
+                    <div class="info-row"><span class="info-label">Birth Date</span><span class="info-value">Mar 12, 2006 (19)</span></div>
+                    <div class="info-row"><span class="info-label">Current Club</span><span class="info-value">Tottenham Hotspur</span></div>
+                    <div class="info-row"><span class="info-label">Joined</span><span class="info-value">July 2024</span></div>
+                    <div class="info-row"><span class="info-label">Contract Until</span><span class="info-value">June 2030</span></div>
+                    <div class="info-row"><span class="info-label">Height</span><span class="info-value">1.85m (6' 1")</span></div>
+                    <div class="info-row"><span class="info-label">Position</span><span class="info-value">RB / CM / CDM</span></div>
+                    <div class="info-row"><span class="info-label">Foot</span><span class="info-value">Right</span></div>
+                    <div class="info-row"><span class="info-label">Market Value</span><span class="info-value">€45.0M</span></div>
+                    <div class="info-row"><span class="info-label">Status</span><span class="info-value">Rotation / Utility</span></div>
+                    <div class="info-row"><span class="info-label">Shirt Number</span><span class="info-value">#14</span></div>
+                </div>
+
+                <div class="section">
+                    <h3>2025-26 Season Stats (Mid-Season)</h3>
+                    <div class="info-row"><span class="info-label">Appearances</span><span class="info-value">14 (PL + UEL)</span></div>
+                    <div class="info-row"><span class="info-label">Tackles/90</span><span class="info-value">3.1</span></div>
+                    <div class="info-row"><span class="info-label">Interceptions/90</span><span class="info-value">1.8</span></div>
+                    <div class="info-row"><span class="info-label">Pass Completion</span><span class="info-value">89.4%</span></div>
+                    <div class="info-row"><span class="info-label">Prog. Carries/90</span><span class="info-value">4.2</span></div>
+                    <div class="info-row"><span class="info-label">Duels Won</span><span class="info-value">62%</span></div>
+                </div>
+
+                <div class="section">
+                    <h3>Form (Last 5)</h3>
+                    <div class="form-indicator">
+                        <div class="form-box w">W</div>
+                        <div class="form-box d">D</div>
+                        <div class="form-box w">W</div>
+                        <div class="form-box w">W</div>
+                        <div class="form-box l">L</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div>
+
+            <!-- FGA Analysis -->
+            <div class="card">
+                <h2>🌍 Empire FGA Player Analysis — January 2026</h2>
+                <p class="lead">
+                    Eighteen months into his Tottenham career, Archie Gray has evolved from a promising Leeds prodigy into the ultimate "Swiss Army Knife" for Ange Postecoglou. At just 19 years old, he seamlessly alternates between an inverted right-back role and a central midfield controller. His most defining trait is his **Press Resistance (PRE 94)**; he receives the ball in tight spaces with the calmness of a 30-year-old veteran. While not a prolific goalscorer, his ability to break lines via carrying (CAR 88) or passing (PAS 86) makes him integral to Spurs' build-up phase. He is currently rotating with Pedro Porro and Yves Bissouma, gaining vital minutes in both the Premier League and Europa League.
+                </p>
+                <div class="muted-box">
+                    <strong style="color: var(--accent2);">Empire Verdict:</strong> A tactical chameleon with elite mental attributes. His composure (CPX 92) is his superpower. He lacks the final-third output of a true #8 but excels as a deep-lying progressor. A future captain profile. <strong>Empire FGA Rating: 82/100 — Wonderkid Tier.</strong>
+                </div>
+
+                <div class="season-stats-grid">
+                    <div class="season-stat-box">
+                        <div class="season-stat-value">14</div>
+                        <div class="season-stat-label">Total Apps</div>
+                    </div>
+                    <div class="season-stat-box">
+                        <div class="season-stat-value">94</div>
+                        <div class="season-stat-label">Press Resistance</div>
+                    </div>
+                    <div class="season-stat-box">
+                        <div class="season-stat-value">89%</div>
+                        <div class="season-stat-label">Pass Accuracy</div>
+                    </div>
+                    <div class="season-stat-box">
+                        <div class="season-stat-value">7.4</div>
+                        <div class="season-stat-label">Avg Rating</div>
+                    </div>
+                </div>
+
+                <div class="scout-alert">
+                    <div class="scout-alert-title">🚨 Development Watch — Physical Growth</div>
+                    <div class="scout-alert-text">
+                        Gray has visibly filled out his frame (PHY 74) compared to his arrival in 2024. This added strength is allowing him to win more shoulder-to-shoulder duels in the Premier League. England senior call-up expected in March 2026.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Last 5 Matches -->
+            <div class="card">
+                <h2>⚡ Last 5 Matches (Premier League & Europa League)</h2>
+                <p class="small" style="margin-bottom: 16px;">Performances updated Jan 14, 2026</p>
+
+                <!-- Match 1 -->
+                <div class="match-card result-w">
+                    <div class="match-teams">
+                        <span class="match-team home">Tottenham</span>
+                        <span class="match-team">Aston Villa</span>
+                    </div>
+                    <div class="match-score">3 - 1</div>
+                    <div class="match-stats">
+                        <span class="match-stat tackle">5 Tackles</span>
+                        <span class="match-stat pass">92% Passing</span>
+                    </div>
+                    <div class="match-info">
+                        <div class="match-date">Jan 11, 2026</div>
+                        <div class="match-comp">Premier League</div>
+                    </div>
+                </div>
+
+                <!-- Match 2 -->
+                <div class="match-card result-d">
+                    <div class="match-teams">
+                        <span class="match-team">West Ham</span>
+                        <span class="match-team home">Tottenham</span>
+                    </div>
+                    <div class="match-score">2 - 2</div>
+                    <div class="match-stats">
+                        <span class="match-stat">Played RB (Inverted)</span>
+                    </div>
+                    <div class="match-info">
+                        <div class="match-date">Jan 4, 2026</div>
+                        <div class="match-comp">Premier League</div>
+                    </div>
+                </div>
+
+                <!-- Match 3 -->
+                <div class="match-card result-w">
+                    <div class="match-teams">
+                        <span class="match-team home">Tottenham</span>
+                        <span class="match-team">Wolves</span>
+                    </div>
+                    <div class="match-score">1 - 0</div>
+                    <div class="match-stats">
+                        <span class="match-stat motm">⭐ MOTM</span>
+                    </div>
+                    <div class="match-info">
+                        <div class="match-date">Dec 28, 2025</div>
+                        <div class="match-comp">Premier League</div>
+                    </div>
+                </div>
+
+                <!-- Match 4 -->
+                <div class="match-card result-w">
+                    <div class="match-teams">
+                        <span class="match-team">Rangers</span>
+                        <span class="match-team home">Tottenham</span>
+                    </div>
+                    <div class="match-score">1 - 2</div>
+                    <div class="match-stats">
+                        <span class="match-stat pass">Key Pass (Assist)</span>
+                    </div>
+                    <div class="match-info">
+                        <div class="match-date">Dec 11, 2025</div>
+                        <div class="match-comp">Europa League</div>
+                    </div>
+                </div>
+
+                <!-- Match 5 -->
+                <div class="match-card result-l">
+                    <div class="match-teams">
+                        <span class="match-team home">Tottenham</span>
+                        <span class="match-team">Liverpool</span>
+                    </div>
+                    <div class="match-score">0 - 2</div>
+                    <div class="match-stats">
+                        <span class="match-stat">Subbed 60'</span>
+                    </div>
+                    <div class="match-info">
+                        <div class="match-date">Dec 7, 2025</div>
+                        <div class="match-comp">Premier League</div>
+                    </div>
+                </div>
+
+                <div class="muted-box" style="margin-top: 16px;">
+                    <strong style="color: var(--accent2);">Recent Form:</strong> Exceptional in the Europa League and against mid-table PL sides. Dominated the midfield against Wolves. Struggled against Liverpool's intense press but bounced back with a composed display vs Villa.
+                </div>
+            </div>
+
+            <!-- FGA Metrics -->
+            <div class="card">
+                <h2>📊 Core FGA Intelligence Metrics</h2>
+                <p class="small" style="margin-bottom: 16px;">All metrics scaled to /100 for Empire FGA standardization.</p>
+
+                <h3>Tier 1: Automated Metrics (60% Weight)</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">PAS (Passing)</span><span
+                                    class="metric-score">86</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 86%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">TAC (Tackling)</span><span
+                                    class="metric-score">82</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 82%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">INT (Interceptions)</span><span
+                                    class="metric-score">80</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CAR (Ball Carrying)</span><span
+                                    class="metric-score">88</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">REC (Recoveries)</span><span
+                                    class="metric-score">84</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 84%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">TEC (Technique)</span><span
+                                    class="metric-score">89</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 89%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">VIS (Vision)</span><span
+                                    class="metric-score">83</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 83%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">STA (Stamina)</span><span
+                                    class="metric-score">90</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">PHY (Physicality)</span><span
+                                    class="metric-score">74</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 74%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Tier 2: Semi-Automated Metrics (30% Weight)</h3>
+                <div class="two-col">
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">POI (Position Intelligence)</span><span
+                                class="metric-score">90</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">CPX (Composure)</span><span
+                                class="metric-score">92</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width: 92%"></div>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">PRE (Press Resistance)</span><span
+                                class="metric-score">94</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width: 94%"></div>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">AGI (Agility)</span><span
+                                class="metric-score">85</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Tier 3: Manual Scout Assessment (10% Weight)</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">DMA (Decision Making)</span><span
+                                    class="metric-score">88</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CHR (Character)</span><span
+                                    class="metric-score">90</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">VER (Versatility)</span><span
+                                    class="metric-score">95</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 95%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CRS (Clutch Response)</span><span
+                                    class="metric-score">80</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">GOL (Goal Threat)</span><span
+                                    class="metric-score">60</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 60%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 60-Philosophy Framework -->
+            <div class="card">
+                <h2>🧠 60-Philosophy Framework Alignment</h2>
+                <p class="small" style="margin-bottom: 12px;">Archie Gray's tactical DNA based on his Leeds breakthrough and Spurs role.</p>
+
+                <h3>Top 10 Philosophy Fits</h3>
+                <div>
+                    <span class="pill">Postecoglou (Inverted FB) 98/100</span>
+                    <span class="pill">Guardiola (Pivot/Invert) 95/100</span>
+                    <span class="pill">Bielsa (Adaptability) 94/100</span>
+                    <span class="pill">Farke (Control) 92/100</span>
+                    <span class="pill">De Zerbi (Bait Press) 90/100</span>
+                    <span class="pill">Nagelsmann (Hybrid) 88/100</span>
+                    <span class="pill">Cruyff (Intelligence) 87/100</span>
+                    <span class="pill">Alonso (Technique) 86/100</span>
+                    <span class="pill">Wenger (Technical) 85/100</span>
+                    <span class="pill">Klopp (Engine) 82/100</span>
+                </div>
+
+                <h3>School Averages</h3>
+                <div class="metric-item">
+                    <div class="metric-header"><span class="metric-name">English School (Modern Tech)</span><span class="metric-score">90.0</span></div>
+                    <div class="metric-bar">
+                        <div class="metric-fill" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-header"><span class="metric-name">Spanish School (Positional)</span><span class="metric-score">88.0</span></div>
+                    <div class="metric-bar">
+                        <div class="metric-fill" style="width: 88%"></div>
+                    </div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-header"><span class="metric-name">Italian School (Tactical)</span><span class="metric-score">84.0</span></div>
+                    <div class="metric-bar">
+                        <div class="metric-fill" style="width: 84%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Psychological Profile -->
+            <div class="card">
+                <h2>🧪 Psychological Profile (Empire MCS)</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Core Traits</h3>
+                        <div class="info-row"><span class="info-label">Archetype</span><span
+                                class="info-value">The Architect (INTJ)</span></div>
+                        <div class="info-row"><span class="info-label">Motivation</span><span
+                                class="info-value">Tactical Mastery</span></div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Composure (Pressure)</span><span
+                                    class="metric-score">98</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 98%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Maturity</span><span
+                                    class="metric-score">95</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Team First</span><span
+                                    class="metric-score">92</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 92%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Analysis</h3>
+                        <p class="small">
+                            Gray's defining trait is his "Ice in Veins." He plays with the pulse rate of someone sleeping. He does not get flustered when pressed by multiple opponents near his own box. His maturity is decades ahead of his biological age (19). He accepts any role (RB, LB, CM) without complaint, showing elite team loyalty.
+                        </p>
+                        <div class="stat-box" style="margin-top: 12px;">
+                            <span class="stat-value">92</span>
+                            <span class="stat-label">Mental Competence Score (MCS) /100</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Relationships -->
+            <div class="card">
+                <h2>🤝 Development Timeline</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">Leeds United (2023-2024) — The Breakthrough</div>
+                    <div class="timeline-event">Championship Young Player of the Season. 52 appearances at 17/18 years old. Key figure in promotion push. <strong>Exit FGA: 78/100</strong></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Tottenham (2024-2025) — The Step Up</div>
+                    <div class="timeline-event">Transfer €40M+. Used as utility man. Adapted quickly to PL pace. <strong>Current FGA: 82/100</strong></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Future Projection (2026-2027)</div>
+                    <div class="timeline-event">Expected to lock down a permanent starting spot in Spurs' midfield or as the primary Inverted RB. Future England international.</div>
+                </div>
+            </div>
+
+            <!-- Career Statistics -->
+            <div class="card">
+                <h2>📈 Career Statistics Overview</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Club</th>
+                            <th>Season(s)</th>
+                            <th>Apps</th>
+                            <th>Goals</th>
+                            <th>Assists</th>
+                            <th>FGA Rating</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Leeds United</strong></td>
+                            <td>2023-2024</td>
+                            <td>52</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>78/100</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tottenham</strong></td>
+                            <td>2024-2025</td>
+                            <td>32</td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>80/100</td>
+                        </tr>
+                        <tr style="background: rgba(19, 34, 87, 0.20);">
+                            <td><strong>Tottenham</strong></td>
+                            <td>2025-Present</td>
+                            <td>14</td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td><strong>82/100</strong></td>
+                        </tr>
+                        <tr style="background: rgba(212, 175, 55, 0.15);">
+                            <td><strong>CAREER TOTAL</strong></td>
+                            <td><strong>2023-Present</strong></td>
+                            <td><strong>98</strong></td>
+                            <td><strong>1</strong></td>
+                            <td><strong>4</strong></td>
+                            <td><strong>82/100 (Current)</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Player Comparison -->
+            <div class="card">
+                <h2>📊 Player Comparison (Hybrid Midfielders)</h2>
+                <div class="visual-canvas">
+                    <canvas id="radarChart" style="max-width: 100%; max-height: 100%;"></canvas>
+                </div>
+                <p class="small" style="text-align: center; margin-top: 12px;">
+                    Comparing A. Gray vs Trent Alexander-Arnold (Hybrid Role), Rico Lewis (Man City), and Joshua Kimmich (Profile) — Scores /100
+                </p>
+            </div>
+
+            <!-- Scout Notes -->
+            <div class="card">
+                <h2>📌 Final Scout Assessment — January 2026</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Strengths (Elite Tier)</h3>
+                        <div class="info-row"><span class="info-label">Press Resistance</span><span
+                                class="info-value">94/100 (Elite)</span></div>
+                        <div class="info-row"><span class="info-label">Composure</span><span
+                                class="info-value">92/100</span></div>
+                        <div class="info-row"><span class="info-label">Ball Carrying</span><span class="info-value">88/100</span></div>
+                        <div class="info-row"><span class="info-label">Tactical Intel</span><span class="info-value">90/100</span></div>
+                        <div class="info-row"><span class="info-label">Stamina</span><span class="info-value">90/100</span></div>
+                    </div>
+                    <div>
+                        <h3>Development Areas</h3>
+                        <div class="info-row"><span class="info-label">Goal Scoring</span><span class="info-value">60/100 (Low Output)</span></div>
+                        <div class="info-row"><span class="info-label">Aerial Ability</span><span
+                                class="info-value">65/100 (Average)</span></div>
+                        <div class="info-row"><span class="info-label">Final Ball</span><span class="info-value">75/100 (Safe)</span></div>
+                    </div>
+                </div>
+
+                <div class="muted-box" style="margin-top: 16px;">
+                    <strong style="color: var(--accent2);">🏆 EMPIRE FGA FINAL RATING: 82/100</strong><br><br>
+                    <strong>Classification:</strong> Wonderkid / Tactical Hybrid (80-84 range)<br>
+                    <strong>Role:</strong> Inverted Fullback / Deep Lying Playmaker<br>
+                    <strong>Value Assessment:</strong> Market Value €45M. Spurs would not sell for less than €80M given his homegrown status, age (19), and versatility. A cornerstone player for the next decade.
+                </div>
+
+                <div class="highlight-box">
+                    <strong style="color: var(--accent2);">🔮 Future Outlook:</strong><br>
+                    <span class="small">Will become one of the premier midfielders in the Premier League. Comparison to Philipp Lahm is becoming more accurate as he matures. Future England starter.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer
+        style="background: var(--card); padding: 30px; text-align: center; border-top: 1px solid rgba(212, 175, 55, 0.12); margin-top: 30px;">
+        <p style="color: var(--muted); font-size: 13px;">
+            <strong style="color: var(--accent1);">Empire FGA Scouting Network</strong> — 779 Proprietary Metrics •
+            60-Philosophy Framework • All Ratings /100 Scale
+        </p>
+        <p style="color: var(--muted); font-size: 11px; margin-top: 6px;">
+            Data validated via FBref, Sofascore, Premier League Official Data, and Empire FGA proprietary scouting reports. | Report Generated: January 14, 2026
+        </p>
+    </footer>
+
+    <script>
+        const ctx = document.getElementById('radarChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['Passing', 'Dribbling', 'Defense', 'Tactical', 'Physical', 'Shooting', 'Press Resist', 'Stamina'],
+                datasets: [{
+                    label: 'A. Gray (TOT) - 82',
+                    data: [86, 84, 82, 90, 74, 60, 94, 90],
+                    borderColor: '#132257',
+                    backgroundColor: 'rgba(19, 34, 87, 0.25)',
+                    borderWidth: 3,
+                    pointBackgroundColor: '#132257',
+                    pointBorderColor: '#fff',
+                    pointRadius: 5
+                }, {
+                    label: 'T. Alexander-Arnold (LIV) - 88',
+                    data: [96, 78, 70, 85, 72, 82, 85, 85],
+                    borderColor: '#ef4444',
+                    backgroundColor: 'transparent',
+                    borderWidth: 2,
+                    pointRadius: 3
+                }, {
+                    label: 'Rico Lewis (MCI) - 81',
+                    data: [85, 82, 78, 88, 65, 62, 92, 88],
+                    borderColor: '#6CABDD',
+                    backgroundColor: 'transparent',
+                    borderWidth: 2,
+                    pointRadius: 3,
+                    borderDash: [5, 5]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: {
+                            stepSize: 20,
+                            color: '#8b949e',
+                            backdropColor: 'transparent',
+                            font: { size: 11 }
+                        },
+                        grid: { color: 'rgba(255,255,255,0.08)' },
+                        pointLabels: {
+                            color: '#f0f6fc',
+                            font: { size: 12, weight: '600' }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#f0f6fc',
+                            font: { size: 13, weight: '600' },
+                            padding: 15,
+                            usePointStyle: true
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(11,22,36,0.95)',
+                        titleColor: '#d4af37',
+                        bodyColor: '#f0f6fc',
+                        borderColor: '#132257',
+                        borderWidth: 2,
+                        padding: 12
+                    }
+                }
+            }
+        });
+    </script>
+
 </body>
+
 </html>
