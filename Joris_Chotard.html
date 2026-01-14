@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joris Chotard — Empire FGA Scouting Profile | Stade Brestois 29</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg: #070b14;
+            --card: #0f1724;
+            --white: #f0f6fc;
+            --muted: #8b949e;
+            --accent1: #E30613; /* Brest Red */
+            --accent-dark: #ffffff; /* Brest White */
+            --accent2: #d4af37; /* Empire Gold */
+            --win: #22c55e;
+            --loss: #ef4444;
+            --draw: #eab308;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background:
+                radial-gradient(900px 500px at 8% 12%, rgba(227, 6, 19, 0.15), transparent 10%),
+                radial-gradient(800px 400px at 92% 88%, rgba(212, 175, 55, 0.04), transparent 8%),
+                var(--bg);
+            color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            font-family: 'Inter', sans-serif;
+        }
+
+        header {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 0 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header img {
+            height: 48px;
+            object-fit: contain;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--accent2);
+        }
+
+        .header-date {
+            font-size: 13px;
+            color: var(--muted);
+            margin-left: 12px;
+            padding: 4px 10px;
+            background: rgba(227, 6, 19, 0.15);
+            border-radius: 6px;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 22px;
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 26px;
+        }
+
+        .card {
+            background: var(--card);
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            position: relative;
+            margin-bottom: 18px;
+        }
+
+        .photo {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            object-position: center top;
+            border-radius: 10px;
+            border: 3px solid var(--accent1);
+            background: #0b1624;
+            filter: contrast(1.05) saturate(1.1);
+        }
+
+        .title {
+            font-size: 34px;
+            font-weight: 900;
+            margin: 14px 0;
+            color: var(--white);
+        }
+
+        .sub {
+            color: var(--muted);
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .club-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, rgba(227, 6, 19, 0.25), rgba(255, 255, 255, 0.1));
+            padding: 8px 14px;
+            border-radius: 8px;
+            border: 1px solid rgba(227, 6, 19, 0.3);
+            margin-bottom: 12px;
+        }
+
+        .club-badge span {
+            font-weight: 700;
+            color: var(--white);
+            font-size: 14px;
+        }
+
+        .nationality-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: linear-gradient(135deg, rgba(0, 85, 164, 0.2), rgba(239, 65, 53, 0.15));
+            padding: 6px 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(0, 85, 164, 0.3);
+            margin-left: 8px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .pill {
+            display: inline-block;
+            background: rgba(227, 6, 19, 0.15);
+            padding: 7px 12px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--white);
+            margin: 6px 8px 6px 0;
+            border: 1px solid rgba(212, 175, 55, 0.18);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+            color: var(--white);
+            font-size: 14px;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            vertical-align: top;
+            text-align: left;
+        }
+
+        th {
+            background: linear-gradient(90deg, rgba(227, 6, 19, 0.85), rgba(212, 175, 55, 0.85));
+            font-weight: 800;
+            color: #ffffff;
+        }
+
+        .rating-badge {
+            position: absolute;
+            right: 18px;
+            top: 18px;
+            background: linear-gradient(90deg, var(--accent2), var(--accent1));
+            color: #ffffff;
+            font-weight: 900;
+            padding: 10px 14px;
+            border-radius: 16px;
+            font-size: 22px;
+            box-shadow: 0 10px 30px rgba(227, 6, 19, 0.18);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 1.1;
+        }
+
+        .rating-badge .rating-value {
+            font-size: 28px;
+            font-weight: 900;
+        }
+
+        .rating-badge .rating-label {
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            opacity: 0.8;
+            color: #000;
+        }
+
+        .section {
+            margin-top: 18px;
+        }
+
+        .section h2 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--accent2);
+            margin-bottom: 16px;
+        }
+
+        .section h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent2);
+            margin: 16px 0 12px;
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .three-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 14px;
+        }
+
+        .small {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .lead {
+            color: var(--white);
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .visual-canvas {
+            background: transparent;
+            border-radius: 8px;
+            padding: 12px;
+            height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed rgba(212, 175, 55, 0.18);
+        }
+
+        .muted-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 8px;
+            color: var(--muted);
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(227, 6, 19, 0.12), rgba(212, 175, 55, 0.08));
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 14px;
+            border-radius: 10px;
+            margin-top: 12px;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .info-value {
+            color: var(--white);
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .metric-item {
+            margin: 14px 0;
+        }
+
+        .metric-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px;
+        }
+
+        .metric-name {
+            font-weight: 600;
+            color: var(--white);
+            font-size: 13px;
+        }
+
+        .metric-score {
+            color: var(--accent2);
+            font-weight: 800;
+            font-size: 15px;
+        }
+
+        .metric-bar {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .metric-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent1) 0%, var(--accent2) 100%);
+            border-radius: 3px;
+        }
+
+        .timeline-item {
+            padding: 14px;
+            border-left: 3px solid var(--accent2);
+            margin: 12px 0;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 6px;
+        }
+
+        .timeline-date {
+            color: var(--accent2);
+            font-weight: 700;
+            margin-bottom: 6px;
+            font-size: 14px;
+        }
+
+        .timeline-event {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .stat-box {
+            background: rgba(227, 6, 19, 0.12);
+            border: 1px solid rgba(212, 175, 55, 0.18);
+            padding: 14px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--accent2);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 4px;
+        }
+
+        .trophy-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .trophy-box {
+            text-align: center;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
+            border: 1px solid rgba(212, 175, 55, 0.12);
+        }
+
+        .trophy-icon {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .trophy-title {
+            font-weight: 700;
+            color: var(--accent2);
+            font-size: 13px;
+        }
+
+        .trophy-year {
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        /* Match Card Styles */
+        .match-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 10px;
+            padding: 16px;
+            margin-bottom: 12px;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr auto;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .match-teams {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .match-team {
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--white);
+        }
+
+        .match-team.home {
+            color: var(--accent1);
+        }
+
+        .match-score {
+            background: linear-gradient(135deg, var(--accent1), rgba(227, 6, 19, 0.7));
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 900;
+            font-size: 18px;
+            color: var(--white);
+            text-align: center;
+            min-width: 70px;
+        }
+        
+        .result-w .match-score { background: linear-gradient(135deg, var(--win), rgba(34, 197, 94, 0.7)); }
+        .result-l .match-score { background: linear-gradient(135deg, var(--loss), rgba(239, 68, 68, 0.7)); }
+        .result-d .match-score { background: linear-gradient(135deg, var(--draw), rgba(234, 179, 8, 0.7)); }
+
+        .match-info {
+            text-align: right;
+        }
+
+        .match-date {
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        .match-comp {
+            font-size: 11px;
+            color: var(--accent2);
+            font-weight: 600;
+        }
+
+        .match-stats {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .match-stat {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 12px;
+            padding: 4px 8px;
+            background: rgba(227, 6, 19, 0.15);
+            border-radius: 6px;
+        }
+
+        .match-stat.pass {
+            background: rgba(168, 85, 247, 0.2);
+            color: #a855f7;
+        }
+
+        .match-stat.clean-sheet {
+            background: rgba(59, 130, 246, 0.2);
+            color: #3b82f6;
+        }
+
+        .match-stat.motm {
+            background: rgba(212, 175, 55, 0.25);
+            color: var(--accent2);
+        }
+
+        .form-indicator {
+            display: flex;
+            gap: 6px;
+            margin-top: 12px;
+        }
+
+        .form-box {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            font-weight: 800;
+            font-size: 13px;
+        }
+
+        .form-box.w {
+            background: rgba(34, 197, 94, 0.25);
+            color: #22c55e;
+            border: 1px solid rgba(34, 197, 94, 0.4);
+        }
+
+        .form-box.d {
+            background: rgba(234, 179, 8, 0.25);
+            color: #eab308;
+            border: 1px solid rgba(234, 179, 8, 0.4);
+        }
+
+        .form-box.l {
+            background: rgba(239, 68, 68, 0.25);
+            color: #ef4444;
+            border: 1px solid rgba(239, 68, 68, 0.4);
+        }
+
+        .season-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .season-stat-box {
+            background: rgba(227, 6, 19, 0.08);
+            border: 1px solid rgba(227, 6, 19, 0.15);
+            padding: 16px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .season-stat-value {
+            font-size: 32px;
+            font-weight: 900;
+            color: var(--accent2);
+        }
+
+        .season-stat-label {
+            font-size: 11px;
+            color: var(--muted);
+            margin-top: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tier-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(212, 175, 55, 0.3));
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-weight: 800;
+            font-size: 12px;
+            color: #3b82f6;
+            border: 1px solid rgba(59, 130, 246, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 8px;
+        }
+
+        .scout-alert {
+            background: linear-gradient(135deg, rgba(234, 179, 8, 0.15), rgba(234, 179, 8, 0.05));
+            border: 1px solid rgba(234, 179, 8, 0.3);
+            padding: 14px;
+            border-radius: 10px;
+            margin-top: 16px;
+        }
+
+        .scout-alert-title {
+            color: #eab308;
+            font-weight: 800;
+            font-size: 14px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .scout-alert-text {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 980px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .photo {
+                height: 380px;
+            }
+
+            .visual-canvas {
+                height: auto;
+            }
+
+            .two-col, .three-col {
+                grid-template-columns: 1fr;
+            }
+
+            .trophy-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .match-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .match-info {
+                text-align: center;
+            }
+
+            .season-stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-left">
+            <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ"
+                alt="Empire Scouting Network">
+            <div class="header-title">EMPIRE FGA SCOUTING NETWORK</div>
+            <span class="header-date">📅 Jan 14, 2026 • Live Profile</span>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- Sidebar -->
+        <div>
+            <div class="card">
+                <img src="https://maville.com/photosmvi/2025/09/20/P35474707D6982080G.jpg"
+                    alt="Joris Chotard - Brest" class="photo">
+                <div class="title">Joris Chotard</div>
+                <div class="sub">Defensive Midfielder • #6</div>
+
+                <div class="club-badge">
+                    <span>⚔️ Stade Brestois 29</span>
+                </div>
+                <span class="nationality-badge">🇫🇷 France</span>
+
+                <div class="rating-badge">
+                    <span class="rating-value">78</span>
+                    <span class="rating-label">FGA /100</span>
+                </div>
+
+                <div class="section">
+                    <div class="stat-box" style="margin-bottom: 10px;">
+                        <span class="stat-value">90</span>
+                        <span class="stat-label">Interceptions/90 (INT)</span>
+                    </div>
+                    <div class="tier-badge">🛡️ PRO TIER - BALL WINNER</div>
+                </div>
+
+                <div class="section">
+                    <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">Joris Chotard</span></div>
+                    <div class="info-row"><span class="info-label">Nationality</span><span class="info-value">🇫🇷 France</span></div>
+                    <div class="info-row"><span class="info-label">Birth Date</span><span class="info-value">Sep 24, 2001 (24)</span></div>
+                    <div class="info-row"><span class="info-label">Current Club</span><span class="info-value">Stade Brestois 29</span></div>
+                    <div class="info-row"><span class="info-label">Joined</span><span class="info-value">July 2025</span></div>
+                    <div class="info-row"><span class="info-label">Contract Until</span><span class="info-value">June 2029</span></div>
+                    <div class="info-row"><span class="info-label">Height</span><span class="info-value">1.79m (5' 10")</span></div>
+                    <div class="info-row"><span class="info-label">Position</span><span class="info-value">CDM / CM (Pivot)</span></div>
+                    <div class="info-row"><span class="info-label">Foot</span><span class="info-value">Right</span></div>
+                    <div class="info-row"><span class="info-label">Market Value</span><span class="info-value">€16.0M</span></div>
+                    <div class="info-row"><span class="info-label">Status</span><span class="info-value">Key Starter</span></div>
+                    <div class="info-row"><span class="info-label">Shirt Number</span><span class="info-value">#6</span></div>
+                </div>
+
+                <div class="section">
+                    <h3>2025-26 Season Stats (Brest)</h3>
+                    <div class="info-row"><span class="info-label">Appearances</span><span class="info-value">18 (Ligue 1)</span></div>
+                    <div class="info-row"><span class="info-label">Interceptions/90</span><span class="info-value">2.6 (Elite)</span></div>
+                    <div class="info-row"><span class="info-label">Tackles/90</span><span class="info-value">3.3</span></div>
+                    <div class="info-row"><span class="info-label">Pass Accuracy</span><span class="info-value">85%</span></div>
+                    <div class="info-row"><span class="info-label">Recoveries</span><span class="info-value">7.2/90</span></div>
+                    <div class="info-row"><span class="info-label">Clean Sheets</span><span class="info-value">6 (Team)</span></div>
+                </div>
+
+                <div class="section">
+                    <h3>Form (Last 5)</h3>
+                    <div class="form-indicator">
+                        <div class="form-box w">W</div>
+                        <div class="form-box d">D</div>
+                        <div class="form-box w">W</div>
+                        <div class="form-box w">W</div>
+                        <div class="form-box l">L</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div>
+
+            <!-- FGA Analysis -->
+            <div class="card">
+                <h2>🌍 Empire FGA Player Analysis — January 2026</h2>
+                <p class="lead">
+                    Joris Chotard has seamlessly integrated into Stade Brestois' midfield since his summer 2025 move from Montpellier. Brought in to sustain Brest's European ambitions, he has formed a formidable partnership in the engine room, providing the tactical discipline that allows the full-backs to push forward. His ability to read the game (POI 87) has only sharpened in Brest's highly structured system. While Montpellier struggled defensively in his final season there, Chotard has thrived in a more cohesive Brest unit, acting as the primary screen for the defense and often initiating counter-attacks with quick, simple distribution.
+                </p>
+                <div class="muted-box">
+                    <strong style="color: var(--accent2);">Empire Verdict:</strong> The move to Brest has revitalized his trajectory. He is no longer just a prospect but a verified Ligue 1 leader. His interception numbers (2.6/90) are among the best in the league. <strong>Empire FGA Rating: 78/100 — Proven Starter.</strong>
+                </div>
+
+                <div class="season-stats-grid">
+                    <div class="season-stat-box">
+                        <div class="season-stat-value">2.6</div>
+                        <div class="season-stat-label">Interceptions/90</div>
+                    </div>
+                    <div class="season-stat-box">
+                        <div class="season-stat-value">18</div>
+                        <div class="season-stat-label">Starts (25/26)</div>
+                    </div>
+                    <div class="season-stat-box">
+                        <div class="season-stat-value">85%</div>
+                        <div class="season-stat-label">Pass Completion</div>
+                    </div>
+                    <div class="season-stat-box">
+                        <div class="season-stat-value">7.1</div>
+                        <div class="season-stat-label">Avg Rating</div>
+                    </div>
+                </div>
+
+                <div class="scout-alert">
+                    <div class="scout-alert-title">🚨 Performance Spike</div>
+                    <div class="scout-alert-text">
+                        Chotard's defensive metrics have improved by 15% since joining Brest compared to his last season at Montpellier. The structured environment suits his "Architect/Anchor" profile perfectly.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Last 5 Matches -->
+            <div class="card">
+                <h2>⚡ Last 5 Matches (Ligue 1 & Coupe de France)</h2>
+                <p class="small" style="margin-bottom: 16px;">Performances updated Jan 14, 2026</p>
+
+                <!-- Match 1 -->
+                <div class="match-card result-w">
+                    <div class="match-teams">
+                        <span class="match-team home">Stade Brestois</span>
+                        <span class="match-team">Toulouse</span>
+                    </div>
+                    <div class="match-score">2 - 0</div>
+                    <div class="match-stats">
+                        <span class="match-stat clean-sheet">🛡️ Clean Sheet</span>
+                        <span class="match-stat">5 Interceptions</span>
+                    </div>
+                    <div class="match-info">
+                        <div class="match-date">Jan 11, 2026</div>
+                        <div class="match-comp">Ligue 1</div>
+                    </div>
+                </div>
+
+                <!-- Match 2 -->
+                <div class="match-card result-d">
+                    <div class="match-teams">
+                        <span class="match-team">Strasbourg</span>
+                        <span class="match-team home">Stade Brestois</span>
+                    </div>
+                    <div class="match-score">1 - 1</div>
+                    <div class="match-stats">
+                        <span class="match-stat pass">92% Pass Acc</span>
+                    </div>
+                    <div class="match-info">
+                        <div class="match-date">Jan 4, 2026</div>
+                        <div class="match-comp">Ligue 1</div>
+                    </div>
+                </div>
+
+                <!-- Match 3 -->
+                <div class="match-card result-w">
+                    <div class="match-teams">
+                        <span class="match-team home">Stade Brestois</span>
+                        <span class="match-team">Lorient</span>
+                    </div>
+                    <div class="match-score">3 - 1</div>
+                    <div class="match-stats">
+                        <span class="match-stat motm">⭐ MOTM</span>
+                        <span class="match-stat">1 Assist</span>
+                    </div>
+                    <div class="match-info">
+                        <div class="match-date">Dec 21, 2025</div>
+                        <div class="match-comp">Coupe de France</div>
+                    </div>
+                </div>
+
+                <!-- Match 4 -->
+                <div class="match-card result-w">
+                    <div class="match-teams">
+                        <span class="match-team">Nantes</span>
+                        <span class="match-team home">Stade Brestois</span>
+                    </div>
+                    <div class="match-score">0 - 1</div>
+                    <div class="match-stats">
+                        <span class="match-stat clean-sheet">Locked Midfield</span>
+                    </div>
+                    <div class="match-info">
+                        <div class="match-date">Dec 14, 2025</div>
+                        <div class="match-comp">Ligue 1</div>
+                    </div>
+                </div>
+
+                <!-- Match 5 -->
+                <div class="match-card result-l">
+                    <div class="match-teams">
+                        <span class="match-team home">Stade Brestois</span>
+                        <span class="match-team">PSG</span>
+                    </div>
+                    <div class="match-score">1 - 3</div>
+                    <div class="match-stats">
+                        <span class="match-stat">6 Tackles</span>
+                    </div>
+                    <div class="match-info">
+                        <div class="match-date">Dec 7, 2025</div>
+                        <div class="match-comp">Ligue 1</div>
+                    </div>
+                </div>
+
+                <div class="muted-box" style="margin-top: 16px;">
+                    <strong style="color: var(--accent2);">Recent Form:</strong> Excellent control in the Breton Derby vs Lorient. Dominated the midfield against Toulouse. Even in the loss to PSG, Chotard recorded the highest number of tackles on the pitch, trying to stem the tide.
+                </div>
+            </div>
+
+            <!-- FGA Metrics -->
+            <div class="card">
+                <h2>📊 Core FGA Intelligence Metrics</h2>
+                <p class="small" style="margin-bottom: 16px;">All metrics scaled to /100 for Empire FGA standardization.</p>
+
+                <h3>Tier 1: Automated Metrics (60% Weight)</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">INT (Interceptions)</span><span
+                                    class="metric-score">90</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">TAC (Tackling)</span><span
+                                    class="metric-score">84</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 84%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">REC (Recoveries)</span><span
+                                    class="metric-score">87</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 87%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">PAS (Passing Acc)</span><span
+                                    class="metric-score">85</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">LGP (Long Pass)</span><span
+                                    class="metric-score">79</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 79%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">GOL (Goal Threat)</span><span
+                                    class="metric-score">55</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 55%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CAR (Ball Carry)</span><span
+                                    class="metric-score">76</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 76%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">AER (Aerial)</span><span
+                                    class="metric-score">68</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 68%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">SPD (Speed)</span><span
+                                    class="metric-score">70</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 70%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Tier 2: Semi-Automated Metrics (30% Weight)</h3>
+                <div class="two-col">
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">POI (Position Intelligence)</span><span
+                                class="metric-score">87</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width: 87%"></div>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">CPX (Composure)</span><span
+                                class="metric-score">84</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width: 84%"></div>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">PRE (Pressing)</span><span
+                                class="metric-score">86</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width: 86%"></div>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">DIS (Discipline)</span><span
+                                class="metric-score">90</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Tier 3: Manual Scout Assessment (10% Weight)</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">DMA (Decision Making)</span><span
+                                    class="metric-score">86</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 86%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CHR (Character)</span><span
+                                    class="metric-score">88</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CON (Consistency)</span><span
+                                    class="metric-score">92</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 92%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CRS (Clutch Response)</span><span
+                                    class="metric-score">75</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CRE (Creativity)</span><span
+                                    class="metric-score">62</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 62%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 60-Philosophy Framework -->
+            <div class="card">
+                <h2>🧠 60-Philosophy Framework Alignment</h2>
+                <p class="small" style="margin-bottom: 12px;">Chotard's tactical DNA based on his current role at Brest.</p>
+
+                <h3>Top 10 Philosophy Fits</h3>
+                <div>
+                    <span class="pill">Deschamps (Pivot) 93/100</span>
+                    <span class="pill">Roy (Brest System) 92/100</span>
+                    <span class="pill">Allegri (Structure) 90/100</span>
+                    <span class="pill">Galtier (Discipline) 89/100</span>
+                    <span class="pill">Mourinho (Screen) 88/100</span>
+                    <span class="pill">Simeone (Workrate) 87/100</span>
+                    <span class="pill">Benítez (Tactical) 86/100</span>
+                    <span class="pill">Blanc (Balance) 85/100</span>
+                    <span class="pill">Tuchel (Control) 84/100</span>
+                    <span class="pill">Favre (Recycle) 82/100</span>
+                </div>
+
+                <h3>School Averages</h3>
+                <div class="metric-item">
+                    <div class="metric-header"><span class="metric-name">French School (Structure/Athleticism)</span><span class="metric-score">91.0</span></div>
+                    <div class="metric-bar">
+                        <div class="metric-fill" style="width: 91%"></div>
+                    </div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-header"><span class="metric-name">Italian School (Tactical)</span><span class="metric-score">88.0</span></div>
+                    <div class="metric-bar">
+                        <div class="metric-fill" style="width: 88%"></div>
+                    </div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-header"><span class="metric-name">Spanish School (Creativity)</span><span class="metric-score">65.0</span></div>
+                    <div class="metric-bar">
+                        <div class="metric-fill" style="width: 65%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Psychological Profile -->
+            <div class="card">
+                <h2>🧪 Psychological Profile (Empire MCS)</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Core Traits</h3>
+                        <div class="info-row"><span class="info-label">Archetype</span><span
+                                class="info-value">The Anchor (ISTJ)</span></div>
+                        <div class="info-row"><span class="info-label">Motivation</span><span
+                                class="info-value">Tactical Order</span></div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Professionalism</span><span
+                                    class="metric-score">95</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Reliability</span><span
+                                    class="metric-score">94</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 94%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Adaptability</span><span
+                                    class="metric-score">88</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 88%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Analysis</h3>
+                        <p class="small">
+                            Transitioning to Brest has highlighted Chotard's adaptability. He quickly understood the requirements of a new system after years in one club. His "Professionalism" score is elite; he treats every match, from PSG to a Cup tie, with the same level of seriousness.
+                        </p>
+                        <div class="stat-box" style="margin-top: 12px;">
+                            <span class="stat-value">90</span>
+                            <span class="stat-label">Mental Competence Score (MCS) /100</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Relationships -->
+            <div class="card">
+                <h2>🤝 Development Timeline</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">Montpellier (2019-2025) — The Foundation</div>
+                    <div class="timeline-event">Made over 190 appearances for his boyhood club. Developed from a raw talent into a consistent Ligue 1 starter. <strong>Exit FGA: 76/100</strong></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Stade Brestois (July 2025-Present) — The Step Up</div>
+                    <div class="timeline-event">Transfer €8M. Joined to add steel to the midfield. Immediate starter. Improved tactical metrics. <strong>Current FGA: 78/100</strong></div>
+                </div>
+            </div>
+
+            <!-- Career Statistics -->
+            <div class="card">
+                <h2>📈 Career Statistics Overview</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Club</th>
+                            <th>Season(s)</th>
+                            <th>Apps</th>
+                            <th>Goals</th>
+                            <th>Assists</th>
+                            <th>FGA Rating</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Montpellier</strong></td>
+                            <td>2019-2025</td>
+                            <td>190</td>
+                            <td>3</td>
+                            <td>9</td>
+                            <td>76/100</td>
+                        </tr>
+                        <tr style="background: rgba(227, 6, 19, 0.20);">
+                            <td><strong>Stade Brestois</strong></td>
+                            <td>2025-Present</td>
+                            <td>18</td>
+                            <td>0</td>
+                            <td>2</td>
+                            <td><strong>78/100</strong></td>
+                        </tr>
+                        <tr style="background: rgba(212, 175, 55, 0.15);">
+                            <td><strong>CAREER TOTAL</strong></td>
+                            <td><strong>2019-Present</strong></td>
+                            <td><strong>208</strong></td>
+                            <td><strong>3</strong></td>
+                            <td><strong>11</strong></td>
+                            <td><strong>78/100 (Current)</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Player Comparison -->
+            <div class="card">
+                <h2>📊 Player Comparison (Ligue 1 Midfielders)</h2>
+                <div class="visual-canvas">
+                    <canvas id="radarChart" style="max-width: 100%; max-height: 100%;"></canvas>
+                </div>
+                <p class="small" style="text-align: center; margin-top: 12px;">
+                    Comparing J. Chotard vs Pierre Lees-Melou (Teammate), Benjamin André (Lille), and Johann Lepenant (Lyon) — Scores /100
+                </p>
+            </div>
+
+            <!-- Scout Notes -->
+            <div class="card">
+                <h2>📌 Final Scout Assessment — January 2026</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Strengths (Elite Tier)</h3>
+                        <div class="info-row"><span class="info-label">Interceptions</span><span
+                                class="info-value">90/100</span></div>
+                        <div class="info-row"><span class="info-label">Tactical Disc.</span><span
+                                class="info-value">90/100</span></div>
+                        <div class="info-row"><span class="info-label">Availability</span><span class="info-value">95/100 (Robust)</span></div>
+                        <div class="info-row"><span class="info-label">Pos. Intelligence</span><span class="info-value">87/100</span></div>
+                        <div class="info-row"><span class="info-label">Recycling</span><span class="info-value">86/100</span></div>
+                    </div>
+                    <div>
+                        <h3>Development Areas</h3>
+                        <div class="info-row"><span class="info-label">Goal Threat</span><span class="info-value">55/100 (Low)</span></div>
+                        <div class="info-row"><span class="info-label">Dribbling</span><span
+                                class="info-value">68/100 (Safe)</span></div>
+                        <div class="info-row"><span class="info-label">Creativity</span><span class="info-value">62/100</span></div>
+                    </div>
+                </div>
+
+                <div class="muted-box" style="margin-top: 16px;">
+                    <strong style="color: var(--accent2);">🏆 EMPIRE FGA FINAL RATING: 78/100</strong><br><br>
+                    <strong>Classification:</strong> Proven Starter / Reliable Pivot (75-79 range)<br>
+                    <strong>Role:</strong> Holding Midfielder / Ball Winner<br>
+                    <strong>Value Assessment:</strong> Market Value €16M. His value has increased since moving to Brest due to better team performance. A solid investment for any team needing a "6" who knows the league inside out.
+                </div>
+
+                <div class="highlight-box">
+                    <strong style="color: var(--accent2);">🔮 Future Outlook:</strong><br>
+                    <span class="small">Established as a key player for Brest. Could move to a bigger European side (Bundesliga/Serie A mid-table) in 2027 if he continues this consistency.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer
+        style="background: var(--card); padding: 30px; text-align: center; border-top: 1px solid rgba(212, 175, 55, 0.12); margin-top: 30px;">
+        <p style="color: var(--muted); font-size: 13px;">
+            <strong style="color: var(--accent1);">Empire FGA Scouting Network</strong> — 779 Proprietary Metrics •
+            60-Philosophy Framework • All Ratings /100 Scale
+        </p>
+        <p style="color: var(--muted); font-size: 11px; margin-top: 6px;">
+            Data validated via FBref, Sofascore, Ligue 1 Official Data, and Empire FGA proprietary scouting reports. | Report Generated: January 14, 2026
+        </p>
+    </footer>
+
+    <script>
+        const ctx = document.getElementById('radarChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['Interceptions', 'Tackling', 'Passing', 'Dribbling', 'Shooting', 'Physical', 'Tactical', 'Speed'],
+                datasets: [{
+                    label: 'J. Chotard (SB29) - 78',
+                    data: [90, 84, 85, 68, 55, 78, 90, 70],
+                    borderColor: '#E30613',
+                    backgroundColor: 'rgba(227, 6, 19, 0.25)',
+                    borderWidth: 3,
+                    pointBackgroundColor: '#E30613',
+                    pointBorderColor: '#fff',
+                    pointRadius: 5
+                }, {
+                    label: 'P. Lees-Melou (SB29) - 80',
+                    data: [82, 78, 88, 75, 72, 75, 88, 65],
+                    borderColor: '#ffffff',
+                    backgroundColor: 'transparent',
+                    borderWidth: 2,
+                    pointRadius: 3
+                }, {
+                    label: 'Benjamin André (LOSC) - 79',
+                    data: [88, 85, 80, 65, 58, 82, 90, 60],
+                    borderColor: '#d4af37',
+                    backgroundColor: 'transparent',
+                    borderWidth: 2,
+                    pointRadius: 3,
+                    borderDash: [5, 5]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: {
+                            stepSize: 20,
+                            color: '#8b949e',
+                            backdropColor: 'transparent',
+                            font: { size: 11 }
+                        },
+                        grid: { color: 'rgba(255,255,255,0.08)' },
+                        pointLabels: {
+                            color: '#f0f6fc',
+                            font: { size: 12, weight: '600' }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#f0f6fc',
+                            font: { size: 13, weight: '600' },
+                            padding: 15,
+                            usePointStyle: true
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(11,22,36,0.95)',
+                        titleColor: '#d4af37',
+                        bodyColor: '#f0f6fc',
+                        borderColor: '#E30613',
+                        borderWidth: 2,
+                        padding: 12
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>
