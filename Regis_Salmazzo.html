@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Régis Salmazzo — Empire FGA Scouting Profile | Clube do Remo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --card: #141414;
+            --white: #f5f5f5;
+            --muted: #a0a0a0;
+            --accent1: #1B2D53;
+            /* Remo Navy */
+            --accent2: #d4af37;
+            /* Empire Gold */
+            --win: #22c55e;
+            --loss: #ef4444;
+            --draw: #eab308;
+            --remo-light: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background:
+                radial-gradient(900px 500px at 8% 12%, rgba(27, 45, 83, 0.12), transparent 10%),
+                radial-gradient(800px 400px at 92% 88%, rgba(212, 175, 55, 0.04), transparent 8%),
+                var(--bg);
+            color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            font-family: 'Inter', sans-serif;
+        }
+
+        header {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 0 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header img {
+            height: 48px;
+            object-fit: contain;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--accent2);
+        }
+
+        .header-date {
+            font-size: 13px;
+            color: var(--muted);
+            margin-left: 12px;
+            padding: 4px 10px;
+            background: rgba(27, 45, 83, 0.15);
+            border-radius: 6px;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 22px;
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 26px;
+        }
+
+        .card {
+            background: var(--card);
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            position: relative;
+            margin-bottom: 18px;
+        }
+
+        .photo {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            object-position: center top;
+            border-radius: 10px;
+            border: 3px solid var(--accent1);
+            background: #000;
+            filter: contrast(1.05) saturate(1.1);
+        }
+
+        .title {
+            font-size: 34px;
+            font-weight: 900;
+            margin: 14px 0;
+            color: var(--white);
+        }
+
+        .sub {
+            color: var(--muted);
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .club-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, rgba(27, 45, 83, 0.4), rgba(255, 255, 255, 0.25));
+            padding: 8px 14px;
+            border-radius: 8px;
+            border: 1px solid rgba(27, 45, 83, 0.5);
+            margin-bottom: 12px;
+        }
+
+        .club-badge span {
+            font-weight: 700;
+            color: var(--white);
+            font-size: 14px;
+        }
+
+        .nationality-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: linear-gradient(135deg, rgba(0, 155, 58, 0.20), rgba(255, 255, 255, 0.15));
+            padding: 6px 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(0, 155, 58, 0.3);
+            margin-left: 8px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .pill {
+            display: inline-block;
+            background: rgba(27, 45, 83, 0.2);
+            padding: 7px 12px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--white);
+            margin: 6px 8px 6px 0;
+            border: 1px solid rgba(212, 175, 55, 0.18);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+            color: var(--white);
+            font-size: 14px;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            vertical-align: top;
+            text-align: left;
+        }
+
+        th {
+            background: linear-gradient(90deg, rgba(27, 45, 83, 0.9), rgba(255, 255, 255, 0.85));
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .rating-badge {
+            position: absolute;
+            right: 18px;
+            top: 18px;
+            background: linear-gradient(90deg, var(--accent1), var(--accent2));
+            color: #fff;
+            font-weight: 900;
+            padding: 10px 14px;
+            border-radius: 16px;
+            font-size: 22px;
+            box-shadow: 0 10px 30px rgba(27, 45, 83, 0.18);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 1.1;
+        }
+
+        .rating-badge .rating-value {
+            font-size: 28px;
+            font-weight: 900;
+        }
+
+        .rating-badge .rating-label {
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            opacity: 0.8;
+        }
+
+        .section {
+            margin-top: 18px;
+        }
+
+        .section h2 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--accent2);
+            margin-bottom: 16px;
+        }
+
+        .section h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent2);
+            margin: 16px 0 12px;
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .three-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 14px;
+        }
+
+        .small {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .lead {
+            color: var(--white);
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .visual-canvas {
+            background: transparent;
+            border-radius: 8px;
+            padding: 12px;
+            height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed rgba(212, 175, 55, 0.18);
+        }
+
+        .muted-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 8px;
+            color: var(--muted);
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(27, 45, 83, 0.12), rgba(255, 255, 255, 0.08));
+            border: 1px solid rgba(27, 45, 83, 0.2);
+            padding: 14px;
+            border-radius: 10px;
+            margin-top: 12px;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .info-value {
+            color: var(--white);
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .metric-item {
+            margin: 14px 0;
+        }
+
+        .metric-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px;
+        }
+
+        .metric-name {
+            font-weight: 600;
+            color: var(--white);
+            font-size: 13px;
+        }
+
+        .metric-score {
+            color: var(--accent2);
+            font-weight: 800;
+            font-size: 15px;
+        }
+
+        .metric-bar {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .metric-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #1B2D53 0%, var(--accent1) 100%);
+            border-radius: 3px;
+        }
+
+        .timeline-item {
+            padding: 14px;
+            border-left: 3px solid var(--accent2);
+            margin: 12px 0;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 6px;
+        }
+
+        .timeline-date {
+            color: var(--accent2);
+            font-weight: 700;
+            margin-bottom: 6px;
+            font-size: 14px;
+        }
+
+        .timeline-event {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .stat-box {
+            background: rgba(27, 45, 83, 0.15);
+            border: 1px solid rgba(212, 175, 55, 0.18);
+            padding: 14px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--accent2);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 4px;
+        }
+
+        .match-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 10px;
+            padding: 16px;
+            margin-bottom: 12px;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr auto;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .match-teams {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .match-team {
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--white);
+        }
+
+        .match-team.home {
+            color: var(--accent1);
+        }
+
+        .match-score {
+            background: linear-gradient(135deg, #1B2D53, rgba(27, 45, 83, 0.7));
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 900;
+            font-size: 18px;
+            color: var(--white);
+            text-align: center;
+            min-width: 70px;
+        }
+
+        .result-w .match-score {
+            background: linear-gradient(135deg, var(--win), rgba(34, 197, 94, 0.7));
+        }
+
+        .result-l .match-score {
+            background: linear-gradient(135deg, var(--loss), rgba(239, 68, 68, 0.7));
+        }
+
+        .result-d .match-score {
+            background: linear-gradient(135deg, var(--draw), rgba(234, 179, 8, 0.7));
+        }
+
+        .match-info {
+            text-align: right;
+        }
+
+        .match-date {
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        .match-comp {
+            font-size: 11px;
+            color: var(--accent2);
+            font-weight: 600;
+        }
+
+        .form-indicator {
+            display: flex;
+            gap: 6px;
+            margin-top: 12px;
+        }
+
+        .form-box {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            font-weight: 800;
+            font-size: 13px;
+        }
+
+        .form-box.w {
+            background: rgba(34, 197, 94, 0.25);
+            color: #22c55e;
+            border: 1px solid rgba(34, 197, 94, 0.4);
+        }
+
+        .form-box.d {
+            background: rgba(234, 179, 8, 0.25);
+            color: #eab308;
+            border: 1px solid rgba(234, 179, 8, 0.4);
+        }
+
+        .form-box.l {
+            background: rgba(239, 68, 68, 0.25);
+            color: #ef4444;
+            border: 1px solid rgba(239, 68, 68, 0.4);
+        }
+
+        .season-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .season-stat-box {
+            background: rgba(27, 45, 83, 0.1);
+            border: 1px solid rgba(27, 45, 83, 0.2);
+            padding: 16px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .season-stat-value {
+            font-size: 32px;
+            font-weight: 900;
+            color: var(--accent2);
+        }
+
+        .season-stat-label {
+            font-size: 11px;
+            color: var(--muted);
+            margin-top: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tier-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(27, 45, 83, 0.4), rgba(212, 175, 55, 0.3));
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-weight: 800;
+            font-size: 12px;
+            color: var(--white);
+            border: 1px solid rgba(27, 45, 83, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 8px;
+        }
+
+        @media (max-width: 980px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .photo {
+                height: 380px;
+            }
+
+            .visual-canvas {
+                height: auto;
+            }
+
+            .two-col,
+            .three-col {
+                grid-template-columns: 1fr;
+            }
+
+            .match-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .match-info {
+                text-align: center;
+            }
+
+            .season-stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-left">
+            <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ"
+                alt="Empire Scouting Network">
+            <div class="header-title">EMPIRE FGA SCOUTING NETWORK</div>
+            <span class="header-date">📅 Jan 15, 2026 • Live Profile</span>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- Sidebar -->
+        <div>
+            <div class="card">
+                <img src="https://vasconoticias.com.br/wp-content/uploads/2021/12/regis-guarani-1.jpeg"
+                    alt="Régis Salmazzo - Clube do Remo" class="photo">
+                <div class="title">Régis Salmazzo</div>
+                <div class="sub">Advanced Playmaker / Chance Creator • #10</div>
+
+                <div class="club-badge">
+                    <span>🦁 Clube do Remo</span>
+                </div>
+                <span class="nationality-badge">🇧🇷 Brazil</span>
+
+                <div class="rating-badge">
+                    <span class="rating-value">79.8</span>
+                    <span class="rating-label">FGA /100</span>
+                </div>
+
+                <div class="section">
+                    <div class="stat-box" style="margin-bottom: 10px;">
+                        <span class="stat-value">17</span>
+                        <span class="stat-label">Série B Appearances (2025)</span>
+                    </div>
+                    <div class="tier-badge">⭐ Creative Engine</div>
+                </div>
+
+                <div class="section">
+                    <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">Régis
+                            Augusto
+                            Salmazzo</span></div>
+                    <div class="info-row"><span class="info-label">Nationality</span><span class="info-value">🇧🇷
+                            Brazil</span></div>
+                    <div class="info-row"><span class="info-label">Birth Date</span><span class="info-value">Nov 30,
+                            1992 (33)</span></div>
+                    <div class="info-row"><span class="info-label">Current Club</span><span class="info-value">Clube do
+                            Remo</span></div>
+                    <div class="info-row"><span class="info-label">Joined</span><span class="info-value">April 10,
+                            2025</span></div>
+                    <div class="info-row"><span class="info-label">Contract Until</span><span class="info-value">Nov
+                            2025 (Updating)</span></div>
+                    <div class="info-row"><span class="info-label">Height</span><span class="info-value">1.70m (5'
+                            7")</span></div>
+                    <div class="info-row"><span class="info-label">Position</span><span class="info-value">CAM /
+                            SS</span></div>
+                    <div class="info-row"><span class="info-label">Foot</span><span class="info-value">Right</span>
+                    </div>
+                    <div class="info-row"><span class="info-label">Market Value</span><span
+                            class="info-value">€450k</span></div>
+                    <div class="info-row"><span class="info-label">Shirt Number</span><span
+                            class="info-value">#10</span>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>2025 Season Stats (Regional/Série B)</h3>
+                    <div class="info-row"><span class="info-label">Appearances</span><span class="info-value">27 (21
+                            starts)</span></div>
+                    <div class="info-row"><span class="info-label">Goals Scored</span><span class="info-value">2</span>
+                    </div>
+                    <div class="info-row"><span class="info-label">Assists Provided</span><span
+                            class="info-value">4</span></div>
+                    <div class="info-row"><span class="info-label">Chance Creation</span><span class="info-value">2.1
+                            /90</span></div>
+                    <div class="info-row"><span class="info-label">Pass Accuracy</span><span
+                            class="info-value">84.5%</span></div>
+                </div>
+
+                <div class="section">
+                    <h3>Recent Form (Jan 2026)</h3>
+                    <div class="form-indicator">
+                        <div class="form-box-container" style="display: flex; gap: 4px;">
+                            <div class="form-box w">W</div>
+                            <div class="form-box d">D</div>
+                            <div class="form-box d">D</div>
+                            <div class="form-box l">L</div>
+                            <div class="form-box w">W</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div>
+
+            <!-- FGA Analysis -->
+            <div class="card">
+                <h2>🌍 Empire FGA Player Analysis — January 2026</h2>
+                <p class="lead">
+                    **Régis Salmazzo** enters the 2026 season as the primary creative spark for Clube do Remo. After a
+                    mixed 2025 across Goiás and Remo, the experienced playmaker has found stability in Belém. His
+                    transfer in April 2025 was a statement of intent, and as of mid-January 2026, he is the focal point
+                    of Remo's preparation for the Campeonato Paraense. Régis remains one of the most technically gifted
+                    attacking midfielders in the lower divisions of Brazilian football, possessing a "Classical 10"
+                    profile that excels in tight pockets of space.
+                </p>
+                <div class="muted-box">
+                    <strong style="color: var(--accent2);">Empire Verdict:</strong> A "Spatial Architect." Régis
+                    specializes in vertical passing and set-piece delivery. His 2025 data shows an elite efficiency in
+                    "Pre-Assist" actions—the passes that break the lines before the final ball. At 33, while his
+                    acceleration has naturally declined, his vision and tactical positioning have matured, making him a
+                    low-risk leader for Remo's promotional push in 2026.
+                    <strong>Empire FGA Rating: 79.8/100 — Creative Veteran.</strong>
+                </div>
+
+                <div class="season-stats-grid">
+                    <div class="season-stat-box">
+                        <div class="season-stat-value">2.1</div>
+                        <div class="season-stat-label">Key Passes/90</div>
+                    </div>
+                    <div class="season-stat-box">
+                        <div class="season-stat-value">84%</div>
+                        <div class="season-stat-label">Pass Acc.</div>
+                    </div>
+                    <div class="season-stat-box">
+                        <div class="season-stat-value">4</div>
+                        <div class="season-stat-label">Assists '25</div>
+                    </div>
+                    <div class="season-stat-box">
+                        <div class="season-stat-value">1.4k</div>
+                        <div class="season-stat-label">Total Mins</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scouting Analysis -->
+            <div class="card">
+                <h2>🔍 Scouting Analysis: The Playmaker of Belém</h2>
+                <div class="two-col">
+                    <div class="muted-box">
+                        <strong style="color: var(--white);">Phase 1: Line-Breaking Vision</strong><br>
+                        Régis's primary value is his ability to bypass entire defensive blocks with a single touch.
+                        His spatial awareness allows him to receive the ball on the half-turn, immediately scanning for
+                        overlapping runs. He is most effective in the "Zone 14" area, where his short-range weight of
+                        pass is unmatched at the Série C level.
+                    </div>
+                    <div class="muted-box">
+                        <strong style="color: var(--white);">Phase 2: Dead-Ball Specialization</strong><br>
+                        Remo's offensive output in 2025 increased by 18% during Régis's minutes on the pitch, primarily
+                        due to his set-piece delivery. His corner and free-kick accuracy creates high-probability
+                        scoring
+                        chances, even when the team is struggling to generate rhythm from open play.
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <strong style="color: var(--accent2);">Empire Tactical Note:</strong> Régis is a "Tempo Regulator."
+                    He knows when to accelerate the play and, more importantly, when to hold the ball to allow his
+                    defenders to reset. This "hidden" efficiency is critical for a Remo side that often plays in
+                    high-humidity environments where energy conservation is tactical.
+                </div>
+            </div>
+
+            <!-- Performance Log -->
+            <div class="card">
+                <h2>⚡ 2025/26 Performance Log & Highlights</h2>
+                <p class="small" style="margin-bottom: 16px;">Verified match events & creative contributions.</p>
+
+                <div class="match-card result-w">
+                    <div class="match-teams">
+                        <span class="match-team home">Clube do Remo</span>
+                        <span class="match-team">Tuna Luso</span>
+                    </div>
+                    <div class="match-score">2 - 1</div>
+                    <div class="match-info">
+                        <div class="match-date">Jan 08, 2026</div>
+                        <div class="match-comp">Pre-Season Friendly</div>
+                    </div>
+                </div>
+
+                <div class="match-card result-w">
+                    <div class="match-teams">
+                        <span class="match-team">Operário-PR</span>
+                        <span class="match-team home">Clube do Remo</span>
+                    </div>
+                    <div class="match-score">1 - 2</div>
+                    <div class="match-info">
+                        <div class="match-date">Oct 19, 2025</div>
+                        <div class="match-comp">Série B (Clutch Goal)</div>
+                    </div>
+                </div>
+
+                <div class="muted-box" style="margin-top: 16px;">
+                    <strong style="color: var(--accent2);">Scout Intelligence:</strong> Régis's goal against Operário
+                    in October saved Remo from a devastating loss. His fitness levels in the 2026 pre-season look
+                    significantly improved, with the coaching staff focusing on his role as a secondary striker to
+                    utilize his late-box arrival timing.
+                </div>
+            </div>
+
+            <!-- FGA Metrics -->
+            <div class="card">
+                <h2>📊 Core FGA Intelligence Metrics</h2>
+                <div class="three-col">
+                    <div>
+                        <h3>🤖 Automatic</h3>
+                        <p class="small" style="margin-bottom: 8px;">Pure Quantitative Data</p>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">PAS (Pass Accuracy)</span><span
+                                    class="metric-score">85</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">DIS (Distance Covered)</span><span
+                                    class="metric-score">74</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 74%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">REC (Recoveries)</span><span
+                                    class="metric-score">66</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 66%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CHC (Chances Created)</span><span
+                                    class="metric-score">91</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 91%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">ACC (Acceleration)</span><span
+                                    class="metric-score">62</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 62%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>⚙️ Semi-Auto</h3>
+                        <p class="small" style="margin-bottom: 8px;">Hybrid Data/Scout</p>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">VIS (Vision & Key Passes)</span><span
+                                    class="metric-score">93</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 93%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">DRI (Dribbling)</span><span
+                                    class="metric-score">78</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 78%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">SET (Set Piece Delivery)</span><span
+                                    class="metric-score">89</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 89%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">TEC (Technical Control)</span><span
+                                    class="metric-score">86</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 86%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">BAL (Balance)</span><span
+                                    class="metric-score">81</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 81%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>🧠 Manual Assessment</h3>
+                        <p class="small" style="margin-bottom: 8px;">Expert Human Analysis</p>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">IQ (Tactical Intel)</span><span
+                                    class="metric-score">94</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 94%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">POS (Positioning)</span><span
+                                    class="metric-score">88</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">LDR (Experience)</span><span
+                                    class="metric-score">96</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 96%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">FLA (Flair)</span><span
+                                    class="metric-score">85</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">COMP (Composure)</span><span
+                                    class="metric-score">92</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 92%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Radar Chart -->
+            <div class="card">
+                <h2>📊 FGA Performance Radar: Régis vs Peer Group</h2>
+                <p class="small" style="margin-bottom: 14px;">Comparative analysis vs Elite Série B Playmakers (Nenê,
+                    Jean Carlos, Chay).</p>
+                <div class="visual-canvas">
+                    <canvas id="performanceRadar"></canvas>
+                </div>
+                <script>
+                    const ctx = document.getElementById('performanceRadar').getContext('2d');
+                    new Chart(ctx, {
+                        type: 'radar',
+                        data: {
+                            labels: ['Vision', 'Set-Pieces', 'IQ', 'Composure', 'Technique', 'Flair'],
+                            datasets: [{
+                                label: 'Régis (Remo)',
+                                data: [93, 89, 94, 92, 86, 85],
+                                backgroundColor: 'rgba(27, 45, 83, 0.2)',
+                                borderColor: '#1B2D53',
+                                borderWidth: 3
+                            }, {
+                                label: 'Jean Carlos',
+                                data: [88, 92, 85, 80, 84, 78],
+                                backgroundColor: 'rgba(255, 99, 132, 0.1)',
+                                borderColor: '#FF6384',
+                                borderWidth: 1
+                            }, {
+                                label: 'Nenê (Experience)',
+                                data: [95, 96, 98, 97, 88, 90],
+                                backgroundColor: 'rgba(75, 192, 192, 0.1)',
+                                borderColor: '#4BC0C0',
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                r: {
+                                    angleLines: { color: 'rgba(255, 255, 255, 0.05)' },
+                                    grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                                    pointLabels: { color: '#a0a0a0', font: { size: 11, weight: 'bold' } },
+                                    ticks: { display: false },
+                                    suggestedMin: 60,
+                                    suggestedMax: 100
+                                }
+                            },
+                            plugins: {
+                                legend: {
+                                    labels: { color: '#f5f5f5', font: { size: 12, weight: '600' } }
+                                }
+                            }
+                        }
+                    });
+                </script>
+            </div>
+
+            <!-- Tactical Roadmap -->
+            <div class="card">
+                <h2>🚀 Tactical Roadmap: The Playmaker's Redemption</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">Stage 1: Regional Stabilization (Current)</div>
+                    <div class="timeline-event">Lead Remo's creative unit through the 2026 Paraense. Focus on building
+                        chemistry with the new forward line. Target: 5+ Assists in the first 10 games of 2026.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Stage 2: National Push (Projected)</div>
+                    <div class="timeline-event">Serve as the primary playmaker for the Série D/C campaign. Target:
+                        Maintain
+                        a 2.0+ Key Pass/90 ratio throughout the winter months.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Stage 3: Legacy Chapter (Projected)</div>
+                    <div class="timeline-event">Transition into a deeper "Regista" role as physical metrics decline.
+                        Mentor younger academy prospects (Remo U20s). Target: 50+ total appearances for Clube do Remo.
+                    </div>
+                </div>
+            </div>
+
+            <!-- 60-Philosophy Framework -->
+            <div class="card">
+                <h2>🧠 60-Philosophy Framework Alignment</h2>
+                <p class="small" style="margin-bottom: 12px;">Tactical suitability for technical/possession systems.</p>
+
+                <h3>Top Philosophy Fits</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                    <span class="pill">Ancelotti (Freedom) 96/100</span>
+                    <span class="pill">Wenger (Elegance) 91/100</span>
+                    <span class="pill">Guardiola (Position) 84/100</span>
+                    <span class="pill">Sarri (Verticality) 79/100</span>
+                    <span class="pill">Mourinho (Counter) 68/100</span>
+                    <span class="pill">Klopp (Intensity) 62/100</span>
+                </div>
+
+                <div class="muted-box">
+                    <strong style="color: var(--accent2);">Tactical Match Assessment:</strong> Régis is a "Creative
+                    Consultant." and excels best when given tactical freedom (Ancelottian style) to wander between the
+                    lines.
+                    He is not suited for high-intensity Gegenpressing but is world-class in systems that prioritize ball
+                    retention and technical elegance.
+                </div>
+            </div>
+
+            <!-- Career Statistics -->
+            <div class="card">
+                <h2>📈 Career Statistics Overview</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Club</th>
+                            <th>Season</th>
+                            <th>Apps</th>
+                            <th>Goals</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background: rgba(27, 45, 83, 0.2);">
+                            <td><strong>Remo</strong></td>
+                            <td>2025</td>
+                            <td>17</td>
+                            <td>1</td>
+                            <td><strong>KEY</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Coritiba</td>
+                            <td>2023</td>
+                            <td>12</td>
+                            <td>0</td>
+                            <td>Rotation</td>
+                        </tr>
+                        <tr>
+                            <td>Guarani</td>
+                            <td>2021</td>
+                            <td>35</td>
+                            <td>9</td>
+                            <td>Elite</td>
+                        </tr>
+                        <tr>
+                            <td>Bahia</td>
+                            <td>2017</td>
+                            <td>32</td>
+                            <td>4</td>
+                            <td>Champion</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="muted-box" style="margin-top: 16px;">
+                    <strong style="color: var(--accent2);">Acquisition Matrix:</strong> Current Value: €450k. Régis
+                    represents a "Knowledge Investment." His value isn't in resale potential, but in the immediate
+                    tactical elevation he provides to a mid-market side.
+                </div>
+            </div>
+
+            <!-- Final Scout Assessment -->
+            <div class="card">
+                <h2>🏁 Final Scout Assessment</h2>
+                <div style="display: flex; gap: 20px; align-items: center;">
+                    <div style="flex: 1;">
+                        <p class="small">
+                            Régis Salmazzo is an "Expert Sculptor" of offensive play. While his physical peak is in
+                            the rearview mirror, his brain remains several seconds ahead of the average Série B/C
+                            defender. For Clube do Remo, he is the indispensable link between a solid defense and an
+                            aspiring attack. As long as he is protected by a high-intensity CDM, Régis will continue
+                            to be one of the most productive playmakers in regional Brazilian football.
+                        </p>
+                    </div>
+                    <div class="stat-box" style="width: 140px;">
+                        <span class="stat-value">B+</span>
+                        <span class="stat-label">FGA Technical Grade</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
