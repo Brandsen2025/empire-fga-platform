@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eric Martel — Empire FGA Scouting Profile | 1. FC Köln</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --card: #141414;
+            --white: #f5f5f5;
+            --muted: #a0a0a0;
+            --accent1: #e30613;
+            /* Koln Red */
+            --accent2: #d4af37;
+            /* Empire Gold */
+            --win: #22c55e;
+            --loss: #ef4444;
+            --draw: #eab308;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background:
+                radial-gradient(900px 500px at 8% 12%, rgba(227, 6, 19, 0.12), transparent 10%),
+                radial-gradient(800px 400px at 92% 88%, rgba(212, 175, 55, 0.04), transparent 8%),
+                var(--bg);
+            color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            font-family: 'Inter', sans-serif;
+        }
+
+        header {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 0 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header img {
+            height: 48px;
+            object-fit: contain;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--accent2);
+        }
+
+        .header-date {
+            font-size: 13px;
+            color: var(--muted);
+            margin-left: 12px;
+            padding: 4px 10px;
+            background: rgba(227, 6, 19, 0.15);
+            border-radius: 6px;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 22px;
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 26px;
+        }
+
+        .card {
+            background: var(--card);
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            position: relative;
+            margin-bottom: 18px;
+        }
+
+        .photo {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            object-position: center top;
+            border-radius: 10px;
+            border: 3px solid var(--accent1);
+            background: #000;
+            filter: contrast(1.05) saturate(1.1);
+        }
+
+        .title {
+            font-size: 34px;
+            font-weight: 900;
+            margin: 14px 0;
+            color: var(--white);
+        }
+
+        .sub {
+            color: var(--muted);
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .club-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, rgba(227, 6, 19, 0.4), rgba(255, 255, 255, 0.25));
+            padding: 8px 14px;
+            border-radius: 8px;
+            border: 1px solid rgba(227, 6, 19, 0.5);
+            margin-bottom: 12px;
+        }
+
+        .club-badge span {
+            font-weight: 700;
+            color: var(--white);
+            font-size: 14px;
+        }
+
+        .nationality-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: linear-gradient(135deg, rgba(227, 6, 19, 0.15), rgba(255, 255, 255, 0.15));
+            padding: 6px 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(227, 6, 19, 0.3);
+            margin-left: 8px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .pill {
+            display: inline-block;
+            background: rgba(227, 6, 19, 0.15);
+            padding: 7px 12px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--white);
+            margin: 6px 8px 6px 0;
+            border: 1px solid rgba(212, 175, 55, 0.18);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+            color: var(--white);
+            font-size: 14px;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            vertical-align: top;
+            text-align: left;
+        }
+
+        th {
+            background: linear-gradient(90deg, rgba(227, 6, 19, 0.9), rgba(255, 255, 255, 0.85));
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .rating-badge {
+            position: absolute;
+            right: 18px;
+            top: 18px;
+            background: linear-gradient(90deg, var(--accent1), var(--accent2));
+            color: #fff;
+            font-weight: 900;
+            padding: 10px 14px;
+            border-radius: 16px;
+            font-size: 22px;
+            box-shadow: 0 10px 30px rgba(227, 6, 19, 0.18);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 1.1;
+        }
+
+        .rating-badge .rating-value {
+            font-size: 28px;
+            font-weight: 900;
+        }
+
+        .rating-badge .rating-label {
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            opacity: 0.8;
+        }
+
+        .section {
+            margin-top: 18px;
+        }
+
+        .section h2 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--accent2);
+            margin-bottom: 16px;
+        }
+
+        .section h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent2);
+            margin: 16px 0 12px;
+        }
+
+        .three-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 14px;
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .small {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .lead {
+            color: var(--white);
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .visual-canvas {
+            background: transparent;
+            border-radius: 8px;
+            padding: 12px;
+            height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed rgba(212, 175, 55, 0.18);
+        }
+
+        .muted-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 8px;
+            color: var(--muted);
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(227, 6, 19, 0.12), rgba(255, 255, 255, 0.08));
+            border: 1px solid rgba(227, 6, 19, 0.2);
+            padding: 14px;
+            border-radius: 10px;
+            margin-top: 12px;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .info-value {
+            color: var(--white);
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .metric-item {
+            margin: 14px 0;
+        }
+
+        .metric-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px;
+        }
+
+        .metric-name {
+            font-weight: 600;
+            color: var(--white);
+            font-size: 13px;
+        }
+
+        .metric-score {
+            color: var(--accent2);
+            font-weight: 800;
+            font-size: 15px;
+        }
+
+        .metric-bar {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .metric-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #e30613 0%, var(--accent1) 100%);
+            border-radius: 3px;
+        }
+
+        .timeline-item {
+            padding: 14px;
+            border-left: 3px solid var(--accent2);
+            margin: 12px 0;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 6px;
+        }
+
+        .timeline-date {
+            color: var(--accent2);
+            font-weight: 700;
+            margin-bottom: 6px;
+            font-size: 14px;
+        }
+
+        .timeline-event {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .stat-box {
+            background: rgba(227, 6, 19, 0.15);
+            border: 1px solid rgba(212, 175, 55, 0.18);
+            padding: 14px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--accent2);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 4px;
+        }
+
+        .match-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 10px;
+            padding: 16px;
+            margin-bottom: 12px;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr auto;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .match-teams {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .match-team {
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--white);
+        }
+
+        .match-team.home {
+            color: var(--accent1);
+        }
+
+        .match-score {
+            background: linear-gradient(135deg, #e30613, rgba(227, 6, 19, 0.7));
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 900;
+            font-size: 18px;
+            color: var(--white);
+            text-align: center;
+            min-width: 70px;
+        }
+
+        .result-w .match-score {
+            background: linear-gradient(135deg, var(--win), rgba(34, 197, 94, 0.7));
+        }
+
+        .result-l .match-score {
+            background: linear-gradient(135deg, var(--loss), rgba(239, 68, 68, 0.7));
+        }
+
+        .result-d .match-score {
+            background: linear-gradient(135deg, var(--draw), rgba(234, 179, 8, 0.7));
+        }
+
+        .match-info {
+            text-align: right;
+        }
+
+        .match-date {
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        .match-comp {
+            font-size: 11px;
+            color: var(--accent2);
+            font-weight: 600;
+        }
+
+        .form-indicator {
+            display: flex;
+            gap: 6px;
+            margin-top: 12px;
+        }
+
+        .form-box {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            font-weight: 800;
+            font-size: 13px;
+        }
+
+        .form-box.w {
+            background: rgba(34, 197, 94, 0.25);
+            color: #22c55e;
+            border: 1px solid rgba(34, 197, 94, 0.4);
+        }
+
+        .form-box.d {
+            background: rgba(234, 179, 8, 0.25);
+            color: #eab308;
+            border: 1px solid rgba(234, 179, 8, 0.4);
+        }
+
+        .form-box.l {
+            background: rgba(239, 68, 68, 0.25);
+            color: #ef4444;
+            border: 1px solid rgba(239, 68, 68, 0.4);
+        }
+
+        .season-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .season-stat-box {
+            background: rgba(227, 6, 19, 0.1);
+            border: 1px solid rgba(227, 6, 19, 0.2);
+            padding: 16px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .season-stat-value {
+            font-size: 32px;
+            font-weight: 900;
+            color: var(--accent2);
+        }
+
+        .season-stat-label {
+            font-size: 11px;
+            color: var(--muted);
+            margin-top: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tier-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(227, 6, 19, 0.4), rgba(212, 175, 55, 0.3));
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-weight: 800;
+            font-size: 12px;
+            color: var(--white);
+            border: 1px solid rgba(227, 6, 19, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 8px;
+        }
+
+        @media (max-width: 980px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .photo {
+                height: 380px;
+            }
+
+            .visual-canvas {
+                height: auto;
+            }
+
+            .three-col,
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+
+            .match-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .match-info {
+                text-align: center;
+            }
+
+            .season-stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-left">
+            <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ"
+                alt="Empire Scouting Network">
+            <div class="header-title">EMPIRE FGA SCOUTING NETWORK</div>
+            <span class="header-date">📅 Jan 16, 2026 • Live Profile</span>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- Sidebar -->
+        <div>
+            <div class="card">
+                <img src="https://tmssl.akamaized.net//images/foto/galerie/eric-martel-1-fc-koln-2024-1727253365-149166.jpg?lm=1727253375"
+                    alt="Eric Martel - 1. FC Köln" class="photo">
+                <div class="title">Eric Martel</div>
+                <div class="sub">The Rhineland Destroyer / Defensive Anchor • #6</div>
+
+                <div class="club-badge">
+                    <span>🐐 1. FC Köln</span>
+                </div>
+                <span class="nationality-badge">🇩🇪 Germany</span>
+
+                <div class="rating-badge">
+                    <span class="rating-value">80.5</span>
+                    <span class="rating-label">FGA /100</span>
+                </div>
+
+                <div class="section">
+                    <div class="stat-box" style="margin-bottom: 10px;">
+                        <span class="stat-value">2027</span>
+                        <span class="stat-label">Contract Landmark</span>
+                    </div>
+                    <div class="tier-badge">🛡️ German Football Warrior</div>
+                </div>
+
+                <div class="section">
+                    <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">Eric
+                            Martel</span></div>
+                    <div class="info-row"><span class="info-label">Nationality</span><span class="info-value">🇩🇪
+                            Germany</span></div>
+                    <div class="info-row"><span class="info-label">Birth Date</span><span class="info-value">Apr 29,
+                            2002 (23)</span></div>
+                    <div class="info-row"><span class="info-label">Current Club</span><span class="info-value">1. FC
+                            Köln</span></div>
+                    <div class="info-row"><span class="info-label">Joined Köln</span><span class="info-value">June
+                            24, 2022</span></div>
+                    <div class="info-row"><span class="info-label">Contract Until</span><span class="info-value">June
+                            30, 2027</span></div>
+                    <div class="info-row"><span class="info-label">Height</span><span class="info-value">1.88m</span>
+                    </div>
+                    <div class="info-row"><span class="info-label">Position</span><span class="info-value">Defensive
+                            Midfielder / CB</span></div>
+                    <div class="info-row"><span class="info-label">Foot</span><span class="info-value">Right</span>
+                    </div>
+                    <div class="info-row"><span class="info-label">Market Value</span><span
+                            class="info-value">€12m</span></div>
+                </div>
+
+                <div class="section">
+                    <h3>2025/26 Season Stats (Bundesliga)</h3>
+                    <div class="info-row"><span class="info-label">Appearances</span><span class="info-value">17</span>
+                    </div>
+                    <div class="info-row"><span class="info-label">Tackles Won</span><span class="info-value">72%</span>
+                    </div>
+                    <div class="info-row"><span class="info-label">Distance Covered</span><span
+                            class="info-value">11.8km/90</span></div>
+                    <div class="info-row"><span class="info-label">Aerial Duels Won</span><span
+                            class="info-value">68%</span></div>
+                    <div class="info-row"><span class="info-label">Status</span><span class="info-value">Key
+                            Starter</span></div>
+                </div>
+
+                <div class="section">
+                    <h3>Recent Form (Jan 2026)</h3>
+                    <div class="form-indicator">
+                        <div class="form-box w">W</div>
+                        <div class="form-box w">W</div>
+                        <div class="form-box d">D</div>
+                        <div class="form-box l">L</div>
+                        <div class="form-box w">W</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div>
+
+            <!-- FGA Analysis -->
+            <div class="card">
+                <h2>🌍 Empire FGA Player Analysis — January 2026</h2>
+                <p class="lead">
+                    **Eric Martel** embodies the modern German "Kampfschwein" spirit but refined with tactical
+                    discipline. A product of the RB Leipzig academy, his physicality (1.88m) and engine allow him to
+                    dominate the midfield battleground. At Köln, he has developed into a pure destroyer who screens the
+                    defense effectively. His versatility to drop into the backline makes him an invaluable asset for
+                    transitional systems.
+                </p>
+                <div class="muted-box">
+                    <strong style="color: var(--accent2);">Empire Verdict:</strong> A "Physical Enforcer."
+                    Martel's game is defined by intensity. He consistently ranks in the top percentiles for distance
+                    covered and tackles attempted. While his passing range is functional rather than expansive, his
+                    ability to disrupt opposition rhythm is elite. A potential future captain for a mid-table Bundesliga
+                    side or a smart pickup for a Premier League team needing grit.
+                    <strong>Empire FGA Rating: 80.5/100 — Tier 1 Destroyer.</strong>
+                </div>
+
+                <div class="season-stats-grid">
+                    <div class="season-stat-box">
+                        <div class="season-stat-value">17</div>
+                        <div class="season-stat-label">League Apps</div>
+                    </div>
+                    <div class="season-stat-box">
+                        <div class="season-stat-value">3.4</div>
+                        <div class="season-stat-label">Tackles P90</div>
+                    </div>
+                    <div class="season-stat-box">
+                        <div class="season-stat-value">68%</div>
+                        <div class="season-stat-label">Aerial Win %</div>
+                    </div>
+                    <div class="season-stat-box">
+                        <div class="season-stat-value">11.8</div>
+                        <div class="season-stat-label">Km Run P90</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scouting Analysis -->
+            <div class="card">
+                <h2>🔍 Scouting Analysis: The Cologne Wall</h2>
+                <div class="two-col">
+                    <div class="muted-box">
+                        <strong style="color: var(--white);">Phase 1: Ball Winning</strong><br>
+                        Martel acts as a vacuum in front of the defense. He excels at breaking up play through
+                        interception and aggressive pressing. His long legs allow him to win tackles that seem out of
+                        reach.
+                    </div>
+                    <div class="muted-box">
+                        <strong style="color: var(--white);">Phase 2: Transition Safety</strong><br>
+                        Upon winning the ball, his first instinct is safety. He rarely overcomplicates possession,
+                        looking for the nearest creative outlet immediately to secure the transition.
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <strong style="color: var(--accent2);">Empire Tactical Note:</strong> Ideal for high-pressing teams
+                    as the "Safety Net." His recovery speed and willingness to cover for advanced fullbacks make him a
+                    manager's dream in chaotic game states.
+                </div>
+            </div>
+
+            <!-- Performance Log -->
+            <div class="card">
+                <h2>⚡ 2025/26 Performance Log & Progress</h2>
+                <p class="small" style="margin-bottom: 16px;">Verified match events.</p>
+
+                <div class="match-card result-w">
+                    <div class="match-teams">
+                        <span class="match-team home">1. FC Köln</span>
+                        <span class="match-team">Darmstadt</span>
+                    </div>
+                    <div class="match-score">2 - 0</div>
+                    <div class="match-info">
+                        <div class="match-date">Jan 12, 2026</div>
+                        <div class="match-comp">Bundesliga (90 Mins)</div>
+                    </div>
+                </div>
+
+                <div class="match-card result-w">
+                    <div class="match-teams">
+                        <span class="match-team">Mainz 05</span>
+                        <span class="match-team home">1. FC Köln</span>
+                    </div>
+                    <div class="match-score">0 - 1</div>
+                    <div class="match-info">
+                        <div class="match-date">Jan 06, 2026</div>
+                        <div class="match-comp">Friendly (60 Mins)</div>
+                    </div>
+                </div>
+
+                <div class="muted-box" style="margin-top: 16px;">
+                    <strong style="color: var(--accent2);">Scout Intelligence:</strong> Scouts from Everton and
+                    Brentford have been spotted at Köln matches recently, likely monitoring Martel as a potential
+                    Premier League recruit due to his physical profile.
+                </div>
+            </div>
+
+            <!-- FGA Metrics -->
+            <div class="card">
+                <h2>📊 Core FGA Intelligence Metrics</h2>
+                <div class="three-col">
+                    <div>
+                        <h3>🤖 Automatic</h3>
+                        <p class="small" style="margin-bottom: 8px;">Pure Quantitative Data</p>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">STA (Stamina)</span><span
+                                    class="metric-score">95</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">STR (Strength)</span><span
+                                    class="metric-score">88</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">TAC (Tackling)</span><span
+                                    class="metric-score">90</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">AER (Aerial)</span><span
+                                    class="metric-score">86</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 86%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">INT (Interceptions)</span><span
+                                    class="metric-score">85</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>⚙️ Semi-Auto</h3>
+                        <p class="small" style="margin-bottom: 8px;">Hybrid Data/Scout</p>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">TEC (Technique)</span><span
+                                    class="metric-score">76</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 76%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">PAS (Passing)</span><span
+                                    class="metric-score">78</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 78%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">AGG (Aggression)</span><span
+                                    class="metric-score">94</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 94%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">POS (Positioning)</span><span
+                                    class="metric-score">85</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">WOR (Work Rate)</span><span
+                                    class="metric-score">96</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 96%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>🧠 Manual Assessment</h3>
+                        <p class="small" style="margin-bottom: 8px;">Expert Human Analysis</p>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">IQ (Game Intelligence)</span><span
+                                    class="metric-score">82</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 82%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">LEA (Leadership)</span><span
+                                    class="metric-score">85</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">COM (Composure)</span><span
+                                    class="metric-score">80</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">BRA (Bravery)</span><span
+                                    class="metric-score">95</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">DIS (Discipline)</span><span
+                                    class="metric-score">84</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 84%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Radar Chart -->
+            <div class="card">
+                <h2>📊 FGA Performance Radar: Martel vs Bundesliga Destroyers</h2>
+                <p class="small" style="margin-bottom: 14px;">Comparative analysis vs Andrich, Laimer (Ref), and Can.
+                </p>
+                <div class="visual-canvas">
+                    <canvas id="performanceRadar"></canvas>
+                </div>
+                <script>
+                    const ctx = document.getElementById('performanceRadar').getContext('2d');
+                    new Chart(ctx, {
+                        type: 'radar',
+                        data: {
+                            labels: ['Defensive Actions', 'Work Rate', 'Aerial Presence', 'Passing', 'Technique', 'Aggression'],
+                            datasets: [{
+                                label: 'Eric Martel (Köln)',
+                                data: [92, 96, 86, 78, 76, 94],
+                                backgroundColor: 'rgba(227, 6, 19, 0.2)',
+                                borderColor: '#e30613',
+                                borderWidth: 3
+                            }, {
+                                label: 'Robert Andrich (Leverkusen)',
+                                data: [90, 92, 88, 85, 82, 95],
+                                backgroundColor: 'rgba(0, 0, 0, 0.1)',
+                                borderColor: '#000000',
+                                borderWidth: 1
+                            }, {
+                                label: 'Konrad Laimer (Legacy Ref)',
+                                data: [95, 99, 70, 82, 85, 96],
+                                backgroundColor: 'rgba(220, 5, 45, 0.1)',
+                                borderColor: '#DC052D',
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                r: {
+                                    angleLines: { color: 'rgba(255, 255, 255, 0.05)' },
+                                    grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                                    pointLabels: { color: '#a0a0a0', font: { size: 11, weight: 'bold' } },
+                                    ticks: { display: false },
+                                    suggestedMin: 60,
+                                    suggestedMax: 100
+                                }
+                            },
+                            plugins: {
+                                legend: {
+                                    labels: { color: '#f5f5f5', font: { size: 12, weight: '600' } }
+                                }
+                            }
+                        }
+                    });
+                </script>
+            </div>
+
+            <!-- Tactical Roadmap -->
+            <div class="card">
+                <h2>🚀 Tactical Roadmap: The Destroyer's Evolution</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">Stage 1: Bundesliga Dominance (2025/26)</div>
+                    <div class="timeline-event">Key objective: Lead Köln's midfield regeneration. Target: Top 5 in
+                        Bundesliga for tackles + interceptions.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Stage 2: Premier League Move (2026/27)</div>
+                    <div class="timeline-event">Target: Secure a move to a high-intensity league like the PL where his
+                        physical attributes will shine.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Stage 3: National Team Squad (2027+)</div>
+                    <div class="timeline-event">Target: Become a regular squad option for Germany as a defensive
+                        specialist.</div>
+                </div>
+            </div>
+
+            <!-- 60-Philosophy Framework -->
+            <div class="card">
+                <h2>🧠 60-Philosophy Framework Alignment</h2>
+                <p class="small" style="margin-bottom: 12px;">Tactical suitability for modern structures.</p>
+
+                <h3>Top Philosophy Fits</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                    <span class="pill">Philosophy_18_Sacchi_Pressing 95/100</span>
+                    <span class="pill">Philosophy_10_Klopp_Gegenpress 94/100</span>
+                    <span class="pill">Philosophy_13_Simeone_Block 92/100</span>
+                    <span class="pill">Philosophy_04_Mourinho_Structure 90/100</span>
+                    <span class="pill">Philosophy_07_Guardiola_Positional 72/100</span>
+                </div>
+
+                <div class="muted-box">
+                    <strong style="color: var(--accent2);">Tactical Match Assessment:</strong> Martel is a "System
+                    Fixer" for high-energy teams. He is less suited to pure possession-based "Tiki-Taka" that requires
+                    elite technical fluidity, but perfectly matched for Gegenpressing or Simeone-style low blocks.
+                </div>
+            </div>
+
+            <!-- Career Statistics -->
+            <div class="card">
+                <h2>📈 Career Statistics Overview</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Club</th>
+                            <th>Season</th>
+                            <th>Apps</th>
+                            <th>Win%</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background: rgba(227, 6, 19, 0.15);">
+                            <td><strong>1. FC Köln</strong></td>
+                            <td>2025/26</td>
+                            <td>17</td>
+                            <td>45%</td>
+                            <td><strong>MIDFIELD GENERAL</strong></td>
+                        </tr>
+                        <tr>
+                            <td>1. FC Köln</td>
+                            <td>2024/25</td>
+                            <td>32</td>
+                            <td>52%</td>
+                            <td>Promotion Hero</td>
+                        </tr>
+                        <tr>
+                            <td>1. FC Köln</td>
+                            <td>2023/24</td>
+                            <td>30</td>
+                            <td>30%</td>
+                            <td>Relegation Battler</td>
+                        </tr>
+                        <tr>
+                            <td>Austria Wien</td>
+                            <td>2021/22</td>
+                            <td>33</td>
+                            <td>48%</td>
+                            <td>Breakout Loan</td>
+                        </tr>
+                        <tr>
+                            <td>RB Leipzig II</td>
+                            <td>2020/21</td>
+                            <td>18</td>
+                            <td>60%</td>
+                            <td>Academy</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="muted-box" style="margin-top: 16px;">
+                    <strong style="color: var(--accent2);">Acquisition Matrix:</strong> Current Value: €12m. Risk: LOW.
+                    High floor due to physical traits. A "Budget Beast" for any team needing immediate defensive
+                    solidity.
+                </div>
+            </div>
+
+            <!-- Final Scout Assessment -->
+            <div class="card">
+                <h2>🏁 Final Scout Assessment</h2>
+                <div style="display: flex; gap: 20px; align-items: center;">
+                    <div style="flex: 1;">
+                        <p class="small">
+                            Eric Martel is not the most glamorous player, but his effectiveness is undeniable. He
+                            provides the steel that allows others to shine. For teams that suffer from being too open in
+                            transition, he is the perfect antidote.
+                        </p>
+                    </div>
+                    <div class="stat-box" style="width: 140px;">
+                        <span class="stat-value">B+</span>
+                        <span class="stat-label">FGA Technical Grade</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
