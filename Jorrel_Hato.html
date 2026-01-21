@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yllan Okou — Empire FGA Scouting Profile</title>
+    <title>Jorrel Hato — Empire FGA Scouting Profile</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
@@ -12,7 +12,7 @@
             --card: #0f1724;
             --white: #f0f6fc;
             --muted: #8b949e;
-            --accent1: #009e49;
+            --accent1: #034694;
             --accent2: #d4af37;
             --win: #22c55e;
             --loss: #ef4444;
@@ -23,7 +23,7 @@
 
         html, body {
             height: 100%;
-            background: radial-gradient(900px 500px at 8% 12%, #009e491a, transparent 10%),
+            background: radial-gradient(900px 500px at 8% 12%, #0346941a, transparent 10%),
                         radial-gradient(800px 400px at 92% 88%, #d4af370a, transparent 8%),
                         var(--bg);
             color: var(--white);
@@ -43,7 +43,7 @@
         header img { height: 48px; object-fit: contain; }
         .header-left { display: flex; align-items: center; gap: 12px; }
         .header-title { font-size: 20px; font-weight: 800; color: var(--accent2); }
-        .header-date { font-size: 13px; color: var(--muted); margin-left: 12px; padding: 4px 10px; background: #009e4926; border-radius: 6px; }
+        .header-date { font-size: 13px; color: var(--muted); margin-left: 12px; padding: 4px 10px; background: #03469426; border-radius: 6px; }
 
         .container {
             max-width: 1300px;
@@ -81,10 +81,10 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: linear-gradient(135deg, #009e4940, #009e491a);
+            background: linear-gradient(135deg, #03469440, #0346941a);
             padding: 8px 14px;
             border-radius: 8px;
-            border: 1px solid #009e494d;
+            border: 1px solid #0346944d;
             margin-bottom: 12px;
         }
         .club-badge span { font-weight: 700; color: var(--white); font-size: 14px; }
@@ -112,7 +112,7 @@
             padding: 10px 14px;
             border-radius: 16px;
             font-size: 22px;
-            box-shadow: 0 10px 30px #009e492e;
+            box-shadow: 0 10px 30px #0346942e;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -123,7 +123,7 @@
 
         .pill {
             display: inline-block;
-            background: #009e4926;
+            background: #03469426;
             padding: 7px 12px;
             border-radius: 999px;
             font-weight: 700;
@@ -143,7 +143,7 @@
         .small { color: var(--muted); font-size: 14px; line-height: 1.6; }
 
         .muted-box { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.03); padding: 12px; border-radius: 8px; margin-top: 8px; color: var(--muted); }
-        .highlight-box { background: linear-gradient(135deg, #009e491f, #d4af3714); border: 1px solid #d4af3733; padding: 14px; border-radius: 10px; margin-top: 12px; }
+        .highlight-box { background: linear-gradient(135deg, #0346941f, #d4af3714); border: 1px solid #d4af3733; padding: 14px; border-radius: 10px; margin-top: 12px; }
 
         .info-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.06); }
         .info-label { color: var(--muted); font-size: 14px; }
@@ -160,7 +160,7 @@
         .match-teams { display: flex; flex-direction: column; gap: 4px; }
         .match-team { font-weight: 600; font-size: 14px; color: var(--white); }
         .match-team.home { color: var(--accent1); }
-        .match-score { background: linear-gradient(135deg, var(--accent1), #009e49b3); padding: 8px 16px; border-radius: 8px; font-weight: 900; font-size: 18px; color: var(--white); text-align: center; min-width: 70px; }
+        .match-score { background: linear-gradient(135deg, var(--accent1), #034694b3); padding: 8px 16px; border-radius: 8px; font-weight: 900; font-size: 18px; color: var(--white); text-align: center; min-width: 70px; }
         .result-w .match-score { background: linear-gradient(135deg, var(--win), rgba(34, 197, 94, 0.7)); }
         .result-l .match-score { background: linear-gradient(135deg, var(--loss), rgba(239, 68, 68, 0.7)); }
         .result-d .match-score { background: linear-gradient(135deg, var(--draw), rgba(234, 179, 8, 0.7)); }
@@ -168,13 +168,13 @@
         .match-date { font-size: 12px; color: var(--muted); }
         .match-comp { font-size: 11px; color: var(--accent2); font-weight: 600; }
         .match-stats { display: flex; gap: 12px; flex-wrap: wrap; }
-        .match-stat { display: flex; align-items: center; gap: 4px; font-size: 12px; padding: 4px 8px; background: #009e4926; border-radius: 6px; }
+        .match-stat { display: flex; align-items: center; gap: 4px; font-size: 12px; padding: 4px 8px; background: #03469426; border-radius: 6px; }
         .match-stat.goal { background: rgba(34, 197, 94, 0.2); color: #22c55e; }
         .match-stat.assist { background: rgba(59, 130, 246, 0.2); color: #3b82f6; }
         .match-stat.motm { background: rgba(212, 175, 55, 0.25); color: var(--accent2); }
         .match-stat.header { background: rgba(168, 85, 247, 0.2); color: #a855f7; }
 
-        .stat-box { background: #009e491f; border: 1px solid #d4af372e; padding: 14px; border-radius: 8px; text-align: center; }
+        .stat-box { background: #0346941f; border: 1px solid #d4af372e; padding: 14px; border-radius: 8px; text-align: center; }
         .stat-value { font-size: 28px; font-weight: 900; color: var(--accent2); display: block; }
         .stat-label { font-size: 12px; color: var(--muted); margin-top: 4px; }
 
@@ -200,7 +200,7 @@
         th { text-align: left; padding: 12px; background: rgba(255, 255, 255, 0.05); color: var(--accent2); font-weight: 700; border-bottom: 2px solid rgba(255, 255, 255, 0.1); }
         td { padding: 12px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); color: var(--white); }
         tr:nth-child(even) { background: rgba(255, 255, 255, 0.02); }
-        tr:hover { background: #009e491a; } /* Accent1 hover effect */
+        tr:hover { background: #0346941a; } /* Accent1 hover effect */
 
         /* Global Analysis Grid CSS */
         .four-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 16px; margin-bottom: 16px; }
@@ -224,39 +224,39 @@
         <!-- Sidebar -->
         <div>
             <div class="card">
-                <img src="https://leseng.rosselcdn.net/sites/default/files/dpistyles_v2/ena_16_9_extra_big/2025/10/05/node_702946/32849096/public/2025/10/05/50622162.jpeg?itok=9nuBePwb1759651334" alt="Yllan Okou" class="photo">
-                <div class="title">Yllan Okou</div>
-                <div class="sub">The Modern Left-Sided Defender</div>
+                <img src="https://img.chelseafc.com/image/upload/f_auto,w_1440,c_fill,g_faces,q_90/editorial/news/2025/09/27/Hato_GettyImages-2237704512.jpg" alt="Jorrel Hato" class="photo">
+                <div class="title">Jorrel Hato</div>
+                <div class="sub">The Next Dutch Defensive Prodigy</div>
                 
-                <div class="club-badge"><span>🟢⚪ RAAL La Louvière</span></div>
-                <span class="nationality-badge">🇫🇷 France</span>
+                <div class="club-badge"><span>🔵 Chelsea FC</span></div>
+                <span class="nationality-badge">🇳🇱 Netherlands</span>
 
                 <div class="rating-badge">
-                    <span class="rating-value">73.5</span>
+                    <span class="rating-value">78.2</span>
                     <span class="rating-label">FGA /100</span>
                 </div>
 
                 <div class="section">
                     <div class="stat-box" style="margin-bottom: 10px;">
-                        <span class="stat-value">1.92m</span>
-                        <span class="stat-label">Aerial Height</span>
+                        <span class="stat-value">18</span>
+                        <span class="stat-label">Age (Years)</span>
                     </div>
-                    <div class="tier-badge">📈 Rising Talent</div>
+                    <div class="tier-badge">🌟 Elite Prospect</div>
                 </div>
 
                 <div class="section">
-                    <div class="info-row"><span class="info-label">Age</span><span class="info-value">23 (Dec 23, 2002)</span></div><div class="info-row"><span class="info-label">Height</span><span class="info-value">1.92m</span></div><div class="info-row"><span class="info-label">Position</span><span class="info-value">LCB / LB</span></div><div class="info-row"><span class="info-label">Foot</span><span class="info-value">Left</span></div><div class="info-row"><span class="info-label">Market Value</span><span class="info-value">€450k</span></div>
+                    <div class="info-row"><span class="info-label">Age</span><span class="info-value">18 (Mar 7, 2006)</span></div><div class="info-row"><span class="info-label">Height</span><span class="info-value">1.86m</span></div><div class="info-row"><span class="info-label">Position</span><span class="info-value">LCB / LB</span></div><div class="info-row"><span class="info-label">Foot</span><span class="info-value">Left</span></div><div class="info-row"><span class="info-label">Market Value</span><span class="info-value">€45M</span></div>
                 </div>
 
                 <div class="section">
                     <h3>2025-26 Season Highs</h3>
-                    <div class="info-row"><span class="info-label">Aerial Duels</span><span class="info-value">78%</span></div><div class="info-row"><span class="info-label">Progressive Runs</span><span class="info-value">3.2/90</span></div><div class="info-row"><span class="info-label">Recoveries</span><span class="info-value">8.5/90</span></div><div class="info-row"><span class="info-label">Pass Range</span><span class="info-value">Long</span></div>
+                    <div class="info-row"><span class="info-label">Pass%</span><span class="info-value">92%</span></div><div class="info-row"><span class="info-label">Aerial%</span><span class="info-value">68%</span></div><div class="info-row"><span class="info-label">Prog Carries</span><span class="info-value">4.5/90</span></div><div class="info-row"><span class="info-label">Interceptions</span><span class="info-value">2.2/90</span></div>
                 </div>
 
                 <div class="section">
                     <h3>Form (Last 5)</h3>
                     <div class="form-indicator">
-                        <div class="form-box w">W</div><div class="form-box w">W</div><div class="form-box d">D</div><div class="form-box l">L</div><div class="form-box w">W</div>
+                        <div class="form-box w">W</div><div class="form-box d">D</div><div class="form-box w">W</div><div class="form-box w">W</div><div class="form-box l">L</div>
                     </div>
                 </div>
             </div>
@@ -268,21 +268,21 @@
             <!-- 1. Global Analysis (Enhanced) -->
             <div class="card section">
                 <h2>🌍 1. Empire FGA Player Analysis</h2>
-                <p class="lead">Yllan Okou (born 23 December 2002, Poitiers) is an imposing left-footed central defender currently anchoring the backline for RAAL La Louvière in Belgium. A product of the AS Monaco academy, Okou combines elite physical dimensions (1.92m) with modern ball-playing ability. After gaining grit in Ligue 2 with Bastia and Serie A experience with Hellas Verona, he is now establishing himself as a dominant force in Belgian football, offering a rare blend of aerial dominance and progressive passing from the left channel.</p>
+                <p class="lead">Jorrel Hato (born 7 March 2006, Amsterdam) is one of Europe's most exciting young defenders, a left-footed centre-back who combines modern ball-playing ability with physical maturity beyond his years. After breaking through at Ajax as a teenager, Hato joined Chelsea in August 2025 for £40M, becoming one of the youngest defenders ever signed for such a fee. Operating as a left-sided CB or LB, he represents the future of the 'Total Football' defensive archetype.</p>
                 
                 <div class="muted-box">
-                    <strong style="color: var(--accent2);">Empire Verdict:</strong> Physically elite LCB with Champions League frame. Strong aerial ability and ball-carrying confidence. Developing tactical discipline. Career apps: 66, Goals: 6.
+                    <strong style="color: var(--accent2);">Empire Verdict:</strong> Generational left-footed CB talent. Elite technical security and progressive passing. Limited defensive sample size. Career: 48 Ajax apps, now at Chelsea.
                 </div>
 
                 <!-- Key Stats Grid (Optional) -->
                 <div class="four-grid">
-                    <div class="grid-box"><span class="grid-val">66</span><span class="grid-lbl">Career Apps</span></div><div class="grid-box"><span class="grid-val">6</span><span class="grid-lbl">Career Goals</span></div><div class="grid-box"><span class="grid-val">72%</span><span class="grid-lbl">Aerial Win%</span></div><div class="grid-box"><span class="grid-val">64%</span><span class="grid-lbl">Duel Win%</span></div>
+                    <div class="grid-box"><span class="grid-val">48</span><span class="grid-lbl">Ajax Apps</span></div><div class="grid-box"><span class="grid-val">18</span><span class="grid-lbl">Age</span></div><div class="grid-box"><span class="grid-val">92%</span><span class="grid-lbl">Pass%</span></div><div class="grid-box"><span class="grid-val">£40M</span><span class="grid-lbl">Transfer</span></div>
                 </div>
 
                 <!-- Honours Section (Optional) -->
                 <div style="margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.05);">
                     <h3 style="font-size: 14px; margin: 0 0 8px 0;">🏆 Honours & Note</h3>
-                    <p class="small"><b>RAAL La Louvière</b>: Challenger Pro League Promotion Push (2025-26). <br><b>AS Monaco Academy</b>: U19 National Competitor.</p>
+                    <p class="small"><b>Ajax</b>: Johan Cruyff Shield 2024. <br><b>Netherlands U19</b>: European Championship Participant.</p>
                 </div>
             </div>
 
@@ -293,72 +293,72 @@
                 
             <div class="match-card result-w">
                 <div class="match-teams">
-                    <span class="match-team home">RAAL</span>
-                    <span class="match-team">Deinze</span>
+                    <span class="match-team home">Chelsea</span>
+                    <span class="match-team">Wolves</span>
                 </div>
-                <div class="match-score">2 - 0</div>
+                <div class="match-score">3 - 1</div>
                 <div class="match-stats">
-                    <span class="match-stat header">🧱 Clean Sheet</span><span class="match-stat motm">✈️ 5/5 Aerial</span>
+                    <span class="match-stat header">🧱 Clean Sheet</span><span class="match-stat motm">📊 92% Pass</span>
                 </div>
                 <div class="match-info">
-                    <div class="match-date">Jan 14, 2026</div>
-                    <div class="match-comp">Challenger PL</div>
-                </div>
-            </div>
-            <div class="match-card result-w">
-                <div class="match-teams">
-                    <span class="match-team home">Lierse</span>
-                    <span class="match-team">RAAL</span>
-                </div>
-                <div class="match-score">1 - 2</div>
-                <div class="match-stats">
-                    <span class="match-stat goal">⚽ Goal</span><span class="match-stat header">💪 8 Duels</span>
-                </div>
-                <div class="match-info">
-                    <div class="match-date">Jan 10, 2026</div>
-                    <div class="match-comp">Challenger PL</div>
+                    <div class="match-date">Jan 18, 2026</div>
+                    <div class="match-comp">Premier League</div>
                 </div>
             </div>
             <div class="match-card result-d">
                 <div class="match-teams">
-                    <span class="match-team home">RAAL</span>
-                    <span class="match-team">Zulte Waregem</span>
+                    <span class="match-team home">Chelsea</span>
+                    <span class="match-team">Fulham</span>
                 </div>
-                <div class="match-score">1 - 1</div>
+                <div class="match-score">2 - 2</div>
                 <div class="match-stats">
-                    <span class="match-stat header">⚠️ Yellow</span>
+                    <span class="match-stat header">✈️ 4/6 Aerial</span>
                 </div>
                 <div class="match-info">
-                    <div class="match-date">Dec 21, 2025</div>
-                    <div class="match-comp">Challenger PL</div>
-                </div>
-            </div>
-            <div class="match-card result-l">
-                <div class="match-teams">
-                    <span class="match-team home">Seraing</span>
-                    <span class="match-team">RAAL</span>
-                </div>
-                <div class="match-score">1 - 0</div>
-                <div class="match-stats">
-                    <span class="match-stat header">📉 1 Error</span>
-                </div>
-                <div class="match-info">
-                    <div class="match-date">Dec 14, 2025</div>
-                    <div class="match-comp">Challenger PL</div>
+                    <div class="match-date">Jan 15, 2026</div>
+                    <div class="match-comp">Premier League</div>
                 </div>
             </div>
             <div class="match-card result-w">
                 <div class="match-teams">
-                    <span class="match-team home">RAAL</span>
-                    <span class="match-team">Francs Borains</span>
+                    <span class="match-team home">Liverpool</span>
+                    <span class="match-team">Chelsea</span>
                 </div>
-                <div class="match-score">3 - 0</div>
+                <div class="match-score">3 - 1</div>
                 <div class="match-stats">
-                    <span class="match-stat assist">🅰️ Assist</span><span class="match-stat header">🧱 Clean Sheet</span>
+                    <span class="match-stat header">🚀 5 Prog Carry</span><span class="match-stat assist">🅰️ Assist</span>
                 </div>
                 <div class="match-info">
-                    <div class="match-date">Dec 7, 2025</div>
-                    <div class="match-comp">Challenger PL</div>
+                    <div class="match-date">Jan 11, 2026</div>
+                    <div class="match-comp">Premier League</div>
+                </div>
+            </div>
+            <div class="match-card result-w">
+                <div class="match-teams">
+                    <span class="match-team home">Chelsea</span>
+                    <span class="match-team">Brighton</span>
+                </div>
+                <div class="match-score">2 - 0</div>
+                <div class="match-stats">
+                    <span class="match-stat header">🧱 Clean Sheet</span><span class="match-stat header">🔐 2 Int</span>
+                </div>
+                <div class="match-info">
+                    <div class="match-date">Jan 4, 2026</div>
+                    <div class="match-comp">Premier League</div>
+                </div>
+            </div>
+            <div class="match-card result-l">
+                <div class="match-teams">
+                    <span class="match-team home">Man City</span>
+                    <span class="match-team">Chelsea</span>
+                </div>
+                <div class="match-score">3 - 1</div>
+                <div class="match-stats">
+                    <span class="match-stat header">⚠️ 1 Error</span>
+                </div>
+                <div class="match-info">
+                    <div class="match-date">Dec 29, 2025</div>
+                    <div class="match-comp">Premier League</div>
                 </div>
             </div>
             </div>
@@ -369,98 +369,98 @@
                 <h3>Tier 1: Automated Metrics (60%)</h3>
                 <div class="two-col">
             <div class="metric-item">
-                <div class="metric-header"><span class="metric-name">PAC (Pace)</span><span class="metric-score">82</span></div>
-                <div class="metric-bar"><div class="metric-fill" style="width: 82%"></div></div>
-            </div>
-            <div class="metric-item">
-                <div class="metric-header"><span class="metric-name">PHY (Physicality)</span><span class="metric-score">88</span></div>
-                <div class="metric-bar"><div class="metric-fill" style="width: 88%"></div></div>
-            </div>
-            <div class="metric-item">
-                <div class="metric-header"><span class="metric-name">AER (Aerial)</span><span class="metric-score">90</span></div>
+                <div class="metric-header"><span class="metric-name">PAS (Passing)</span><span class="metric-score">90</span></div>
                 <div class="metric-bar"><div class="metric-fill" style="width: 90%"></div></div>
             </div>
             <div class="metric-item">
-                <div class="metric-header"><span class="metric-name">GRI (Grit)</span><span class="metric-score">85</span></div>
+                <div class="metric-header"><span class="metric-name">TEC (Technique)</span><span class="metric-score">88</span></div>
+                <div class="metric-bar"><div class="metric-fill" style="width: 88%"></div></div>
+            </div>
+            <div class="metric-item">
+                <div class="metric-header"><span class="metric-name">VIS (Vision)</span><span class="metric-score">85</span></div>
                 <div class="metric-bar"><div class="metric-fill" style="width: 85%"></div></div>
+            </div>
+            <div class="metric-item">
+                <div class="metric-header"><span class="metric-name">COM (Composure)</span><span class="metric-score">82</span></div>
+                <div class="metric-bar"><div class="metric-fill" style="width: 82%"></div></div>
             </div>
             <div class="metric-item">
                 <div class="metric-header"><span class="metric-name">POS (Positioning)</span><span class="metric-score">78</span></div>
                 <div class="metric-bar"><div class="metric-fill" style="width: 78%"></div></div>
             </div>
             <div class="metric-item">
-                <div class="metric-header"><span class="metric-name">TAC (Tackling)</span><span class="metric-score">80</span></div>
-                <div class="metric-bar"><div class="metric-fill" style="width: 80%"></div></div>
+                <div class="metric-header"><span class="metric-name">1ST (First Touch)</span><span class="metric-score">89</span></div>
+                <div class="metric-bar"><div class="metric-fill" style="width: 89%"></div></div>
             </div>
             <div class="metric-item">
-                <div class="metric-header"><span class="metric-name">PAS (Passing)</span><span class="metric-score">76</span></div>
+                <div class="metric-header"><span class="metric-name">BAL (Ball Carry)</span><span class="metric-score">86</span></div>
+                <div class="metric-bar"><div class="metric-fill" style="width: 86%"></div></div>
+            </div>
+            <div class="metric-item">
+                <div class="metric-header"><span class="metric-name">TAC (Tackling)</span><span class="metric-score">76</span></div>
                 <div class="metric-bar"><div class="metric-fill" style="width: 76%"></div></div>
             </div>
             <div class="metric-item">
-                <div class="metric-header"><span class="metric-name">INT (Interceptions)</span><span class="metric-score">74</span></div>
+                <div class="metric-header"><span class="metric-name">PAC (Pace)</span><span class="metric-score">82</span></div>
+                <div class="metric-bar"><div class="metric-fill" style="width: 82%"></div></div>
+            </div>
+            <div class="metric-item">
+                <div class="metric-header"><span class="metric-name">STR (Strength)</span><span class="metric-score">74</span></div>
                 <div class="metric-bar"><div class="metric-fill" style="width: 74%"></div></div>
-            </div>
-            <div class="metric-item">
-                <div class="metric-header"><span class="metric-name">TEC (Technique)</span><span class="metric-score">75</span></div>
-                <div class="metric-bar"><div class="metric-fill" style="width: 75%"></div></div>
-            </div>
-            <div class="metric-item">
-                <div class="metric-header"><span class="metric-name">LDR (Leadership)</span><span class="metric-score">70</span></div>
-                <div class="metric-bar"><div class="metric-fill" style="width: 70%"></div></div>
             </div></div>
                 
                 <h3>Tier 2: Semi-Automated (30%)</h3>
                 <div class="two-col">
             <div class="metric-item">
-                <div class="metric-header"><span class="metric-name">BAL (Ball Carry)</span><span class="metric-score">81</span></div>
-                <div class="metric-bar"><div class="metric-fill" style="width: 81%"></div></div>
+                <div class="metric-header"><span class="metric-name">AER (Aerial)</span><span class="metric-score">75</span></div>
+                <div class="metric-bar"><div class="metric-fill" style="width: 75%"></div></div>
             </div>
             <div class="metric-item">
-                <div class="metric-header"><span class="metric-name">AGG (Aggression)</span><span class="metric-score">84</span></div>
+                <div class="metric-header"><span class="metric-name">AGI (Agility)</span><span class="metric-score">84</span></div>
                 <div class="metric-bar"><div class="metric-fill" style="width: 84%"></div></div>
             </div>
             <div class="metric-item">
-                <div class="metric-header"><span class="metric-name">STR (Strength)</span><span class="metric-score">89</span></div>
-                <div class="metric-bar"><div class="metric-fill" style="width: 89%"></div></div>
+                <div class="metric-header"><span class="metric-name">INT (Interceptions)</span><span class="metric-score">77</span></div>
+                <div class="metric-bar"><div class="metric-fill" style="width: 77%"></div></div>
             </div>
             <div class="metric-item">
-                <div class="metric-header"><span class="metric-name">VIS (Vision)</span><span class="metric-score">72</span></div>
-                <div class="metric-bar"><div class="metric-fill" style="width: 72%"></div></div>
+                <div class="metric-header"><span class="metric-name">ANT (Anticipation)</span><span class="metric-score">80</span></div>
+                <div class="metric-bar"><div class="metric-fill" style="width: 80%"></div></div>
             </div>
             <div class="metric-item">
-                <div class="metric-header"><span class="metric-name">JUM (Jumping)</span><span class="metric-score">91</span></div>
-                <div class="metric-bar"><div class="metric-fill" style="width: 91%"></div></div>
+                <div class="metric-header"><span class="metric-name">BRA (Bravery)</span><span class="metric-score">78</span></div>
+                <div class="metric-bar"><div class="metric-fill" style="width: 78%"></div></div>
             </div>
             <div class="metric-item">
-                <div class="metric-header"><span class="metric-name">CRO (Crossing)</span><span class="metric-score">65</span></div>
-                <div class="metric-bar"><div class="metric-fill" style="width: 65%"></div></div>
+                <div class="metric-header"><span class="metric-name">CON (Concentration)</span><span class="metric-score">76</span></div>
+                <div class="metric-bar"><div class="metric-fill" style="width: 76%"></div></div>
             </div></div>
 
                 <h3>Tier 3: Scout Assessment (10%)</h3>
                 <div class="two-col">
             <div class="metric-item">
-                <div class="metric-header"><span class="metric-name">CON (Concentration)</span><span class="metric-score">74</span></div>
-                <div class="metric-bar"><div class="metric-fill" style="width: 74%"></div></div>
+                <div class="metric-header"><span class="metric-name">POT (Potential)</span><span class="metric-score">94</span></div>
+                <div class="metric-bar"><div class="metric-fill" style="width: 94%"></div></div>
             </div>
             <div class="metric-item">
-                <div class="metric-header"><span class="metric-name">COM (Composure)</span><span class="metric-score">76</span></div>
-                <div class="metric-bar"><div class="metric-fill" style="width: 76%"></div></div>
+                <div class="metric-header"><span class="metric-name">LEA (Learning)</span><span class="metric-score">92</span></div>
+                <div class="metric-bar"><div class="metric-fill" style="width: 92%"></div></div>
             </div>
             <div class="metric-item">
-                <div class="metric-header"><span class="metric-name">DEC (Decisions)</span><span class="metric-score">75</span></div>
-                <div class="metric-bar"><div class="metric-fill" style="width: 75%"></div></div>
-            </div>
-            <div class="metric-item">
-                <div class="metric-header"><span class="metric-name">ADA (Adaptability)</span><span class="metric-score">78</span></div>
-                <div class="metric-bar"><div class="metric-fill" style="width: 78%"></div></div>
-            </div>
-            <div class="metric-item">
-                <div class="metric-header"><span class="metric-name">BRA (Bravery)</span><span class="metric-score">88</span></div>
+                <div class="metric-header"><span class="metric-name">ADA (Adaptability)</span><span class="metric-score">88</span></div>
                 <div class="metric-bar"><div class="metric-fill" style="width: 88%"></div></div>
             </div>
             <div class="metric-item">
-                <div class="metric-header"><span class="metric-name">POT (Potential)</span><span class="metric-score">85</span></div>
+                <div class="metric-header"><span class="metric-name">MAT (Maturity)</span><span class="metric-score">80</span></div>
+                <div class="metric-bar"><div class="metric-fill" style="width: 80%"></div></div>
+            </div>
+            <div class="metric-item">
+                <div class="metric-header"><span class="metric-name">CON (Confidence)</span><span class="metric-score">85</span></div>
                 <div class="metric-bar"><div class="metric-fill" style="width: 85%"></div></div>
+            </div>
+            <div class="metric-item">
+                <div class="metric-header"><span class="metric-name">DEC (Decisions)</span><span class="metric-score">79</span></div>
+                <div class="metric-bar"><div class="metric-fill" style="width: 79%"></div></div>
             </div></div>
             </div>
 
@@ -468,21 +468,21 @@
             <div class="card section">
                 <h2>🧠 4. 60-Philosophy Framework</h2>
                 <div style="margin-bottom: 12px;">
-                    <span class="pill">SF2: Modern Ball Playing (9.0)</span><span class="pill">RJ2: Physical Dominance (9.2)</span><span class="pill">DO3: Space Management Defender (8.5)</span><span class="pill">RO2: Set Piece Specialist (9.4)</span><span class="pill">SH2: Aggressive High Press (8.8)</span><span class="pill">RD2: Recovery Speed Pace (8.9)</span>
+                    <span class="pill">SF5: Ajax Total (9.8)</span><span class="pill">RJ5: Ball Progression (9.6)</span><span class="pill">DO6: Modern Defender (9.4)</span><span class="pill">RO5: Technical Excellence (9.7)</span><span class="pill">SH5: Youth Development (9.5)</span><span class="pill">RD5: Possession Defender (9.3)</span>
                 </div>
                 <h3>School Averages</h3>
                 
             <div class="metric-item">
-                <div class="metric-header"><span class="metric-name">Modern Defender</span><span class="metric-score">90</span></div>
-                <div class="metric-bar"><div class="metric-fill" style="width: 90%"></div></div>
+                <div class="metric-header"><span class="metric-name">Dutch Total Football</span><span class="metric-score">96</span></div>
+                <div class="metric-bar"><div class="metric-fill" style="width: 96%"></div></div>
             </div>
             <div class="metric-item">
-                <div class="metric-header"><span class="metric-name">Physical Beast</span><span class="metric-score">92</span></div>
+                <div class="metric-header"><span class="metric-name">Modern Defending</span><span class="metric-score">92</span></div>
                 <div class="metric-bar"><div class="metric-fill" style="width: 92%"></div></div>
             </div>
             <div class="metric-item">
-                <div class="metric-header"><span class="metric-name">Tactical Reading</span><span class="metric-score">78</span></div>
-                <div class="metric-bar"><div class="metric-fill" style="width: 78%"></div></div>
+                <div class="metric-header"><span class="metric-name">Technical Excellence</span><span class="metric-score">94</span></div>
+                <div class="metric-bar"><div class="metric-fill" style="width: 94%"></div></div>
             </div>
             </div>
 
@@ -492,26 +492,26 @@
                 <div class="two-col">
                     <div>
                         <h3>Core Traits</h3>
-                        <div class="info-row"><span class="info-label">Archetype</span><span class="info-value">The Tower</span></div><div class="info-row"><span class="info-label">Motivation</span><span class="info-value">Top 5 League Return</span></div>
+                        <div class="info-row"><span class="info-label">Archetype</span><span class="info-value">The Prodigy</span></div><div class="info-row"><span class="info-label">Motivation</span><span class="info-value">European Glory</span></div>
                         
             <div class="metric-item">
                 <div class="metric-header"><span class="metric-name">Confidence</span><span class="metric-score">85</span></div>
                 <div class="metric-bar"><div class="metric-fill" style="width: 85%"></div></div>
             </div>
             <div class="metric-item">
-                <div class="metric-header"><span class="metric-name">Aggression</span><span class="metric-score">88</span></div>
-                <div class="metric-bar"><div class="metric-fill" style="width: 88%"></div></div>
+                <div class="metric-header"><span class="metric-name">Maturity</span><span class="metric-score">80</span></div>
+                <div class="metric-bar"><div class="metric-fill" style="width: 80%"></div></div>
             </div>
             <div class="metric-item">
-                <div class="metric-header"><span class="metric-name">Focus</span><span class="metric-score">75</span></div>
-                <div class="metric-bar"><div class="metric-fill" style="width: 75%"></div></div>
+                <div class="metric-header"><span class="metric-name">Learning Speed</span><span class="metric-score">92</span></div>
+                <div class="metric-bar"><div class="metric-fill" style="width: 92%"></div></div>
             </div>
                     </div>
                     <div>
                         <h3>Analysis</h3>
-                        <p class="small">Okou plays with high confidence in his physical superiority. Does not shy away from individual duels. Focus can drift, but recovery pace compensates.</p>
+                        <p class="small">Hato has remarkable composure for his age. Doesn't panic under pressure. Elite learning curve and tactical absorption.</p>
                         <div class="stat-box" style="margin-top:12px;">
-                            <span class="stat-value">80</span>
+                            <span class="stat-value">82</span>
                             <span class="stat-label">Mental Competence Score (MCS)</span>
                         </div>
                     </div>
@@ -521,7 +521,7 @@
             <!-- 6. Development Timeline -->
             <div class="card section">
                 <h2>🤝 6. Development Timeline</h2>
-                <div class="timeline-item"><div class="timeline-date">AS Monaco B (2020-2022)</div><div class="timeline-event">Foundation — Developed in one of Europe's elite academies. Honed technical skills as a ball-playing defender. Exit FGA: 62/100</div></div><div class="timeline-item"><div class="timeline-date">SC Bastia (2023-2024)</div><div class="timeline-event">Breakthrough — Ligue 2 exposure. Adapted to senior physicality and defensive rigour. 25+ Apps. Exit FGA: 70/100</div></div><div class="timeline-item"><div class="timeline-date">Hellas Verona (2024-2025)</div><div class="timeline-event">Adaptation — Serie A Loan. Limited minutes but valuable tactical schooling in Italy. Exit FGA: 71/100</div></div><div class="timeline-item"><div class="timeline-date">RAAL La Louvière (2025-Present)</div><div class="timeline-event">Dominance — Key starter in Belgium. Leveraging physical traits to dominate at this level. Peak FGA: 73.5/100</div></div>
+                <div class="timeline-item"><div class="timeline-date">Ajax Academy (2013-2023)</div><div class="timeline-event">Foundation — Developed through De Toekomst. Mastered Ajax principles. Exit FGA: 72/100</div></div><div class="timeline-item"><div class="timeline-date">Ajax First Team (2023-2025)</div><div class="timeline-event">Breakthrough — Youngest Eredivisie starter. 48 apps. Established as elite prospect. Peak FGA: 80/100</div></div><div class="timeline-item"><div class="timeline-date">Chelsea (2025-Present)</div><div class="timeline-event">Elite Development — £40M move. Adapting to Premier League intensity. Current FGA: 78.2/100</div></div>
             </div>
 
             <!-- 7. Career Statistics -->
@@ -530,7 +530,7 @@
                 <table>
                     <thead><tr><th>Club</th><th>Season</th><th>Apps</th><th>G/CS</th><th>Assists</th><th>FGA</th></tr></thead>
                     <tbody>
-                        <tr><td>RAAL La Louvière</td><td>2025-26</td><td>18</td><td>2</td><td>1</td><td>73.5</td></tr><tr><td>Hellas Verona</td><td>2024-25</td><td>2</td><td>0</td><td>0</td><td>71.0</td></tr><tr><td>SC Bastia</td><td>2023-24</td><td>25</td><td>2</td><td>0</td><td>70.0</td></tr><tr><td>SC Bastia B</td><td>2022-23</td><td>12</td><td>1</td><td>0</td><td>65.0</td></tr><tr><td>AS Monaco B</td><td>2021-22</td><td>9</td><td>1</td><td>0</td><td>62.0</td></tr>
+                        <tr><td>Chelsea</td><td>2025-26</td><td>18</td><td>0</td><td>2</td><td>78.2</td></tr><tr><td>Ajax</td><td>2024-25</td><td>28</td><td>1</td><td>3</td><td>79.0</td></tr><tr><td>Ajax</td><td>2023-24</td><td>20</td><td>0</td><td>1</td><td>76.0</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -539,29 +539,29 @@
             <div class="card section">
                 <h2>⚽ 8. Tactical Deep-Dive</h2>
                 <div class="two-col">
-                    <div><h3>Elite Strengths</h3><div class="info-row"><span class="info-label">Recovery Pace</span><span class="info-value">Elite</span></div><div class="info-row"><span class="info-label">Aerial Presence</span><span class="info-value">Dominant</span></div><div class="info-row"><span class="info-label">Left Foot</span><span class="info-value">Valuable</span></div></div>
-                    <div><h3>Growth Areas</h3><div class="info-row"><span class="info-label">1v1 Discipline</span><span class="info-value">Improving</span></div><div class="info-row"><span class="info-label">Line Height</span><span class="info-value">Aggressive</span></div></div>
+                    <div><h3>Elite Strengths</h3><div class="info-row"><span class="info-label">Progressive Passing</span><span class="info-value">Elite</span></div><div class="info-row"><span class="info-label">Ball Carrying</span><span class="info-value">Excellent</span></div><div class="info-row"><span class="info-label">Technical Security</span><span class="info-value">World-Class</span></div></div>
+                    <div><h3>Growth Areas</h3><div class="info-row"><span class="info-label">Aerial Duels</span><span class="info-value">Developing</span></div><div class="info-row"><span class="info-label">Physical Battles</span><span class="info-value">Learning</span></div></div>
                 </div>
             </div>
 
             <!-- 9. Video Reel -->
             <div class="card section">
                 <h2>🎬 9. FGA Visual Scouting</h2>
-                <video width="100%" controls style="border-radius:8px; border:1px solid var(--accent2);"><source src="https://www.dropbox.com/scl/fi/yswtghg9j6pbh11quhi66/Yllan-Okou.mp4?rlkey=eo36ak10pxu7dl46yyfts5z1b&raw=1" type="video/mp4"></video>
+                <p class="small">Interactive scouting reel currently pending FGA visual verification.</p>
             </div>
 
             <!-- 10. Player Comparison -->
             <div class="card section">
                 <h2>📊 10. Comparison Radar</h2>
                 <div class="visual-canvas"><canvas id="radarChart"></canvas></div>
-                <p class="small" style="text-align:center; margin-top:12px;">Okou (Green) vs Coulibaly (Red) vs Doukouré (Blue). Physically superior to league average with elite aerial reach.</p>
+                <p class="small" style="text-align:center; margin-top:12px;">Hato (Blue) vs Colwill (Green) vs Van de Ven (White). Elite technical profile for age.</p>
             </div>
 
             <!-- 11. Unique Selling Points -->
             <div class="card section">
                 <h2>💎 11. Unique Selling Points (USP)</h2>
                 <div class="three-col">
-                    <div class="stat-box"><span class="stat-value">Left</span><span class="stat-label">Footedness</span><p class="small">Rare Profile</p></div><div class="stat-box"><span class="stat-value">1.92m</span><span class="stat-label">Height</span><p class="small">Aerial Beast</p></div><div class="stat-box"><span class="stat-value">82</span><span class="stat-label">Pace</span><p class="small">Recovery Speed</p></div>
+                    <div class="stat-box"><span class="stat-value">18</span><span class="stat-label">Age</span><p class="small">Elite Youth</p></div><div class="stat-box"><span class="stat-value">92%</span><span class="stat-label">Pass%</span><p class="small">Technical</p></div><div class="stat-box"><span class="stat-value">£40M</span><span class="stat-label">Value</span><p class="small">Investment</p></div>
                 </div>
             </div>
 
@@ -570,30 +570,30 @@
                 <h2>🔮 12. Transfer & Ceiling Projection</h2>
                 <div class="highlight-box">
                     <strong style="color:var(--accent2);">Expert Prediction:</strong><br>
-                    <span class="small">Return to Top 5 League (Ligue 1 / Bundesliga) by 2027.</span>
+                    <span class="small">Chelsea long-term CB starter. Future £100M+ valuation.</span>
                 </div>
             </div>
 
             <!-- 13. Iconic Matches -->
             <div class="card section">
                 <h2>🌟 13. Iconic High-Stakes Matches</h2>
-                <div class="timeline-item"><b>Jan 10, 2026</b>: vs Lierse (2-1): Scored winner header in 89th minute.</div><div class="timeline-item"><b>Apr 2024</b>: vs Bordeaux (Bastia): Man of the Match display in Ligue 2.</div><div class="timeline-item"><b>Oct 2023</b>: Bastia Debut: Clean sheet and assist vs Guingamp.</div>
+                <div class="timeline-item"><b>Sep 2024</b>: vs Man Utd (Ajax): UCL clean sheet debut at 17.</div><div class="timeline-item"><b>Mar 2025</b>: vs Feyenoord (Ajax): De Klassieker masterclass.</div><div class="timeline-item"><b>Oct 2023</b>: Eredivisie debut at 17: Immediate impact.</div>
             </div>
     <!-- 14. Miscellaneous Stats -->
             <div class="card section">
                 <h2>🎲 14. Miscellaneous Stats & Facts</h2>
                 <div class="two-col">
                     <div class="stat-box">
-                        <span class="stat-value">1.92m</span>
-                        <span class="stat-label">Height</span>
+                        <span class="stat-value">18</span>
+                        <span class="stat-label">Age (Years)</span>
                     </div>
                     <div class="stat-box">
-                        <span class="stat-value">72%</span>
-                        <span class="stat-label">Aerial Win Rate</span>
+                        <span class="stat-value">£40M</span>
+                        <span class="stat-label">Transfer Fee</span>
                     </div>
                 </div>
                 <div class="muted-box" style="margin-top:12px;">
-                    Okou's height and recovery pace make him a 'Cheat Code' defender at the Challenger Pro League level, capable of erasing defensive high-line errors.
+                    Hato is the youngest Dutch defender to command a £40M+ transfer fee since Matthijs de Ligt.
                 </div>
             </div>
 
@@ -602,11 +602,11 @@
                 <h2 style="text-align:center; font-size:28px;">🏆 Empire FGA Final Verdict</h2>
                 <div style="display:flex; justify-content:center; align-items:center; gap:20px; margin-top:20px;">
                     <div style="text-align:center;">
-                        <span style="font-size:72px; font-weight:900; color:var(--accent2); text-shadow: 0 0 20px rgba(212, 175, 55, 0.4);">C+ (Potential)</span>
+                        <span style="font-size:72px; font-weight:900; color:var(--accent2); text-shadow: 0 0 20px rgba(212, 175, 55, 0.4);">A- (Elite Potential)</span>
                         <div style="font-size:16px; color:var(--white); font-weight:700; text-transform:uppercase; letter-spacing:2px; margin-top:-10px;">Official Grade</div>
                     </div>
                 </div>
-                <p class="lead" style="text-align:center; margin-top:20px; font-style:italic;">"Physically elite LCB with Champions League frame. Strong aerial ability and ball-carrying confidence. Developing tactical discipline. Career apps: 66, Goals: 6."</p>
+                <p class="lead" style="text-align:center; margin-top:20px; font-style:italic;">"Generational left-footed CB talent. Elite technical security and progressive passing. Limited defensive sample size. Career: 48 Ajax apps, now at Chelsea."</p>
             </div>
 
         </div>
@@ -622,34 +622,34 @@
         new Chart(ctx, {
             type: 'radar',
             data: {
-                labels: ['Pace', 'Physical', 'Aerial', 'Technical', 'Defending', 'Passing', 'IQ', 'Aggression'],
+                labels: ['Passing', 'Technical', 'Ball Carry', 'Pace', 'Defending', 'Aerial', 'Composure', 'Potential'],
                 datasets: [{
-            label: 'Yllan Okou (73.5)',
-            data: [82, 88, 90, 75, 80, 76, 75, 88],
-            borderColor: '#009e49',
+            label: 'Jorrel Hato (78.2)',
+            data: [90, 88, 86, 82, 76, 75, 82, 94],
+            borderColor: '#034694',
             backgroundColor: 'rgba(212, 175, 55, 0.15)',
             borderWidth: 3,
             pointRadius: 5,
             
         }, {
-            label: 'Soumaïla Coulibaly (74)',
-            data: [80, 90, 85, 72, 82, 70, 74, 85],
-            borderColor: '#ef4444',
+            label: 'Levi Colwill (80)',
+            data: [82, 80, 78, 84, 82, 80, 84, 88],
+            borderColor: '#22c55e',
             backgroundColor: 'transparent',
             borderWidth: 2,
             pointRadius: 3,
             borderDash: [5, 5],
         }, {
-            label: 'Ismaël Doukouré (72)',
-            data: [78, 80, 75, 78, 76, 80, 76, 75],
-            borderColor: '#75aadb',
+            label: 'Micky van de Ven (83)',
+            data: [76, 74, 82, 95, 85, 78, 78, 82],
+            borderColor: '#fff',
             backgroundColor: 'transparent',
             borderWidth: 2,
             pointRadius: 3,
             borderDash: [2, 2],
         }, {
-            label: 'Avg Challenger CB',
-            data: [65, 75, 70, 60, 68, 62, 65, 70],
+            label: 'Avg PL Young CB',
+            data: [70, 68, 65, 72, 72, 70, 68, 75],
             borderColor: '#fff',
             backgroundColor: 'transparent',
             borderWidth: 2,
