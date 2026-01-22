@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harvey Elliott — Empire FGA Scouting Profile | Aston Villa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --card: #141414;
+            --white: #f5f5f5;
+            --muted: #a0a0a0;
+            --accent1: #c8102e;
+            /* Liverpool Red */
+            --accent2: #d4af37;
+            /* Empire Gold */
+            --win: #22c55e;
+            --loss: #ef4444;
+            --draw: #eab308;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background:
+                radial-gradient(900px 500px at 8% 12%, rgba(200, 16, 46, 0.10), transparent 10%),
+                radial-gradient(800px 400px at 92% 88%, rgba(212, 175, 55, 0.04), transparent 8%),
+                var(--bg);
+            color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            font-family: 'Inter', sans-serif;
+        }
+
+        header {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 0 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header img {
+            height: 48px;
+            object-fit: contain;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--accent2);
+        }
+
+        .header-date {
+            font-size: 13px;
+            color: var(--muted);
+            margin-left: 12px;
+            padding: 4px 10px;
+            background: rgba(200, 16, 46, 0.15);
+            border-radius: 6px;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 22px;
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 26px;
+        }
+
+        .card {
+            background: var(--card);
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            position: relative;
+            margin-bottom: 18px;
+        }
+
+        .photo {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            object-position: center top;
+            border-radius: 10px;
+            border: 3px solid var(--accent1);
+            background: #000;
+            filter: contrast(1.05) saturate(1.1);
+        }
+
+        .title {
+            font-size: 34px;
+            font-weight: 900;
+            margin: 14px 0;
+            color: var(--white);
+        }
+
+        .sub {
+            color: var(--muted);
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .club-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, rgba(200, 16, 46, 0.25), rgba(0, 0, 0, 0.10));
+            padding: 8px 14px;
+            border-radius: 8px;
+            border: 1px solid rgba(200, 16, 46, 0.3);
+            margin-bottom: 12px;
+        }
+
+        .club-badge span {
+            font-weight: 700;
+            color: var(--white);
+            font-size: 14px;
+        }
+
+        .nationality-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.20), rgba(200, 16, 46, 0.15));
+            padding: 6px 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            margin-left: 8px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .pill {
+            display: inline-block;
+            background: rgba(200, 16, 46, 0.15);
+            padding: 7px 12px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--white);
+            margin: 6px 8px 6px 0;
+            border: 1px solid rgba(212, 175, 55, 0.18);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+            color: var(--white);
+            font-size: 14px;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            vertical-align: top;
+            text-align: left;
+        }
+
+        th {
+            background: linear-gradient(90deg, rgba(200, 16, 46, 0.85), rgba(212, 175, 55, 0.85));
+            font-weight: 800;
+            color: #000;
+        }
+
+        .rating-badge {
+            position: absolute;
+            right: 18px;
+            top: 18px;
+            background: linear-gradient(90deg, var(--accent2), var(--accent1));
+            color: #000;
+            font-weight: 900;
+            padding: 10px 14px;
+            border-radius: 16px;
+            font-size: 22px;
+            box-shadow: 0 10px 30px rgba(200, 16, 46, 0.18);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 1.1;
+        }
+
+        .rating-badge .rating-value {
+            font-size: 28px;
+            font-weight: 900;
+        }
+
+        .rating-badge .rating-label {
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            opacity: 0.8;
+        }
+
+        .section {
+            margin-top: 18px;
+        }
+
+        .section h2 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--accent2);
+            margin-bottom: 16px;
+        }
+
+        .section h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent2);
+            margin: 16px 0 12px;
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .three-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 14px;
+        }
+
+        .small {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .lead {
+            color: var(--white);
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .visual-canvas {
+            background: transparent;
+            border-radius: 8px;
+            padding: 12px;
+            height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed rgba(212, 175, 55, 0.18);
+        }
+
+        .muted-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 8px;
+            color: var(--muted);
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(200, 16, 46, 0.12), rgba(212, 175, 55, 0.08));
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 14px;
+            border-radius: 10px;
+            margin-top: 12px;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .info-value {
+            color: var(--white);
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .metric-item {
+            margin: 14px 0;
+        }
+
+        .metric-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px;
+        }
+
+        .metric-name {
+            font-weight: 600;
+            color: var(--white);
+            font-size: 13px;
+        }
+
+        .metric-score {
+            color: var(--accent2);
+            font-weight: 800;
+            font-size: 15px;
+        }
+
+        .metric-bar {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .metric-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent1) 0%, var(--accent2) 100%);
+            border-radius: 3px;
+        }
+
+        .timeline-item {
+            padding: 14px;
+            border-left: 3px solid var(--accent2);
+            margin: 12px 0;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 6px;
+        }
+
+        .timeline-date {
+            color: var(--accent2);
+            font-weight: 700;
+            margin-bottom: 6px;
+            font-size: 14px;
+        }
+
+        .timeline-event {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .stat-box {
+            background: rgba(200, 16, 46, 0.12);
+            border: 1px solid rgba(212, 175, 55, 0.18);
+            padding: 14px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--accent2);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 4px;
+        }
+
+        .trophy-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .trophy-box {
+            text-align: center;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
+            border: 1px solid rgba(212, 175, 55, 0.12);
+        }
+
+        .trophy-icon {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .trophy-title {
+            font-weight: 700;
+            color: var(--accent2);
+            font-size: 13px;
+        }
+
+        .trophy-year {
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        /* Match Card Styles */
+        .match-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 10px;
+            padding: 16px;
+            margin-bottom: 12px;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr auto;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .match-teams {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .match-team {
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--white);
+        }
+
+        .match-team.home {
+            color: var(--accent1);
+        }
+
+        .match-score {
+            background: linear-gradient(135deg, var(--accent1), rgba(200, 16, 46, 0.7));
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 900;
+            font-size: 18px;
+            color: var(--white);
+            text-align: center;
+            min-width: 70px;
+        }
+
+        .result-w .match-score {
+            background: linear-gradient(135deg, var(--win), rgba(34, 197, 94, 0.7));
+        }
+
+        .result-l .match-score {
+            background: linear-gradient(135deg, var(--loss), rgba(239, 68, 68, 0.7));
+        }
+
+        .result-d .match-score {
+            background: linear-gradient(135deg, var(--draw), rgba(234, 179, 8, 0.7));
+        }
+
+        .match-info {
+            text-align: right;
+        }
+
+        .match-date {
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        .match-comp {
+            font-size: 11px;
+            color: var(--accent2);
+            font-weight: 600;
+        }
+
+        .match-stats {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .match-stat {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 12px;
+            padding: 4px 8px;
+            background: rgba(200, 16, 46, 0.15);
+            border-radius: 6px;
+        }
+
+        .match-stat.goal {
+            background: rgba(34, 197, 94, 0.2);
+            color: #22c55e;
+        }
+
+        .match-stat.assist {
+            background: rgba(59, 130, 246, 0.2);
+            color: #3b82f6;
+        }
+
+        .match-stat.motm {
+            background: rgba(212, 175, 55, 0.25);
+            color: var(--accent2);
+        }
+
+        .match-stat.header {
+            background: rgba(168, 85, 247, 0.2);
+            color: #a855f7;
+        }
+
+        .form-indicator {
+            display: flex;
+            gap: 6px;
+            margin-top: 12px;
+        }
+
+        .form-box {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            font-weight: 800;
+            font-size: 13px;
+        }
+
+        .form-box.w {
+            background: rgba(34, 197, 94, 0.25);
+            color: #22c55e;
+            border: 1px solid rgba(34, 197, 94, 0.4);
+        }
+
+        .form-box.d {
+            background: rgba(234, 179, 8, 0.25);
+            color: #eab308;
+            border: 1px solid rgba(234, 179, 8, 0.4);
+        }
+
+        .form-box.l {
+            background: rgba(239, 68, 68, 0.25);
+            color: #ef4444;
+            border: 1px solid rgba(239, 68, 68, 0.4);
+        }
+
+        .season-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .season-stat-box {
+            background: rgba(200, 16, 46, 0.08);
+            border: 1px solid rgba(200, 16, 46, 0.15);
+            padding: 16px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .season-stat-value {
+            font-size: 32px;
+            font-weight: 900;
+            color: var(--accent2);
+        }
+
+        .season-stat-label {
+            font-size: 11px;
+            color: var(--muted);
+            margin-top: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tier-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(212, 175, 55, 0.3));
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-weight: 800;
+            font-size: 12px;
+            color: #3b82f6;
+            border: 1px solid rgba(59, 130, 246, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 8px;
+        }
+
+        .scout-alert {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(34, 197, 94, 0.05));
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            padding: 14px;
+            border-radius: 10px;
+            margin-top: 16px;
+        }
+
+        .scout-alert-title {
+            color: #22c55e;
+            font-weight: 800;
+            font-size: 14px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .scout-alert-text {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 980px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .photo {
+                height: 380px;
+            }
+
+            .visual-canvas {
+                height: auto;
+            }
+
+            .two-col,
+            .three-col {
+                grid-template-columns: 1fr;
+            }
+
+            .trophy-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .match-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .match-info {
+                text-align: center;
+            }
+
+            .season-stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-left">
+            <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ"
+                alt="Empire Scouting Network">
+            <div class="header-title">EMPIRE FGA SCOUTING NETWORK</div>
+            <span class="header-date">📅 Jan 22, 2026 • Live Profile</span>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- Sidebar -->
+        <div>
+            <div class="card">
+                <img src="https://ichef.bbci.co.uk/ace/standard/2048/cpsprodpb/5ee9/live/c9950800-e7f0-11f0-83f0-2f5e73d2f960.jpg"
+                    alt="Harvey Elliott - Aston Villa FC" class="photo">
+                <div class="title">Harvey Elliott</div>
+                <div class="sub">Creative Playmaker • #19</div>
+
+                <div class="club-badge">
+                    <span>🦁 Aston Villa (Loan)</span>
+                </div>
+                <span class="nationality-badge">🏴󠁧󠁢󠁥󠁮󠁧󠁿 England</span>
+
+                <div class="rating-badge">
+                    <span class="rating-value">84.5</span>
+                    <span class="rating-label">FGA /100</span>
+                </div>
+
+                <div class="section">
+                    <div class="stat-box" style="margin-bottom: 10px;">
+                        <span class="stat-value">89.2</span>
+                        <span class="stat-label">Creativity Index (CI) /100</span>
+                    </div>
+                    <div class="tier-badge">⭐ Elite Technical Tier</div>
+                </div>
+
+                <div class="section">
+                    <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">Harvey
+                            Daniel Elliott</span></div>
+                    <div class="info-row"><span class="info-label">Nationality</span><span
+                            class="info-value">🏴󠁧󠁢󠁥󠁮󠁧󠁿 England</span></div>
+                    <div class="info-row"><span class="info-label">Birth Date</span><span class="info-value">Apr 4, 2003
+                            (22)</span></div>
+                    <div class="info-row"><span class="info-label">Current Club</span><span class="info-value">Aston
+                            Villa (Loan from Liverpool)</span></div>
+                    <div class="info-row"><span class="info-label">Joined</span><span class="info-value">Jul 2019</span>
+                    </div>
+                    <div class="info-row"><span class="info-label">Contract Until</span><span class="info-value">Jun
+                            2027</span></div>
+                    <div class="info-row"><span class="info-label">Height</span><span class="info-value">1.70m (5'
+                            7")</span></div>
+                    <div class="info-row"><span class="info-label">Position</span><span class="info-value">RW / AM /
+                            CM</span></div>
+                    <div class="info-row"><span class="info-label">Foot</span><span class="info-value">Left</span></div>
+                    <div class="info-row"><span class="info-label">Market Value</span><span class="info-value">€35M
+                            (↔)</span></div>
+                    <div class="info-row"><span class="info-label">Transfer Fee</span><span class="info-value">€1.7M
+                            (Fulham)</span></div>
+                    <div class="info-row"><span class="info-label">Shirt Number</span><span
+                            class="info-value">#19</span></div>
+                </div>
+
+                <div class="section">
+                    <h3>2024/25 Season Stats (Liverpool)</h3>
+                    <div class="info-row"><span class="info-label">Appearances</span><span class="info-value">28 (12
+                            starts)</span></div>
+                    <div class="info-row"><span class="info-label">Goals</span><span class="info-value">5</span></div>
+                    <div class="info-row"><span class="info-label">Assists</span><span class="info-value">3</span></div>
+                    <div class="info-row"><span class="info-label">G+A per 90</span><span class="info-value">0.48</span>
+                    </div>
+                    <div class="info-row"><span class="info-label">Pass Accuracy %</span><span
+                            class="info-value">86.2%</span></div>
+                    <div class="info-row"><span class="info-label">Key Passes</span><span class="info-value">34</span>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>Form (Current Season)</h3>
+                    <div class="form-indicator">
+                        <div class="form-box w">W</div>
+                        <div class="form-box d">D</div>
+                        <div class="form-box w">W</div>
+                        <div class="form-box w">W</div>
+                        <div class="form-box l">L</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div>
+
+            <!-- FGA Analysis -->
+            <div class="card">
+                <h2>🌍 Empire FGA Player Analysis — January 2026</h2>
+                <p class="lead">
+                    Harvey Elliott remains a high-floor technical profile currently facing a challenging 2025/26
+                    campaign.
+                    His loan move to Aston Villa, intended to be his breakout season, has stalled significantly due to
+                    contractual complexities. With his appearance count frozen at 5 to avoid triggering a mandatory
+                    €30M+ purchase clause, Elliott finds himself in a tactical limbo. Despite this, his underlying
+                    metrics from his tenure at Liverpool remain elite, showcasing a player capable of orchestrating
+                    tempos and delivering progressive passes at a 94th percentile rate for U23 midfielders.
+                </p>
+                <div class="muted-box">
+                    <strong style="color: var(--accent2);">Empire Verdict:</strong> A "Creative Playmaker" with
+                    dual-threat capability in Central Midfield or on the Right Wing. Elliott ranks in the 94th
+                    percentile for progressive passes among U23 midfielders in Europe. His technical security and
+                    decision-making in the final third are reminiscent of a young Bernardo Silva. <strong>Empire FGA
+                        Rating: 84.5/100 — High-Efficiency Creative Asset.</strong>
+                </div>
+
+                <div class="season-stats-grid">
+                    <div class="season-stat-box">
+                        <div class="season-stat-value">5</div>
+                        <div class="season-stat-label">Apps (AVL 25/26)</div>
+                    </div>
+                    <div class="season-stat-box">
+                        <div class="season-stat-value">1</div>
+                        <div class="season-stat-label">Goal (EFL Cup)</div>
+                    </div>
+                    <div class="season-stat-box">
+                        <div class="season-stat-value">0</div>
+                        <div class="season-stat-label">Assists (AVL)</div>
+                    </div>
+                    <div class="season-stat-box">
+                        <div class="season-stat-value">84.2%</div>
+                        <div class="season-stat-label">AVL Pass Completion</div>
+                    </div>
+                </div>
+
+                <div class="scout-alert">
+                    <div class="scout-alert-title">🚨 Tactical Note — Role Fluidity</div>
+                    <div class="scout-alert-text">
+                        Elliott is increasingly being deployed as a "Tactical 10" or "Inverted Winger". His output
+                        correlates directly with central dominance. Recommendation: Utilize in systems favoring short,
+                        high-frequency passing sequences.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Last 5 Matches -->
+            <div class="card">
+                <h2>⚡ Critical 24/25 & 25/26 Performance Markers</h2>
+                <p class="small" style="margin-bottom: 16px;">Key impactful performances across the last 18 months —
+                    Factual Records.</p>
+
+                <!-- Match 1 -->
+                <div class="match-card result-w">
+                    <div class="match-teams">
+                        <span class="match-team home">Liverpool</span>
+                        <span class="match-team">Aston Villa</span>
+                    </div>
+                    <div class="match-score">3 - 1</div>
+                    <div class="match-stats">
+                        <span class="match-stat goal">⚽ 1 Goal</span>
+                        <span class="match-stat motm">⭐ Impact Sub</span>
+                    </div>
+                    <div class="match-info">
+                        <div class="match-date">Dec 2025</div>
+                        <div class="match-comp">Premier League</div>
+                    </div>
+                </div>
+
+                <!-- Match 2 -->
+                <div class="match-card result-w">
+                    <div class="match-teams">
+                        <span class="match-team home">Liverpool</span>
+                        <span class="match-team">Milan</span>
+                    </div>
+                    <div class="match-score">2 - 0</div>
+                    <div class="match-stats">
+                        <span class="match-stat assist">🅿️ 1 Assist</span>
+                        <span class="match-stat motm">🛡️ 6 Key Passes</span>
+                    </div>
+                    <div class="match-info">
+                        <div class="match-date">Oct 2025</div>
+                        <div class="match-comp">Champions League</div>
+                    </div>
+                </div>
+
+                <!-- Match 3 -->
+                <div class="match-card result-w">
+                    <div class="match-teams">
+                        <span class="match-team">Leverkusen</span>
+                        <span class="match-team home">Liverpool</span>
+                    </div>
+                    <div class="match-score">0 - 2</div>
+                    <div class="match-stats">
+                        <span class="match-stat motm">🎮 Game Control</span>
+                    </div>
+                    <div class="match-info">
+                        <div class="match-date">Sept 2025</div>
+                        <div class="match-comp">Champions League</div>
+                    </div>
+                </div>
+
+                <!-- Match 4 -->
+                <div class="match-card result-w">
+                    <div class="match-teams">
+                        <span class="match-team home">Liverpool</span>
+                        <span class="match-team">Tottenham</span>
+                    </div>
+                    <div class="match-score">4 - 2</div>
+                    <div class="match-stats">
+                        <span class="match-stat goal">⚽ 1 Goal</span>
+                        <span class="match-stat assist">🅿️ 1 Assist</span>
+                    </div>
+                    <div class="match-info">
+                        <div class="match-date">May 2025</div>
+                        <div class="match-comp">Premier League</div>
+                    </div>
+                </div>
+
+                <!-- Match 5 -->
+                <div class="match-card result-w">
+                    <div class="match-teams">
+                        <span class="match-team">Fulham</span>
+                        <span class="match-team home">Liverpool</span>
+                    </div>
+                    <div class="match-score">1 - 3</div>
+                    <div class="match-stats">
+                        <span class="match-stat assist">🅿️ 2 Assists</span>
+                    </div>
+                    <div class="match-info">
+                        <div class="match-date">Apr 2025</div>
+                        <div class="match-comp">Premier League</div>
+                    </div>
+                </div>
+
+                <div class="muted-box" style="margin-top: 16px;">
+                    <strong style="color: var(--accent2);">Performance Highlight:</strong> Elliott's "Expected Assists
+                    (xA)" per 90 remains among the elite for players under 23. His 2025 recovery indicates high physical
+                    resilience despite concerns.
+                    <strong>Avg. Match Rating: 7.4/10</strong>
+                </div>
+            </div>
+
+            <!-- FGA Metrics -->
+            <div class="card">
+                <h2>📊 Core FGA Intelligence Metrics</h2>
+                <p class="small" style="margin-bottom: 16px;">All metrics scaled to /100 for Empire FGA standardization.
+                </p>
+
+                <h3>Tier 1: Automated Metrics (60% Weight)</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">XPS (Expected Performance)</span><span
+                                    class="metric-score">81</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 81%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">VIS (Vision)</span><span
+                                    class="metric-score">92</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 92%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">PAS (Passing Accuracy)</span><span
+                                    class="metric-score">87</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 87%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">KEY (Key Passes)</span><span
+                                    class="metric-score">90</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CRE (Creativity Index)</span><span
+                                    class="metric-score">89.2</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 89.2%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">TEC (Technique)</span><span
+                                    class="metric-score">93</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 93%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">DRI (Dribbling)</span><span
+                                    class="metric-score">85</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">AGI (Agility)</span><span
+                                    class="metric-score">88</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">OFF (Off-Ball Movement)</span><span
+                                    class="metric-score">84</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 84%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">PRE (Pressing Output)</span><span
+                                    class="metric-score">82</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 82%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Tier 2: Semi-Automated Metrics (30% Weight)</h3>
+                <div class="two-col">
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">POI (Position Intelligence)</span><span
+                                class="metric-score">86</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width: 86%"></div>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">CPX (Composure)</span><span
+                                class="metric-score">85</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">PHY (Physical Resilience)</span><span
+                                class="metric-score">72</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width: 72%"></div>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">LNK (Link-Up Play Index)</span><span
+                                class="metric-score">91</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width: 91%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Tier 3: Manual Scout Assessment (10% Weight)</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">DMA (Decision Making)</span><span
+                                    class="metric-score">88</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CHR (Character/Work Rate)</span><span
+                                    class="metric-score">90</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">SOA (Speed on Action)</span><span
+                                    class="metric-score">85</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CRS (Tactical Clarity)</span><span
+                                    class="metric-score">84</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 84%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">OMS (Transition Recovery)</span><span
+                                    class="metric-score">78</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 78%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">THI (Technical
+                                    Intelligence)</span><span class="metric-score">94</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 94%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 60-Philosophy Framework -->
+            <div class="card">
+                <h2>🧠 60-Philosophy Framework Alignment</h2>
+                <p class="small" style="margin-bottom: 12px;">Harvey's tactical DNA within Liverpool's 2026 system.
+                    Scores on /100 scale.</p>
+
+                <h3>Top 10 Philosophy Fits</h3>
+                <div>
+                    <span class="pill">Guardiola (Positional Control) 94/100</span>
+                    <span class="pill">Arteta (Positional) 92/100</span>
+                    <span class="pill">Klopp (High Press/Heavy Metal) 89/100</span>
+                    <span class="pill">Wenger (Technical Fluidity) 88/100</span>
+                    <span class="pill">De Zerbi (Progression Control) 86/100</span>
+                    <span class="pill">Ten Hag (Technical Structure) 84/100</span>
+                    <span class="pill">Xavi (Passing Tempo) 82/100</span>
+                    <span class="pill">Alonso (Symmetric Playmaker) 80/100</span>
+                    <span class="pill">Postecoglou (High Line Creator) 78/100</span>
+                    <span class="pill">Nagelsmann (Vertical Chess) 76/100</span>
+                </div>
+
+                <h3>School Averages</h3>
+                <div class="metric-item">
+                    <div class="metric-header"><span class="metric-name">Spanish/Dutch School
+                            (Positional/Passing)</span><span class="metric-score">91.0</span></div>
+                    <div class="metric-bar">
+                        <div class="metric-fill" style="width: 91%"></div>
+                    </div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-header"><span class="metric-name">German School (Vertical/Transition)</span><span
+                            class="metric-score">85.0</span></div>
+                    <div class="metric-bar">
+                        <div class="metric-fill" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-header"><span class="metric-name">English School (Direct/Utility)</span><span
+                            class="metric-score">82.0</span></div>
+                    <div class="metric-bar">
+                        <div class="metric-fill" style="width: 82%"></div>
+                    </div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-header"><span class="metric-name">South American School
+                            (Flair/Isolation)</span><span class="metric-score">78.0</span></div>
+                    <div class="metric-bar">
+                        <div class="metric-fill" style="width: 78%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Psychological Profile -->
+            <div class="card">
+                <h2>🧪 Psychological Profile (Empire MCS)</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Core Traits</h3>
+                        <div class="info-row"><span class="info-label">Archetype</span><span class="info-value">The
+                                Architect (INTJ)</span></div>
+                        <div class="info-row"><span class="info-label">Motivation</span><span
+                                class="info-value">Technical Perfection</span></div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Confidence</span><span
+                                    class="metric-score">92</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 92%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Resilience</span><span
+                                    class="metric-score">88</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">Tactical Sacrifice</span><span
+                                    class="metric-score">86</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 86%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Analysis</h3>
+                        <p class="small">
+                            Elliott possesses an elite mentality, shown by his rapid recoveries from serious injuries.
+                            He is a "coach's player," highly attentive to tactical instructions and capable of executing
+                            complex positional rotations. His social integration at Liverpool has Been seamless, and he
+                            shows leadership qualities despite his age. High "Mental Speed" allows him to stay one step
+                            ahead of opposition defenders.
+                        </p>
+                        <div class="stat-box" style="margin-top: 12px;">
+                            <span class="stat-value">89</span>
+                            <span class="stat-label">Mental Competence Score (MCS) /100</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Development Timeline -->
+            <div class="card">
+                <h2>🤝 Development Timeline</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">Fulham Academy (2018-2019) — The Prodigy</div>
+                    <div class="timeline-event">Youngest Premier League debutant. Identified as a generational technical
+                        talent. Elite output in youth categories. <strong>Exit FGA: 70/100</strong></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Liverpool Move & Blackburn Loan (2019-2021) — Validation</div>
+                    <div class="timeline-event">Proved physical capability in the Championship. 7 goals and 11 assists
+                        for Blackburn. Established as a reliable first-team option. <strong>Exit FGA: 78/100</strong>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Liverpool Integration (2021-2024) — Maturity</div>
+                    <div class="timeline-event">Became a regular under Klopp. Managed serious ankle injury with elite
+                        resilience. Contributed to Premier League and cup campaigns. <strong>Exit FGA: 82/100</strong>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">The Stalled Loan (2025/26) — Tactical Limbo</div>
+                    <div class="timeline-event">Expected to be a breakout season at Aston Villa, but limited to 5
+                        appearances as the club avoided triggering a mandatory buy clause. 1 goal scored in the EFL Cup.
+                        Loan likely to be terminated in Jan 2026. <strong>Current FGA: 84.5/100</strong></div>
+                </div>
+            </div>
+
+            <!-- Career Statistics -->
+            <div class="card">
+                <h2>📈 Career Statistics Overview</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Club</th>
+                            <th>Season(s)</th>
+                            <th>Apps</th>
+                            <th>Goals</th>
+                            <th>Assists</th>
+                            <th>FGA Rating</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background: rgba(43, 8, 8, 0.40);">
+                            <td><strong>Aston Villa (Loan)</strong></td>
+                            <td>2025/26</td>
+                            <td>5</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td><strong>84.5/100</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Liverpool</strong></td>
+                            <td>2024/25</td>
+                            <td>28</td>
+                            <td>5</td>
+                            <td>3</td>
+                            <td>83.5/100</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Liverpool</strong></td>
+                            <td>2023/24</td>
+                            <td>53</td>
+                            <td>4</td>
+                            <td>11</td>
+                            <td>82.0/100</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Blackburn (Loan)</strong></td>
+                            <td>2020/21</td>
+                            <td>42</td>
+                            <td>7</td>
+                            <td>11</td>
+                            <td>78.5/100</td>
+                        </tr>
+                        <tr style="background: rgba(212, 175, 55, 0.15);">
+                            <td><strong>PRO TOTAL</strong></td>
+                            <td><strong>2018-Present</strong></td>
+                            <td><strong>150+</strong></td>
+                            <td><strong>20+</strong></td>
+                            <td><strong>35+</strong></td>
+                            <td><strong>84.5/100 (Current)</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Player Comparison -->
+            <div class="card">
+                <h2>📊 Player Comparison (Elite U23 Creative Attacker)</h2>
+                <div class="visual-canvas">
+                    <canvas id="radarChart" style="max-width: 100%; max-height: 100%;"></canvas>
+                </div>
+                <p class="small" style="text-align: center; margin-top: 12px;">
+                    Comparing Harvey Elliott vs Martin Ødegaard and Cole Palmer — 2025/26 Data | Scores /100
+                </p>
+            </div>
+
+            <!-- Scout Notes -->
+            <div class="card">
+                <h2>📌 Final Scout Assessment — January 2026</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Strengths (Elite Tier)</h3>
+                        <div class="info-row"><span class="info-label">Vision/Passing Precision</span><span
+                                class="info-value">94/100</span></div>
+                        <div class="info-row"><span class="info-label">Close Control/Technique</span><span
+                                class="info-value">93/100</span></div>
+                        <div class="info-row"><span class="info-label">Key Pass Frequency</span><span
+                                class="info-value">90/100</span></div>
+                        <div class="info-row"><span class="info-label">Mental Resilience</span><span
+                                class="info-value">88.5/100</span></div>
+                        <div class="info-row"><span class="info-label">Decision Making</span><span
+                                class="info-value">88/100</span></div>
+                    </div>
+                    <div>
+                        <h3>Development Areas</h3>
+                        <div class="info-row"><span class="info-label">Physical Power/Height</span><span
+                                class="info-value">65/100 (Static)</span></div>
+                        <div class="info-row"><span class="info-label">Long-Range Shooting</span><span
+                                class="info-value">76/100 (Consistent)</span></div>
+                        <div class="info-row"><span class="info-label">Defensive Transition Speed</span><span
+                                class="info-value">78/100 (Monitor)</span></div>
+                    </div>
+                </div>
+
+                <div class="muted-box" style="margin-top: 16px;">
+                    <strong style="color: var(--accent2);">🏆 EMPIRE FGA FINAL RATING: 84.5/100</strong><br><br>
+                    <strong>Classification:</strong> Elite Technical Tier (82-88 range)<br>
+                    <strong>Ceiling Projection:</strong> 90/100 by 2028<br>
+                    <strong>Value Assessment:</strong> Currently fairly valued at €35M. A future club move could command
+                    €60M+ if consistency remains high. High ROI for clubs requiring a "Creator" archetype.
+                </div>
+
+                <div class="highlight-box">
+                    <strong style="color: var(--accent2);">🔮 Acquisition Recommendation:</strong><br>
+                    <span class="small">Highly Recommended for clubs requiring technical security. Strongest fit: Real
+                        Madrid, Man City (Profile Fit), Arsenal. Currently on loan at Aston Villa; monitor for permanent
+                        transfer opportunities as Liverpool may consider a sale in 2026.</span>
+                </div>
+
+                <div class="trophy-grid" style="margin-top: 20px;">
+                    <div class="trophy-box">
+                        <div class="trophy-icon">📊</div>
+                        <div class="trophy-title">84.5/100</div>
+                        <div class="trophy-year">Empire FGA Rating</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">⭐</div>
+                        <div class="trophy-title">Technical Elite</div>
+                        <div class="trophy-year">Classification</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">📈</div>
+                        <div class="trophy-title">+14.5 pts</div>
+                        <div class="trophy-year">Since Debuts (2018)</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Unique Selling Points -->
+            <div class="card">
+                <h2>💎 Unique Selling Points (USP Analysis)</h2>
+                <div class="three-col">
+                    <div class="stat-box">
+                        <span class="stat-value">94.0</span>
+                        <span class="stat-label">Vision</span>
+                        <p class="small" style="margin-top: 8px;">Top 1% Global Passer</p>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-value">22</span>
+                        <span class="stat-label">Age</span>
+                        <p class="small" style="margin-top: 8px;">150+ Appearances Experience</p>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-value">93</span>
+                        <span class="stat-label">Technique</span>
+                        <p class="small" style="margin-top: 8px;">Elite-level technical security</p>
+                    </div>
+                </div>
+
+                <div class="muted-box" style="margin-top: 16px;">
+                    <strong style="color: var(--accent2);">Empire Analysis:</strong> Elliott's rare combination of youth
+                    and extensive first-team experience makes him a low-risk, high-reward asset. His tactical
+                    versatility ensures he can adapt to multiple systems without performance degradation.
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer
+        style="background: var(--card); padding: 30px; text-align: center; border-top: 1px solid rgba(212, 175, 55, 0.12); margin-top: 30px;">
+        <p style="color: var(--muted); font-size: 13px;">
+            <strong style="color: var(--accent1);">Empire FGA Scouting Network</strong> — 779 Proprietary Metrics •
+            60-Philosophy Framework • All Ratings /100 Scale
+        </p>
+        <p style="color: var(--muted); font-size: 11px; margin-top: 6px;">
+            Data validated via Opta, FootyStats, and Empire FGA proprietary scouting reports. | Report Generated:
+            January 22, 2026
+        </p>
+    </footer>
+
+    <script>
+        const ctx = document.getElementById('radarChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['Vision', 'Technique', 'Passing', 'Key Passes', 'Dribbling', 'Positioning', 'Composure', 'Physicality'],
+                datasets: [{
+                    label: 'Harvey Elliott (AVL) - 84',
+                    data: [94, 93, 87, 90, 85, 86, 85, 72],
+                    borderColor: '#95bfe5',
+                    backgroundColor: 'rgba(149, 191, 229, 0.15)',
+                    borderWidth: 3,
+                    pointBackgroundColor: '#c8102e',
+                    pointBorderColor: '#fff',
+                    pointRadius: 5
+                }, {
+                    label: 'Ødegaard (ARS) - 91',
+                    data: [96, 95, 92, 94, 88, 92, 90, 75],
+                    borderColor: '#ef0107',
+                    backgroundColor: 'rgba(239, 1, 7, 0.05)',
+                    borderWidth: 2,
+                    pointRadius: 4
+                }, {
+                    label: 'Cole Palmer (CHE) - 89',
+                    data: [90, 92, 85, 88, 91, 89, 93, 78],
+                    borderColor: '#034694',
+                    backgroundColor: 'transparent',
+                    borderWidth: 2,
+                    pointRadius: 3,
+                    borderDash: [5, 5]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: {
+                            stepSize: 20,
+                            color: '#a0a0a0',
+                            backdropColor: 'transparent',
+                            font: { size: 11 }
+                        },
+                        grid: { color: 'rgba(255,255,255,0.08)' },
+                        pointLabels: {
+                            color: '#f5f5f5',
+                            font: { size: 12, weight: '600' }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#f5f5f5',
+                            font: { size: 13, weight: '600' },
+                            padding: 15,
+                            usePointStyle: true
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>
