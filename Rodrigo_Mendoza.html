@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rodrigo Mendoza — Empire FGA Deep Research Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg: #071122;
+            --card: #0b1624;
+            --white: #f0f6fc;
+            --muted: #8b949e;
+            --accent1: #0b5bb0;
+            --accent2: #ffd24d;
+            --red: #ff4d4d;
+            --green: #4dff88;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(900px 500px at 8% 12%, rgba(11, 91, 176, 0.06), transparent 10%), radial-gradient(800px 400px at 92% 88%, rgba(255, 210, 77, 0.04), transparent 8%), var(--bg);
+            color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            font-family: 'Inter', sans-serif
+        }
+
+        header {
+            max-width: 1400px;
+            margin: 18px auto;
+            padding: 0 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        header img {
+            height: 48px;
+            object-fit: contain
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+        .header-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--accent2)
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 18px auto;
+            padding: 22px;
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            gap: 28px
+        }
+
+        .card {
+            background: var(--card);
+            padding: 22px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            position: relative;
+            margin-bottom: 22px
+        }
+
+        .photo-container {
+            position: relative;
+            width: 100%;
+            height: 580px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 3px solid var(--accent2);
+        }
+
+        .photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            background: #0b1624
+        }
+
+        .title {
+            font-size: 38px;
+            font-weight: 950;
+            margin: 16px 0 8px;
+            color: var(--white);
+            letter-spacing: -1px;
+        }
+
+        .sub {
+            color: var(--muted);
+            margin-bottom: 12px;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .pill {
+            display: inline-block;
+            background: rgba(11, 91, 176, 0.12);
+            padding: 8px 14px;
+            border-radius: 999px;
+            font-weight: 750;
+            font-size: 13px;
+            color: var(--white);
+            margin: 6px 8px 6px 0;
+            border: 1px solid rgba(255, 210, 77, 0.25)
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 14px;
+            color: var(--white);
+            font-size: 14px
+        }
+
+        th,
+        td {
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            vertical-align: top;
+            text-align: left
+        }
+
+        th {
+            background: linear-gradient(90deg, rgba(11, 91, 176, 0.85), rgba(255, 210, 77, 0.85));
+            font-weight: 900;
+            color: #071122;
+            text-transform: uppercase;
+            font-size: 12px;
+        }
+
+        .rating-badge {
+            position: absolute;
+            right: 22px;
+            top: 22px;
+            background: linear-gradient(135deg, #ffd24d, #b08d0b);
+            color: #071122;
+            font-weight: 950;
+            padding: 14px 22px;
+            border-radius: 18px;
+            font-size: 28px;
+            box-shadow: 0 10px 40px rgba(255, 210, 77, 0.25);
+            z-index: 10;
+        }
+
+        .section {
+            margin-top: 24px
+        }
+
+        .section h2 {
+            font-size: 26px;
+            font-weight: 900;
+            color: var(--accent2);
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section h3 {
+            font-size: 19px;
+            font-weight: 800;
+            color: var(--accent2);
+            margin: 20px 0 14px;
+            border-left: 4px solid var(--accent1);
+            padding-left: 10px;
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px
+        }
+
+        .small {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.7
+        }
+
+        .lead {
+            color: var(--white);
+            font-size: 17px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .visual-canvas {
+            background: rgba(255, 255, 255, 0.01);
+            border-radius: 12px;
+            padding: 14px;
+            height: 480px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed rgba(255, 210, 77, 0.22)
+        }
+
+        .muted-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 16px;
+            border-radius: 10px;
+            margin-top: 10px;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06)
+        }
+
+        .info-row:last-child {
+            border-bottom: none
+        }
+
+        .info-label {
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .info-value {
+            color: var(--white);
+            font-weight: 700;
+            font-size: 14px
+        }
+
+        .metric-item {
+            margin: 16px 0
+        }
+
+        .metric-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px
+        }
+
+        .metric-name {
+            font-weight: 700;
+            color: var(--white);
+            font-size: 13px
+        }
+
+        .metric-score {
+            color: var(--accent2);
+            font-weight: 900;
+            font-size: 16px
+        }
+
+        .metric-bar {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.07);
+            border-radius: 4px;
+            overflow: hidden
+        }
+
+        .metric-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent1) 0%, var(--accent2) 100%);
+            border-radius: 4px
+        }
+
+        .timeline-item {
+            padding: 16px;
+            border-left: 4px solid var(--accent2);
+            margin: 14px 0;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .timeline-item:hover {
+            background: rgba(255, 255, 255, 0.04);
+            transform: translateX(5px);
+        }
+
+        .timeline-date {
+            color: var(--accent2);
+            font-weight: 800;
+            margin-bottom: 8px;
+            font-size: 15px;
+            letter-spacing: 0.5px;
+        }
+
+        .timeline-event {
+            color: var(--white);
+            font-size: 14.5px;
+            line-height: 1.6
+        }
+
+        .stat-box {
+            background: rgba(11, 91, 176, 0.15);
+            border: 1px solid rgba(255, 210, 77, 0.25);
+            padding: 16px;
+            border-radius: 10px;
+            text-align: center
+        }
+
+        .stat-value {
+            font-size: 30px;
+            font-weight: 950;
+            color: var(--accent2);
+            display: block
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: var(--muted);
+            margin-top: 6px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .sw-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        .sw-box {
+            padding: 18px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .sw-title {
+            font-weight: 850;
+            font-size: 16px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .sw-list {
+            list-style: none;
+        }
+
+        .sw-list li {
+            font-size: 14px;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .sw-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .strengths .sw-title {
+            color: var(--green);
+        }
+
+        .strengths li::before {
+            color: var(--green);
+        }
+
+        .weaknesses .sw-title {
+            color: var(--red);
+        }
+
+        .weaknesses li::before {
+            color: var(--red);
+        }
+
+        @media (max-width:1100px) {
+            .container {
+                grid-template-columns: 1fr
+            }
+
+            .photo-container {
+                height: 480px
+            }
+
+            .two-col,
+            .sw-container {
+                grid-template-columns: 1fr
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ"
+                alt="Empire Scouting Network">
+            <div class="header-title">EMPIRE FGA SCOUTING NETWORK</div>
+        </div>
+    </header>
+    <div class="container">
+        <!-- LEFT COLUMN: PHOTO & BASIC INFO -->
+        <div>
+            <div class="card">
+                <div class="rating-badge">81.5</div>
+                <div class="photo-container">
+                    <img src="https://pictures.tribuna.com/image/510907ae-949a-409a-9722-99e1ea43914d?width=1920&quality=70"
+                        alt="Rodrigo Mendoza" class="photo">
+                </div>
+                <div class="title">Rodrigo Mendoza</div>
+                <div class="sub">Spanish "Professor" Playmaker • Elche CF • 2005 Generation Maestro</div>
+
+                <div class="section">
+                    <div class="stat-box" style="margin-bottom:12px">
+                        <span class="stat-value">🇪🇸 Spain U19</span>
+                        <span class="stat-label">Market Value: €20M (Release Clause)</span>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>1. Basic Information</h3>
+                    <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">Rodrigo
+                            Mendoza Ruiz</span></div>
+                    <div class="info-row"><span class="info-label">Nationality</span><span class="info-value">Spain
+                            🇪🇸</span></div>
+                    <div class="info-row"><span class="info-label">Age</span><span class="info-value">20 (Born: Mar 15,
+                            2005)</span></div>
+                    <div class="info-row"><span class="info-label">Height</span><span class="info-value">1.82 m
+                            (6'0")</span></div>
+                    <div class="info-row"><span class="info-label">Club</span><span class="info-value">Elche CF (Segunda
+                            División)</span></div>
+                    <div class="info-row"><span class="info-label">Contract</span><span class="info-value">Until June
+                            30, 2028</span></div>
+                    <div class="info-row"><span class="info-label">Preferred Foot</span><span class="info-value">Right
+                            (Highly technical)</span></div>
+                </div>
+
+                <div class="section">
+                    <h3>2. Season Summary (25/26)</h3>
+                    <div class="info-row"><span class="info-label">Starts/Appearances</span><span
+                            class="info-value">19/22</span></div>
+                    <div class="info-row"><span class="info-label">Goals / Assists</span><span class="info-value">4 /
+                            6</span></div>
+                    <div class="info-row"><span class="info-label">Pass Accuracy (Opp. Half)</span><span
+                            class="info-value">84%</span></div>
+                    <div class="info-row"><span class="info-label">Key Passes Per 90</span><span
+                            class="info-value">2.4</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT COLUMN: DETAILED ANALYSIS -->
+        <div>
+            <!-- 3. GLOBAL IMPACT ANALYSIS -->
+            <div class="card">
+                <h2>🌍 3. Global Impact Analysis</h2>
+                <p class="lead">Rodrigo Mendoza is emerging as the tactical centerpiece of **Elche CF's** resurgence.
+                    Unlike the traditional diminutive Spanish No. 10, Mendoza possesses a tall, elegant stature
+                    (**1.82m**)
+                    that allows him to command the midfield physically without sacrificing technical fluidity. He is a
+                    "system-defining" player—the type who dictates the rhythm of a match through intelligent positioning
+                    and a "Professor-like" understanding of build-up play. Under the Cruyffian leadership of **Eder
+                    Sarabia**,
+                    Mendoza has transitioned from a pure attacking prospect into a dynamic "Number 8" who can drop
+                    between center-backs to restart play or explode into the half-spaces to unlock defenses. His
+                    **2025/26 campaign** has been a breakout on the national stage, leading to heavy scouting interest
+                    from Premier League giants (Arsenal, Chelsea) and La Liga's elite. He is currently the highest-rated
+                    U21 playmaker in the Segunda División, serving as a vital bridge between Elche’s defensive
+                    foundation and their aggressive forward line.</p>
+                <div class="muted-box">
+                    <strong>Tactical Identity:</strong> A hybrid of **Pedri's** vision and **Rodri's** positional
+                    authority. He doesn't just play in the game; he manages the game.
+                </div>
+            </div>
+
+            <!-- 4. CORE FGA INTELLIGENCE METRICS -->
+            <div class="card">
+                <h2>📊 4. Core FGA Intelligence Metrics</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Tier 1: Creative Orchestration</h3>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">VRP (Visionary Range
+                                    Passing)</span><span class="metric-score">9.2</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 92%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">STK (Strategic
+                                    Intelligence)</span><span class="metric-score">8.9</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 89%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">KEY (High-Leverage Pass)</span><span
+                                    class="metric-score">8.7</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 87%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Tier 1: Control & Progression</h3>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">UNP (Under Pressure
+                                    Retention)</span><span class="metric-score">9.1</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 91%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CAR (Progressive Carrying)</span><span
+                                    class="metric-score">8.8</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">DRB (Tight Area Control)</span><span
+                                    class="metric-score">8.7</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 87%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="two-col">
+                    <div>
+                        <h3>Tier 2: Physicality & Mobility</h3>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">STA (Elite Stamina/Outputs)</span><span
+                                    class="metric-score">9.4</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 94%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">MOB (Positional Agility)</span><span
+                                    class="metric-score">8.4</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 84%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Tier 2: Defensive Intelligence</h3>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">POI (Positional Awareness)</span><span
+                                    class="metric-score">9.1</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 91%"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">TAC (Tackle Success)</span><span
+                                    class="metric-score">7.5</span></div>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NEW SECTION: STRENGTHS & WEAKNESSES -->
+            <div class="card">
+                <h2>⚔️ 5. Strengths & Weaknesses Analysis</h2>
+                <div class="sw-container">
+                    <div class="sw-box strengths">
+                        <div class="sw-title">✅ Primary Strengths</div>
+                        <ul class="sw-list">
+                            <li><strong>Phases of Build-up:</strong> Exceptional at dropping between CBs to initiate the
+                                first phase of play, showing a maturity beyond his 20 years.</li>
+                            <li><strong>Creative Vision:</strong> Capable of spotting "hidden" passing lanes in
+                                congested central zones, often finding third-man runners with ease.</li>
+                            <li><strong>Ball Retention:</strong> Highly composed under high-press situations; uses his
+                                frame intelligently to shield the ball and turn into open space.</li>
+                            <li><strong>Off-the-ball Runs:</strong> Natural instinct to drive into the penalty area as a
+                                late runner, creating numerical overloads for the opposition.</li>
+                            <li><strong>Elite Stamina:</strong> Maintains high-quality technical outputs even into the
+                                final 10 minutes of intense matches.</li>
+                        </ul>
+                    </div>
+                    <div class="sw-box weaknesses">
+                        <div class="sw-title">⚠️ Development Areas</div>
+                        <ul class="sw-list">
+                            <li><strong>Defensive Tracking:</strong> Can occasionally fall into a "safe zone"
+                                defensively, failing to track deep-running midfielders with sufficient urgency.</li>
+                            <li><strong>Tackling Commitment:</strong> While a strong tackler technically, he sometimes
+                                prefers to jockey rather than "bite" into challenges in 50/50 scenarios.</li>
+                            <li><strong>Aerial Duels:</strong> Despite his 1.82m frame, his aerial win percentage
+                                remains average; there is room to improve his heading accuracy and aggression.</li>
+                            <li><strong>Defensive Positioning:</strong> Occasionally gets "lost" when play switches
+                                quickly, requiring better tactical concentration in low-block situations.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. 60-PHILOSOPHY FRAMEWORK -->
+            <div class="card">
+                <h2>🧠 6. 60-Philosophy Framework Analysis</h2>
+                <h3>High-Compatibility Profiles</h3>
+                <div style="display: flex; flex-wrap: wrap;">
+                    <span class="pill">Sarabia Cruyffism (Philosophy_ES_Cruyff) 9.6/10</span>
+                    <span class="pill">Arteta Positional (Philosophy_MA_Positional) 9.2/10</span>
+                    <span class="pill">Xavi Control (Philosophy_6_Barcelona_DNA) 9.4/10</span>
+                    <span class="pill">Alonso Fluidity (Philosophy_XA_Fluidity) 9.0/10</span>
+                    <span class="pill">Nagelsmann Transitions (Philosophy_18) 8.5/10</span>
+                </div>
+                <div class="muted-box">
+                    <strong>Summary:</strong> Mendoza thrives in systems that prioritize **Positional Play** and
+                    **Numerical Advantages**.
+                    He is a perfect fit for a coach who wants a "Regista" profile with the mobility of a "Number 8".
+                </div>
+            </div>
+
+            <!-- 7. PSYCHOLOGICAL PROFILE -->
+            <div class="card">
+                <h2>🧪 7. Psychological Profile & Personality</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Mental Resilience</h3>
+                        <p class="small">Demonstrates profound cool-headedness. Even in high-pressure
+                            relegation/promotion battles, Mendoza maintains his technical consistency and doesn't shy
+                            away from receiving the ball in "danger zones".</p>
+                    </div>
+                    <div>
+                        <h3>Growth Mindset</h3>
+                        <p class="small">Known within the Elche academy as an obsessive student of the game. He
+                            frequently analyzes his own passing maps and positioning, showing a "Growth Mindset" rating
+                            of **9.5/10**.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8. KEY CAREER MOMENTS -->
+            <div class="card">
+                <h2>🤝 8. Key Career Moments</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">January 4, 2026</div>
+                    <div class="timeline-event">✨ **MATRICULACIÓN MAESTRO** - Scored the dramatic 88th-minute winner
+                        against Getafe in the Copa del Rey, cement his status as a big-game contributor.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">October 12, 2024</div>
+                    <div class="timeline-event">🇪🇸 **NATIONAL ARRIVAL** - Debut for Spain U19, where he provided two
+                        assists in a 3-0 victory, attracting European scouts.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">November 2022</div>
+                    <div class="timeline-event">🏁 **FIRST TEAM DEBUT** - Made his senior bow for Elche CF at just 17
+                        years old, becoming one of the club's youngest ever debutants.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">July 2019</div>
+                    <div class="timeline-event">🏗️ **ACADEMY START** - Joined the Elche youth setup, beginning his
+                        transformation from a raw talent to a tactical maestro.</div>
+                </div>
+            </div>
+
+            <!-- 9. CAREER STATISTICS -->
+            <div class="card">
+                <h2>📈 9. Career Statistics</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Club</th>
+                            <th>Season</th>
+                            <th>Apps</th>
+                            <th>Goals (Assists)</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Elche CF</strong></td>
+                            <td>2025/26</td>
+                            <td>22</td>
+                            <td>4 (6)</td>
+                            <td>Creative Centerpiece</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Elche CF</strong></td>
+                            <td>2024/25</td>
+                            <td>34</td>
+                            <td>5 (4)</td>
+                            <td>Breakout Senior Season</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Elche B</strong></td>
+                            <td>2023/24</td>
+                            <td>28</td>
+                            <td>7 (9)</td>
+                            <td>Dominant Youth League</td>
+                        </tr>
+                        <tr style="background:rgba(255,210,77,0.15)">
+                            <td colspan="5"><strong>Career Totals:</strong> 80+ Senior Appearances • 20+ Direct Goal
+                                Involvements</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- 10. MAJOR HONORS -->
+            <div class="card">
+                <h2>🏆 10. Major Honors & Awards</h2>
+                <div class="trophy-grid">
+                    <div class="trophy-box">
+                        <div class="trophy-icon">🔝</div>
+                        <div class="trophy-title">Elche Academy POTY</div>
+                        <div class="trophy-year">2023/24</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">🇪🇸</div>
+                        <div class="trophy-title">Spain U19 Call-up</div>
+                        <div class="trophy-year">2024</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">📈</div>
+                        <div class="trophy-title">Segunda U21 Leader</div>
+                        <div class="trophy-year">2025/26 (Current)</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 11. LAST 5 MATCHES -->
+            <div class="card">
+                <h2>⚽ 11. Last 5 Matches (Jan 2026)</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Comp</th>
+                            <th>Match</th>
+                            <th>Result</th>
+                            <th>Performance Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Jan 18, 2026</strong></td>
+                            <td>Segunda Div</td>
+                            <td>Elche vs Albacete</td>
+                            <td>✅ 2-0 W</td>
+                            <td>🅰️ Perfect through-ball assist; dictated tempo.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Jan 11, 2026</strong></td>
+                            <td>Segunda Div</td>
+                            <td>Tenerife vs Elche</td>
+                            <td>⬜ 1-1 D</td>
+                            <td>4 Key passes; occupied half-spaces brilliantly.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Jan 04, 2026</strong></td>
+                            <td>Copa del Rey</td>
+                            <td>Elche vs Getafe</td>
+                            <td>✅ 2-1 W</td>
+                            <td>⚽ **Clutch 88' Winner**; MotM Performance.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Dec 21, 2025</strong></td>
+                            <td>Segunda Div</td>
+                            <td>Elche vs Eibar</td>
+                            <td>✅ 1-0 W</td>
+                            <td>90% pass accuracy; defensively robust.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Dec 14, 2025</strong></td>
+                            <td>Segunda Div</td>
+                            <td>Levante vs Elche</td>
+                            <td>❌ 1-2 L</td>
+                            <td>⚽ Scored long-range consolation goal.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- 12. ICONIC MATCHES -->
+            <div class="card">
+                <h2>🌟 12. Iconic Matches</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">Elche 2-1 Getafe (2026)</div>
+                    <div class="timeline-event">⭐ **THE GIANT KILLER** - In a high-stakes Copa del Rey clash, Mendoza
+                        didn't just score the winner; he out-passed a top-flight midfield for 90 minutes. This match is
+                        viewed as his official "audition" for La Liga scouts.</div>
+                </div>
+            </div>
+
+            <!-- 13. PLAYER COMPARISON -->
+            <div class="card">
+                <h2>📊 13. Player Comparison (vs Segunda Midfielders)</h2>
+                <div class="visual-canvas"><canvas id="radarChart"></canvas></div>
+                <p class="small" style="text-align:center;margin-top:14px">Mendoza (Gold) vs League Average (Dotted -
+                    Placeholder)</p>
+            </div>
+
+            <!-- 14. MISCELLANEOUS DATA -->
+            <div class="card">
+                <h2>📝 14. Miscellaneous Data</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Contractual Details</h3>
+                        <p class="small">
+                            <strong>Release Clause:</strong> €20,000,000<br>
+                            <strong>Agency:</strong> (Undisclosed / Top Tier)<br>
+                            <strong>Status:</strong> Active / Key Player
+                        </p>
+                    </div>
+                    <div>
+                        <h3>Sponsorship & Gear</h3>
+                        <p class="small">
+                            <strong>Kit Number:</strong> #20 (Elche CF)<br>
+                            <strong>Known For:</strong> Wearing traditional black boots / No-nonsense aesthetic.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('radarChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['Vision', 'Retention', 'Stamina', 'Ball Carrying', 'Positioning', 'Tackling', 'IQ', 'Goal Threat'],
+                datasets: [{
+                    label: 'Rodrigo Mendoza',
+                    data: [9.2, 9.1, 9.4, 8.8, 9.1, 7.5, 8.9, 7.8],
+                    borderColor: '#ffd24d',
+                    backgroundColor: 'rgba(255,210,77,0.15)',
+                    borderWidth: 4,
+                    pointBackgroundColor: '#ffd24d',
+                    pointBorderColor: '#fff',
+                    pointRadius: 6
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        max: 10,
+                        ticks: { stepSize: 2, color: '#8b949e', backdropColor: 'transparent', font: { size: 11 } },
+                        grid: { color: 'rgba(255,255,255,0.08)' },
+                        pointLabels: { color: '#f0f6fc', font: { size: 13, weight: '700' } }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#fff',
+                            font: { size: 14, weight: 'bold' }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
