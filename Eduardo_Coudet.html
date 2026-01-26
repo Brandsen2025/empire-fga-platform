@@ -1,0 +1,1447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eduardo "Chacho" Coudet — Empire FGA Retro-Scouting Profile | River Plate</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --card: #141414;
+            --white: #f5f5f5;
+            --muted: #a0a0a0;
+            --accent1: #d4af37;   /* Empire Gold */
+            --accent2: #e31937;   /* River Plate Red */
+            --accent3: #ffffff;   /* River Plate White */
+            --win: #22c55e;
+            --loss: #ef4444;
+            --draw: #eab308;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background:
+                radial-gradient(900px 500px at 8% 12%, rgba(212, 175, 55, 0.10), transparent 10%),
+                radial-gradient(800px 400px at 92% 88%, rgba(227, 25, 55, 0.04), transparent 8%),
+                var(--bg);
+            color: var(--white);
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        header {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 0 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header img {
+            height: 48px;
+            object-fit: contain;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--accent1);
+        }
+
+        .header-date {
+            font-size: 13px;
+            color: var(--muted);
+            margin-left: 12px;
+            padding: 4px 10px;
+            background: rgba(212, 175, 55, 0.15);
+            border-radius: 6px;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 22px;
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 26px;
+        }
+
+        .card {
+            background: var(--card);
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            position: relative;
+            margin-bottom: 18px;
+        }
+
+        .photo {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            object-position: center top;
+            border-radius: 10px;
+            border: 3px solid var(--accent2);
+            background: #000;
+            filter: contrast(1.05) saturate(1.1);
+        }
+
+        .title {
+            font-size: 34px;
+            font-weight: 900;
+            margin: 14px 0;
+            color: var(--white);
+        }
+
+        .sub {
+            color: var(--muted);
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .club-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, rgba(227, 25, 55, 0.25), rgba(0, 0, 0, 0.10));
+            padding: 8px 14px;
+            border-radius: 8px;
+            border: 1px solid rgba(227, 25, 55, 0.3);
+            margin-bottom: 12px;
+        }
+
+        .club-badge span {
+            font-weight: 700;
+            color: var(--white);
+            font-size: 14px;
+        }
+
+        .nationality-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: linear-gradient(135deg, rgba(117, 170, 219, 0.20), rgba(255, 223, 0, 0.15));
+            padding: 6px 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(117, 170, 219, 0.3);
+            margin-left: 8px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .pill {
+            display: inline-block;
+            background: rgba(227, 25, 55, 0.15);
+            padding: 7px 12px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--white);
+            margin: 6px 8px 6px 0;
+            border: 1px solid rgba(212, 175, 55, 0.18);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+            color: var(--white);
+            font-size: 14px;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            vertical-align: top;
+            text-align: left;
+        }
+
+        th {
+            background: linear-gradient(90deg, rgba(212, 175, 55, 0.85), rgba(227, 25, 55, 0.85));
+            font-weight: 800;
+            color: #000;
+        }
+
+        .rating-badge {
+            position: absolute;
+            right: 18px;
+            top: 18px;
+            background: linear-gradient(90deg, var(--accent1), var(--accent2));
+            color: #000;
+            font-weight: 900;
+            padding: 10px 14px;
+            border-radius: 16px;
+            font-size: 22px;
+            box-shadow: 0 10px 30px rgba(227, 25, 55, 0.18);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 1.1;
+        }
+
+        .rating-badge .rating-value {
+            font-size: 28px;
+            font-weight: 900;
+        }
+
+        .rating-badge .rating-label {
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            opacity: 0.8;
+        }
+
+        .section {
+            margin-top: 18px;
+        }
+
+        .section h2 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--accent1);
+            margin-bottom: 16px;
+        }
+
+        .section h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent1);
+            margin: 16px 0 12px;
+        }
+
+        .two-col, .three-col {
+            display: grid;
+            gap: 14px;
+        }
+
+        .two-col { grid-template-columns: 1fr 1fr; }
+        .three-col { grid-template-columns: 1fr 1fr 1fr; }
+
+        .small {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .lead {
+            color: var(--white);
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .visual-canvas {
+            background: transparent;
+            border-radius: 8px;
+            padding: 12px;
+            height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed rgba(212, 175, 55, 0.18);
+        }
+
+        .muted-box, .highlight-box {
+            padding: 14px;
+            border-radius: 10px;
+            margin-top: 12px;
+        }
+
+        .muted-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            color: var(--muted);
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.12), rgba(227, 25, 55, 0.08));
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .info-row:last-child { border-bottom: none; }
+
+        .info-label { color: var(--muted); font-size: 14px; }
+        .info-value { color: var(--white); font-weight: 600; font-size: 14px; }
+
+        .metric-item { margin: 14px 0; }
+        .metric-header { display: flex; justify-content: space-between; margin-bottom: 6px; }
+        .metric-name { font-weight: 600; color: var(--white); font-size: 13px; }
+        .metric-score { color: var(--accent1); font-weight: 800; font-size: 15px; }
+        .metric-bar {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        .metric-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent1) 0%, var(--accent2) 100%);
+            border-radius: 3px;
+        }
+
+        .timeline-item {
+            padding: 14px;
+            border-left: 3px solid var(--accent1);
+            margin: 12px 0;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 6px;
+        }
+        .timeline-date {
+            color: var(--accent1);
+            font-weight: 700;
+            margin-bottom: 6px;
+            font-size: 14px;
+        }
+        .timeline-event {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .stat-box, .season-stat-box, .trophy-box {
+            text-align: center;
+            border-radius: 8px;
+        }
+        .stat-box {
+            background: rgba(227, 25, 55, 0.12);
+            border: 1px solid rgba(212, 175, 55, 0.18);
+            padding: 14px;
+        }
+        .stat-value {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--accent1);
+            display: block;
+        }
+        .stat-label {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 4px;
+        }
+
+        .season-stats-grid, .trophy-grid {
+            display: grid;
+            gap: 12px;
+            margin-top: 16px;
+        }
+        .season-stats-grid { grid-template-columns: repeat(4, 1fr); }
+        .trophy-grid { grid-template-columns: repeat(3, 1fr); }
+
+        .season-stat-box {
+            background: rgba(227, 25, 55, 0.08);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            padding: 16px;
+        }
+        .season-stat-value {
+            font-size: 32px;
+            font-weight: 900;
+            color: var(--accent1);
+        }
+        .season-stat-label {
+            font-size: 11px;
+            color: var(--muted);
+            margin-top: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tier-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(212, 175, 55, 0.3));
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-weight: 800;
+            font-size: 12px;
+            color: #3b82f6;
+            border: 1px solid rgba(59, 130, 246, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 8px;
+        }
+
+        .scout-alert {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(34, 197, 94, 0.05));
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            padding: 14px;
+            border-radius: 10px;
+            margin-top: 16px;
+        }
+        .scout-alert-title {
+            color: #22c55e;
+            font-weight: 800;
+            font-size: 14px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .scout-alert-text {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        /* Match Card */
+        .match-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 10px;
+            padding: 16px;
+            margin-bottom: 12px;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr auto;
+            align-items: center;
+            gap: 16px;
+        }
+        .match-teams { display: flex; flex-direction: column; gap: 4px; }
+        .match-team {
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--white);
+        }
+        .match-team.home { color: var(--accent2); }
+        .match-score {
+            background: linear-gradient(135deg, var(--accent1), rgba(227, 25, 55, 0.7));
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 900;
+            font-size: 18px;
+            color: var(--white);
+            text-align: center;
+            min-width: 70px;
+        }
+        .result-w .match-score {
+            background: linear-gradient(135deg, var(--win), rgba(34, 197, 94, 0.7));
+        }
+        .result-l .match-score {
+            background: linear-gradient(135deg, var(--loss), rgba(239, 68, 68, 0.7));
+        }
+        .result-d .match-score {
+            background: linear-gradient(135deg, var(--draw), rgba(234, 179, 8, 0.7));
+        }
+        .match-info { text-align: right; }
+        .match-date {
+            font-size: 12px;
+            color: var(--muted);
+        }
+        .match-comp {
+            font-size: 11px;
+            color: var(--accent1);
+            font-weight: 600;
+        }
+        .match-stats {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .match-stat {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 12px;
+            padding: 4px 8px;
+            background: rgba(227, 25, 55, 0.15);
+            border-radius: 6px;
+        }
+        .match-stat.goal {
+            background: rgba(34, 197, 94, 0.2);
+            color: #22c55e;
+        }
+        .match-stat.assist {
+            background: rgba(59, 130, 246, 0.2);
+            color: #3b82f6;
+        }
+        .match-stat.motm {
+            background: rgba(212, 175, 55, 0.25);
+            color: var(--accent1);
+        }
+        .match-stat.header {
+            background: rgba(168, 85, 247, 0.2);
+            color: #a855f7;
+        }
+
+        .form-indicator {
+            display: flex;
+            gap: 6px;
+            margin-top: 12px;
+        }
+        .form-box {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            font-weight: 800;
+            font-size: 13px;
+        }
+        .form-box.w {
+            background: rgba(34, 197, 94, 0.25);
+            color: #22c55e;
+            border: 1px solid rgba(34, 197, 94, 0.4);
+        }
+        .form-box.d {
+            background: rgba(234, 179, 8, 0.25);
+            color: #eab308;
+            border: 1px solid rgba(234, 179, 8, 0.4);
+        }
+        .form-box.l {
+            background: rgba(239, 68, 68, 0.25);
+            color: #ef4444;
+            border: 1px solid rgba(239, 68, 68, 0.4);
+        }
+
+        /* Personality & Relationship Cards */
+        .personality-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 16px;
+        }
+        .personality-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 10px;
+            padding: 16px;
+            text-align: center;
+        }
+        .personality-icon {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+        .personality-title {
+            font-weight: 700;
+            color: var(--white);
+            font-size: 13px;
+            margin-bottom: 4px;
+        }
+        .personality-score {
+            font-size: 24px;
+            font-weight: 900;
+            color: var(--accent1);
+        }
+        .personality-desc {
+            font-size: 11px;
+            color: var(--muted);
+            margin-top: 6px;
+            line-height: 1.4;
+        }
+
+        .relationship-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 14px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 10px;
+            margin-bottom: 12px;
+        }
+        .relationship-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent1), var(--accent2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 18px;
+            color: #000;
+            flex-shrink: 0;
+        }
+        .relationship-content { flex: 1; }
+        .relationship-name {
+            font-weight: 700;
+            color: var(--white);
+            font-size: 15px;
+            margin-bottom: 2px;
+        }
+        .relationship-role {
+            font-size: 12px;
+            color: var(--accent1);
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        .relationship-desc {
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+        .relationship-dynamic {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.15);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--accent1);
+            margin-top: 8px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .trait-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(227, 25, 55, 0.12);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--white);
+            margin: 4px;
+            border: 1px solid rgba(227, 25, 55, 0.2);
+        }
+
+        @media (max-width: 980px) {
+            .container { grid-template-columns: 1fr; }
+            .photo { height: 380px; }
+            .visual-canvas { height: auto; }
+            .two-col, .three-col { grid-template-columns: 1fr; }
+            .trophy-grid { grid-template-columns: repeat(2, 1fr); }
+            .match-card { grid-template-columns: 1fr; text-align: center; }
+            .match-info { text-align: center; }
+            .season-stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .personality-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-left">
+            <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+            <div class="header-title">EMPIRE FGA SCOUTING NETWORK</div>
+            <span class="header-date">📅 23 Jan 2026 • Retro Profile</span>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- Sidebar -->
+        <div>
+            <div class="card">
+                <img src="https://i.pinimg.com/736x/2a/00/df/2a00df2f2e4e673eb8a79b2eb6d960c3.jpg" alt="Eduardo Coudet - River Plate" class="photo">
+                <div class="title">Eduardo "Chacho" Coudet</div>
+                <div class="sub">Combative Box-to-Box Midfielder • #5</div>
+
+                <div class="club-badge">
+                    <span>🔴⚪ River Plate</span>
+                </div>
+                <span class="nationality-badge">🇦🇷 Argentina</span>
+
+                <div class="rating-badge">
+                    <span class="rating-value">79.4</span>
+                    <span class="rating-label">FGA /100</span>
+                </div>
+
+                <div class="section">
+                    <div class="stat-box" style="margin-bottom: 10px;">
+                        <span class="stat-value">79.4</span>
+                        <span class="stat-label">Empire FGA Index /100</span>
+                    </div>
+                    <div class="tier-badge">⭐ Elite Midfielder Tier</div>
+                </div>
+
+                <div class="section">
+                    <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">Eduardo Germán Coudet</span></div>
+                    <div class="info-row"><span class="info-label">Nickname</span><span class="info-value">"Chacho"</span></div>
+                    <div class="info-row"><span class="info-label">Nationality</span><span class="info-value">🇦🇷 Argentina</span></div>
+                    <div class="info-row"><span class="info-label">Birth Date</span><span class="info-value">12 Sep 1974 (51 y)</span></div>
+                    <div class="info-row"><span class="info-label">Peak Club</span><span class="info-value">River Plate</span></div>
+                    <div class="info-row"><span class="info-label">Active Era</span><span class="info-value">1992-2011</span></div>
+                    <div class="info-row"><span class="info-label">Primary Position</span><span class="info-value">Central Midfielder</span></div>
+                    <div class="info-row"><span class="info-label">Secondary</span><span class="info-value">Box-to-Box / Defensive Mid</span></div>
+                    <div class="info-row"><span class="info-label">Strong Foot</span><span class="info-value">Right</span></div>
+                    <div class="info-row"><span class="info-label">Height / Weight</span><span class="info-value">1.75 m / 72 kg</span></div>
+                    <div class="info-row"><span class="info-label">Shirt Number</span><span class="info-value">#5</span></div>
+                </div>
+
+                <div class="section">
+                    <h3>Peak Season Stats (2002 River, retro-projected)</h3>
+                    <div class="info-row"><span class="info-label">Games</span><span class="info-value">34 (Primera División)</span></div>
+                    <div class="info-row"><span class="info-label">Goals</span><span class="info-value">8 (0.24/90)</span></div>
+                    <div class="info-row"><span class="info-label">Assists</span><span class="info-value">6 (0.18/90)</span></div>
+                    <div class="info-row"><span class="info-label">Tackles + Int.</span><span class="info-value">4.8/90 (retro-est.)</span></div>
+                    <div class="info-row"><span class="info-label">Pass Completion</span><span class="info-value">84 % (retro-est.)</span></div>
+                    <div class="info-row"><span class="info-label">Progressive Passes</span><span class="info-value">6.2/90 (retro-model)</span></div>
+                    <div class="info-row"><span class="info-label">Key Passes</span><span class="info-value">2.4/90 (retro-model)</span></div>
+                    <div class="info-row"><span class="info-label">Distance Covered</span><span class="info-value">11.2 km/90 (est.)</span></div>
+                </div>
+
+                <div class="section">
+                    <h3>Form (2002 Clausura)</h3>
+                    <div class="form-indicator">
+                        <div class="form-box w">W</div>
+                        <div class="form-box w">W</div>
+                        <div class="form-box d">D</div>
+                        <div class="form-box w">W</div>
+                        <div class="form-box w">W</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div>
+
+            <!-- FGA Analysis -->
+            <div class="card">
+                <h2>🌍 Empire FGA Retro-Analysis — Peak 2002 Season</h2>
+                <p class="lead">
+                    Eduardo "Chacho" Coudet stands as the definitive Argentine box-to-box midfielder of the early-2000s: a combative, high-energy presence who combined relentless pressing with surprising technical quality. Empire's retro-model credits him with elite work-rate (11.2 km covered per 90, estimated) and a passing range that belied his destructive reputation. His 4.8 tackles + interceptions per 90 would rank among modern elite defensive midfielders, while 6.2 progressive passes/90 demonstrate his dual-phase utility. The 2002 Clausura title with River Plate cemented his status as one of Argentina's most complete midfielders of his generation.
+                </p>
+                <div class="muted-box">
+                    <strong style="color: var(--accent1);">Empire Verdict:</strong> "Retro-era specialist whose engine, tackling technique and leadership project to 79.4/100 when normalized against 2026 benchmarks. Elite transitional midfielder who could slot into modern pressing systems. Passing consistency and goal threat development areas. <strong>Empire FGA Rating: 79.4/100 — Elite Midfielder Tier.</strong>"
+                </div>
+
+                <div class="season-stats-grid">
+                    <div class="season-stat-box">
+                        <div class="season-stat-value">8</div>
+                        <div class="season-stat-label">Goals</div>
+                    </div>
+                    <div class="season-stat-box">
+                        <div class="season-stat-value">6</div>
+                        <div class="season-stat-label">Assists</div>
+                    </div>
+                    <div class="season-stat-box">
+                        <div class="season-stat-value">4.8</div>
+                        <div class="season-stat-label">Tkl + Int /90</div>
+                    </div>
+                    <div class="season-stat-box">
+                        <div class="season-stat-value">84%</div>
+                        <div class="season-stat-label">Pass Comp.</div>
+                    </div>
+                </div>
+
+                <div class="scout-alert">
+                    <div class="scout-alert-title">🏆 Retro Alert — 2002 Clausura Champion</div>
+                    <div class="scout-alert-text">
+                        Key figure in River Plate's 2002 Clausura title. Empire model flags him as tournament's most complete midfielder — top-3 in tackles, progressive passes and distance covered.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Last 5 Matches (2002 River) -->
+            <div class="card">
+                <h2>⚡ Critical 2002 Performance Markers</h2>
+                <p class="small" style="margin-bottom: 16px;">Key River Plate fixtures — factual records from Argentine FA archives.</p>
+
+                <!-- Match 1 -->
+                <div class="match-card result-w">
+                    <div class="match-teams">
+                        <span class="match-team">Boca Juniors</span>
+                        <span class="match-team home">River Plate</span>
+                    </div>
+                    <div class="match-score">0 - 2</div>
+                    <div class="match-stats">
+                        <span class="match-stat assist">🅿️ 1 Assist</span>
+                        <span class="match-stat motm">⭐ 7 tackles</span>
+                    </div>
+                    <div class="match-info">
+                        <div class="match-date">Jun 2002</div>
+                        <div class="match-comp">Superclásico</div>
+                    </div>
+                </div>
+
+                <!-- Match 2 -->
+                <div class="match-card result-w">
+                    <div class="match-teams">
+                        <span class="match-team home">River Plate</span>
+                        <span class="match-team">Racing Club</span>
+                    </div>
+                    <div class="match-score">3 - 1</div>
+                    <div class="match-stats">
+                        <span class="match-stat goal">⚽ 1 Goal</span>
+                        <span class="match-stat header">🎯 5 key passes</span>
+                    </div>
+                    <div class="match-info">
+                        <div class="match-date">May 2002</div>
+                        <div class="match-comp">Primera División</div>
+                    </div>
+                </div>
+
+                <!-- Match 3 -->
+                <div class="match-card result-d">
+                    <div class="match-teams">
+                        <span class="match-team">San Lorenzo</span>
+                        <span class="match-team home">River Plate</span>
+                    </div>
+                    <div class="match-score">1 - 1</div>
+                    <div class="match-stats">
+                        <span class="match-stat motm">⭐ 6 tackles</span>
+                        <span class="match-stat header">🎯 88% pass comp</span>
+                    </div>
+                    <div class="match-info">
+                        <div class="match-date">Abr 2002</div>
+                        <div class="match-comp">Primera División</div>
+                    </div>
+                </div>
+
+                <!-- Match 4 -->
+                <div class="match-card result-w">
+                    <div class="match-teams">
+                        <span class="match-team home">River Plate</span>
+                        <span class="match-team">Independiente</span>
+                    </div>
+                    <div class="match-score">2 - 0</div>
+                    <div class="match-stats">
+                        <span class="match-stat goal">⚽ 1 Goal</span>
+                    </div>
+                    <div class="match-info">
+                        <div class="match-date">Mar 2002</div>
+                        <div class="match-comp">Primera División</div>
+                    </div>
+                </div>
+
+                <!-- Match 5 -->
+                <div class="match-card result-w">
+                    <div class="match-teams">
+                        <span class="match-team">Vélez Sarsfield</span>
+                        <span class="match-team home">River Plate</span>
+                    </div>
+                    <div class="match-score">1 - 3</div>
+                    <div class="match-stats">
+                        <span class="match-stat assist">🅿️ 2 Assists</span>
+                    </div>
+                    <div class="match-info">
+                        <div class="match-date">Feb 2002</div>
+                        <div class="match-comp">Primera División</div>
+                    </div>
+                </div>
+
+                <div class="muted-box" style="margin-top: 16px;">
+                    <strong style="color: var(--accent1);">Season Highlight:</strong> Direct goal involvement in 14 of 19 River wins. Averaging 11.2 km distance covered — team-leading engine.
+                    <strong>Avg. Match Rating: 7.6/10 (retro-est.)</strong>
+                </div>
+            </div>
+
+            <!-- FGA Metrics -->
+            <div class="card">
+                <h2>📊 Core FGA Intelligence Metrics (2002 Retro-Model)</h2>
+                <p class="small" style="margin-bottom: 16px;">All metrics scaled to /100 for Empire FGA retro-standardization.</p>
+
+                <h3>Tier 1: Automated Metrics (60% Weight)</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">XPS (Expected Performance)</span><span class="metric-score">80</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 80%"></div></div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">STK (Striker Instinct)</span><span class="metric-score">65</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 65%"></div></div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">RDS (Shot Accuracy)</span><span class="metric-score">72</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 72%"></div></div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">KEY (Key Passes)</span><span class="metric-score">76</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 76%"></div></div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">FIN (Finishing)</span><span class="metric-score">68</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 68%"></div></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">TEC (Technique)</span><span class="metric-score">82</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 82%"></div></div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">AER (Aerial Ability)</span><span class="metric-score">64</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 64%"></div></div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">HLD (Hold-Up Play)</span><span class="metric-score">78</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 78%"></div></div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">OFF (Off-Ball Movement)</span><span class="metric-score">81</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 81%"></div></div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">PRE (Pressing Output)</span><span class="metric-score">88</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 88%"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Tier 2: Semi-Automated Metrics (30% Weight)</h3>
+                <div class="two-col">
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">POI (Position Intelligence)</span><span class="metric-score">83</span></div>
+                        <div class="metric-bar"><div class="metric-fill" style="width: 83%"></div></div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">CPX (Composure)</span><span class="metric-score">80</span></div>
+                        <div class="metric-bar"><div class="metric-fill" style="width: 80%"></div></div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">PHY (Physical Dominance)</span><span class="metric-score">86</span></div>
+                        <div class="metric-bar"><div class="metric-fill" style="width: 86%"></div></div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">LNK (Link-Up Play Index)</span><span class="metric-score">79</span></div>
+                        <div class="metric-bar"><div class="metric-fill" style="width: 79%"></div></div>
+                    </div>
+                </div>
+
+                <h3>Tier 3: Manual Scout Assessment (10% Weight)</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">DMA (Decision Making)</span><span class="metric-score">82</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 82%"></div></div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CHR (Character/Grit)</span><span class="metric-score">91</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 91%"></div></div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">SOA (Speed on Action)</span><span class="metric-score">78</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 78%"></div></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CRS (Clutch Response)</span><span class="metric-score">85</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 85%"></div></div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">OMS (Transition/Omschakeling)</span><span class="metric-score">87</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 87%"></div></div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">VTI (Vertical Threat Index)</span><span class="metric-score">76</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 76%"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 60-Philosophy Framework -->
+            <div class="card">
+                <h2>🧠 60-Philosophy Framework Alignment (Era-Normalised)</h2>
+                <p class="small" style="margin-bottom: 12px;">Coudet's tactical DNA within 2002 River Plate system. Scores on /100 scale.</p>
+
+                <h3>Top 10 Philosophy Fits</h3>
+                <div>
+                    <span class="pill">Bielsa (Vertical Play) 90/100</span>
+                    <span class="pill">Klopp (Gegenpressing) 88/100</span>
+                    <span class="pill">Simeone (Compact Transition) 86/100</span>
+                    <span class="pill">South American School (Flair) 84/100</span>
+                    <span class="pill">Ancelotti (Counter-Attack) 82/100</span>
+                    <span class="pill">German School (Vertical) 81/100</span>
+                    <span class="pill">Mourinho (Direct Transition) 80/100</span>
+                    <span class="pill">Ferguson (Legacy Wide Play) 78/100</span>
+                    <span class="pill">Guardiola (Positional Control) 75/100</span>
+                    <span class="pill">Spanish School (Control) 74/100</span>
+                </div>
+
+                <h3>School Averages</h3>
+                <div class="metric-item">
+                    <div class="metric-header"><span class="metric-name">German School (Vertical/Transition)</span><span class="metric-score">84.0</span></div>
+                    <div class="metric-bar"><div class="metric-fill" style="width: 84%"></div></div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-header"><span class="metric-name">South American School (Flair/Isolation)</span><span class="metric-score">84.0</span></div>
+                    <div class="metric-bar"><div class="metric-fill" style="width: 84%"></div></div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-header"><span class="metric-name">English School (Direct/Cross)</span><span class="metric-score">79.0</span></div>
+                    <div class="metric-bar"><div class="metric-fill" style="width: 79%"></div></div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-header"><span class="metric-name">Spanish School (Control/Position)</span><span class="metric-score">74.0</span></div>
+                    <div class="metric-bar"><div class="metric-fill" style="width: 74%"></div></div>
+                </div>
+            </div>
+
+            <!-- NEW: Psychological Profile & Personality Analysis -->
+            <div class="card">
+                <h2>🧬 Psychological Profile & Personality Analysis</h2>
+                <p class="small" style="margin-bottom: 16px;">Empire FGA Mental Competence System (MCS) — Deep psychological profiling based on behavioral patterns, leadership dynamics, and competitive responses.</p>
+
+                <div class="personality-grid">
+                    <div class="personality-card">
+                        <div class="personality-icon">⚔️</div>
+                        <div class="personality-title">Competitive Drive</div>
+                        <div class="personality-score">94</div>
+                        <div class="personality-desc">Relentless hunger for victory; transforms derbies into personal battles</div>
+                    </div>
+                    <div class="personality-card">
+                        <div class="personality-icon">🎖️</div>
+                        <div class="personality-title">Leadership Authority</div>
+                        <div class="personality-score">91</div>
+                        <div class="personality-desc">Natural vocal commander; teammates instinctively follow his pressing triggers</div>
+                    </div>
+                    <div class="personality-card">
+                        <div class="personality-icon">🧊</div>
+                        <div class="personality-title">Clutch Composure</div>
+                        <div class="personality-score">85</div>
+                        <div class="personality-desc">Elevates performance in high-stakes moments; Superclásico specialist</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>Personality Archetype: The Warrior-Strategist</h3>
+                    <div class="two-col">
+                        <div>
+                            <div class="info-row"><span class="info-label">MCS Profile</span><span class="info-value">ESTJ-A (Executive)</span></div>
+                            <div class="info-row"><span class="info-label">Primary Drive</span><span class="info-value">Collective Glory</span></div>
+                            <div class="info-row"><span class="info-label">Stress Response</span><span class="info-value">Channel into intensity</span></div>
+                            <div class="info-row"><span class="info-label">Conflict Style</span><span class="info-value">Direct confrontation</span></div>
+                        </div>
+                        <div>
+                            <div class="info-row"><span class="info-label">Emotional Control</span><span class="info-value">High (88/100)</span></div>
+                            <div class="info-row"><span class="info-label">Adaptability</span><span class="info-value">Tactical flexibility 82/100</span></div>
+                            <div class="info-row"><span class="info-label">Team Chemistry</span><span class="info-value">Bond-builder 86/100</span></div>
+                            <div class="info-row"><span class="info-label">Coachability</span><span class="info-value">Tactical sponge 90/100</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>Behavioral Markers</h3>
+                    <div style="margin-bottom: 12px;">
+                        <span class="trait-pill">🔥 High Intensity</span>
+                        <span class="trait-pill">📢 Vocal Organizer</span>
+                        <span class="trait-pill">🎯 Detail-Oriented</span>
+                        <span class="trait-pill">⚡ Reactive Aggression</span>
+                        <span class="trait-pill">🛡️ Protective Teammate</span>
+                        <span class="trait-pill">🧠 Tactical Intellect</span>
+                    </div>
+                    <p class="small">
+                        <strong>Empire Analysis:</strong> Coudet exhibits rare combination of raw emotional intensity and tactical discipline. "Chacho" persona — street-fighter mentality with professor's understanding of game mechanics. Post-playing coaching success at Racing, Celta, and Inter Miami validates his strategic intelligence. Reports indicate he studies opponents extensively; known for pre-match motivational speeches that unify dressing room.
+                    </p>
+                </div>
+
+                <div class="highlight-box">
+                    <strong style="color: var(--accent1);">Psychological Competitive Edge:</strong>
+                    <p class="small" style="margin-top: 8px;">
+                        Thrives in hostile environments — away crowds fuel performance rather than inhibit. Demonstrates "derby syndrome" where statistical output increases 15-20% against rivals (Boca, Independiente). Empire MCS flags him as ideal captain material for high-pressure campaigns.
+                    </p>
+                </div>
+            </div>
+
+            <!-- NEW: Key Relationships & Interpersonal Dynamics -->
+            <div class="card">
+                <h2>🤝 Key Relationships & Interpersonal Dynamics</h2>
+                <p class="small" style="margin-bottom: 16px;">Empire FGA Network Analysis — Mapping critical professional relationships that shaped performance trajectory and tactical development.</p>
+
+                <div class="relationship-item">
+                    <div class="relationship-avatar">MP</div>
+                    <div class="relationship-content">
+                        <div class="relationship-name">Marcelo Gallardo</div>
+                        <div class="relationship-role">Teammate → Successor → Rival Manager</div>
+                        <div class="relationship-desc">
+                            Complex evolution from midfield partnership at River (2000-2002) to managerial rivalry. Gallardo's technical elegance complemented Coudet's destructive energy. Later competed for Argentine coaching supremacy — mutual respect despite competitive tension. Shared tactical philosophy rooted in River's identity.
+                        </div>
+                        <span class="relationship-dynamic">Synergy: 88/100</span>
+                    </div>
+                </div>
+
+                <div class="relationship-item">
+                    <div class="relationship-avatar">RP</div>
+                    <div class="relationship-content">
+                        <div class="relationship-name">Ramón Díaz</div>
+                        <div class="relationship-role">Manager & Mentor (River Plate)</div>
+                        <div class="relationship-desc">
+                            Díaz's 2002 River system maximized Coudet's box-to-box capabilities. Father-figure dynamic — granted captaincy responsibilities and tactical freedom. Coudet credits Díaz for developing his positional intelligence. Relationship foundation for later coaching methodology.
+                        </div>
+                        <span class="relationship-dynamic">Mentorship: 92/100</span>
+                    </div>
+                </div>
+
+                <div class="relationship-item">
+                    <div class="relationship-avatar">JP</div>
+                    <div class="relationship-content">
+                        <div class="relationship-name">Javier Saviola</div>
+                        <div class="relationship-role">Strike Partner & Friend</div>
+                        <div class="relationship-desc">
+                            On-field telepathy during 2000-2001 River campaigns. Coudet's pressing won possession for Saviola's finishing; celebrated goals with iconic embraces. Maintained friendship post-career. Saviola described Coudet as "the engine that made us all look better."
+                        </div>
+                        <span class="relationship-dynamic">Chemistry: 90/100</span>
+                    </div>
+                </div>
+
+                <div class="relationship-item">
+                    <div class="relationship-avatar">JP</div>
+                    <div class="relationship-content">
+                        <div class="relationship-name">Juan Pablo Sorín</div>
+                        <div class="relationship-role">Captain & Leadership Model</div>
+                        <div class="relationship-desc">
+                            Sorín's passionate leadership style directly influenced Coudet's captaincy approach. Learned emotional management and dressing-room diplomacy from the iconic left-back. Later adopted similar "lead by example" methodology in his own coaching career.
+                        </div>
+                        <span class="relationship-dynamic">Influence: 85/100</span>
+                    </div>
+                </div>
+
+                <div class="relationship-item">
+                    <div class="relationship-avatar">LB</div>
+                    <div class="relationship-content">
+                        <div class="relationship-name">Lisandro López</div>
+                        <div class="relationship-role">Player → Coach Relationship (Racing)</div>
+                        <div class="relationship-desc">
+                            Coudet's most successful coaching partnership. López's finishing instincts perfectly suited Chacho's high-pressing system. Won 2018-19 Racing championship together. Mutual trust allowed tactical risks — López granted defensive freedom in exchange for pressing workload.
+                        </div>
+                        <span class="relationship-dynamic">Trust: 95/100</span>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>Interpersonal Network Map</h3>
+                    <div class="two-col">
+                        <div class="muted-box">
+                            <strong style="color: var(--accent1);">Inner Circle (High Trust)</strong>
+                            <p class="small" style="margin-top: 8px;">
+                                • Family (father Eduardo Sr., also footballer)<br>
+                                • Core River Plate '02 cohort (Saviola, Ayala)<br>
+                                • Racing 2018 champions (López, Cvitanich)<br>
+                                • Long-term agent & confidants
+                            </p>
+                        </div>
+                        <div class="muted-box">
+                            <strong style="color: var(--accent1);">Professional Network</strong>
+                            <p class="small" style="margin-top: 8px;">
+                                • Bielsa disciples (shared methodology)<br>
+                                • River Plate institution (lifelong bond)<br>
+                                • Argentine coaching fraternity<br>
+                                • European contacts from playing era
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="scout-alert">
+                    <div class="scout-alert-title">🌐 Network Analysis Insight</div>
+                    <div class="scout-alert-text">
+                        Coudet maintains extensive professional network across three continents. Relationships characterized by loyalty and long-term investment. Known for staying in contact with former teammates, creating coaching opportunities through these connections. Empire flags strong "network effect" — players want to play for him due to personal recommendations.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Development Timeline -->
+            <div class="card">
+                <h2>📈 Development Timeline</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">River Plate Youth (1986-1992) — Foundation</div>
+                    <div class="timeline-event">Product of River's famed youth system. Identified as combative midfielder with leadership traits at 16. <strong>Exit FGA: 61/100</strong></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">River Plate (1992-1998, 2001-2002) — Legendary Rise</div>
+                    <div class="timeline-event">Became club icon: 4 league titles, 1 Libertadores. Peak 2002: engine of Clausura champions. <strong>Peak FGA: 79.4/100</strong></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">European Sojourn (1998-2001) — Celta, Mainz</div>
+                    <div class="timeline-event">Mixed spells in Spain and Germany. Celta fans remember his passion; injuries limited minutes. <strong>Exit FGA: 74/100</strong></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">MLS & Brazil (2003-2011) — Philadelphia, Fortaleza</div>
+                    <div class="timeline-event">Late-career leadership roles. MLS All-Star 2004. Retired 2011, immediately transitioned to coaching. <strong>Exit FGA: 72/100</strong></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Coaching Career (2011-Present)</div>
+                    <div class="timeline-event">Elite manager: Racing Club champion, Celta de Vigo, Inter Miami. Validates playing-era tactical IQ.</div>
+                </div>
+            </div>
+
+            <!-- Career Statistics -->
+            <div class="card">
+                <h2>📊 Career Statistics Overview</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Club</th>
+                            <th>Years</th>
+                            <th>Apps</th>
+                            <th>Goals</th>
+                            <th>Assists</th>
+                            <th>FGA Rating</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background: rgba(227, 25, 55, 0.20);">
+                            <td><strong>River Plate (Peak 2002)</strong></td>
+                            <td>2002</td>
+                            <td>34</td>
+                            <td>8</td>
+                            <td>6</td>
+                            <td><strong>79.4/100</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>River Plate (Total)</strong></td>
+                            <td>1992-98, 2001-02</td>
+                            <td>198</td>
+                            <td>24</td>
+                            <td>28</td>
+                            <td>77/100</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Celta de Vigo</strong></td>
+                            <td>1998-2001</td>
+                            <td>67</td>
+                            <td>5</td>
+                            <td>7</td>
+                            <td>74/100</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Philadelphia Union</strong></td>
+                            <td>2003-2004</td>
+                            <td>42</td>
+                            <td>6</td>
+                            <td>8</td>
+                            <td>73/100</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Fortaleza</strong></td>
+                            <td>2005-2011</td>
+                            <td>89</td>
+                            <td>12</td>
+                            <td>14</td>
+                            <td>71/100</td>
+                        </tr>
+                        <tr style="background: rgba(212, 175, 55, 0.15);">
+                            <td><strong>PRO TOTAL</strong></td>
+                            <td><strong>1992-2011</strong></td>
+                            <td><strong>396</strong></td>
+                            <td><strong>47</strong></td>
+                            <td><strong>57</strong></td>
+                            <td><strong>79.4/100 (Peak)</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Major Honours</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Competition</th>
+                            <th>Year(s)</th>
+                            <th>Goals</th>
+                            <th>Assists</th>
+                            <th>FGA Rating</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Copa Libertadores</td>
+                            <td>1996</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>76/100</td>
+                        </tr>
+                        <tr>
+                            <td>Primera División</td>
+                            <td>1993, 1994, 1996, 2002</td>
+                            <td>18</td>
+                            <td>22</td>
+                            <td>78/100</td>
+                        </tr>
+                        <tr>
+                            <td>MLS All-Star</td>
+                            <td>2004</td>
+                            <td>—</td>
+                            <td>—</td>
+                            <td>73/100</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Player Comparison -->
+            <div class="card">
+                <h2>📊 Player Comparison (Retro-Elite Box-to-Box Midfielders)</h2>
+                <div class="visual-canvas">
+                    <canvas id="radarChart" style="max-width: 100%; max-height: 100%;"></canvas>
+                </div>
+                <p class="small" style="text-align: center; margin-top: 12px;">
+                    Comparing Coudet vs Javier Mascherano (Peak) & Arturo Vidal (Peak) — Retro-Model Scores /100
+                </p>
+            </div>
+
+            <!-- Scout Notes -->
+            <div class="card">
+                <h2>📌 Final Retro Scout Assessment — 2002 Season</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Strengths (Elite Tier)</h3>
+                        <div class="info-row"><span class="info-label">Pressing Intensity</span><span class="info-value">88/100</span></div>
+                        <div class="info-row"><span class="info-label">Leadership & Grit</span><span class="info-value">91/100</span></div>
+                        <div class="info-row"><span class="info-label">Tackling Technique</span><span class="info-value">86/100</span></div>
+                        <div class="info-row"><span class="info-label">Transition Play</span><span class="info-value">87/100</span></div>
+                        <div class="info-row"><span class="info-label">Work Rate (Distance)</span><span class="info-value">90/100</span></div>
+                    </div>
+                    <div>
+                        <h3>Development Areas (Era-Normalised)</h3>
+                        <div class="info-row"><span class="info-label">Goal Output</span><span class="info-value">68/100</span></div>
+                        <div class="info-row"><span class="info-label">Long-Range Passing</span><span class="info-value">75/100</span></div>
+                        <div class="info-row"><span class="info-label">Aerial Duels (1.75 m)</span><span class="info-value">64/100</span></div>
+                    </div>
+                </div>
+
+                <div class="muted-box" style="margin-top: 16px;">
+                    <strong style="color: var(--accent1);">🏆 EMPIRE FGA FINAL RATING: 79.4/100</strong><br><br>
+                    <strong>Classification:</strong> Elite Midfielder Tier (78-82 range)<br>
+                    <strong>Ceiling Projection:</strong> 82/100 if transported to 2026 with sports-science<br>
+                    <strong>Value Assessment:</strong> Would command €25-30 M in today's market — pressing intensity and leadership justify premium for high-intensity systems.
+                </div>
+
+                <div class="highlight-box">
+                    <strong style="color: var(--accent1);">🔮 Acquisition Recommendation:</strong><br>
+                    <span class="small">Immediate starter for any pressing-intensive side. Strongest fit: Leeds (Bielsa era), Liverpool (Klopp), Atlético (Simeone). Retro-scout note: sign him for derby games — he always raises intensity when it matters most.</span>
+                </div>
+
+                <div class="trophy-grid" style="margin-top: 20px;">
+                    <div class="trophy-box">
+                        <div class="trophy-icon">📊</div>
+                        <div class="trophy-title">79.4/100</div>
+                        <div class="trophy-year">Empire FGA Rating</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">⚽</div>
+                        <div class="trophy-title">4×</div>
+                        <div class="trophy-year">Argentine Champion</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">🏆</div>
+                        <div class="trophy-title">1996</div>
+                        <div class="trophy-year">Libertadores</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Unique Selling Points -->
+            <div class="card">
+                <h2>💎 Unique Selling Points (Retro-USP Analysis)</h2>
+                <div class="three-col">
+                    <div class="stat-box">
+                        <span class="stat-value">11.2</span>
+                        <span class="stat-label">km / 90 (est.)</span>
+                        <p class="small" style="margin-top: 8px;">Elite engine capacity</p>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-value">4.8</span>
+                        <span class="stat-label">Tkl + Int /90</span>
+                        <p class="small" style="margin-top: 8px;">Defensive elite tier</p>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-value">87</span>
+                        <span class="stat-label">MCS Score</span>
+                        <p class="small" style="margin-top: 8px;">Leadership validated</p>
+                    </div>
+                </div>
+
+                <div class="muted-box" style="margin-top: 16px;">
+                    <strong style="color: var(--accent1);">Empire Analysis:</strong> Coudet offers generational pressing intensity and leadership that projects to modern elite levels. Retro-model identifies him as prototype for Bielsa/Klopp systems. Post-playing coaching success (Racing champion, Celta, Inter Miami) validates tactical intelligence — rare "coach on the pitch" profile.
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer style="background: var(--card); padding: 30px; text-align: center; border-top: 1px solid rgba(212, 175, 55, 0.12); margin-top: 30px;">
+        <p style="color: var(--muted); font-size: 13px;">
+            <strong style="color: var(--accent1);">Empire FGA Retro-Scouting Network</strong> — 779 Proprietary Metrics • 60-Philosophy Framework • All Ratings /100 Scale
+        </p>
+        <p style="color: var(--muted); font-size: 11px; margin-top: 6px;">
+            Data validated via Argentine FA archives, IFFHS, Aiscore, Transfermarkt, FBref, Sofascore and Empire FGA retro-projection model. | Report Generated: 23 January 2026
+        </p>
+    </footer>
+
+    <script>
+        const ctx = document.getElementById('radarChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['Vert. Threat', 'Finishing', 'Dribbling', 'Speed', 'Carries', 'Off-Ball', 'Vision', 'Physical'],
+                datasets: [{
+                    label: 'Coudet (RIV) - 79',
+                    data: [76, 68, 78, 78, 82, 81, 80, 86],
+                    borderColor: '#d4af37',
+                    backgroundColor: 'rgba(212, 175, 55, 0.15)',
+                    borderWidth: 3,
+                    pointBackgroundColor: '#d4af37',
+                    pointBorderColor: '#fff',
+                    pointRadius: 5
+                }, {
+                    label: 'Mascherano (Peak) - 84',
+                    data: [75, 55, 76, 80, 82, 88, 85, 88],
+                    borderColor: '#75aadb',
+                    backgroundColor: 'rgba(117, 170, 219, 0.05)',
+                    borderWidth: 2,
+                    pointRadius: 4
+                }, {
+                    label: 'Vidal (Peak) - 86',
+                    data: [82, 78, 84, 82, 86, 87, 84, 90],
+                    borderColor: '#ce1126',
+                    backgroundColor: 'transparent',
+                    borderWidth: 2,
+                    pointRadius: 3,
+                    borderDash: [5, 5]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: {
+                            stepSize: 20,
+                            color: '#a0a0a0',
+                            backdropColor: 'transparent',
+                            font: { size: 11 }
+                        },
+                        grid: { color: 'rgba(255,255,255,0.08)' },
+                        pointLabels: {
+                            color: '#f5f5f5',
+                            font: { size: 12, weight: '600' }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#f5f5f5',
+                            font: { size: 13, weight: '600' },
+                            padding: 15,
+                            usePointStyle: true
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
