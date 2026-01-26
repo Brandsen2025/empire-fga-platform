@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sambou Soumano — Empire FGA Scouting Profile | FC Lorient</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --card: #141414;
+            --white: #f5f5f5;
+            --muted: #a0a0a0;
+            --accent1: #d4af37;
+            /* Empire Gold */
+            --accent2: #FF6600;
+            /* Lorient Orange */
+            --accent3: #00853F;
+            /* Senegal Green */
+            --win: #22c55e;
+            --loss: #ef4444;
+            --draw: #eab308;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            background: radial-gradient(900px 500px at 8% 12%, rgba(212, 175, 55, 0.10), transparent 10%), radial-gradient(800px 400px at 92% 88%, rgba(255, 102, 0, 0.08), transparent 8%), var(--bg);
+            color: var(--white);
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        header {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 0 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header img {
+            height: 48px;
+            object-fit: contain;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--accent1);
+        }
+
+        .header-date {
+            font-size: 13px;
+            color: var(--muted);
+            margin-left: 12px;
+            padding: 4px 10px;
+            background: rgba(212, 175, 55, 0.15);
+            border-radius: 6px;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 22px;
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 26px;
+        }
+
+        .card {
+            background: var(--card);
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            position: relative;
+            margin-bottom: 18px;
+        }
+
+        .photo {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 3px solid var(--accent2);
+            background: #000;
+        }
+
+        .title {
+            font-size: 32px;
+            font-weight: 900;
+            margin: 14px 0;
+            color: var(--white);
+            line-height: 1.2;
+        }
+
+        .sub {
+            color: var(--muted);
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .rating-badge {
+            position: absolute;
+            right: 18px;
+            top: 18px;
+            background: linear-gradient(90deg, var(--accent1), var(--accent2));
+            color: #000;
+            font-weight: 900;
+            padding: 10px 14px;
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 1.1;
+            box-shadow: 0 10px 30px rgba(255, 102, 0, 0.18);
+        }
+
+        .rating-badge .rating-value {
+            font-size: 28px;
+        }
+
+        .rating-badge .rating-label {
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            opacity: 0.8;
+        }
+
+        .section h2 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--accent1);
+            margin-bottom: 16px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding-bottom: 8px;
+        }
+
+        .section h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent1);
+            margin: 16px 0 12px;
+        }
+
+        .two-col,
+        .three-col {
+            display: grid;
+            gap: 14px;
+        }
+
+        .two-col {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .three-col {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .info-label {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .info-value {
+            color: var(--white);
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        .metric-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .metric-item {
+            margin-bottom: 12px;
+        }
+
+        .metric-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 4px;
+        }
+
+        .metric-name {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--muted);
+        }
+
+        .metric-score {
+            font-size: 12px;
+            font-weight: 900;
+            color: var(--accent1);
+        }
+
+        .metric-bar {
+            height: 5px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .metric-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent1), var(--accent2));
+            border-radius: 3px;
+        }
+
+        .pill {
+            display: inline-block;
+            background: rgba(255, 102, 0, 0.15);
+            padding: 7px 12px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 12px;
+            color: var(--white);
+            margin: 4px;
+            border: 1px solid rgba(212, 175, 55, 0.18);
+        }
+
+        .trait-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 102, 0, 0.12);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--white);
+            margin: 4px;
+            border: 1px solid rgba(255, 102, 0, 0.2);
+        }
+
+        .stat-box {
+            background: rgba(255, 102, 0, 0.12);
+            border: 1px solid rgba(212, 175, 55, 0.18);
+            padding: 14px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--accent1);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 4px;
+            text-transform: uppercase;
+        }
+
+        .match-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 10px;
+            padding: 16px;
+            margin-bottom: 12px;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr auto;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .match-teams {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .match-team {
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--white);
+        }
+
+        .match-score {
+            background: linear-gradient(135deg, var(--accent1), rgba(255, 102, 0, 0.7));
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 900;
+            font-size: 18px;
+            color: var(--white);
+            text-align: center;
+            min-width: 70px;
+        }
+
+        .result-w .match-score {
+            background: linear-gradient(135deg, var(--win), rgba(34, 197, 94, 0.7));
+        }
+
+        .result-l .match-score {
+            background: linear-gradient(135deg, var(--loss), rgba(239, 68, 68, 0.7));
+        }
+
+        .result-d .match-score {
+            background: linear-gradient(135deg, var(--draw), rgba(234, 179, 8, 0.7));
+        }
+
+        .personality-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 10px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .personality-icon {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .personality-title {
+            font-weight: 700;
+            color: var(--white);
+            font-size: 13px;
+            margin-bottom: 4px;
+        }
+
+        .personality-score {
+            font-size: 24px;
+            font-weight: 900;
+            color: var(--accent1);
+        }
+
+        .relationship-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 14px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 10px;
+            margin-bottom: 12px;
+        }
+
+        .relationship-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent1), var(--accent2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 18px;
+            color: #000;
+            flex-shrink: 0;
+        }
+
+        .relationship-name {
+            font-weight: 700;
+            color: var(--white);
+            font-size: 15px;
+            margin-bottom: 2px;
+        }
+
+        .muted-box,
+        .highlight-box {
+            padding: 14px;
+            border-radius: 10px;
+            margin-top: 12px;
+        }
+
+        .muted-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            color: var(--muted);
+            line-height: 1.5;
+            font-size: 14px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.12), rgba(255, 102, 0, 0.08));
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            line-height: 1.5;
+            font-size: 14px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+            color: var(--white);
+            font-size: 13px;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            vertical-align: top;
+            text-align: left;
+        }
+
+        th {
+            background: linear-gradient(90deg, rgba(212, 175, 55, 0.85), rgba(255, 102, 0, 0.85));
+            font-weight: 800;
+            color: #000;
+        }
+
+        .visual-canvas {
+            background: transparent;
+            border-radius: 8px;
+            padding: 12px;
+            height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed rgba(212, 175, 55, 0.18);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .logo-main {
+            height: 40px;
+        }
+
+        @media (max-width: 980px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .two-col,
+            .three-col {
+                grid-template-columns: 1fr;
+            }
+
+            .match-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ"
+                alt="Empire Scouting Network">
+            <div class="header-title">EMPIRE FGA SCOUTING NETWORK</div>
+            <span class="header-date">📅 26 Jan 2026 • Live Database Entry</span>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Sidebar -->
+        <div>
+            <div class="card">
+                <div class="logo-container">
+                    <img src="https://1drv.ms/i/c/9e7ccff2a96af6d9/Edn2aqnyz3wggJ5OTA4AAAAB5IKWQ3jHeblDrfbY9_bnCA?e=Czvwh1"
+                        alt="Empire FGA" class="logo-main">
+                </div>
+                <img src="https://www.idman.biz/media/2025/08/27/1920x1280/4da9c6ecc05b744a57cedd2261577b041fe0b7ba9ee69f2641c3394fa5ce1e59-980-500.jpg?v=1756289940"
+                    alt="Sambou Soumano" class="photo">
+                <div class="title">Sambou Soumano</div>
+                <div class="sub">Clinical Centre-Forward • FC Lorient</div>
+                <div class="club-badge">
+                    <span style="font-weight: 700;">🟠⚫ FC Lorient</span>
+                </div>
+                <span
+                    style="display: inline-block; background: linear-gradient(135deg, rgba(0, 133, 63, 0.2), rgba(255, 215, 0, 0.2)); padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 700; border: 1px solid rgba(0,133,63,0.3);">🇸🇳
+                    Senegal</span>
+
+                <div class="rating-badge">
+                    <span class="rating-value">71.5</span>
+                    <span class="rating-label">FGA /100</span>
+                </div>
+
+                <div class="section" style="margin-top: 25px;">
+                    <div class="stat-box">
+                        <span class="stat-value">71.5</span>
+                        <span class="stat-label">Empire FGA Index</span>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="info-row"><span class="info-label">Birth Date</span><span class="info-value">13 Jan 2001
+                            (25y)</span></div>
+                    <div class="info-row"><span class="info-label">Primary Position</span><span
+                            class="info-value">Centre-Forward</span></div>
+                    <div class="info-row"><span class="info-label">Secondary</span><span class="info-value">Second
+                            Striker</span></div>
+                    <div class="info-row"><span class="info-label">Height / Weight</span><span class="info-value">1.82 m
+                            / 76 kg</span></div>
+                    <div class="info-row"><span class="info-label">Strong Foot</span><span
+                            class="info-value">Right</span></div>
+                    <div class="info-row"><span class="info-label">Market Value</span><span class="info-value">€4M
+                            (Empire Est.)</span></div>
+                </div>
+
+                <div class="section">
+                    <div class="highlight-box" style="text-align: center;">
+                        <span style="color: var(--accent1); font-weight: 900; font-size: 18px;">€15M</span><br>
+                        <span style="font-size: 11px; text-transform: uppercase;">Empire ROI Potential</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div>
+            <!-- FGA Analysis -->
+            <div class="card">
+                <h2>🌍 Empire FGA Intelligence — 2025/26 Season</h2>
+                <p style="font-size: 16px; line-height: 1.5; color: var(--white); margin-bottom: 12px;">
+                    Sambou Soumano has solidified his reputation as a high-efficiency clinical finisher in French
+                    football. His 14-goal haul in the 2024/25 Ligue 2 campaign evidenced elite **STK (Striker
+                    Instinct)** and **RDS (Reaction/Shot Stats)**. Now operating in Ligue 1 for the 2025/26 season, he
+                    has maintained a high **POI (Position Intelligence)** score of 8.2, consistently finding pockets of
+                    space in congested boxes. Our data suggests a striker with significant **OMS (Omschakeling)**
+                    effectiveness, excelling in rapid vertical transitions.
+                </p>
+                <div class="muted-box">
+                    <strong style="color: var(--accent1);">Empire Verdict:</strong> "A disciplined, goal-oriented #9
+                    with technical maturity beyond his years. His ability to finish under pressure (**CPX 7.8**) and his
+                    elite positioning make him a Tier 1 scouting target for European clubs seeking efficient goal
+                    production. <strong>Empire FGA Rating: 71.5 — Professional Tier.</strong>"
+                </div>
+            </div>
+
+            <!-- Detailed 779-Metric Framework -->
+            <div class="card">
+                <h2>📊 Internal Metric Cluster Analysis (779 Points)</h2>
+
+                <div class="section">
+                    <h3>Tier 1: Fully Automated (60% Weight)</h3>
+                    <div class="metric-grid">
+                        <div>
+                            <div class="metric-item">
+                                <div class="metric-header"><span class="metric-name">XPS (Expected Performance
+                                        Rating)</span><span class="metric-score">7.9</span></div>
+                                <div class="metric-bar">
+                                    <div class="metric-fill" style="width: 79%"></div>
+                                </div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-header"><span class="metric-name">STK (Striker
+                                        Instinct/Deadball)</span><span class="metric-score">8.4</span></div>
+                                <div class="metric-bar">
+                                    <div class="metric-fill" style="width: 84%"></div>
+                                </div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-header"><span class="metric-name">RDS (Shot
+                                        Accuracy/Reaction)</span><span class="metric-score">8.1</span></div>
+                                <div class="metric-bar">
+                                    <div class="metric-fill" style="width: 81%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="metric-item">
+                                <div class="metric-header"><span class="metric-name">KEY (Key Passes)</span><span
+                                        class="metric-score">6.4</span></div>
+                                <div class="metric-bar">
+                                    <div class="metric-fill" style="width: 64%"></div>
+                                </div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-header"><span class="metric-name">CAR (Progressive
+                                        Carries)</span><span class="metric-score">6.8</span></div>
+                                <div class="metric-bar">
+                                    <div class="metric-fill" style="width: 68%"></div>
+                                </div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-header"><span class="metric-name">UNP (Under Pressure
+                                        Passing)</span><span class="metric-score">7.2</span></div>
+                                <div class="metric-bar">
+                                    <div class="metric-fill" style="width: 72%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>Tier 2: Semi-Automated (30% Weight)</h3>
+                    <div class="metric-grid">
+                        <div>
+                            <div class="metric-item">
+                                <div class="metric-header"><span class="metric-name">POI (Position
+                                        Intelligence)</span><span class="metric-score">8.2</span></div>
+                                <div class="metric-bar">
+                                    <div class="metric-fill" style="width: 82%"></div>
+                                </div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-header"><span class="metric-name">CPX (Composure under
+                                        Pressure)</span><span class="metric-score">7.8</span></div>
+                                <div class="metric-bar">
+                                    <div class="metric-fill" style="width: 78%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="metric-item">
+                                <div class="metric-header"><span class="metric-name">MOB (Mobility Index)</span><span
+                                        class="metric-score">7.4</span></div>
+                                <div class="metric-bar">
+                                    <div class="metric-fill" style="width: 74%"></div>
+                                </div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-header"><span class="metric-name">PVI (Pass Variety
+                                        Index)</span><span class="metric-score">7.0</span></div>
+                                <div class="metric-bar">
+                                    <div class="metric-fill" style="width: 70%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>Tier 3: Manual Scout Assessment (10% Weight)</h3>
+                    <div class="metric-grid">
+                        <div>
+                            <div class="metric-item">
+                                <div class="metric-header"><span class="metric-name">CRS (Clutch Response
+                                        Score)</span><span class="metric-score">8.5</span></div>
+                                <div class="metric-bar">
+                                    <div class="metric-fill" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-header"><span class="metric-name">OMS
+                                        (Omschakeling/Transition)</span><span class="metric-score">8.2</span></div>
+                                <div class="metric-bar">
+                                    <div class="metric-fill" style="width: 82%"></div>
+                                </div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-header"><span class="metric-name">DMA (Decision Making)</span><span
+                                        class="metric-score">7.8</span></div>
+                                <div class="metric-bar">
+                                    <div class="metric-fill" style="width: 78%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="metric-item">
+                                <div class="metric-header"><span class="metric-name">CHR
+                                        (Character/Consistency)</span><span class="metric-score">7.5</span></div>
+                                <div class="metric-bar">
+                                    <div class="metric-fill" style="width: 75%"></div>
+                                </div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-header"><span class="metric-name">CLM (Calmness)</span><span
+                                        class="metric-score">8.0</span></div>
+                                <div class="metric-bar">
+                                    <div class="metric-fill" style="width: 80%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 60-Philosophy Framework -->
+            <div class="card">
+                <h2>🧠 60-Philosophy Tactical DNA Framework</h2>
+                <p class="sub" style="margin-bottom: 15px;">Official Empire FGA System Codes v2.4</p>
+                <div style="margin-bottom: 15px;">
+                    <span class="pill">RR1: German School - Heynckes Efficiency 86/100</span>
+                    <span class="pill">QO1: Dutch School - Cruyff Intelligence 74/100</span>
+                    <span class="pill">RX1: French School - Wenger Development 78/100</span>
+                    <span class="pill">RJ1: English School - Ferguson Mental 72/100</span>
+                    <span class="pill">SS1: Global Masters - Mourinho Warfare 70/100</span>
+                </div>
+                <div class="muted-box">
+                    <strong>Tactical Analysis:</strong> Soumano's high **Heynckes Efficiency (86)** score is reflective
+                    of his high goal-conversion rate and tactical discipline. He excels in the **Wenger Development
+                    (78)** style that values intelligent off-ball movement to create space. His **Cruyff Intelligence
+                    (74)** score shows a maturing understanding of positional play in high-possession systems.
+                </div>
+            </div>
+
+            <!-- Psychological Profile -->
+            <div class="card">
+                <h2>🧬 Psychological Profile & Personality Analysis</h2>
+                <div class="three-col" style="margin-top: 16px;">
+                    <div class="personality-card">
+                        <div class="personality-icon">💎</div>
+                        <div class="personality-title">Clutch Response</div>
+                        <div class="personality-score">85</div>
+                    </div>
+                    <div class="personality-card">
+                        <div class="personality-icon">⚖️</div>
+                        <div class="personality-title">Calmness (CLM)</div>
+                        <div class="personality-score">80</div>
+                    </div>
+                    <div class="personality-card">
+                        <div class="personality-icon">🧠</div>
+                        <div class="personality-title">Positional IQ</div>
+                        <div class="personality-score">82</div>
+                    </div>
+                </div>
+                <p class="muted-box" style="margin-top: 15px;">
+                    <strong>Archetype: The Clinical Finisher.</strong> Soumano maintains extreme composure in
+                    high-pressure box situations. His personality profile is that of a "quiet professional" who delivers
+                    consistent performance outputs regardless of opposition quality.
+                </p>
+            </div>
+
+            <!-- Career Stats -->
+            <div class="card">
+                <h2>📊 Career Statistics Overview</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Club</th>
+                            <th>Season</th>
+                            <th>Apps</th>
+                            <th>Goals</th>
+                            <th>FGA Rating</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>FC Lorient</td>
+                            <td>2025/26 (L1)</td>
+                            <td>17</td>
+                            <td>4</td>
+                            <td>71.5</td>
+                        </tr>
+                        <tr>
+                            <td>FC Lorient</td>
+                            <td>2024/25 (L2)</td>
+                            <td>32</td>
+                            <td>14</td>
+                            <td>68.8</td>
+                        </tr>
+                        <tr>
+                            <td>Quevilly-Rouen (Loan)</td>
+                            <td>2023/24</td>
+                            <td>36</td>
+                            <td>12</td>
+                            <td>65.2</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Radar Chart -->
+            <div class="card">
+                <h2>📊 360° Tactical Radar Comparison</h2>
+                <div class="visual-canvas"><canvas id="radarChart"></canvas></div>
+            </div>
+
+            <!-- Unique Selling Points -->
+            <div class="card">
+                <h2>💎 Unique Selling Points (USP Analysis)</h2>
+                <div class="three-col">
+                    <div class="stat-box"><span class="stat-value">⚽</span><span class="stat-label">High
+                            Conversion</span></div>
+                    <div class="stat-box"><span class="stat-value">📍</span><span class="stat-label">Box Presence</span>
+                    </div>
+                    <div class="stat-box"><span class="stat-value">📈</span><span class="stat-label">L1 Maturity</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer
+        style="background: var(--card); padding: 30px; text-align: center; border-top: 1px solid rgba(212, 175, 55, 0.12); margin-top: 30px;">
+        <p style="color: var(--muted); font-size: 11px;">
+            <strong style="color: var(--accent1);">Empire Scouting Network</strong> — 779 Proprietary Metrics •
+            60-Philosophy Framework • €15M Savings Average<br>
+            All data validated via FBref + Sofascore 3-source validation | Report Generated: 26 Jan 2026
+        </p>
+    </footer>
+
+    <script>
+        new Chart(document.getElementById('radarChart').getContext('2d'), {
+            type: 'radar',
+            data: {
+                labels: ['Finishing', 'Positioning', 'Composure', 'Pace', 'Link-up', 'Aerial', 'Pressing'],
+                datasets: [{
+                    label: 'Soumano (2026) - 71.5',
+                    data: [84, 82, 80, 74, 72, 68, 65],
+                    borderColor: '#FF6600',
+                    backgroundColor: 'rgba(255,102,0,0.15)',
+                    borderWidth: 3
+                }, {
+                    label: 'Ligue 1 Avg Forward - 68',
+                    data: [72, 75, 70, 78, 68, 72, 64],
+                    borderColor: '#a0a0a0',
+                    backgroundColor: 'rgba(160,160,160,0.05)',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                scales: { r: { beginAtZero: true, max: 100, ticks: { display: false }, grid: { color: 'rgba(255,255,255,0.08)' } } },
+                plugins: { legend: { labels: { color: '#f5f5f5' } } }
+            }
+        });
+    </script>
+</body>
+
+</html>
