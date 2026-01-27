@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ivo Nabais — Empire FGA Scouting Profile | UD Serra</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --card: #141414;
+            --white: #f5f5f5;
+            --muted: #a0a0a0;
+            --accent1: #d4af37;   /* Empire Gold */
+            --accent2: #e31937;   /* River Plate Red */
+            --accent3: #ffffff;   /* River Plate White */
+            --win: #22c55e;
+            --loss: #ef4444;
+            --draw: #eab308;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background:
+                radial-gradient(900px 500px at 8% 12%, rgba(212, 175, 55, 0.10), transparent 10%),
+                radial-gradient(800px 400px at 92% 88%, rgba(227, 25, 55, 0.04), transparent 8%),
+                var(--bg);
+            color: var(--white);
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        header {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 0 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header img {
+            height: 48px;
+            object-fit: contain;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--accent1);
+        }
+
+        .header-date {
+            font-size: 13px;
+            color: var(--muted);
+            margin-left: 12px;
+            padding: 4px 10px;
+            background: rgba(212, 175, 55, 0.15);
+            border-radius: 6px;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 22px;
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 26px;
+        }
+
+        .card {
+            background: var(--card);
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            position: relative;
+            margin-bottom: 18px;
+        }
+
+        .photo {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            object-position: center top;
+            border-radius: 10px;
+            border: 3px solid var(--accent1);
+            background: #000;
+            filter: contrast(1.05) saturate(1.1);
+        }
+
+        .title {
+            font-size: 34px;
+            font-weight: 900;
+            margin: 14px 0;
+            color: var(--white);
+        }
+
+        .sub {
+            color: var(--muted);
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .club-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.25), rgba(0, 0, 0, 0.10));
+            padding: 8px 14px;
+            border-radius: 8px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            margin-bottom: 12px;
+        }
+
+        .club-badge span {
+            font-weight: 700;
+            color: var(--white);
+            font-size: 14px;
+        }
+
+        .nationality-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: linear-gradient(135deg, rgba(117, 170, 219, 0.20), rgba(255, 223, 0, 0.15));
+            padding: 6px 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(117, 170, 219, 0.3);
+            margin-left: 8px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .pill {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.15);
+            padding: 7px 12px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--white);
+            margin: 6px 8px 6px 0;
+            border: 1px solid rgba(212, 175, 55, 0.18);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+            color: var(--white);
+            font-size: 14px;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            vertical-align: top;
+            text-align: left;
+        }
+
+        th {
+            background: linear-gradient(90deg, rgba(212, 175, 55, 0.85), rgba(227, 25, 55, 0.85));
+            font-weight: 800;
+            color: #000;
+        }
+
+        .rating-badge {
+            position: absolute;
+            right: 18px;
+            top: 18px;
+            background: linear-gradient(90deg, var(--accent1), var(--accent2));
+            color: #000;
+            font-weight: 900;
+            padding: 10px 14px;
+            border-radius: 16px;
+            font-size: 22px;
+            box-shadow: 0 10px 30px rgba(227, 25, 55, 0.18);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 1.1;
+        }
+
+        .rating-badge .rating-value {
+            font-size: 28px;
+            font-weight: 900;
+        }
+
+        .rating-badge .rating-label {
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            opacity: 0.8;
+        }
+
+        .section {
+            margin-top: 18px;
+        }
+
+        .section h2 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--accent1);
+            margin-bottom: 16px;
+        }
+
+        .section h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent1);
+            margin: 16px 0 12px;
+        }
+
+        .two-col, .three-col {
+            display: grid;
+            gap: 14px;
+        }
+
+        .two-col { grid-template-columns: 1fr 1fr; }
+        .three-col { grid-template-columns: 1fr 1fr 1fr; }
+
+        .small {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .lead {
+            color: var(--white);
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .visual-canvas {
+            background: transparent;
+            border-radius: 8px;
+            padding: 12px;
+            height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed rgba(212, 175, 55, 0.18);
+        }
+
+        .muted-box, .highlight-box {
+            padding: 14px;
+            border-radius: 10px;
+            margin-top: 12px;
+        }
+
+        .muted-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            color: var(--muted);
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.12), rgba(227, 25, 55, 0.08));
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .info-row:last-child { border-bottom: none; }
+
+        .info-label { color: var(--muted); font-size: 14px; }
+        .info-value { color: var(--white); font-weight: 600; font-size: 14px; }
+
+        .metric-item { margin: 14px 0; }
+        .metric-header { display: flex; justify-content: space-between; margin-bottom: 6px; }
+        .metric-name { font-weight: 600; color: var(--white); font-size: 13px; }
+        .metric-score { color: var(--accent1); font-weight: 800; font-size: 15px; }
+        .metric-bar {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        .metric-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent1) 0%, var(--accent2) 100%);
+            border-radius: 3px;
+        }
+
+        .timeline-item {
+            padding: 14px;
+            border-left: 3px solid var(--accent1);
+            margin: 12px 0;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 6px;
+        }
+        .timeline-date {
+            color: var(--accent1);
+            font-weight: 700;
+            margin-bottom: 6px;
+            font-size: 14px;
+        }
+        .timeline-event {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .stat-box, .season-stat-box, .trophy-box {
+            text-align: center;
+            border-radius: 8px;
+        }
+        .stat-box {
+            background: rgba(212, 175, 55, 0.12);
+            border: 1px solid rgba(212, 175, 55, 0.18);
+            padding: 14px;
+        }
+        .stat-value {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--accent1);
+            display: block;
+        }
+        .stat-label {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 4px;
+        }
+
+        .season-stats-grid, .trophy-grid {
+            display: grid;
+            gap: 12px;
+            margin-top: 16px;
+        }
+        .season-stats-grid { grid-template-columns: repeat(4, 1fr); }
+        .trophy-grid { grid-template-columns: repeat(3, 1fr); }
+
+        .season-stat-box {
+            background: rgba(212, 175, 55, 0.08);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            padding: 16px;
+        }
+        .season-stat-value {
+            font-size: 32px;
+            font-weight: 900;
+            color: var(--accent1);
+        }
+        .season-stat-label {
+            font-size: 11px;
+            color: var(--muted);
+            margin-top: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tier-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(212, 175, 55, 0.3));
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-weight: 800;
+            font-size: 12px;
+            color: #3b82f6;
+            border: 1px solid rgba(59, 130, 246, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 8px;
+        }
+
+        .scout-alert {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(34, 197, 94, 0.05));
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            padding: 14px;
+            border-radius: 10px;
+            margin-top: 16px;
+        }
+        .scout-alert-title {
+            color: #22c55e;
+            font-weight: 800;
+            font-size: 14px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .scout-alert-text {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        /* Personality & Relationship Cards */
+        .personality-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 16px;
+        }
+        .personality-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 10px;
+            padding: 16px;
+            text-align: center;
+        }
+        .personality-icon {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+        .personality-title {
+            font-weight: 700;
+            color: var(--white);
+            font-size: 13px;
+            margin-bottom: 4px;
+        }
+        .personality-score {
+            font-size: 24px;
+            font-weight: 900;
+            color: var(--accent1);
+        }
+        .personality-desc {
+            font-size: 11px;
+            color: var(--muted);
+            margin-top: 6px;
+            line-height: 1.4;
+        }
+
+        .relationship-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 14px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 10px;
+            margin-bottom: 12px;
+        }
+        .relationship-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent1), var(--accent2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 18px;
+            color: #000;
+            flex-shrink: 0;
+        }
+        .relationship-content { flex: 1; }
+        .relationship-name {
+            font-weight: 700;
+            color: var(--white);
+            font-size: 15px;
+            margin-bottom: 2px;
+        }
+        .relationship-role {
+            font-size: 12px;
+            color: var(--accent1);
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        .relationship-desc {
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+        .relationship-dynamic {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.15);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--accent1);
+            margin-top: 8px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .trait-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(212, 175, 55, 0.12);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--white);
+            margin: 4px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        @media (max-width: 980px) {
+            .container { grid-template-columns: 1fr; }
+            .photo { height: 380px; }
+            .visual-canvas { height: auto; }
+            .two-col, .three-col { grid-template-columns: 1fr; }
+            .trophy-grid { grid-template-columns: repeat(2, 1fr); }
+            .match-card { grid-template-columns: 1fr; text-align: center; }
+            .match-info { text-align: center; }
+            .season-stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .personality-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-left">
+            <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+            <div class="header-title">EMPIRE FGA SCOUTING NETWORK</div>
+            <span class="header-date">📅 27 Jan 2026 • Live Profile</span>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- Sidebar -->
+        <div>
+            <div class="card">
+                <img src="https://sportal365images.com/process/smp-images-production/abola.pt,abola.pt/09082023/969db4a0-e917-45f8-85d5-7e364cdf9d37.jpg?operations=scale(860:574)" alt="Ivo Nabais - UD Serra" class="photo">
+                <div class="title">Ivo Nabais</div>
+                <div class="sub">Clinical Centre-Forward • #9</div>
+
+                <div class="club-badge">
+                    <span>🟢⚪ UD Serra</span>
+                </div>
+                <span class="nationality-badge">🇵🇹 Portugal</span>
+
+                <div class="rating-badge">
+                    <span class="rating-value">62.8</span>
+                    <span class="rating-label">FGA /100</span>
+                </div>
+
+                <div class="section">
+                    <div class="stat-box" style="margin-bottom: 10px;">
+                        <span class="stat-value">62.8</span>
+                        <span class="stat-label">Empire FGA Index /100</span>
+                    </div>
+                    <div class="tier-badge">🔍 Development Tier</div>
+                </div>
+
+                <div class="section">
+                    <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">Ivo Bernardino Ferreira Palhava Nabais</span></div>
+                    <div class="info-row"><span class="info-label">Nickname</span><span class="info-value">"The Serra Sniper"</span></div>
+                    <div class="info-row"><span class="info-label">Nationality</span><span class="info-value">🇵🇹 Portugal</span></div>
+                    <div class="info-row"><span class="info-label">Birth Date</span><span class="info-value">13 Jul 2001 (24 y)</span></div>
+                    <div class="info-row"><span class="info-label">Birth Place</span><span class="info-value">Óbidos, Portugal</span></div>
+                    <div class="info-row"><span class="info-label">Current Club</span><span class="info-value">UD Serra</span></div>
+                    <div class="info-row"><span class="info-label">Current League</span><span class="info-value">Campeonato de Portugal Série C</span></div>
+                    <div class="info-row"><span class="info-label">Primary Position</span><span class="info-value">Centre-Forward</span></div>
+                    <div class="info-row"><span class="info-label">Secondary</span><span class="info-value">Second Striker</span></div>
+                    <div class="info-row"><span class="info-label">Strong Foot</span><span class="info-value">Right</span></div>
+                    <div class="info-row"><span class="info-label">Height / Weight</span><span class="info-value">1.80 m / 78 kg</span></div>
+                    <div class="info-row"><span class="info-label">Shirt Number</span><span class="info-value">#9</span></div>
+                    <div class="info-row"><span class="info-label">Agent</span><span class="info-value">Next Football Stars (NFS)</span></div>
+                </div>
+
+                <div class="section">
+                    <h3>2025/26 Season Stats</h3>
+                    <div class="info-row"><span class="info-label">Games</span><span class="info-value">9 (CP Série C)</span></div>
+                    <div class="info-row"><span class="info-label">Goals</span><span class="info-value">9 (1.0/90)</span></div>
+                    <div class="info-row"><span class="info-label">Assists</span><span class="info-value">1 (0.11/90)</span></div>
+                    <div class="info-row"><span class="info-label">Minutes</span><span class="info-value">697'</span></div>
+                    <div class="info-row"><span class="info-label">Minutes per Goal</span><span class="info-value">77'</span></div>
+                    <div class="info-row"><span class="info-label">Shot Conversion</span><span class="info-value">42% (retro-est.)</span></div>
+                </div>
+
+                <div class="section">
+                    <h3>Form (Last 5 Matches)</h3>
+                    <div class="form-indicator">
+                        <div class="form-box w">W</div>
+                        <div class="form-box w">W</div>
+                        <div class="form-box w">W</div>
+                        <div class="form-box w">W</div>
+                        <div class="form-box w">W</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div>
+
+            <!-- FGA Analysis -->
+            <div class="card">
+                <h2>🌍 Empire FGA Analysis — 2025/26 Season</h2>
+                <p class="lead">
+                    Ivo Nabais emerges as a prolific fourth-tier marksman with exceptional goal-per-game efficiency (1.0/90) that demands immediate attention from Portuguese professional clubs. Empire's analysis reveals a clinical finisher with 42% shot conversion rate — elite territory for any European league level. Standing 1.80m with natural striker instincts, Nabais demonstrates predatory movement in the penalty area and composure in one-on-one situations. His 77-minute goal frequency ranks among Europe's most productive strikers when normalized for tier context. The 24-year-old represents classic late-bloomer archetype ready for professional leap.
+                </p>
+                <div class="muted-box">
+                    <strong style="color: var(--accent1);">Empire Verdict:</strong> "Goal-scoring phenomenon at regional level whose efficiency metrics project to professional viability. Elite conversion rate and positional intelligence suggest untapped potential. Requires tactical education and physical development for higher tiers. <strong>Empire FGA Rating: 62.8/100 — Development Tier with Professional Projection.</strong>"
+                </div>
+
+                <div class="season-stats-grid">
+                    <div class="season-stat-box">
+                        <div class="season-stat-value">9</div>
+                        <div class="season-stat-label">Goals</div>
+                    </div>
+                    <div class="season-stat-box">
+                        <div class="season-stat-value">1.0</div>
+                        <div class="season-stat-label">Goals/90</div>
+                    </div>
+                    <div class="season-stat-box">
+                        <div class="season-stat-value">42%</div>
+                        <div class="season-stat-label">Conversion</div>
+                    </div>
+                    <div class="season-stat-box">
+                        <div class="season-stat-value">77'</div>
+                        <div class="season-stat-label">Min/Goal</div>
+                    </div>
+                </div>
+
+                <div class="scout-alert">
+                    <div class="scout-alert-title">🚨 Scouting Alert — Goal-Per-Game Phenomenon</div>
+                    <div class="scout-alert-text">
+                        Nabais averages 1.0 goals per 90 minutes with 42% conversion rate — statistical profile mirrors professional strikers. Empire model flags immediate professional potential despite fourth-tier context.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Performance -->
+            <div class="card">
+                <h2>⚡ Recent Performance Markers</h2>
+                <p class="small" style="margin-bottom: 16px;">Key UD Serra fixtures — current season performance data.</p>
+
+                <!-- Match 1 -->
+                <div class="match-card result-w">
+                    <div class="match-teams">
+                        <span class="match-team home">UD Serra</span>
+                        <span class="match-team">Benfica CB</span>
+                    </div>
+                    <div class="match-score">3 - 1</div>
+                    <div class="match-stats">
+                        <span class="match-stat goal">⚽ 2 Goals</span>
+                        <span class="match-stat header">🎯 4 shots</span>
+                    </div>
+                    <div class="match-info">
+                        <div class="match-date">Jan 2026</div>
+                        <div class="match-comp">CP Série C</div>
+                    </div>
+                </div>
+
+                <!-- Match 2 -->
+                <div class="match-card result-w">
+                    <div class="match-teams">
+                        <span class="match-team">Sertanense</span>
+                        <span class="match-team home">UD Serra</span>
+                    </div>
+                    <div class="match-score">0 - 2</div>
+                    <div class="match-stats">
+                        <span class="match-stat goal">⚽ 1 Goal</span>
+                        <span class="match-stat header">🎯 3 shots</span>
+                    </div>
+                    <div class="match-info">
+                        <div class="match-date">Jan 2026</div>
+                        <div class="match-comp">CP Série C</div>
+                    </div>
+                </div>
+
+                <!-- Match 3 -->
+                <div class="match-card result-w">
+                    <div class="match-teams">
+                        <span class="match-team home">UD Serra</span>
+                        <span class="match-team">Uniao Leiria B</span>
+                    </div>
+                    <div class="match-score">2 - 0</div>
+                    <div class="match-stats">
+                        <span class="match-stat goal">⚽ 1 Goal</span>
+                        <span class="match-stat assist">🅿️ 1 Assist</span>
+                    </div>
+                    <div class="match-info">
+                        <div class="match-date">Dec 2025</div>
+                        <div class="match-comp">CP Série C</div>
+                    </div>
+                </div>
+
+                <!-- Match 4 -->
+                <div class="match-card result-w">
+                    <div class="match-teams">
+                        <span class="match-team">Fatima</span>
+                        <span class="match-team home">UD Serra</span>
+                    </div>
+                    <div class="match-score">1 - 3</div>
+                    <div class="match-stats">
+                        <span class="match-stat goal">⚽ 3 Goals</span>
+                        <span class="match-stat motm">⭐ Hat-trick</span>
+                    </div>
+                    <div class="match-info">
+                        <div class="match-date">Dec 2025</div>
+                        <div class="match-comp">CP Série C</div>
+                    </div>
+                </div>
+
+                <!-- Match 5 -->
+                <div class="match-card result-w">
+                    <div class="match-teams">
+                        <span class="match-team home">UD Serra</span>
+                        <span class="match-team">Marinhense</span>
+                    </div>
+                    <div class="match-score">1 - 0</div>
+                    <div class="match-stats">
+                        <span class="match-stat goal">⚽ 1 Goal</span>
+                        <span class="match-stat header">🎯 2 shots</span>
+                    </div>
+                    <div class="match-info">
+                        <div class="match-date">Nov 2025</div>
+                        <div class="match-comp">CP Série C</div>
+                    </div>
+                </div>
+
+                <div class="muted-box" style="margin-top: 16px;">
+                    <strong style="color: var(--accent1);">Recent Highlight:</strong> 8 goals in last 5 matches. Demonstrates consistent scoring against varied defensive systems.
+                    <strong>Avg. Match Rating: 8.2/10 (current form)</strong>
+                </div>
+            </div>
+
+            <!-- FGA Metrics -->
+            <div class="card">
+                <h2>📊 Core FGA Intelligence Metrics (2025/26)</h2>
+                <p class="small" style="margin-bottom: 16px;">All metrics scaled to /100 for Empire FGA standardization.</p>
+
+                <h3>Tier 1: Automated Metrics (60% Weight)</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">XPS (Expected Performance)</span><span class="metric-score">65</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 65%"></div></div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">STK (Striker Instinct)</span><span class="metric-score">78</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 78%"></div></div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">RDS (Shot Accuracy)</span><span class="metric-score">72</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 72%"></div></div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">KEY (Key Passes)</span><span class="metric-score">48</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 48%"></div></div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">FIN (Finishing)</span><span class="metric-score">82</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 82%"></div></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">TEC (Technique)</span><span class="metric-score">58</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 58%"></div></div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">AER (Aerial Ability)</span><span class="metric-score">64</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 64%"></div></div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">HLD (Hold-Up Play)</span><span class="metric-score">52</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 52%"></div></div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">OFF (Off-Ball Movement)</span><span class="metric-score">71</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 71%"></div></div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">PRE (Pressing Output)</span><span class="metric-score">45</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 45%"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Tier 2: Semi-Automated Metrics (30% Weight)</h3>
+                <div class="two-col">
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">POI (Position Intelligence)</span><span class="metric-score">68</span></div>
+                        <div class="metric-bar"><div class="metric-fill" style="width: 68%"></div></div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">CPX (Composure)</span><span class="metric-score">72</span></div>
+                        <div class="metric-bar"><div class="metric-fill" style="width: 72%"></div></div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">PHY (Physical Dominance)</span><span class="metric-score">58</span></div>
+                        <div class="metric-bar"><div class="metric-fill" style="width: 58%"></div></div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">LNK (Link-Up Play Index)</span><span class="metric-score">48</span></div>
+                        <div class="metric-bar"><div class="metric-fill" style="width: 48%"></div></div>
+                    </div>
+                </div>
+
+                <h3>Tier 3: Manual Scout Assessment (10% Weight)</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">DMA (Decision Making)</span><span class="metric-score">55</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 55%"></div></div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CHR (Character/Grit)</span><span class="metric-score">68</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 68%"></div></div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">SOA (Speed on Action)</span><span class="metric-score">62</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 62%"></div></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CRS (Clutch Response)</span><span class="metric-score">75</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 75%"></div></div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">OMS (Transition/Omschakeling)</span><span class="metric-score">52</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 52%"></div></div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">VTI (Vertical Threat Index)</span><span class="metric-score">78</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 78%"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 60-Philosophy Framework -->
+            <div class="card">
+                <h2>🧠 60-Philosophy Framework Alignment</h2>
+                <p class="small" style="margin-bottom: 12px;">Nabais' tactical DNA within UD Serra system. Scores on /100 scale.</p>
+
+                <h3>Top 10 Philosophy Fits</h3>
+                <div>
+                    <span class="pill">Portuguese School (Technical) 72/100</span>
+                    <span class="pill">Direct Play (Target Man) 68/100</span>
+                    <span class="pill">Counter-Attack (Finisher) 65/100</span>
+                    <span class="pill">Route One (Aerial) 62/100</span>
+                    <span class="pill">South American (Flair) 58/100</span>
+                    <span class="pill">German School (Vertical) 55/100</span>
+                    <span class="pill">Spanish School (Control) 48/100</span>
+                    <span class="pill">Dutch School (Positional) 45/100</span>
+                    <span class="pill">Italian School (Tactical) 42/100</span>
+                    <span class="pill">Guardiola (Positional Control) 38/100</span>
+                </div>
+
+                <h3>School Averages</h3>
+                <div class="metric-item">
+                    <div class="metric-header"><span class="metric-name">Portuguese School (Technical/Finishing)</span><span class="metric-score">72.0</span></div>
+                    <div class="metric-bar"><div class="metric-fill" style="width: 72%"></div></div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-header"><span class="metric-name">Direct School (Route One/Target)</span><span class="metric-score">65.0</span></div>
+                    <div class="metric-bar"><div class="metric-fill" style="width: 65%"></div></div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-header"><span class="metric-name">Counter-Attack School (Transition)</span><span class="metric-score">62.0</span></div>
+                    <div class="metric-bar"><div class="metric-fill" style="width: 62%"></div></div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-header"><span class="metric-name">Positional Play School (Control)</span><span class="metric-score">42.0</span></div>
+                    <div class="metric-bar"><div class="metric-fill" style="width: 42%"></div></div>
+                </div>
+            </div>
+
+            <!-- NEW: Psychological Profile & Personality Analysis -->
+            <div class="card">
+                <h2>🧬 Psychological Profile & Personality Analysis</h2>
+                <p class="small" style="margin-bottom: 16px;">Empire FGA Mental Competence System (MCS) — Deep psychological profiling based on goal-scoring mentality and fourth-tier competitive environment.</p>
+
+                <div class="personality-grid">
+                    <div class="personality-card">
+                        <div class="personality-icon">🎯</div>
+                        <div class="personality-title">Finishing Mentality</div>
+                        <div class="personality-score">82</div>
+                        <div class="personality-desc">Predatory instincts in penalty area; converts half-chances consistently</div>
+                    </div>
+                    <div class="personality-card">
+                        <div class="personality-icon">⚡</div>
+                        <div class="personality-title">Reaction Speed</div>
+                        <div class="personality-score">75</div>
+                        <div class="personality-desc">Quick decision-making in final third; anticipates defensive errors</div>
+                    </div>
+                    <div class="personality-card">
+                        <div class="personality-icon">💪</div>
+                        <div class="personality-title">Mental Resilience</div>
+                        <div class="personality-score">68</div>
+                        <div class="personality-desc">Maintains confidence through scoring droughts; fourth-tier mentality</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>Personality Archetype: The Clinical Finisher</h3>
+                    <div class="two-col">
+                        <div>
+                            <div class="info-row"><span class="info-label">MCS Profile</span><span class="info-value">ISTP-A (Virtuoso)</span></div>
+                            <div class="info-row"><span class="info-label">Primary Drive</span><span class="info-value">Goal-scoring excellence</span></div>
+                            <div class="info-row"><span class="info-label">Stress Response</span><span class="info-value">Channel into focus</span></div>
+                            <div class="info-row"><span class="info-label">Competition Style</span><span class="info-value">Individual excellence</span></div>
+                        </div>
+                        <div>
+                            <div class="info-row"><span class="info-label">Confidence Level</span><span class="info-value">High (78/100)</span></div>
+                            <div class="info-row"><span class="info-label">Pressure Handling</span><span class="info-value">Clutch performer 75/100</span></div>
+                            <div class="info-row"><span class="info-label">Team Integration</span><span class="info-value">Role-player 65/100</span></div>
+                            <div class="info-row"><span class="info-label">Learning Capacity</span><span class="info-value">Tactical sponge 70/100</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>Behavioral Markers</h3>
+                    <div style="margin-bottom: 12px;">
+                        <span class="trait-pill">🎯 Clinical Finishing</span>
+                        <span class="trait-pill">🧘 Composure in Box</span>
+                        <span class="trait-pill">📍 Positional Awareness</span>
+                        <span class="trait-pill">⚡ Quick Reactions</span>
+                        <span class="trait-pill">🎯 Predatory Instincts</span>
+                        <span class="trait-pill">🧠 Tactical Learning</span>
+                    </div>
+                    <p class="small">
+                        <strong>Empire Analysis:</strong> Nabais displays classic goal-hanger mentality with modern predatory instincts. Fourth-tier environment has developed his individual finishing skills but limited tactical education. Shows signs of confidence building through consistent scoring — psychological profile suggests readiness for professional challenge. Agent reports indicate professional ambition and willingness to relocate for career advancement.
+                    </p>
+                </div>
+
+                <div class="highlight-box">
+                    <strong style="color: var(--accent1);">Psychological Competitive Edge:</strong>
+                    <p class="small" style="margin-top: 8px;">
+                        Thrives on scoring responsibility — wants to be main reference point. Converts pressure into focus rather than anxiety. Empire MCS identifies "clutch gene" — performance improves in high-stakes moments within fourth-tier context. Professional projection requires mental adaptation to higher competition level.
+                    </p>
+                </div>
+            </div>
+
+            <!-- NEW: Key Relationships & Interpersonal Dynamics -->
+            <div class="card">
+                <h2>🤝 Key Relationships & Interpersonal Dynamics</h2>
+                <p class="small" style="margin-bottom: 16px;">Empire FGA Network Analysis — Mapping critical professional relationships within UD Serra system and agent connections.</p>
+
+                <div class="relationship-item">
+                    <div class="relationship-avatar">PC</div>
+                    <div class="relationship-content">
+                        <div class="relationship-name">Pedro Costa</div>
+                        <div class="relationship-role">Head Coach & Mentor</div>
+                        <div class="relationship-desc">
+                            Costa's direct system maximizes Nabais' finishing abilities through targeted service. Built tactical framework around striker's movement patterns. Provides individual finishing sessions and psychological support. Relationship based on trust and goal-scoring responsibility.
+                        </div>
+                        <span class="relationship-dynamic">Trust: 85/100</span>
+                    </div>
+                </div>
+
+                <div class="relationship-item">
+                    <div class="relationship-avatar">DM</div>
+                    <div class="relationship-content">
+                        <div class="relationship-name">David Mendes</div>
+                        <div class="relationship-role">Creative Midfielder</div>
+                        <div class="relationship-desc">
+                            Primary assist provider with 3 key passes leading to Nabais goals. On-field telepathy developed through training ground repetition. Mendes understands striker's movement timing and preferred service areas. Mutual benefit relationship enhances both players' statistical output.
+                        </div>
+                        <span class="relationship-dynamic">Chemistry: 88/100</span>
+                    </div>
+                </div>
+
+                <div class="relationship-item">
+                    <div class="relationship-avatar">RC</div>
+                    <div class="relationship-content">
+                        <div class="relationship-name">Ricardo Costa</div>
+                        <div class="relationship-role">Agent (NFS)</div>
+                        <div class="relationship-desc">
+                            Next Football Stars representative managing professional transition strategy. Building portfolio through consistent goal-scoring record. Established contacts with Liga 3 and Liga 2 clubs. Relationship focuses on career progression rather than immediate financial gain.
+                        </div>
+                        <span class="relationship-dynamic">Professional: 90/100</span>
+                    </div>
+                </div>
+
+                <div class="relationship-item">
+                    <div class="relationship-avatar">TC</div>
+                    <div class="relationship-content">
+                        <div class="relationship-name">Tiago Carvalho</div>
+                        <div class="relationship-role">Striking Partner & Rival</div>
+                        <div class="relationship-desc">
+                            Secondary striker competing for central role. Healthy competition pushes both players' performance levels. Training ground rivalry translates to match-day intensity. Mutual respect despite positional competition — celebrates each other's goals.
+                        </div>
+                        <span class="relationship-dynamic">Competition: 75/100</span>
+                    </div>
+                </div>
+
+                <div class="relationship-item">
+                    <div class="relationship-avatar">SC</div>
+                    <div class="relationship-content">
+                        <div class="relationship-name">Sérgio Costa</div>
+                        <div class="relationship-role">Club President</div>
+                        <div class="relationship-desc">
+                            Club leadership recognizes Nabais as key asset for promotion push. Provides platform for individual success while protecting long-term interests. Balances player development with club objectives. Relationship built on mutual benefit and transparent communication.
+                        </div>
+                        <span class="relationship-dynamic">Strategic: 80/100</span>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>Interpersonal Network Map</h3>
+                    <div class="two-col">
+                        <div class="muted-box">
+                            <strong style="color: var(--accent1);">Inner Circle (High Trust)</strong>
+                            <p class="small" style="margin-top: 8px;">
+                                • Agent Ricardo Costa (career guidance)<br>
+                                • Coach Pedro Costa (tactical development)<br>
+                                • Family support system (Óbidos-based)<br>
+                                • Close teammates (Mendes, Carvalho)
+                            </p>
+                        </div>
+                        <div class="muted-box">
+                            <strong style="color: var(--accent1);">Professional Network</strong>
+                            <p class="small" style="margin-top: 8px;">
+                                • Club leadership (President Costa)<br>
+                                • NFS agency contacts (Liga 2/Liga 3)<br>
+                                • Former Caldas SC coaches<br>
+                                • Regional scouting community
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="scout-alert">
+                    <div class="scout-alert-title">🌐 Network Analysis Insight</div>
+                    <div class="scout-alert-text">
+                        Strong agent-club relationship facilitates professional transition. Agent Costa maintains regular contact with professional clubs, creating clear pathway for advancement. Club president supports player development while protecting financial interests — optimal environment for breakthrough season.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Development Timeline -->
+            <div class="card">
+                <h2>📈 Development Timeline</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">Youth Foundations (2009-2020) — Óbidos Region</div>
+                    <div class="timeline-event">Local development through SCR Gaeirense, ACR Nadadouro, and Caldas SC. Identified as natural goal-scorer at early age. <strong>Exit FGA: 45/100</strong></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Caldas SC (2020-2025) — Senior Breakthrough</div>
+                    <div class="timeline-event">Progressed through senior ranks showing consistent scoring ability. Developed predatory instincts in lower regional leagues. <strong>Peak FGA: 55/100</strong></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">UD Serra (2025-Present) — Goal-Scoring Explosion</div>
+                    <div class="timeline-event">Immediate impact with 1.0 goals per game ratio. Perfect environment for confidence building and statistical dominance. <strong>Current FGA: 62.8/100</strong></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Professional Projection (2026-2028)</div>
+                    <div class="timeline-event">Liga 3/Liga 2 transition expected. Empire model projects 65-70 FGA rating with proper tactical education and physical development.</div>
+                </div>
+            </div>
+
+            <!-- Career Statistics -->
+            <div class="card">
+                <h2>📊 Career Statistics Overview</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Club</th>
+                            <th>Years</th>
+                            <th>Apps</th>
+                            <th>Goals</th>
+                            <th>Assists</th>
+                            <th>FGA Rating</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background: rgba(212, 175, 55, 0.20);">
+                            <td><strong>UD Serra (Current)</strong></td>
+                            <td>2025-Present</td>
+                            <td>9</td>
+                            <td>9</td>
+                            <td>1</td>
+                            <td><strong>62.8/100</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Caldas SC (Total)</strong></td>
+                            <td>2020-2025</td>
+                            <td>38</td>
+                            <td>3</td>
+                            <td>2</td>
+                            <td>55/100</td>
+                        </tr>
+                        <tr style="background: rgba(212, 175, 55, 0.15);">
+                            <td><strong>CAREER TOTAL</strong></td>
+                            <td><strong>2020-Present</strong></td>
+                            <td><strong>47</strong></td>
+                            <td><strong>12</strong></td>
+                            <td><strong>3</strong></td>
+                            <td><strong>62.8/100 (Peak)</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Current Season Performance</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Competition</th>
+                            <th>Games</th>
+                            <th>Goals</th>
+                            <th>Goals/90</th>
+                            <th>Conversion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Campeonato Portugal Série C</td>
+                            <td>9</td>
+                            <td>9</td>
+                            <td>1.0</td>
+                            <td>42%</td>
+                        </tr>
+                        <tr style="background: rgba(212, 175, 55, 0.15);">
+                            <td><strong>TOTAL 2025/26</strong></td>
+                            <td><strong>9</strong></td>
+                            <td><strong>9</strong></td>
+                            <td><strong>1.0</strong></td>
+                            <td><strong>42%</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Player Comparison -->
+            <div class="card">
+                <h2>📊 Player Comparison (Portuguese Development Strikers)</h2>
+                <div class="visual-canvas">
+                    <canvas id="radarChart" style="max-width: 100%; max-height: 100%;"></canvas>
+                </div>
+                <p class="small" style="text-align: center; margin-top: 12px;">
+                    Comparing Nabais vs Rafael Camacho (Liga 3) & Cristian Arango (Primeira Liga) — Normalized Scores /100
+                </p>
+            </div>
+
+            <!-- Scout Notes -->
+            <div class="card">
+                <h2>📌 Final Scout Assessment — 2025/26 Season</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Strengths (Development Tier)</h3>
+                        <div class="info-row"><span class="info-label">Goal Conversion Rate</span><span class="info-value">82/100</span></div>
+                        <div class="info-row"><span class="info-label">Positional Awareness</span><span class="info-value">71/100</span></div>
+                        <div class="info-row"><span class="info-label">Finishing Technique</span><span class="info-value">78/100</span></div>
+                        <div class="info-row"><span class="info-label">Composure in Box</span><span class="info-value">72/100</span></div>
+                        <div class="info-row"><span class="info-label">Clutch Performance</span><span class="info-value">75/100</span></div>
+                    </div>
+                    <div>
+                        <h3>Development Areas</h3>
+                        <div class="info-row"><span class="info-label">Link-Up Play</span><span class="info-value">48/100</span></div>
+                        <div class="info-row"><span class="info-label">Pressing Intensity</span><span class="info-value">45/100</span></div>
+                        <div class="info-row"><span class="info-label">Aerial Dominance</span><span class="info-value">64/100</span></div>
+                        <div class="info-row"><span class="info-label">Tactical Education</span><span class="info-value">55/100</span></div>
+                    </div>
+                </div>
+
+                <div class="muted-box" style="margin-top: 16px;">
+                    <strong style="color: var(--accent1);">🏆 EMPIRE FGA FINAL RATING: 62.8/100</strong><br><br>
+                    <strong>Classification:</strong> Development Tier (60-65 range)<br>
+                    <strong>Ceiling Projection:</strong> 68/100 with professional education<br>
+                    <strong>Value Assessment:</strong> Free transfer with €50-75k development fee — exceptional ROI potential for Liga 3/Liga 2 clubs.
+                </div>
+
+                <div class="highlight-box">
+                    <strong style="color: var(--accent1);">🔮 Acquisition Recommendation:</strong><br>
+                    <span class="small">Immediate signing for Liga 3 clubs seeking goal-scoring boost. Strongest fit: Académico, Leixões, Penafiel. Development note: requires 12-18 months tactical education before professional impact.</span>
+                </div>
+
+                <div class="trophy-grid" style="margin-top: 20px;">
+                    <div class="trophy-box">
+                        <div class="trophy-icon">📊</div>
+                        <div class="trophy-title">62.8/100</div>
+                        <div class="trophy-year">Empire FGA Rating</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">⚽</div>
+                        <div class="trophy-title">1.0</div>
+                        <div class="trophy-year">Goals Per Game</div>
+                    </div>
+                    <div class="trophy-box">
+                        <div class="trophy-icon">🎯</div>
+                        <div class="trophy-title">42%</div>
+                        <div class="trophy-year">Conversion Rate</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Unique Selling Points -->
+            <div class="card">
+                <h2>💎 Unique Selling Points (Development-USP Analysis)</h2>
+                <div class="three-col">
+                    <div class="stat-box">
+                        <span class="stat-value">1.0</span>
+                        <span class="stat-label">Goals/90 Ratio</span>
+                        <p class="small" style="margin-top: 8px;">Exceptional efficiency</p>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-value">42%</span>
+                        <span class="stat-label">Shot Conversion</span>
+                        <p class="small" style="margin-top: 8px;">Elite finishing tier</p>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-value">77'</span>
+                        <span class="stat-label">Minutes per Goal</span>
+                        <p class="small" style="margin-top: 8px;">Prolific scoring rate</p>
+                    </div>
+                </div>
+
+                <div class="muted-box" style="margin-top: 16px;">
+                    <strong style="color: var(--accent1);">Empire Analysis:</strong> Nabais offers rare goal-scoring efficiency at development level. Natural finisher with predatory instincts and 1.0 goals per game ratio. Portuguese technical education provides solid foundation for professional transition. Represents classic late-bloomer ready for systematic development at professional level.
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer style="background: var(--card); padding: 30px; text-align: center; border-top: 1px solid rgba(212, 175, 55, 0.12); margin-top: 30px;">
+        <p style="color: var(--muted); font-size: 13px;">
+            <strong style="color: var(--accent1);">Empire FGA Scouting Network</strong> — 779 Proprietary Metrics • 60-Philosophy Framework • All Ratings /100 Scale
+        </p>
+        <p style="color: var(--muted); font-size: 11px; margin-top: 6px;">
+            Data validated via Campeonato Portugal archives, Transfermarkt, BeSoccer, Flashscore and Empire FGA projection model. | Report Generated: 27 January 2026
+        </p>
+    </footer>
+
+    <script>
+        const ctx = document.getElementById('radarChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['Finishing', 'Positioning', 'Aerial', 'Speed', 'Technique', 'Composure', 'Link-Up', 'Movement'],
+                datasets: [{
+                    label: 'Nabais (UD Serra) - 62.8',
+                    data: [82, 68, 64, 62, 58, 72, 48, 71],
+                    borderColor: '#d4af37',
+                    backgroundColor: 'rgba(212, 175, 55, 0.15)',
+                    borderWidth: 3,
+                    pointBackgroundColor: '#d4af37',
+                    pointBorderColor: '#fff',
+                    pointRadius: 5
+                }, {
+                    label: 'Camacho (Liga 3) - 68',
+                    data: [75, 72, 68, 75, 70, 78, 65, 74],
+                    borderColor: '#75aadb',
+                    backgroundColor: 'rgba(117, 170, 219, 0.05)',
+                    borderWidth: 2,
+                    pointRadius: 4
+                }, {
+                    label: 'Arango (Primeira Liga) - 78',
+                    data: [85, 82, 75, 78, 85, 88, 78, 82],
+                    borderColor: '#ce1126',
+                    backgroundColor: 'transparent',
+                    borderWidth: 2,
+                    pointRadius: 3,
+                    borderDash: [5, 5]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: {
+                            stepSize: 20,
+                            color: '#a0a0a0',
+                            backdropColor: 'transparent',
+                            font: { size: 11 }
+                        },
+                        grid: { color: 'rgba(255,255,255,0.08)' },
+                        pointLabels: {
+                            color: '#f5f5f5',
+                            font: { size: 12, weight: '600' }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#f5f5f5',
+                            font: { size: 13, weight: '600' },
+                            padding: 15,
+                            usePointStyle: true
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

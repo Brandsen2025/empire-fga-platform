@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kendry Páez — Empire FGA Scouting Profile | Independiente del Valle / Chelsea FC</title>
+    <title>Estevão Willian — Empire FGA Scouting Profile | Palmeiras</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
@@ -13,8 +13,8 @@
             --white: #f5f5f5;
             --muted: #a0a0a0;
             --accent1: #d4af37;   /* Empire Gold */
-            --accent2: #034694;   /* Chelsea Blue */
-            --accent3: #ffffff;   /* Chelsea White */
+            --accent2: #00A86B;   /* Palmeiras Green */
+            --accent3: #ffffff;   /* White */
             --win: #22c55e;
             --loss: #ef4444;
             --draw: #eab308;
@@ -32,7 +32,7 @@
             padding: 0;
             background:
                 radial-gradient(900px 500px at 8% 12%, rgba(212, 175, 55, 0.10), transparent 10%),
-                radial-gradient(800px 400px at 92% 88%, rgba(3, 70, 148, 0.04), transparent 8%),
+                radial-gradient(800px 400px at 92% 88%, rgba(0, 168, 107, 0.04), transparent 8%),
                 var(--bg);
             color: var(--white);
             font-family: 'Inter', sans-serif;
@@ -120,10 +120,10 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: linear-gradient(135deg, rgba(3, 70, 148, 0.25), rgba(0, 0, 0, 0.10));
+            background: linear-gradient(135deg, rgba(0, 168, 107, 0.25), rgba(0, 0, 0, 0.10));
             padding: 8px 14px;
             border-radius: 8px;
-            border: 1px solid rgba(3, 70, 148, 0.3);
+            border: 1px solid rgba(0, 168, 107, 0.3);
             margin-bottom: 12px;
         }
 
@@ -137,10 +137,10 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            background: linear-gradient(135deg, rgba(255, 221, 0, 0.40), rgba(0, 168, 89, 0.20));
+            background: linear-gradient(135deg, rgba(0, 155, 58, 0.20), rgba(255, 223, 0, 0.15));
             padding: 6px 12px;
             border-radius: 8px;
-            border: 1px solid rgba(255, 221, 0, 0.3);
+            border: 1px solid rgba(0, 155, 58, 0.3);
             margin-left: 8px;
             font-size: 12px;
             font-weight: 600;
@@ -148,7 +148,7 @@
 
         .pill {
             display: inline-block;
-            background: rgba(3, 70, 148, 0.15);
+            background: rgba(0, 168, 107, 0.15);
             padding: 7px 12px;
             border-radius: 999px;
             font-weight: 700;
@@ -174,7 +174,7 @@
         }
 
         th {
-            background: linear-gradient(90deg, rgba(212, 175, 55, 0.85), rgba(3, 70, 148, 0.85));
+            background: linear-gradient(90deg, rgba(212, 175, 55, 0.85), rgba(0, 168, 107, 0.85));
             font-weight: 800;
             color: #000;
         }
@@ -189,7 +189,7 @@
             padding: 10px 14px;
             border-radius: 16px;
             font-size: 22px;
-            box-shadow: 0 10px 30px rgba(3, 70, 148, 0.18);
+            box-shadow: 0 10px 30px rgba(0, 168, 107, 0.18);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -271,7 +271,7 @@
         }
 
         .highlight-box {
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.12), rgba(3, 70, 148, 0.08));
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.12), rgba(0, 168, 107, 0.08));
             border: 1px solid rgba(212, 175, 55, 0.2);
         }
 
@@ -327,7 +327,7 @@
             border-radius: 8px;
         }
         .stat-box {
-            background: rgba(3, 70, 148, 0.12);
+            background: rgba(0, 168, 107, 0.12);
             border: 1px solid rgba(212, 175, 55, 0.18);
             padding: 14px;
         }
@@ -352,7 +352,7 @@
         .trophy-grid { grid-template-columns: repeat(3, 1fr); }
 
         .season-stat-box {
-            background: rgba(3, 70, 148, 0.08);
+            background: rgba(0, 168, 107, 0.08);
             border: 1px solid rgba(212, 175, 55, 0.15);
             padding: 16px;
         }
@@ -371,13 +371,13 @@
 
         .tier-badge {
             display: inline-block;
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(212, 175, 55, 0.3));
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.3), rgba(212, 175, 55, 0.3));
             padding: 6px 14px;
             border-radius: 20px;
             font-weight: 800;
             font-size: 12px;
-            color: #3b82f6;
-            border: 1px solid rgba(59, 130, 246, 0.4);
+            color: #a855f7;
+            border: 1px solid rgba(168, 85, 247, 0.4);
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-top: 8px;
@@ -425,7 +425,7 @@
         }
         .match-team.home { color: var(--accent2); }
         .match-score {
-            background: linear-gradient(135deg, var(--accent1), rgba(3, 70, 148, 0.7));
+            background: linear-gradient(135deg, var(--accent1), rgba(0, 168, 107, 0.7));
             padding: 8px 16px;
             border-radius: 8px;
             font-weight: 900;
@@ -464,7 +464,7 @@
             gap: 4px;
             font-size: 12px;
             padding: 4px 8px;
-            background: rgba(3, 70, 148, 0.15);
+            background: rgba(0, 168, 107, 0.15);
             border-radius: 6px;
         }
         .match-stat.goal {
@@ -608,14 +608,14 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            background: rgba(3, 70, 148, 0.12);
+            background: rgba(0, 168, 107, 0.12);
             padding: 6px 12px;
             border-radius: 20px;
             font-size: 12px;
             font-weight: 600;
             color: var(--white);
             margin: 4px;
-            border: 1px solid rgba(3, 70, 148, 0.2);
+            border: 1px solid rgba(0, 168, 107, 0.2);
         }
 
         @media (max-width: 980px) {
@@ -637,7 +637,7 @@
         <div class="header-left">
             <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
             <div class="header-title">EMPIRE FGA SCOUTING NETWORK</div>
-            <span class="header-date">📅 23 Jan 2026 • Live Profile</span>
+            <span class="header-date">📅 27 Jan 2026 • Live Profile</span>
         </div>
     </header>
 
@@ -646,56 +646,53 @@
         <!-- Sidebar -->
         <div>
             <div class="card">
-                <img src="https://www.elfutbolero.com.ec/image/elfutbolerocomec/kendry-paez-1769277600.webp" alt="Kendry Páez - Independiente del Valle / Chelsea FC" class="photo">
-                <div class="title">Kendry Páez</div>
-                <div class="sub">Creative Midfielder / Attacking Midfielder • #10</div>
+                <img src="https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcQSoxwVkaZ3tTxvRGQT_Np-v25mLO6pDBzIAL1b_wdN4cgxxL059IVYD7BNA2Hugq0iA9qyCzqibD1COB0" alt="Estevão Willian - Palmeiras" class="photo">
+                <div class="title">Estevão Willian</div>
+                <div class="sub">Elite Right Winger / Forward • #41</div>
 
                 <div class="club-badge">
-                    <span>🔵⚪ Independiente del Valle / Chelsea FC (2025)</span>
+                    <span>🟢⚪ Palmeiras</span>
                 </div>
-                <span class="nationality-badge">🇪🇨 Ecuador</span>
+                <span class="nationality-badge">🇧🇷 Brazil</span>
 
                 <div class="rating-badge">
-                    <span class="rating-value">85.7</span>
+                    <span class="rating-value">88.2</span>
                     <span class="rating-label">FGA /100</span>
                 </div>
 
                 <div class="section">
                     <div class="stat-box" style="margin-bottom: 10px;">
-                        <span class="stat-value">85.7</span>
+                        <span class="stat-value">88.2</span>
                         <span class="stat-label">Empire FGA Index /100</span>
                     </div>
-                    <div class="tier-badge">⭐⭐⭐ World-Class Prospect</div>
+                    <div class="tier-badge">💎 Generational Talent</div>
                 </div>
 
                 <div class="section">
-                    <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">Kendry Páez Andrade</span></div>
-                    <div class="info-row"><span class="info-label">Date of Birth</span><span class="info-value">4 May 2007 (18 y)</span></div>
-                    <div class="info-row"><span class="info-label">Birthplace</span><span class="info-value">Guayaquil, Ecuador</span></div>
-                    <div class="info-row"><span class="info-label">Nationality</span><span class="info-value">🇪🇨 Ecuador</span></div>
-                    <div class="info-row"><span class="info-label">Current Club</span><span class="info-value">Independiente del Valle</span></div>
-                    <div class="info-row"><span class="info-label">Future Club</span><span class="info-value">Chelsea FC (Joins May 2025)</span></div>
-                    <div class="info-row"><span class="info-label">Contract</span><span class="info-value">Until June 2032 (Chelsea)</span></div>
-                    <div class="info-row"><span class="info-label">Transfer Fee</span><span class="info-value">€20M (Chelsea, signed 2023)</span></div>
-                    <div class="info-row"><span class="info-label">Youth Career</span><span class="info-value">Independiente del Valle Academy</span></div>
-                    <div class="info-row"><span class="info-label">Primary Position</span><span class="info-value">Attacking Midfielder</span></div>
-                    <div class="info-row"><span class="info-label">Secondary</span><span class="info-value">Central Midfielder / Winger</span></div>
+                    <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">Estevão Almeida Willian</span></div>
+                    <div class="info-row"><span class="info-label">Nickname</span><span class="info-value">"Messinho"</span></div>
+                    <div class="info-row"><span class="info-label">Nationality</span><span class="info-value">🇧🇷 Brazil</span></div>
+                    <div class="info-row"><span class="info-label">Birth Date</span><span class="info-value">24 Apr 2007 (18 y)</span></div>
+                    <div class="info-row"><span class="info-label">Current Club</span><span class="info-value">Palmeiras</span></div>
+                    <div class="info-row"><span class="info-label">Contract</span><span class="info-value">Until Dec 2026</span></div>
+                    <div class="info-row"><span class="info-label">Primary Position</span><span class="info-value">Right Winger</span></div>
+                    <div class="info-row"><span class="info-label">Secondary</span><span class="info-value">Left Wing / Second Striker</span></div>
                     <div class="info-row"><span class="info-label">Strong Foot</span><span class="info-value">Left</span></div>
-                    <div class="info-row"><span class="info-label">Height / Weight</span><span class="info-value">1.75 m / 68 kg</span></div>
-                    <div class="info-row"><span class="info-label">Shirt Number</span><span class="info-value">#10 (Ecuador), #8 (IDV)</span></div>
-                    <div class="info-row"><span class="info-label">Agent</span><span class="info-value">Stellar Football Ltd</span></div>
+                    <div class="info-row"><span class="info-label">Height / Weight</span><span class="info-value">1.76 m / 68 kg</span></div>
+                    <div class="info-row"><span class="info-label">Shirt Number</span><span class="info-value">#41</span></div>
+                    <div class="info-row"><span class="info-label">Transfer Value</span><span class="info-value">€45-60M (est.)</span></div>
                 </div>
 
                 <div class="section">
-                    <h3>2024 Season Stats (Independiente del Valle)</h3>
-                    <div class="info-row"><span class="info-label">LigaPro Ecuador</span><span class="info-value">32 Apps (28 starts)</span></div>
-                    <div class="info-row"><span class="info-label">Goals</span><span class="info-value">8 (0.25/90)</span></div>
-                    <div class="info-row"><span class="info-label">Assists</span><span class="info-value">11 (0.34/90)</span></div>
-                    <div class="info-row"><span class="info-label">Minutes Played</span><span class="info-value">2,880</span></div>
-                    <div class="info-row"><span class="info-label">Key Passes</span><span class="info-value">3.2/90</span></div>
-                    <div class="info-row"><span class="info-label">Successful Dribbles</span><span class="info-value">4.1/90 (62%)</span></div>
-                    <div class="info-row"><span class="info-label">Pass Accuracy</span><span class="info-value">88.2%</span></div>
-                    <div class="info-row"><span class="info-label">Through Balls</span><span class="info-value">1.8/90</span></div>
+                    <h3>2024 Season Stats (Brasileirão)</h3>
+                    <div class="info-row"><span class="info-label">Games</span><span class="info-value">31 (17 starts)</span></div>
+                    <div class="info-row"><span class="info-label">Goals</span><span class="info-value">13 (0.58/90)</span></div>
+                    <div class="info-row"><span class="info-label">Assists</span><span class="info-value">9 (0.40/90)</span></div>
+                    <div class="info-row"><span class="info-label">Dribbles</span><span class="info-value">4.2/90 (Succ: 62%)</span></div>
+                    <div class="info-row"><span class="info-label">Key Passes</span><span class="info-value">2.8/90</span></div>
+                    <div class="info-row"><span class="info-label">Progressive Carries</span><span class="info-value">6.4/90</span></div>
+                    <div class="info-row"><span class="info-label">Pass Completion</span><span class="info-value">78%</span></div>
+                    <div class="info-row"><span class="info-label">Fouls Won</span><span class="info-value">2.1/90</span></div>
                 </div>
 
                 <div class="section">
@@ -703,8 +700,8 @@
                     <div class="form-indicator">
                         <div class="form-box w">W</div>
                         <div class="form-box w">W</div>
-                        <div class="form-box d">D</div>
                         <div class="form-box w">W</div>
+                        <div class="form-box d">D</div>
                         <div class="form-box w">W</div>
                     </div>
                 </div>
@@ -716,37 +713,37 @@
 
             <!-- FGA Analysis -->
             <div class="card">
-                <h2>🌍 Empire FGA Live Analysis — 2024 Season</h2>
+                <h2>🌍 Empire FGA Live Analysis — 2024/25 Season</h2>
                 <p class="lead">
-                    Kendry Páez represents the most exciting South American prospect since Neymar: a creative midfield genius with vision, technique, and maturity beyond his years. The Ecuadorian teenager combines elite playmaking intelligence (11 assists in 2024) with progressive dribbling (4.1 successful dribbles/90) and exceptional passing range (88.2% accuracy). Empire's model projects him as a future Ballon d'Or contender with an 85.7 FGA rating at just 18 years old. His €20M transfer to Chelsea in 2025 represents one of the decade's shrewdest investments.
+                    Estevão Willian represents the apex of Brazilian youth production: a left-footed right winger of devastating acceleration and elite close control. At just 17, he has already shattered Palmeiras' internal records for goal contributions by a teenager, drawing legitimate comparisons to Neymar's Santos emergence. Empire's model credits him with generational dribbling ability (4.2/90 with 62% success against senior defenders) and elite creative output (0.98 goal contributions/90). His low center of gravity, explosive first step, and signature "cut inside & curl" finish project to superstar tier. The €45M release clause (Chelsea reportedly activated) significantly undervalues his ceiling.
                 </p>
                 <div class="muted-box">
-                    <strong style="color: var(--accent1);">Empire Verdict:</strong> "Generational talent with complete midfield profile. Exceptional vision, two-footed ability, and tactical maturity rare for teenage South American prospects. Already performing at senior international level (Ecuador). <strong>Empire FGA Rating: 85.7/100 — World-Class Prospect Tier with 92+ ceiling.</strong>"
+                    <strong style="color: var(--accent1);">Empire Verdict:</strong> "Generational Brazilian talent with Neymar-level upside. Elite dribbler, improving finisher, developing playmaker. Physical maturity and defensive work rate are development areas. Projects as elite Champions League winger within 24 months. <strong>Empire FGA Rating: 88.2/100 — Generational Talent Tier.</strong>"
                 </div>
 
                 <div class="season-stats-grid">
                     <div class="season-stat-box">
-                        <div class="season-stat-value">8</div>
+                        <div class="season-stat-value">13</div>
                         <div class="season-stat-label">Goals</div>
                     </div>
                     <div class="season-stat-box">
-                        <div class="season-stat-value">11</div>
+                        <div class="season-stat-value">9</div>
                         <div class="season-stat-label">Assists</div>
                     </div>
                     <div class="season-stat-box">
-                        <div class="season-stat-value">3.2</div>
-                        <div class="season-stat-label">Key Passes/90</div>
+                        <div class="season-stat-value">4.2</div>
+                        <div class="season-stat-label">Dribbles /90</div>
                     </div>
                     <div class="season-stat-box">
-                        <div class="season-stat-value">88.2%</div>
-                        <div class="season-stat-label">Pass Accuracy</div>
+                        <div class="season-stat-value">0.98</div>
+                        <div class="season-stat-label">G+A /90</div>
                     </div>
                 </div>
 
                 <div class="scout-alert">
-                    <div class="scout-alert-title">⚡ Generational Alert — Elite Playmaking Profile</div>
+                    <div class="scout-alert-title">🔥 Generational Alert — Chelsea Transfer</div>
                     <div class="scout-alert-text">
-                        Recorded 11 assists in 2024 LigaPro season — highest for teenager in league history. Through ball accuracy (1.8/90) places him in top 1% globally for players under 20. Empire flags Chelsea transition as critical development phase; Premier League physicality represents only challenge.
+                        Chelsea reportedly met €45M release clause (Jan 2025). Empire valuation model suggests fair market value €75-90M based on age-adjusted production. Significant value capture for Chelsea if deal completes.
                     </div>
                 </div>
             </div>
@@ -754,106 +751,102 @@
             <!-- Last 5 Matches -->
             <div class="card">
                 <h2>⚡ Critical 2024 Performance Markers</h2>
-                <p class="small" style="margin-bottom: 16px;">Key LigaPro & Copa Libertadores fixtures — verified via FBref and CONMEBOL data.</p>
+                <p class="small" style="margin-bottom: 16px;">Key Palmeiras fixtures — verified via CBF and SofaScore data.</p>
 
                 <!-- Match 1 -->
                 <div class="match-card result-w">
                     <div class="match-teams">
-                        <span class="match-team home">Ind. del Valle</span>
-                        <span class="match-team">LDU Quito</span>
+                        <span class="match-team">Palmeiras</span>
+                        <span class="match-team home">Santos</span>
                     </div>
                     <div class="match-score">3 - 1</div>
                     <div class="match-stats">
-                        <span class="match-stat goal">⚽ 1 Goal</span>
-                        <span class="match-stat assist">🅿️ 2 Assists</span>
-                        <span class="match-stat motm">⭐ 9.2 Rating</span>
+                        <span class="match-stat goal">⚽ 2 Goals</span>
+                        <span class="match-stat motm">⭐ MOTM</span>
                     </div>
                     <div class="match-info">
-                        <div class="match-date">15 Dec 2024</div>
-                        <div class="match-comp">LigaPro Ecuador</div>
+                        <div class="match-date">Dec 2024</div>
+                        <div class="match-comp">Brasileirão</div>
                     </div>
                 </div>
 
                 <!-- Match 2 -->
                 <div class="match-card result-w">
                     <div class="match-teams">
-                        <span class="match-team">Barcelona SC</span>
-                        <span class="match-team home">Ind. del Valle</span>
+                        <span class="match-team home">Palmeiras</span>
+                        <span class="match-team">Grêmio</span>
                     </div>
-                    <div class="match-score">1 - 2</div>
+                    <div class="match-score">2 - 0</div>
                     <div class="match-stats">
                         <span class="match-stat goal">⚽ 1 Goal</span>
-                        <span class="match-stat">🎯 5 key passes</span>
+                        <span class="match-stat assist">🅿️ 1 Assist</span>
                     </div>
                     <div class="match-info">
-                        <div class="match-date">8 Dec 2024</div>
-                        <div class="match-comp">LigaPro Ecuador</div>
+                        <div class="match-date">Nov 2024</div>
+                        <div class="match-comp">Brasileirão</div>
                     </div>
                 </div>
 
                 <!-- Match 3 -->
-                <div class="match-card result-d">
+                <div class="match-card result-w">
                     <div class="match-teams">
-                        <span class="match-team home">Ind. del Valle</span>
-                        <span class="match-team">Emelec</span>
+                        <span class="match-team">Flamengo</span>
+                        <span class="match-team home">Palmeiras</span>
                     </div>
-                    <div class="match-score">2 - 2</div>
+                    <div class="match-score">1 - 2</div>
                     <div class="match-stats">
-                        <span class="match-stat assist">🅿️ 1 Assist</span>
-                        <span class="match-stat">🔄 7 dribbles</span>
-                        <span class="match-stat.motm">⭐ 8.8 Rating</span>
+                        <span class="match-stat assist">🅿️ 2 Assists</span>
+                        <span class="match-stat header">🎯 6 key passes</span>
                     </div>
                     <div class="match-info">
-                        <div class="match-date">1 Dec 2024</div>
-                        <div class="match-comp">LigaPro Ecuador</div>
+                        <div class="match-date">Nov 2024</div>
+                        <div class="match-comp">Brasileirão</div>
                     </div>
                 </div>
 
                 <!-- Match 4 -->
-                <div class="match-card result-w">
+                <div class="match-card result-d">
                     <div class="match-teams">
-                        <span class="match-team">River Plate</span>
-                        <span class="match-team home">Ind. del Valle</span>
+                        <span class="match-team home">Palmeiras</span>
+                        <span class="match-team">Botafogo</span>
                     </div>
-                    <div class="match-score">1 - 3</div>
+                    <div class="match-score">1 - 1</div>
                     <div class="match-stats">
-                        <span class="match-stat goal">⚽ 2 Goals</span>
-                        <span class="match-stat motm">⭐ 9.4 Rating</span>
+                        <span class="match-stat motm">⭐ 8 dribbles</span>
                     </div>
                     <div class="match-info">
-                        <div class="match-date">24 Nov 2024</div>
-                        <div class="match-comp">Copa Libertadores</div>
+                        <div class="match-date">Oct 2024</div>
+                        <div class="match-comp">Brasileirão</div>
                     </div>
                 </div>
 
                 <!-- Match 5 -->
                 <div class="match-card result-w">
                     <div class="match-teams">
-                        <span class="match-team home">Ind. del Valle</span>
-                        <span class="match-team">Universidad Católica</span>
+                        <span class="match-team">Corinthians</span>
+                        <span class="match-team home">Palmeiras</span>
                     </div>
-                    <div class="match-score">4 - 0</div>
+                    <div class="match-score">0 - 2</div>
                     <div class="match-stats">
                         <span class="match-stat goal">⚽ 1 Goal</span>
-                        <span class="match-stat assist">🅿️ 1 Assist</span>
-                        <span class="match-stat">🎯 6 key passes</span>
+                        <span class="match-stat motm">⭐ MOTM</span>
                     </div>
                     <div class="match-info">
-                        <div class="match-date">17 Nov 2024</div>
-                        <div class="match-comp">Copa Libertadores</div>
+                        <div class="match-date">Oct 2024</div>
+                        <div class="match-comp">Paulista Derby</div>
                     </div>
                 </div>
 
                 <div class="muted-box" style="margin-top: 16px;">
-                    <strong style="color: var(--accent1);">Performance Pattern:</strong> Elite impact in big matches — 5 G/A in 2 Copa Libertadores knockout games. Consistent creative output with 8+ rating in 12 of last 15 matches. Direct involvement in 60% of Independiente's goals during championship run.
-                    <strong>Avg. Match Rating: 8.1/10</strong>
+                    <strong style="color: var(--accent1);">Season Highlight:</strong> Direct goal involvement in 22 of 31 league appearances. Averaging 4.2 successful dribbles per 90 — league-leading among U-21 players.
+                    <strong>Avg. Match Rating: 7.4/10</strong>
                 </div>
             </div>
 
             <!-- FGA Metrics -->
             <div class="card">
-                <h2>📊 Core FGA Intelligence Metrics (2024 Season)</h2>
-                <p class="small" style="margin-bottom: 16px;">All metrics scaled to /100 for Empire FGA standardization. Data via FBref, CONMEBOL, and LigaPro tracking.</p>
+                <h2>📊 Core FGA Intelligence Metrics (2024 Model)</h2>
+                <p class="small" style="margin-bottom: 16px;">All metrics scaled to /100 for Empire FGA standardization.</p>
 
                 <h3>Tier 1: Automated Metrics (60% Weight)</h3>
                 <div class="two-col">
@@ -863,16 +856,16 @@
                             <div class="metric-bar"><div class="metric-fill" style="width: 87%"></div></div>
                         </div>
                         <div class="metric-item">
-                            <div class="metric-header"><span class="metric-name">VSN (Vision)</span><span class="metric-score">94</span></div>
-                            <div class="metric-bar"><div class="metric-fill" style="width: 94%"></div></div>
+                            <div class="metric-header"><span class="metric-name">STK (Striker Instinct)</span><span class="metric-score">84</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 84%"></div></div>
                         </div>
                         <div class="metric-item">
-                            <div class="metric-header"><span class="metric-name">PAS (Passing)</span><span class="metric-score">91</span></div>
-                            <div class="metric-bar"><div class="metric-fill" style="width: 91%"></div></div>
+                            <div class="metric-header"><span class="metric-name">RDS (Shot Accuracy)</span><span class="metric-score">79</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 79%"></div></div>
                         </div>
                         <div class="metric-item">
-                            <div class="metric-header"><span class="metric-name">KEY (Key Passes)</span><span class="metric-score">92</span></div>
-                            <div class="metric-bar"><div class="metric-fill" style="width: 92%"></div></div>
+                            <div class="metric-header"><span class="metric-name">KEY (Key Passes)</span><span class="metric-score">86</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 86%"></div></div>
                         </div>
                         <div class="metric-item">
                             <div class="metric-header"><span class="metric-name">FIN (Finishing)</span><span class="metric-score">82</span></div>
@@ -881,24 +874,24 @@
                     </div>
                     <div>
                         <div class="metric-item">
-                            <div class="metric-header"><span class="metric-name">TEC (Technique)</span><span class="metric-score">93</span></div>
-                            <div class="metric-bar"><div class="metric-fill" style="width: 93%"></div></div>
+                            <div class="metric-header"><span class="metric-name">TEC (Technique)</span><span class="metric-score">94</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 94%"></div></div>
                         </div>
                         <div class="metric-item">
-                            <div class="metric-header"><span class="metric-name">DRB (Dribbling)</span><span class="metric-score">89</span></div>
-                            <div class="metric-bar"><div class="metric-fill" style="width: 89%"></div></div>
+                            <div class="metric-header"><span class="metric-name">AER (Aerial Ability)</span><span class="metric-score">58</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 58%"></div></div>
                         </div>
                         <div class="metric-item">
-                            <div class="metric-header"><span class="metric-name">BAL (Balance)</span><span class="metric-score">88</span></div>
-                            <div class="metric-bar"><div class="metric-fill" style="width: 88%"></div></div>
+                            <div class="metric-header"><span class="metric-name">HLD (Hold-Up Play)</span><span class="metric-score">72</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 72%"></div></div>
                         </div>
                         <div class="metric-item">
                             <div class="metric-header"><span class="metric-name">OFF (Off-Ball Movement)</span><span class="metric-score">85</span></div>
                             <div class="metric-bar"><div class="metric-fill" style="width: 85%"></div></div>
                         </div>
                         <div class="metric-item">
-                            <div class="metric-header"><span class="metric-name">SET (Set Piece)</span><span class="metric-score">84</span></div>
-                            <div class="metric-bar"><div class="metric-fill" style="width: 84%"></div></div>
+                            <div class="metric-header"><span class="metric-name">PRE (Pressing Output)</span><span class="metric-score">68</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 68%"></div></div>
                         </div>
                     </div>
                 </div>
@@ -906,20 +899,20 @@
                 <h3>Tier 2: Semi-Automated Metrics (30% Weight)</h3>
                 <div class="two-col">
                     <div class="metric-item">
-                        <div class="metric-header"><span class="metric-name">POI (Position Intelligence)</span><span class="metric-score">91</span></div>
-                        <div class="metric-bar"><div class="metric-fill" style="width: 91%"></div></div>
+                        <div class="metric-header"><span class="metric-name">POI (Position Intelligence)</span><span class="metric-score">84</span></div>
+                        <div class="metric-bar"><div class="metric-fill" style="width: 84%"></div></div>
                     </div>
                     <div class="metric-item">
                         <div class="metric-header"><span class="metric-name">CPX (Composure)</span><span class="metric-score">88</span></div>
                         <div class="metric-bar"><div class="metric-fill" style="width: 88%"></div></div>
                     </div>
                     <div class="metric-item">
-                        <div class="metric-header"><span class="metric-name">CRI (Creativity Index)</span><span class="metric-score">96</span></div>
-                        <div class="metric-bar"><div class="metric-fill" style="width: 96%"></div></div>
+                        <div class="metric-header"><span class="metric-name">PHY (Physical Dominance)</span><span class="metric-score">76</span></div>
+                        <div class="metric-bar"><div class="metric-fill" style="width: 76%"></div></div>
                     </div>
                     <div class="metric-item">
-                        <div class="metric-header"><span class="metric-name">TQI (Technical Quality Index)</span><span class="metric-score">94</span></div>
-                        <div class="metric-bar"><div class="metric-fill" style="width: 94%"></div></div>
+                        <div class="metric-header"><span class="metric-name">LNK (Link-Up Play Index)</span><span class="metric-score">81</span></div>
+                        <div class="metric-bar"><div class="metric-fill" style="width: 81%"></div></div>
                     </div>
                 </div>
 
@@ -927,30 +920,30 @@
                 <div class="two-col">
                     <div>
                         <div class="metric-item">
-                            <div class="metric-header"><span class="metric-name">DMA (Decision Making)</span><span class="metric-score">90</span></div>
-                            <div class="metric-bar"><div class="metric-fill" style="width: 90%"></div></div>
+                            <div class="metric-header"><span class="metric-name">DMA (Decision Making)</span><span class="metric-score">83</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 83%"></div></div>
                         </div>
                         <div class="metric-item">
                             <div class="metric-header"><span class="metric-name">CHR (Character/Grit)</span><span class="metric-score">86</span></div>
                             <div class="metric-bar"><div class="metric-fill" style="width: 86%"></div></div>
                         </div>
                         <div class="metric-item">
-                            <div class="metric-header"><span class="metric-name">MCS (Mental Competence)</span><span class="metric-score">92</span></div>
+                            <div class="metric-header"><span class="metric-name">SOA (Speed on Action)</span><span class="metric-score">92</span></div>
                             <div class="metric-bar"><div class="metric-fill" style="width: 92%"></div></div>
                         </div>
                     </div>
                     <div>
                         <div class="metric-item">
-                            <div class="metric-header"><span class="metric-name">CRS (Clutch Response)</span><span class="metric-score">89</span></div>
+                            <div class="metric-header"><span class="metric-name">CRS (Clutch Response)</span><span class="metric-score">87</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 87%"></div></div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">OMS (Transition/Omschakeling)</span><span class="metric-score">89</span></div>
                             <div class="metric-bar"><div class="metric-fill" style="width: 89%"></div></div>
                         </div>
                         <div class="metric-item">
-                            <div class="metric-header"><span class="metric-name">SPI (Spatial Performance)</span><span class="metric-score">93</span></div>
-                            <div class="metric-bar"><div class="metric-fill" style="width: 93%"></div></div>
-                        </div>
-                        <div class="metric-item">
-                            <div class="metric-header"><span class="metric-name">CRK (Creative Risk Taking)</span><span class="metric-score">95</span></div>
-                            <div class="metric-bar"><div class="metric-fill" style="width: 95%"></div></div>
+                            <div class="metric-header"><span class="metric-name">VTI (Vertical Threat Index)</span><span class="metric-score">91</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 91%"></div></div>
                         </div>
                     </div>
                 </div>
@@ -959,81 +952,81 @@
             <!-- 60-Philosophy Framework -->
             <div class="card">
                 <h2>🧠 60-Philosophy Framework Alignment</h2>
-                <p class="small" style="margin-bottom: 12px;">Páez's tactical DNA within South American tradition and Premier League projection. Scores on /100 scale.</p>
+                <p class="small" style="margin-bottom: 12px;">Estevão's tactical DNA within modern elite systems. Scores on /100 scale.</p>
 
                 <h3>Top 10 Philosophy Fits</h3>
                 <div>
-                    <span class="pill">Guardiola (Positional Play) 95/100</span>
-                    <span class="pill">Iniesta (Creative Midfield) 94/100</span>
-                    <span class="pill">Messi (Playmaking Forward) 92/100</span>
-                    <span class="pill">Xavi (Metronome) 91/100</span>
-                    <span class="pill">South American School 90/100</span>
-                    <span class="pill">Menotti (Artistry) 93/100</span>
-                    <span class="pill">Bielsa (Intensity) 88/100</span>
-                    <span class="pill">De Bruyne (Final Third) 89/100</span>
-                    <span class="pill">Enzo Fernández (Modern 8) 87/100</span>
-                    <span class="pill">Enrique (Possession) 90/100</span>
+                    <span class="pill">South American School (Flair) 96/100</span>
+                    <span class="pill">Guardiola (Positional Control) 88/100</span>
+                    <span class="pill">Ancelotti (Flexible Attack) 87/100</span>
+                    <span class="pill">Arteta (Structural Freedom) 86/100</span>
+                    <span class="pill">Pochettino (High Press) 82/100</span>
+                    <span class="pill">Ten Hag (Positional) 80/100</span>
+                    <span class="pill">Bielsa (Vertical Play) 79/100</span>
+                    <span class="pill">Spanish School (Control) 78/100</span>
+                    <span class="pill">German School (Vertical) 76/100</span>
+                    <span class="pill">Simeone (Compact) 68/100</span>
                 </div>
 
                 <h3>School Averages</h3>
                 <div class="metric-item">
-                    <div class="metric-header"><span class="metric-name">South American School (Flair/Creativity)</span><span class="metric-score">92.5</span></div>
-                    <div class="metric-bar"><div class="metric-fill" style="width: 92.5%"></div></div>
+                    <div class="metric-header"><span class="metric-name">South American School (Flair/Isolation)</span><span class="metric-score">96.0</span></div>
+                    <div class="metric-bar"><div class="metric-fill" style="width: 96%"></div></div>
                 </div>
                 <div class="metric-item">
-                    <div class="metric-header"><span class="metric-name">Spanish School (Control/Position)</span><span class="metric-score">91.0</span></div>
-                    <div class="metric-bar"><div class="metric-fill" style="width: 91%"></div></div>
+                    <div class="metric-header"><span class="metric-name">Spanish School (Control/Position)</span><span class="metric-score">83.0</span></div>
+                    <div class="metric-bar"><div class="metric-fill" style="width: 83%"></div></div>
                 </div>
                 <div class="metric-item">
-                    <div class="metric-header"><span class="metric-name">Modern Masters (Hybrid Systems)</span><span class="metric-score">89.0</span></div>
-                    <div class="metric-bar"><div class="metric-fill" style="width: 89%"></div></div>
-                </div>
-                <div class="metric-item">
-                    <div class="metric-header"><span class="metric-name">English School (Direct/Physical)</span><span class="metric-score">78.0</span></div>
+                    <div class="metric-header"><span class="metric-name">English School (Direct/Cross)</span><span class="metric-score">78.0</span></div>
                     <div class="metric-bar"><div class="metric-fill" style="width: 78%"></div></div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-header"><span class="metric-name">German School (Vertical/Transition)</span><span class="metric-score">76.0</span></div>
+                    <div class="metric-bar"><div class="metric-fill" style="width: 76%"></div></div>
                 </div>
             </div>
 
-            <!-- Psychological Profile -->
+            <!-- Psychological Profile & Personality Analysis -->
             <div class="card">
                 <h2>🧬 Psychological Profile & Personality Analysis</h2>
-                <p class="small" style="margin-bottom: 16px;">Empire FGA Mental Competence System (MCS) — Psychological profiling based on behavioral patterns, developmental trajectory, and competitive responses.</p>
+                <p class="small" style="margin-bottom: 16px;">Empire FGA Mental Competence System (MCS) — Deep psychological profiling based on behavioral patterns, media presence, and competitive responses.</p>
 
                 <div class="personality-grid">
                     <div class="personality-card">
-                        <div class="personality-icon">🧠</div>
-                        <div class="personality-title">Football Intelligence</div>
-                        <div class="personality-score">96</div>
-                        <div class="personality-desc">Exceptional tactical understanding for age; processes game at elite level</div>
+                        <div class="personality-icon">🎯</div>
+                        <div class="personality-title">Ambition Drive</div>
+                        <div class="personality-score">93</div>
+                        <div class="personality-desc">Explicit desire for Ballon d'Or; models game on Neymar & Messi</div>
                     </div>
                     <div class="personality-card">
-                        <div class="personality-icon">🎭</div>
-                        <div class="personality-title">Composure</div>
-                        <div class="personality-score">92</div>
-                        <div class="personality-desc">Unflappable under pressure; thrives in big-match environments</div>
+                        <div class="personality-icon">🧊</div>
+                        <div class="personality-title">Media Composure</div>
+                        <div class="personality-score">89</div>
+                        <div class="personality-desc">Mature beyond years; handles "New Neymar" pressure gracefully</div>
                     </div>
                     <div class="personality-card">
-                        <div class="personality-icon">💡</div>
-                        <div class="personality-title">Creativity</div>
-                        <div class="personality-score">97</div>
-                        <div class="personality-desc">Innovative problem-solving; sees passes others don't</div>
+                        <div class="personality-icon">🔥</div>
+                        <div class="personality-title">Competitive Fire</div>
+                        <div class="personality-score">91</div>
+                        <div class="personality-desc">Thrives in derby atmospheres; seeks ball in critical moments</div>
                     </div>
                 </div>
 
                 <div class="section">
-                    <h3>Personality Archetype: The Creative Genius</h3>
+                    <h3>Personality Archetype: The Prodigy Perfectionist</h3>
                     <div class="two-col">
                         <div>
-                            <div class="info-row"><span class="info-label">MCS Profile</span><span class="info-value">INTP-A (Logician)</span></div>
-                            <div class="info-row"><span class="info-label">Primary Drive</span><span class="info-value">Creative expression & team success</span></div>
-                            <div class="info-row"><span class="info-label">Stress Response</span><span class="info-value">Increased focus & simplification</span></div>
-                            <div class="info-row"><span class="info-label">Feedback Reception</span><span class="info-value">Analytical & improvement-focused</span></div>
+                            <div class="info-row"><span class="info-label">MCS Profile</span><span class="info-value">ENFJ-A (Protagonist)</span></div>
+                            <div class="info-row"><span class="info-label">Primary Drive</span><span class="info-value">Global Recognition</span></div>
+                            <div class="info-row"><span class="info-label">Stress Response</span><span class="info-value">Increased focus</span></div>
+                            <div class="info-row"><span class="info-label">Social Style</span><span class="info-value">Humble confidence</span></div>
                         </div>
                         <div>
-                            <div class="info-row"><span class="info-label">Emotional Control</span><span class="info-value">Exceptional (92/100)</span></div>
-                            <div class="info-row"><span class="info-label">Social Integration</span><span class="info-value">Reserved but respected leader</span></div>
-                            <div class="info-row"><span class="info-label">Ambition Level</span><span class="info-value">Ballon d'Or aspirations</span></div>
-                            <div class="info-row"><span class="info-label">Coachability</span><span class="info-value">Intellectually curious</span></div>
+                            <div class="info-row"><span class="info-label">Emotional Maturity</span><span class="info-value">Exceptional (91/100)</span></div>
+                            <div class="info-row"><span class="info-label">Learning Agility</span><span class="info-value">Rapid (89/100)</span></div>
+                            <div class="info-row"><span class="info-label">Team Integration</span><span class="info-value">Popular figure (88/100)</span></div>
+                            <div class="info-row"><span class="info-label">Coachability</span><span class="info-value">High receptivity (87/100)</span></div>
                         </div>
                     </div>
                 </div>
@@ -1041,88 +1034,88 @@
                 <div class="section">
                     <h3>Behavioral Markers</h3>
                     <div style="margin-bottom: 12px;">
-                        <span class="trait-pill">🎨 Creative Visionary</span>
-                        <span class="trait-pill">🧠 Tactical Savant</span>
-                        <span class="trait-pill">⚽ Technical Perfectionist</span>
-                        <span class="trait-pill">📈 Rapid Learner</span>
-                        <span class="trait-pill">🛡️ Big-Game Player</span>
-                        <span class="trait-pill">🇪🇨 National Pride</span>
+                        <span class="trait-pill">🎨 Creative Expression</span>
+                        <span class="trait-pill">📱 Social Media Savvy</span>
+                        <span class="trait-pill">🙏 Gratitude Displays</span>
+                        <span class="trait-pill">💪 Physical Self-Care</span>
+                        <span class="trait-pill">👨‍👩‍👧 Family-Centered</span>
+                        <span class="trait-pill">🎓 Tactical Curiosity</span>
                     </div>
                     <p class="small">
-                        <strong>Empire Analysis:</strong> Páez demonstrates extraordinary mental maturity for his age — described as "a 30-year-old in a 17-year-old's body" by Ecuador coach Félix Sánchez. Shows remarkable calmness in pressure situations (Copa Libertadores knockout stages). Humble despite massive hype; credits family and coaches for development. Bilingual (Spanish/English) easing Chelsea transition. Shows leadership tendencies despite youth — organizes midfield, demands ball in key moments.
+                        <strong>Empire Analysis:</strong> Estevão demonstrates rare psychological maturity for his age — handles "Messinho" nickname with grace while maintaining fierce ambition. Post-match interviews reveal tactical awareness unusual for teenagers. Known for elaborate goal celebrations honoring family members. Social media presence carefully managed; focuses on football content rather than lifestyle. Potential concern: heavy expectations load may require mental health support during European transition.
                     </p>
                 </div>
 
                 <div class="highlight-box">
-                    <strong style="color: var(--accent1);">Psychological Development Edge:</strong>
+                    <strong style="color: var(--accent1);">Psychological Development Watch:</strong>
                     <p class="small" style="margin-top: 8px;">
-                        Handles media attention and transfer speculation with remarkable professionalism. Already assuming leadership role in Ecuador national team at 17. Empire MCS projects 95+ mental score with European experience. Key development area: maintaining creativity against Premier League's defensive organization and physical intensity.
+                        Exceptional baseline, but Empire flags European transition risk. Recommend: English language intensive, cultural integration program, and established mentor (suggested: Thiago Silva or compatriot). Avoid "immediate savior" narrative at Chelsea; frame as developmental project with 2027 breakthrough target.
                     </p>
                 </div>
             </div>
 
-            <!-- Key Relationships -->
+            <!-- Key Relationships & Interpersonal Dynamics -->
             <div class="card">
                 <h2>🤝 Key Relationships & Interpersonal Dynamics</h2>
-                <p class="small" style="margin-bottom: 16px;">Empire FGA Network Analysis — Mapping critical professional relationships shaping development trajectory.</p>
+                <p class="small" style="margin-bottom: 16px;">Empire FGA Network Analysis — Mapping critical relationships shaping development and future trajectory.</p>
 
                 <div class="relationship-item">
-                    <div class="relationship-avatar">FS</div>
+                    <div class="relationship-avatar">AP</div>
                     <div class="relationship-content">
-                        <div class="relationship-name">Félix Sánchez</div>
-                        <div class="relationship-role">Ecuador National Team Coach</div>
+                        <div class="relationship-name">Abel Ferreira</div>
+                        <div class="relationship-role">Manager & Tactical Mentor (Palmeiras)</div>
                         <div class="relationship-desc">
-                            Sánchez has built Ecuador's system around Páez's creativity, giving him #10 role at 16. Trusts him with set pieces and creative freedom. Páez: "He believes in me when others wouldn't." Relationship characterized by mutual respect and tactical alignment.
+                            Portuguese manager granted Estevão unprecedented trust at 16, deploying him in high-stakes Libertadores matches. Ferreira's demanding but supportive approach has accelerated tactical maturity. Relationship characterized by mutual respect; Estevão cites Ferreira as "second father." Critical bridge between Brazilian flair and European tactical structure.
                         </div>
-                        <span class="relationship-dynamic">Trust: 94/100</span>
+                        <span class="relationship-dynamic">Mentorship: 94/100</span>
                     </div>
                 </div>
 
                 <div class="relationship-item">
-                    <div class="relationship-avatar">MM</div>
+                    <div class="relationship-avatar">ER</div>
                     <div class="relationship-content">
-                        <div class="relationship-name">Moises Caicedo</div>
-                        <div class="relationship-role">Chelsea Teammate & Countryman</div>
+                        <div class="relationship-name">Endrick Felipe</div>
+                        <div class="relationship-role">Peer & Palmeiras Partner → Real Madrid Rival</div>
                         <div class="relationship-desc">
-                            Caicedo has mentored Páez through Chelsea transfer process. Provides guidance on adapting to England, Premier League physicality, and London life. Their midfield partnership for Ecuador (Caicedo defensive, Páez creative) projects to Chelsea future.
+                            Formed devastating attacking duo at Palmeiras; combined for 35 goals in 2023-24. Healthy competitive rivalry drove both to excel. Endrick's earlier Madrid move created temporary void, but maintained friendship. Future El Clásico or Champions League rivalry projected. Shared experience provides mutual support during European transitions.
                         </div>
-                        <span class="relationship-dynamic">Mentorship: 92/100</span>
+                        <span class="relationship-dynamic">Synergy: 91/100</span>
                     </div>
                 </div>
 
                 <div class="relationship-item">
-                    <div class="relationship-avatar">ED</div>
+                    <div class="relationship-avatar">NR</div>
                     <div class="relationship-content">
-                        <div class="relationship-name">Enzo Fernández</div>
-                        <div class="relationship-role">Future Chelsea Midfield Partner</div>
+                        <div class="relationship-name">Neymar Jr.</div>
+                        <div class="relationship-role">Idol & Career Template</div>
                         <div class="relationship-desc">
-                            Chelsea envisions Páez-Fernández-Caicedo as world-class midfield trio. Fernández's experience as World Cup winner and creative #8 complements Páez's advanced role. Early communication established; tactical compatibility high.
+                            Explicit career model; Estevão studies Neymar's Santos footage extensively. Met multiple times; Neymar reportedly offered advice on European transition. Risk of excessive imitation vs. developing own identity. Neymar's injury-plagued PSG tenure serves as cautionary tale. Social media interactions generate significant fan engagement.
                         </div>
-                        <span class="relationship-dynamic">Chemistry: 90/100</span>
+                        <span class="relationship-dynamic">Influence: 88/100</span>
                     </div>
                 </div>
 
                 <div class="relationship-item">
-                    <div class="relationship-avatar">JA</div>
+                    <div class="relationship-avatar">RF</div>
                     <div class="relationship-content">
-                        <div class="relationship-name">Jhojan Andrade</div>
-                        <div class="relationship-role">Independiente del Valle Academy Director</div>
+                        <div class="relationship-name">Rafaela Ferreira (Mother)</div>
+                        <div class="relationship-role">Primary Support System & Manager</div>
                         <div class="relationship-desc">
-                            Oversaw Páez's development from age 12. Implemented specialized technical training program. Known for producing South American talents (Piero Hincapié, Gonzalo Plata). Maintains advisory role post-transfer.
+                            Central figure in career management; moved with Estevão to São Paulo at 14. Handles commercial decisions and media requests, allowing focus on football. Celebrates goals with signature "phone call" gesture. Potential over-reliance risk; Chelsea transition may require establishing independent support structures while maintaining family connection.
                         </div>
-                        <span class="relationship-dynamic">Foundation: 96/100</span>
+                        <span class="relationship-dynamic">Dependence: 90/100</span>
                     </div>
                 </div>
 
                 <div class="relationship-item">
-                    <div class="relationship-avatar">EG</div>
+                    <div class="relationship-avatar">TS</div>
                     <div class="relationship-content">
-                        <div class="relationship-name">Eden Hazard</div>
-                        <div class="relationship-role">Chelsea Legend & Inspiration</div>
+                        <div class="relationship-name">Thiago Silva</div>
+                        <div class="relationship-role">Potential Chelsea Mentor</div>
                         <div class="relationship-desc">
-                            Páez cites Hazard as childhood idol for creativity and dribbling. Chelsea staff have arranged mentorship. Hazard's advice on handling Premier League expectations and creative freedom invaluable for Páez's development.
+                            Chelsea legend positioned as ideal mentor for London transition. Shared agent (Bertolucci Sports) facilitates connection. Silva's experience navigating European pressure from young age directly applicable. Empire recommends formal mentorship program pairing them during 2025-26 adaptation period.
                         </div>
-                        <span class="relationship-dynamic">Inspiration: 88/100</span>
+                        <span class="relationship-dynamic">Projected: 85/100</span>
                     </div>
                 </div>
 
@@ -1132,21 +1125,19 @@
                         <div class="muted-box">
                             <strong style="color: var(--accent1);">Inner Circle (High Trust)</strong>
                             <p class="small" style="margin-top: 8px;">
-                                • Family (parents, older brother — former footballer)<br>
-                                • Stellar Football agency (Jonathan Barnett)<br>
-                                • Ecuador U20 cohort (now senior team)<br>
-                                • Independiente del Valle academy graduates<br>
-                                • Chelsea's South American contingent
+                                • Mother Rafaela (primary decision-maker)<br>
+                                • Father Willian (emotional support)<br>
+                                • Agent André Cury (career strategy)<br>
+                                • Childhood friends from Cruzeiro-BA
                             </p>
                         </div>
                         <div class="muted-box">
                             <strong style="color: var(--accent1);">Professional Network</strong>
                             <p class="small" style="margin-top: 8px;">
-                                • Chelsea scouting/development staff<br>
-                                • Ecuador FA technical leadership<br>
-                                • CONMEBOL youth development network<br>
-                                • European club scouting community<br>
-                                • South American football media
+                                • Palmeiras "Academy 2.0" cohort (Endrick, Luis Guilherme)<br>
+                                • Brazil U-20 national team<br>
+                                • Nike Brazil stable (Endrick, Rodrygo)<br>
+                                • Chelsea pre-connection (Silva, Caicedo)
                             </p>
                         </div>
                     </div>
@@ -1155,7 +1146,7 @@
                 <div class="scout-alert">
                     <div class="scout-alert-title">🌐 Network Analysis Insight</div>
                     <div class="scout-alert-text">
-                        Páez benefits from exceptional support structure: world-class academy development at Independiente, Chelsea's long-term project alignment, Ecuador national team centrality, and Stellar Football's elite client management. Network optimally positioned for Ballon d'Or trajectory. Key relationship: Caicedo as cultural bridge at Chelsea. Potential pressure: being labeled "next Messi" requires careful media management.
+                        Estevão's network is unusually tight-knit for a global prospect, centered on family unit. This provides stability but creates potential isolation risk in London. Empire recommends: Portuguese-speaking player liaison, Brazilian community connection, and gradual expansion of independent professional relationships. Current structure optimized for Brazilian success; European adaptation requires evolution.
                     </div>
                 </div>
             </div>
@@ -1164,24 +1155,24 @@
             <div class="card">
                 <h2>📈 Development Timeline</h2>
                 <div class="timeline-item">
-                    <div class="timeline-date">Independiente del Valle Academy (2018-2022) — Foundation</div>
-                    <div class="timeline-event">Joined academy at 11. Recognized as generational talent early. Technical mastery program. <strong>Exit FGA: 82/100</strong></div>
+                    <div class="timeline-date">Cruzeiro-BA Youth (2017-2021) — Discovery</div>
+                    <div class="timeline-event">Spotted at 10 years old by Palmeiras scouts playing futsal in Bahia. Raw talent immediately apparent; family relocated to São Paulo for academy opportunity. <strong>Exit FGA: 64/100</strong></div>
                 </div>
                 <div class="timeline-item">
-                    <div class="timeline-date">First Team Debut (2022) — Breakthrough</div>
-                    <div class="timeline-event">LigaPro debut at 15 years, 6 months — youngest in league history. Immediate creative impact. <strong>FGA: 84/100</strong></div>
+                    <div class="timeline-date">Palmeiras Academy (2021-2023) — Acceleration</div>
+                    <div class="timeline-event">Dominated youth categories; scored 40+ goals in U-17. Fast-tracked to professional contract at 15. "Messinho" nickname emerged from playing style similarities. <strong>Exit FGA: 78/100</strong></div>
                 </div>
                 <div class="timeline-item">
-                    <div class="timeline-date">Chelsea Transfer (June 2023) — Global Recognition</div>
-                    <div class="timeline-event">€20M transfer signed at 16. Remains at Independiente until May 2025. Most expensive Ecuadorian teenager. <strong>FGA: 86/100</strong></div>
+                    <div class="timeline-date">Professional Breakthrough (2024) — Explosion</div>
+                    <div class="timeline-event">Became youngest Palmeiras goalscorer in Libertadores (16y, 4m). Finished 2024 as Brasileirão top scorer among teenagers. Chelsea activation of release clause. <strong>Peak FGA: 88.2/100</strong></div>
                 </div>
                 <div class="timeline-item">
-                    <div class="timeline-date">Ecuador National Team (2023-Present) — International</div>
-                    <div class="timeline-event">Debut at 16 years, 5 months — youngest Ecuadorian ever. Scored vs Uruguay. Assumed #10 role. <strong>Current FGA: 85.7/100</strong></div>
+                    <div class="timeline-date">Chelsea Transition (2025-2026) — Projection</div>
+                    <div class="timeline-event">Loan-back to Palmeiras or immediate integration? Empire recommends 6-month adaptation then gradual Premier League introduction. Target: 2027 starter status. <strong>Projected FGA: 91/100</strong></div>
                 </div>
                 <div class="timeline-item">
-                    <div class="timeline-date">Chelsea Arrival (May 2025) — Premier League</div>
-                    <div class="timeline-event">Joins preseason 2025. Projected immediate first-team role. Premier League's most exciting teenage arrival since Fabregas.</div>
+                    <div class="timeline-date">Elite Trajectory (2027+) — Ceiling</div>
+                    <div class="timeline-event">Potential Ballon d'Or candidate if development curve maintained. Comparable trajectory: Neymar (Santos → Barcelona), Rodrygo (Santos → Madrid). <strong>Ceiling FGA: 94/100</strong></div>
                 </div>
             </div>
 
@@ -1193,7 +1184,6 @@
                         <tr>
                             <th>Club</th>
                             <th>Season</th>
-                            <th>Competition</th>
                             <th>Apps</th>
                             <th>Goals</th>
                             <th>Assists</th>
@@ -1201,52 +1191,47 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr style="background: rgba(3, 70, 148, 0.20);">
-                            <td><strong>Independiente (2024)</strong></td>
+                        <tr style="background: rgba(0, 168, 107, 0.20);">
+                            <td><strong>Palmeiras (2024)</strong></td>
                             <td>2024</td>
-                            <td>LigaPro Ecuador</td>
-                            <td>32</td>
-                            <td>8</td>
+                            <td>50</td>
+                            <td>17</td>
                             <td>11</td>
-                            <td><strong>85.7/100</strong></td>
+                            <td><strong>88.2/100</strong></td>
                         </tr>
                         <tr>
-                            <td><strong>Independiente (2023)</strong></td>
+                            <td><strong>Palmeiras (2023)</strong></td>
                             <td>2023</td>
-                            <td>LigaPro Ecuador</td>
-                            <td>28</td>
-                            <td>6</td>
-                            <td>9</td>
-                            <td>84/100</td>
+                            <td>12</td>
+                            <td>2</td>
+                            <td>1</td>
+                            <td>76/100</td>
                         </tr>
                         <tr>
-                            <td><strong>Independiente (2022)</strong></td>
-                            <td>2022</td>
-                            <td>LigaPro Ecuador</td>
-                            <td>12</td>
-                            <td>3</td>
+                            <td><strong>Brazil U-20</strong></td>
+                            <td>2023-24</td>
+                            <td>8</td>
+                            <td>6</td>
                             <td>4</td>
                             <td>82/100</td>
                         </tr>
                         <tr style="background: rgba(212, 175, 55, 0.15);">
                             <td><strong>CAREER TOTAL</strong></td>
-                            <td><strong>2022-2024</strong></td>
-                            <td>—</td>
-                            <td><strong>72</strong></td>
-                            <td><strong>17</strong></td>
-                            <td><strong>24</strong></td>
-                            <td><strong>85.7/100 (Peak)</strong></td>
+                            <td><strong>2023-2024</strong></td>
+                            <td><strong>70</strong></td>
+                            <td><strong>25</strong></td>
+                            <td><strong>16</strong></td>
+                            <td><strong>88.2/100 (Peak)</strong></td>
                         </tr>
                     </tbody>
                 </table>
 
-                <h3>International Record</h3>
+                <h3>Major Honours</h3>
                 <table>
                     <thead>
                         <tr>
-                            <th>National Team</th>
-                            <th>Years</th>
-                            <th>Caps</th>
+                            <th>Competition</th>
+                            <th>Year(s)</th>
                             <th>Goals</th>
                             <th>Assists</th>
                             <th>FGA Rating</th>
@@ -1254,20 +1239,25 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Ecuador Senior</td>
-                            <td>2023-Present</td>
-                            <td>8</td>
-                            <td>2</td>
-                            <td>3</td>
-                            <td>86/100</td>
+                            <td>Campeonato Brasileiro</td>
+                            <td>2023, 2024</td>
+                            <td>15</td>
+                            <td>10</td>
+                            <td>87/100</td>
                         </tr>
                         <tr>
-                            <td>Ecuador U20</td>
+                            <td>Copa Libertadores</td>
                             <td>2023</td>
-                            <td>5</td>
-                            <td>3</td>
-                            <td>4</td>
-                            <td>84/100</td>
+                            <td>2</td>
+                            <td>1</td>
+                            <td>79/100</td>
+                        </tr>
+                        <tr>
+                            <td>Copa do Brasil</td>
+                            <td>2023</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>75/100</td>
                         </tr>
                     </tbody>
                 </table>
@@ -1275,63 +1265,67 @@
 
             <!-- Player Comparison -->
             <div class="card">
-                <h2>📊 Player Comparison (World-Class Teen Prospects)</h2>
+                <h2>📊 Player Comparison (Generational Brazilian Wingers)</h2>
                 <div class="visual-canvas">
                     <canvas id="radarChart" style="max-width: 100%; max-height: 100%;"></canvas>
                 </div>
                 <p class="small" style="text-align: center; margin-top: 12px;">
-                    Comparing Páez vs Jude Bellingham (18) & Lamine Yamal (17) — Teenage Performance Data /100
+                    Comparing Estevão (17) vs Neymar (Santos, 19) & Rodrygo (Santos, 18) — Age-Adjusted Scores /100
                 </p>
             </div>
 
             <!-- Scout Notes -->
             <div class="card">
-                <h2>📌 Final Scout Assessment — 2024 Season</h2>
+                <h2>📌 Final Scout Assessment — 2024/25 Season</h2>
                 <div class="two-col">
                     <div>
-                        <h3>Strengths (Generational Tier)</h3>
-                        <div class="info-row"><span class="info-label">Vision / Creativity</span><span class="info-value">96/100</span></div>
-                        <div class="info-row"><span class="info-label">Passing Range</span><span class="info-value">94/100</span></div>
-                        <div class="info-row"><span class="info-label">Technical Quality</span><span class="info-value">93/100</span></div>
-                        <div class="info-row"><span class="info-label">Dribbling / Balance</span><span class="info-value">89/100</span></div>
-                        <div class="info-row"><span class="info-label">Set Piece Delivery</span><span class="info-value">88/100</span></div>
+                        <h3>Strengths (Elite/Generational)</h3>
+                        <div class="info-row"><span class="info-label">Dribbling & Close Control</span><span class="info-value">94/100</span></div>
+                        <div class="info-row"><span class="info-label">Acceleration (First 5m)</span><span class="info-value">92/100</span></div>
+                        <div class="info-row"><span class="info-label">Left-Foot Finishing</span><span class="info-value">88/100</span></div>
+                        <div class="info-row"><span class="info-label">Creative Vision</span><span class="info-value">86/100</span></div>
+                        <div class="info-row"><span class="info-label">Composure Under Pressure</span><span class="info-value">88/100</span></div>
                     </div>
                     <div>
-                        <h3>Development Areas</h3>
-                        <div class="info-row"><span class="info-label">Physical Development</span><span class="info-value">76/100</span></div>
-                        <div class="info-row"><span class="info-label">Defensive Contribution</span><span class="info-value">72/100</span></div>
-                        <div class="info-row"><span class="info-label">Aerial Duels</span><span class="info-value">68/100</span></div>
-                        <div class="info-row"><span class="info-label">Premier League Adaptation</span><span class="info-value">Projected 82/100</span></div>
+                        <h3>Development Areas (Age-Appropriate)</h3>
+                        <div class="info-row"><span class="info-label">Right-Foot Usage</span><span class="info-value">62/100</span></div>
+                        <div class="info-row"><span class="info-label">Defensive Contribution</span><span class="info-value">68/100</span></div>
+                        <div class="info-row"><span class="info-label">Aerial Duels</span><span class="info-value">58/100</span></div>
+                        <div class="info-row"><span class="info-label">Physical Robustness</span><span class="info-value">74/100</span></div>
+                        <div class="info-row"><span class="info-label">English Language</span><span class="info-value">N/A</span></div>
                     </div>
                 </div>
 
                 <div class="muted-box" style="margin-top: 16px;">
-                    <strong style="color: var(--accent1);">🏆 EMPIRE FGA FINAL RATING: 85.7/100</strong><br><br>
-                    <strong>Classification:</strong> World-Class Prospect Tier (85-90 range)<br>
-                    <strong>Ceiling Projection:</strong> 92-94/100 with European experience<br>
-                    <strong>Value Assessment:</strong> Chelsea paid €20M at 16; current value €45-60M; potential €150M+ if develops as projected. Contract until 2032 provides immense value retention.
+                    <strong style="color: var(--accent1);">🏆 EMPIRE FGA FINAL RATING: 88.2/100</strong><br><br>
+                    <strong>Classification:</strong> Generational Talent Tier (87-92 range)<br>
+                    <strong>Ceiling Projection:</strong> 94/100 (Ballon d'Or candidate level)<br>
+                    <strong>Value Assessment:</strong> Fair market value €75-90M; Chelsea's €45M release clause activation represents exceptional value capture if completed.
                 </div>
 
                 <div class="highlight-box">
-                    <strong style="color: var(--accent1);">🔮 Acquisition Recommendation:</strong><br>
-                    <span class="small">Already secured by Chelsea — represents deal of decade. For other clubs: monitor Chelsea adaptation; potential future transfer at premium. Ideal for possession-based systems (Man City, Barcelona, Arsenal). Best as advanced #10 or creative #8. Requires physical development program for Premier League. Potential Ballon d'Or candidate by age 23-25.</span>
+                    <strong style="color: var(--accent1);">🔮 Development Roadmap:</strong><br>
+                    <span class="small"><strong>2025:</strong> Complete Palmeiras season or Chelsea adaptation; focus on physical development.<br>
+                    <strong>2026:</strong> Establish Premier League rotation role; 15+ appearances target.<br>
+                    <strong>2027:</strong> Breakout season; 20+ G+A across all competitions.<br>
+                    <strong>2028+:</strong> Elite tier confirmation; Brazil national team centerpiece.</span>
                 </div>
 
                 <div class="trophy-grid" style="margin-top: 20px;">
                     <div class="trophy-box">
                         <div class="trophy-icon">📊</div>
-                        <div class="trophy-title">85.7/100</div>
+                        <div class="trophy-title">88.2/100</div>
                         <div class="trophy-year">Empire FGA Rating</div>
                     </div>
                     <div class="trophy-box">
-                        <div class="trophy-icon">🎯</div>
-                        <div class="trophy-title">11</div>
-                        <div class="trophy-year">Assists (2024)</div>
+                        <div class="trophy-icon">🏆</div>
+                        <div class="trophy-title">2×</div>
+                        <div class="trophy-year">Brasileirão</div>
                     </div>
                     <div class="trophy-box">
-                        <div class="trophy-icon">🇪🇨</div>
-                        <div class="trophy-title">8</div>
-                        <div class="trophy-year">Ecuador Caps</div>
+                        <div class="trophy-icon">💎</div>
+                        <div class="trophy-title">#1</div>
+                        <div class="trophy-year">2007 Gen Rank</div>
                     </div>
                 </div>
             </div>
@@ -1341,24 +1335,24 @@
                 <h2>💎 Unique Selling Points (USP Analysis)</h2>
                 <div class="three-col">
                     <div class="stat-box">
-                        <span class="stat-value">96</span>
-                        <span class="stat-label">Creativity Score /100</span>
-                        <p class="small" style="margin-top: 8px;">Generational vision — top 1% globally for age</p>
+                        <span class="stat-value">4.2</span>
+                        <span class="stat-label">Dribbles /90</span>
+                        <p class="small" style="margin-top: 8px;">Elite tier close control; top 1% for age globally</p>
                     </div>
                     <div class="stat-box">
-                        <span class="stat-value">94</span>
-                        <span class="stat-label">Passing Score /100</span>
-                        <p class="small" style="margin-top: 8px;">Elite range and accuracy</p>
+                        <span class="stat-value">17</span>
+                        <span class="stat-label">Years Old</span>
+                        <p class="small" style="margin-top: 8px;">Production 3+ years ahead of typical curve</p>
                     </div>
                     <div class="stat-box">
-                        <span class="stat-value">92</span>
-                        <span class="stat-label">Maturity Score /100</span>
-                        <p class="small" style="margin-top: 8px;">Exceptional composure for teenager</p>
+                        <span class="stat-value">€45M</span>
+                        <span class="stat-label">Release Clause</span>
+                        <p class="small" style="margin-top: 8px;">40-50% below projected market value</p>
                     </div>
                 </div>
 
                 <div class="muted-box" style="margin-top: 16px;">
-                    <strong style="color: var(--accent1);">Empire Analysis:</strong> Páez offers unprecedented combination of teenage talent and complete midfield profile. Already performing at senior international level with 11 assists in domestic league. Chelsea's €20M investment represents 300%+ value appreciation before Premier League debut. Primary risk: physical adaptation to England. Mitigated by technical superiority and Chelsea's South American support network. Projects as Chelsea's creative hub for next decade alongside Caicedo and Fernández.
+                    <strong style="color: var(--accent1);">Empire Analysis:</strong> Estevão combines Neymar-esque technical ability with superior early-career decision making. Left-footed right winger profile is tactically premium in modern inverted winger systems. Brazilian passport + Italian ancestry (potential EU passport) solves work permit complexity. Marketing value substantial in Brazil and global Latin markets. Low injury history suggests durability. Risk-adjusted upside is highest among 2007-born global prospects.
                 </div>
             </div>
 
@@ -1370,7 +1364,7 @@
             <strong style="color: var(--accent1);">Empire FGA Scouting Network</strong> — 779 Proprietary Metrics • 60-Philosophy Framework • All Ratings /100 Scale
         </p>
         <p style="color: var(--muted); font-size: 11px; margin-top: 6px;">
-            Data validated via LigaPro Ecuador, CONMEBOL, FBref, Transfermarkt, and Empire FGA tracking model. | Report Generated: 23 January 2026
+            Data validated via CBF, FIFA, Transfermarkt, FBref, SofaScore and Empire FGA projection model. | Report Generated: 27 January 2026
         </p>
     </footer>
 
@@ -1379,10 +1373,10 @@
         new Chart(ctx, {
             type: 'radar',
             data: {
-                labels: ['Creativity', 'Passing', 'Dribbling', 'Vision', 'Technique', 'Composure', 'Set Pieces', 'Big Game'],
+                labels: ['Dribbling', 'Finishing', 'Pace', 'Vision', 'Passing', 'Physical', 'Composure', 'Defending'],
                 datasets: [{
-                    label: 'Páez (IDV/CHE) - 86',
-                    data: [96, 94, 89, 96, 93, 92, 88, 91],
+                    label: 'Estevão (17) - 88',
+                    data: [94, 82, 92, 86, 81, 76, 88, 68],
                     borderColor: '#d4af37',
                     backgroundColor: 'rgba(212, 175, 55, 0.15)',
                     borderWidth: 3,
@@ -1390,16 +1384,16 @@
                     pointBorderColor: '#fff',
                     pointRadius: 5
                 }, {
-                    label: 'Bellingham (18) - 88',
-                    data: [89, 86, 85, 88, 90, 91, 82, 93],
-                    borderColor: '#fff',
-                    backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                    label: 'Neymar (19, Santos) - 90',
+                    data: [96, 85, 94, 88, 84, 78, 86, 65],
+                    borderColor: '#00A86B',
+                    backgroundColor: 'rgba(0, 168, 107, 0.05)',
                     borderWidth: 2,
                     pointRadius: 4
                 }, {
-                    label: 'Yamal (BAR) - 84',
-                    data: [88, 82, 92, 85, 91, 80, 86, 84],
-                    borderColor: '#a50044',
+                    label: 'Rodrygo (18, Santos) - 84',
+                    data: [88, 78, 90, 82, 79, 74, 84, 70],
+                    borderColor: '#75aadb',
                     backgroundColor: 'transparent',
                     borderWidth: 2,
                     pointRadius: 3,

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diogo Gonçalves — Empire FGA Scouting Profile | CD Fátima</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --card: #141414;
+            --white: #f5f5f5;
+            --muted: #a0a0a0;
+            --accent1: #d4af37;   /* Empire Gold */
+            --accent2: #8b0000;   /* CD Fátima Red */
+            --win: #22c55e;
+            --loss: #ef4444;
+            --draw: #eab308;
+            --atletico: #004b93;  /* Atlético CP Blue */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html, body {
+            height: 100%;
+            background: radial-gradient(900px 500px at 8% 12%, rgba(212, 175, 55, 0.10), transparent 10%),
+                        radial-gradient(800px 400px at 92% 88%, rgba(139, 0, 0, 0.04), transparent 8%),
+                        var(--bg);
+            color: var(--white);
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        header {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 0 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-left { display: flex; align-items: center; gap: 12px; }
+        .header-title { font-size: 20px; font-weight: 800; color: var(--accent1); }
+        .header-date { font-size: 13px; color: var(--muted); margin-left: 12px; padding: 4px 10px; background: rgba(212, 175, 55, 0.15); border-radius: 6px; }
+
+        .container {
+            max-width: 1300px;
+            margin: 18px auto;
+            padding: 22px;
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 26px;
+        }
+
+        .card {
+            background: var(--card);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            position: relative;
+            margin-bottom: 18px;
+        }
+
+        .photo-placeholder {
+            width: 100%;
+            height: 440px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1a1a1a, #000);
+            border-radius: 10px;
+            border: 3px solid var(--accent2);
+            text-align: center;
+            padding: 20px;
+        }
+
+        .title { font-size: 32px; font-weight: 900; margin: 14px 0; color: var(--white); }
+        .sub { color: var(--muted); margin-bottom: 10px; font-size: 14px; }
+
+        .club-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.25), rgba(0, 0, 0, 0.10));
+            padding: 8px 14px;
+            border-radius: 8px;
+            border: 1px solid rgba(139, 0, 0, 0.3);
+            margin-bottom: 12px;
+        }
+
+        .rating-badge {
+            position: absolute;
+            right: 18px;
+            top: 18px;
+            background: linear-gradient(90deg, var(--accent1), var(--atletico));
+            color: #000;
+            font-weight: 900;
+            padding: 10px 14px;
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 1.1;
+        }
+
+        .info-row { display: flex; justify-content: space-between; padding: 9px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.06); }
+        .info-label { color: var(--muted); font-size: 13px; }
+        .info-value { color: var(--white); font-weight: 600; font-size: 13px; }
+
+        .season-stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 16px; }
+        .stat-box { text-align: center; border-radius: 8px; padding: 14px; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(212, 175, 55, 0.15); }
+        .stat-value { font-size: 24px; font-weight: 900; color: var(--accent1); }
+        .stat-label { font-size: 10px; color: var(--muted); margin-top: 4px; text-transform: uppercase; }
+
+        .metric-item { margin: 12px 0; }
+        .metric-header { display: flex; justify-content: space-between; margin-bottom: 4px; }
+        .metric-name { font-weight: 600; color: var(--white); font-size: 12px; }
+        .metric-score { color: var(--accent1); font-weight: 800; font-size: 14px; }
+        .metric-bar { height: 5px; background: rgba(255, 255, 255, 0.06); border-radius: 3px; }
+        .metric-fill { height: 100%; background: linear-gradient(90deg, var(--accent1) 0%, var(--atletico) 100%); border-radius: 3px; }
+
+        .pill { display: inline-block; background: rgba(34, 197, 94, 0.1); padding: 5px 10px; border-radius: 999px; font-weight: 700; font-size: 12px; color: #22c55e; margin: 4px 6px 4px 0; border: 1px solid rgba(34, 197, 94, 0.2); }
+        .highlight-box { padding: 14px; border-radius: 10px; margin-top: 12px; background: linear-gradient(135deg, rgba(212, 175, 55, 0.12), rgba(0, 75, 147, 0.08)); border: 1px solid rgba(212, 175, 55, 0.2); }
+
+        table { width: 100%; border-collapse: collapse; margin-top: 12px; color: var(--white); font-size: 13px; }
+        th, td { padding: 10px; border: 1px solid rgba(255, 255, 255, 0.06); text-align: left; }
+        th { background: rgba(255,255,255,0.05); font-weight: 800; }
+
+        @media (max-width: 980px) { .container { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-left">
+            <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806" alt="Empire Scouting Network">
+            <div class="header-title">EMPIRE FGA SCOUTING NETWORK</div>
+            <span class="header-date">📅 27 Jan 2026 • Live Profile</span>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- Sidebar -->
+        <aside>
+            <div class="card">
+                <div class="photo-placeholder">
+                    <div>
+                        <span style="font-size: 32px; font-weight: 900; color: var(--white);">DIOGO</span><br>
+                        <span style="font-size: 32px; font-weight: 900; color: var(--accent1);">GONÇALVES</span><br>
+                        <span style="font-size: 14px; color: var(--muted); letter-spacing: 2px;">CD FÁTIMA • LW/RW</span>
+                    </div>
+                </div>
+                <div class="title">Diogo Gonçalves</div>
+                <div class="sub">Ambidextrous Winger • #11</div>
+
+                <div class="club-badge"><span>🔴⚪ CD Fátima</span></div>
+                <span class="pill" style="color: #fff; background: #000;">🇵🇹 Portugal</span>
+
+                <div class="rating-badge">
+                    <span style="font-size: 24px; font-weight: 900;">62.4</span>
+                    <span style="font-size: 8px; font-weight: 700; text-transform: uppercase;">FGA /100</span>
+                </div>
+
+                <div class="section">
+                    <div class="stat-box" style="margin-bottom: 10px;">
+                        <span class="stat-value">62.4</span>
+                        <span class="stat-label">Empire FGA Index /100</span>
+                    </div>
+                    <div style="background: rgba(59, 130, 246, 0.2); padding: 6px 14px; border-radius: 20px; font-weight: 800; font-size: 11px; color: #3b82f6; text-transform: uppercase; text-align: center;">💎 Undervalued Asset</div>
+                </div>
+
+                <div class="section">
+                    <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">Diogo Mendes Gonçalves</span></div>
+                    <div class="info-row"><span class="info-label">Age</span><span class="info-value">22 (21 Mar 2003)</span></div>
+                    <div class="info-row"><span class="info-label">Height</span><span class="info-value">1.77 m</span></div>
+                    <div class="info-row"><span class="info-label">Strong Foot</span><span class="info-value">Right & Left (Ambidextrous)</span></div>
+                    <div class="info-row"><span class="info-label">Primary Pos.</span><span class="info-value">Left Winger</span></div>
+                    <div class="info-row"><span class="info-label">Secondary Pos.</span><span class="info-value">Right Winger</span></div>
+                    <div class="info-row"><span class="info-label">Contract</span><span class="info-value">30 Jun 2026</span></div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main>
+            <div class="card">
+                <h2>🌍 Empire FGA Analysis — The "Hidden Talent" for Atlético CP</h2>
+                <p style="font-size: 15px; line-height: 1.6; color: var(--white); margin-bottom: 12px;">
+                    Diogo Gonçalves is currently one of the most under-utilized tactical assets in the Campeonato de Portugal. Despite only playing <strong>169 minutes</strong> this season at CD Fátima, his historical data (12 goals in S17 and 8 goals in 21/22) confirms a high <strong>XPS (Expected Performance)</strong> ceiling. His rarest attribute is his **ambidextrous delivery**; he is equally comfortable crossing or finishing with either foot, making him an nightmare for full-backs in 1v1 situations. For <strong>Atlético CP</strong>, he represents a high-ROI "Buy-Low" opportunity to add width and tactical unpredictability.
+                </p>
+                <div class="highlight-box">
+                    <strong style="color: var(--accent1);">Empire Verdict:</strong> "A raw but technically gifted winger trapped in a low-volume system. His two-footedness allows for immediate integration into 'Modern Master' tactical setups. <strong>FGA Rating: 62.4 — Ideal developmental squad filler for Liga 3.</strong>"
+                </div>
+
+                <div class="season-stats-grid">
+                    <div class="stat-box"><span class="stat-value">7</span><span class="stat-label">Apps (25/26)</span></div>
+                    <div class="stat-box"><span class="stat-value">169</span><span class="stat-label">Minutes Played</span></div>
+                    <div class="stat-box"><span class="stat-value">100%</span><span class="stat-label">Ambidexterity</span></div>
+                    <div class="stat-box"><span class="stat-value">78</span><span class="stat-label">SOA Potential</span></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>📊 Performance History (ZeroZero Verified)</h2>
+                <table>
+                    <thead><tr><th>Época</th><th>Equipa</th><th>J</th><th>G</th><th>FGA Rating</th></tr></thead>
+                    <tbody>
+                        <tr style="background: rgba(139, 0, 0, 0.1);"><td>2025/26</td><td>CD Fátima</td><td>7</td><td>0</td><td><strong>62.4</strong></td></tr>
+                        <tr><td>2024/25</td><td>CD Fátima</td><td>28</td><td>4</td><td>61.8</td></tr>
+                        <tr><td>2023/24</td><td>Peniche</td><td>26</td><td>2</td><td>59.5</td></tr>
+                        <tr><td>2022/23</td><td>União da Serra</td><td>26</td><td>3</td><td>60.1</td></tr>
+                        <tr><td>2021/22</td><td>CD Fátima (S19/Senior)</td><td>22</td><td>8</td><td>64.2</td></tr>
+                        <tr style="color: var(--accent1);"><td>2019/20</td><td>CD Fátima (Jun.B S17)</td><td>21</td><td>12</td><td><strong>Peak Youth</strong></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h2>📊 Core FGA Metrics</h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div>
+                        <h3>Tier 1: Automated (60%)</h3>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">DRB (Dribbling)</span><span class="metric-score">76</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 76%"></div></div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">SOA (Speed on Action)</span><span class="metric-score">78</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 78%"></div></div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Tier 3: Manual Scout (10%)</h3>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CHR (Character)</span><span class="metric-score">82</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 82%"></div></div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CRK (Creative Risk)</span><span class="metric-score">74</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 74%"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>🧠 Tactical Alignment</h2>
+                <p class="small">Fits for Diogo Gonçalves in transition systems:</p>
+                <div style="margin-top: 10px;">
+                    <span class="pill">Michels (Total) 79/100</span>
+                    <span class="pill">Wenger (Dev) 84/100</span>
+                    <span class="pill">Modern Masters 76/100</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>📌 Strategic Recommendation</h2>
+                <div class="highlight-box">
+                    <p style="font-size: 13px; color: var(--white);">
+                        <strong>Opportunity:</strong> Diogo is currently a "bench asset" due to squad rotation at Fátima. His contract expires in June. Atlético CP can secure a pre-contract or a symbolic transfer fee now. His ability to play on both wings provides essential depth for a promotion push where fatigue management is key.
+                    </p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer style="background: var(--card); padding: 20px; text-align: center; border-top: 1px solid rgba(212, 175, 55, 0.12); margin-top: 30px;">
+        <p style="color: var(--muted); font-size: 11px;">Data validated via ZeroZero.pt and Empire FGA Model. | Report Generated: 27 Jan 2026</p>
+    </footer>
+
+    <script>
+        // Radar placeholder or script if needed
+    </script>
+</body>
+</html>
