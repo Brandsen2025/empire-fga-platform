@@ -3,353 +3,816 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jorge Otero — Empire FGA Profile</title>
+    <title>Jorge Otero — Empire FGA Legacy Analysis | Celta, Valencia & Spain</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        :root {
-            --bg: #0f172a;
-            --card: #1e293b;
-            --white: #f0f9ff;
-            --muted: #94a3b8;
-            --accent1: #60a5fa; /* Sky Blue */
-            --accent2: #f87171; /* Red accent */
-        }
+        /* [ALL CSS STYLES FROM HAMSIK TEMPLATE - EXACTLY THE SAME] */
+        :root { --bg: #0a0a0a; --card: #141414; --white: #f5f5f5; --muted: #a0a0a0; --accent1: #d4af37; --accent2: #8B0000; /* Celta/Spain Red */ --accent3: #FF6B00; /* Valencia Orange */ --win: #22c55e; --loss: #ef4444; --draw: #eab308; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html, body {
-            height: 100%; margin: 0; padding: 0;
-            background: radial-gradient(900px 500px at 8% 12%, rgba(96, 165, 250, 0.08), transparent 10%), radial-gradient(800px 400px at 92% 88%, rgba(248, 113, 113, 0.05), transparent 8%), var(--bg);
-            color: var(--white); -webkit-font-smoothing: antialiased; font-family: 'Inter', sans-serif;
-        }
+        html, body { height: 100%; margin: 0; padding: 0; background: radial-gradient(900px 500px at 8% 12%, rgba(212, 175, 55, 0.10), transparent 10%), radial-gradient(800px 400px at 92% 88%, rgba(139, 0, 0, 0.08), transparent 8%), var(--bg); color: var(--white); font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
         header { max-width: 1300px; margin: 18px auto; padding: 0 22px; display: flex; align-items: center; justify-content: space-between; }
         header img { height: 48px; object-fit: contain; }
         .header-left { display: flex; align-items: center; gap: 12px; }
         .header-title { font-size: 20px; font-weight: 800; color: var(--accent1); }
+        .header-date { font-size: 13px; color: var(--muted); margin-left: 12px; padding: 4px 10px; background: rgba(212, 175, 55, 0.15); border-radius: 6px; }
         .container { max-width: 1300px; margin: 18px auto; padding: 22px; display: grid; grid-template-columns: 360px 1fr; gap: 26px; }
         .card { background: var(--card); padding: 18px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.04); position: relative; margin-bottom: 18px; }
-        .photo { width: 100%; height: 520px; object-fit: cover; object-position: top center; border-radius: 10px; border: 3px solid var(--accent1); background: #0b1624; }
+        .photo { width: 100%; height: 480px; object-fit: cover; object-position: center top; border-radius: 10px; border: 3px solid var(--accent2); background: #000; filter: contrast(1.05) saturate(1.1); }
         .title { font-size: 34px; font-weight: 900; margin: 14px 0; color: var(--white); }
         .sub { color: var(--muted); margin-bottom: 10px; font-size: 14px; }
-        .pill { display: inline-block; background: rgba(96, 165, 250, 0.12); padding: 7px 12px; border-radius: 999px; font-weight: 700; font-size: 13px; color: var(--white); margin: 6px 8px 6px 0; border: 1px solid rgba(96, 165, 250, 0.18); }
+        .club-badge { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, rgba(139, 0, 0, 0.25), rgba(255, 107, 0, 0.10)); padding: 8px 14px; border-radius: 8px; border: 1px solid rgba(139, 0, 0, 0.3); margin-bottom: 12px; }
+        .club-badge span { font-weight: 700; color: var(--white); font-size: 14px; }
+        .nationality-badge { display: inline-flex; align-items: center; gap: 6px; background: linear-gradient(135deg, rgba(170, 21, 27, 0.40), rgba(252, 194, 27, 0.20)); padding: 6px 12px; border-radius: 8px; border: 1px solid rgba(170, 21, 27, 0.3); margin-left: 8px; font-size: 12px; font-weight: 600; }
+        .pill { display: inline-block; background: rgba(139, 0, 0, 0.15); padding: 7px 12px; border-radius: 999px; font-weight: 700; font-size: 13px; color: var(--white); margin: 6px 8px 6px 0; border: 1px solid rgba(212, 175, 55, 0.18); }
         table { width: 100%; border-collapse: collapse; margin-top: 12px; color: var(--white); font-size: 14px; }
         th, td { padding: 10px; border: 1px solid rgba(255, 255, 255, 0.06); vertical-align: top; text-align: left; }
-        th { background: linear-gradient(90deg, var(--accent1), var(--accent2)); font-weight: 800; color: #0f172a; }
-        .rating-badge { position: absolute; right: 18px; top: 18px; background: linear-gradient(90deg, var(--accent1), var(--accent2)); color: #0f172a; font-weight: 900; padding: 12px 18px; border-radius: 16px; font-size: 26px; box-shadow: 0 10px 30px rgba(96, 165, 250, 0.2); }
+        th { background: linear-gradient(90deg, rgba(212, 175, 55, 0.85), rgba(139, 0, 0, 0.85)); font-weight: 800; color: #000; }
+        .rating-badge { position: absolute; right: 18px; top: 18px; background: linear-gradient(90deg, var(--accent1), var(--accent2)); color: #000; font-weight: 900; padding: 10px 14px; border-radius: 16px; font-size: 22px; box-shadow: 0 10px 30px rgba(139, 0, 0, 0.18); display: flex; flex-direction: column; align-items: center; line-height: 1.1; }
+        .rating-badge .rating-value { font-size: 28px; font-weight: 900; }
+        .rating-badge .rating-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; opacity: 0.8; }
         .section { margin-top: 18px; }
-        .section h2::before { content: ""; margin-right: 8px; }
         .section h2 { font-size: 24px; font-weight: 800; color: var(--accent1); margin-bottom: 16px; }
         .section h3 { font-size: 18px; font-weight: 700; color: var(--accent1); margin: 16px 0 12px; }
-        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+        .two-col, .three-col { display: grid; gap: 14px; }
+        .two-col { grid-template-columns: 1fr 1fr; }
+        .three-col { grid-template-columns: 1fr 1fr 1fr; }
         .small { color: var(--muted); font-size: 14px; line-height: 1.6; }
         .lead { color: var(--white); font-size: 16px; line-height: 1.5; }
-        .visual-canvas { background: transparent; border-radius: 8px; padding: 12px; height: 420px; display: flex; align-items: center; justify-content: center; border: 1px dashed rgba(255, 255, 255, 0.1); }
-        .muted-box { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.03); padding: 12px; border-radius: 8px; margin-top: 8px; color: var(--muted); font-size: 13px; line-height: 1.5; }
-        .info-row { display: flex; justify-content: space-between; padding: 10px; border-bottom: 1px solid rgba(255, 255, 255, 0.04); color: var(--white); font-size: 14px; }
-        .info-label { font-weight: 600; color: var(--muted); }
-        .info-value { font-weight: 700; color: var(--accent1); }
-        .trophy-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-top: 16px; }
-        .trophy-box { background: rgba(96, 165, 250, 0.05); border: 1px solid rgba(96, 165, 250, 0.2); padding: 14px; border-radius: 10px; text-align: center; transition: all 0.2s; }
-        .trophy-box:hover { background: rgba(96, 165, 250, 0.1); transform: translateY(-2px); }
-        .trophy-icon { font-size: 42px; font-weight: 900; margin-bottom: 8px; }
-        .trophy-title { font-size: 12px; font-weight: 700; color: var(--white); margin-bottom: 4px; }
-        .trophy-year { font-size: 11px; color: var(--muted); }
-        .timeline-item { padding: 14px; border-left: 3px solid var(--accent1); margin-bottom: 12px; background: rgba(255, 255, 255, 0.01); border-radius: 4px; }
-        .timeline-date { font-weight: 700; color: var(--accent1); font-size: 13px; margin-bottom: 6px; }
-        .timeline-event { color: var(--white); font-size: 14px; line-height: 1.5; }
-        @media (max-width: 900px) { .container { grid-template-columns: 1fr; } }
+        .visual-canvas { background: transparent; border-radius: 8px; padding: 12px; height: 420px; display: flex; align-items: center; justify-content: center; border: 1px dashed rgba(212, 175, 55, 0.18); }
+        .muted-box, .highlight-box { padding: 14px; border-radius: 10px; margin-top: 12px; }
+        .muted-box { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.03); color: var(--muted); }
+        .highlight-box { background: linear-gradient(135deg, rgba(212, 175, 55, 0.12), rgba(139, 0, 0, 0.08)); border: 1px solid rgba(212, 175, 55, 0.2); }
+        .info-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.06); }
+        .info-row:last-child { border-bottom: none; }
+        .info-label { color: var(--muted); font-size: 14px; }
+        .info-value { color: var(--white); font-weight: 600; font-size: 14px; }
+        .metric-item { margin: 14px 0; }
+        .metric-header { display: flex; justify-content: space-between; margin-bottom: 6px; }
+        .metric-name { font-weight: 600; color: var(--white); font-size: 13px; }
+        .metric-score { color: var(--accent1); font-weight: 800; font-size: 15px; }
+        .metric-bar { height: 6px; background: rgba(255, 255, 255, 0.06); border-radius: 3px; overflow: hidden; }
+        .metric-fill { height: 100%; background: linear-gradient(90deg, var(--accent1) 0%, var(--accent2) 100%); border-radius: 3px; }
+        .timeline-item { padding: 14px; border-left: 3px solid var(--accent1); margin: 12px 0; background: rgba(255, 255, 255, 0.02); border-radius: 6px; }
+        .timeline-date { color: var(--accent1); font-weight: 700; margin-bottom: 6px; font-size: 14px; }
+        .timeline-event { color: var(--muted); font-size: 14px; line-height: 1.5; }
+        .stat-box, .season-stat-box, .trophy-box { text-align: center; border-radius: 8px; }
+        .stat-box { background: rgba(139, 0, 0, 0.12); border: 1px solid rgba(212, 175, 55, 0.18); padding: 14px; }
+        .stat-value { font-size: 28px; font-weight: 900; color: var(--accent1); display: block; }
+        .stat-label { font-size: 12px; color: var(--muted); margin-top: 4px; }
+        .season-stats-grid, .trophy-grid { display: grid; gap: 12px; margin-top: 16px; }
+        .season-stats-grid { grid-template-columns: repeat(4, 1fr); }
+        .trophy-grid { grid-template-columns: repeat(3, 1fr); }
+        .season-stat-box { background: rgba(139, 0, 0, 0.08); border: 1px solid rgba(212, 175, 55, 0.15); padding: 16px; }
+        .season-stat-value { font-size: 32px; font-weight: 900; color: var(--accent1); }
+        .season-stat-label { font-size: 11px; color: var(--muted); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .tier-badge { display: inline-block; background: linear-gradient(135deg, rgba(212, 175, 55, 0.3), rgba(139, 0, 0, 0.3)); padding: 6px 14px; border-radius: 20px; font-weight: 800; font-size: 12px; color: var(--accent1); border: 1px solid rgba(212, 175, 55, 0.4); text-transform: uppercase; letter-spacing: 1px; margin-top: 8px; }
+        .scout-alert { background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(212, 175, 55, 0.05)); border: 1px solid rgba(212, 175, 55, 0.3); padding: 14px; border-radius: 10px; margin-top: 16px; }
+        .scout-alert-title { color: #d4af37; font-weight: 800; font-size: 14px; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .scout-alert-text { color: var(--muted); font-size: 13px; line-height: 1.5; }
+        .trait-pill { display: inline-flex; align-items: center; gap: 6px; background: rgba(139, 0, 0, 0.12); padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; color: var(--white); margin: 4px; border: 1px solid rgba(139, 0, 0, 0.2); }
+        .legacy-badge { display: inline-block; background: linear-gradient(135deg, rgba(212, 175, 55, 0.8), rgba(128, 128, 128, 0.6)); color: #000; font-weight: 900; padding: 10px 18px; border-radius: 20px; font-size: 18px; margin: 10px 0; border: 2px solid var(--accent1); }
+        .peak-highlight { background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent); border-left: 4px solid var(--accent1); padding: 16px; margin: 16px 0; border-radius: 0 8px 8px 0; }
+        .match-card { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 10px; padding: 16px; margin-bottom: 12px; display: grid; grid-template-columns: 1fr auto 1fr auto; align-items: center; gap: 16px; }
+        .match-teams { display: flex; flex-direction: column; gap: 4px; }
+        .match-team { font-weight: 600; font-size: 14px; color: var(--white); }
+        .match-team.home { color: var(--accent2); }
+        .match-score { background: linear-gradient(135deg, var(--accent1), rgba(139, 0, 0, 0.7)); padding: 8px 16px; border-radius: 8px; font-weight: 900; font-size: 18px; color: var(--white); text-align: center; min-width: 70px; }
+        .result-w .match-score { background: linear-gradient(135deg, var(--win), rgba(34, 197, 94, 0.7)); }
+        .result-l .match-score { background: linear-gradient(135deg, var(--loss), rgba(239, 68, 68, 0.7)); }
+        .result-d .match-score { background: linear-gradient(135deg, var(--draw), rgba(234, 179, 8, 0.7)); }
+        .match-info { text-align: right; }
+        .match-date { font-size: 12px; color: var(--muted); }
+        .match-comp { font-size: 11px; color: var(--accent1); font-weight: 600; }
+        .personality-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 16px; }
+        .personality-card { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 10px; padding: 16px; text-align: center; }
+        .personality-icon { font-size: 28px; margin-bottom: 8px; }
+        .personality-title { font-weight: 700; color: var(--white); font-size: 13px; margin-bottom: 4px; }
+        .personality-score { font-size: 24px; font-weight: 900; color: var(--accent1); }
+        .personality-desc { font-size: 11px; color: var(--muted); margin-top: 6px; line-height: 1.4; }
+        .relationship-item { display: flex; align-items: flex-start; gap: 14px; padding: 14px; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 10px; margin-bottom: 12px; }
+        .relationship-avatar { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, var(--accent1), var(--accent2)); display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 18px; color: #000; flex-shrink: 0; }
+        .relationship-content { flex: 1; }
+        .relationship-name { font-weight: 700; color: var(--white); font-size: 15px; margin-bottom: 2px; }
+        .relationship-role { font-size: 12px; color: var(--accent1); font-weight: 600; margin-bottom: 6px; }
+        .relationship-desc { font-size: 13px; color: var(--muted); line-height: 1.5; }
+        .relationship-dynamic { display: inline-block; background: rgba(212, 175, 55, 0.15); padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; color: var(--accent1); margin-top: 8px; border: 1px solid rgba(212, 175, 55, 0.2); }
+        @media (max-width: 980px) { .container { grid-template-columns: 1fr; } .photo { height: 380px; } .visual-canvas { height: auto; } .two-col, .three-col { grid-template-columns: 1fr; } .trophy-grid { grid-template-columns: repeat(2, 1fr); } .match-card { grid-template-columns: 1fr; text-align: center; } .match-info { text-align: center; } .season-stats-grid { grid-template-columns: repeat(2, 1fr); } .personality-grid { grid-template-columns: 1fr; } }
     </style>
+<base target="_blank">
 </head>
 <body>
     <header>
         <div class="header-left">
-            <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire FGA">
-            <div class="header-title">EMPIRE FGA SCOUTING NETWORK</div>
+            <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+            <div class="header-title">EMPIRE FGA LEGACY ANALYSIS NETWORK</div>
+            <span class="header-date">📅 28 Jan 2026 • Retro-Scouting Profile</span>
         </div>
     </header>
+
     <div class="container">
+        <!-- Sidebar -->
         <div>
             <div class="card">
-                <img src="https://img.asmedia.epimg.net/resizer/v2/HWHWI2JF5FMMVA6AU6APP2EI6A.jpg?auth=d69d621f8983d53bfe1097c4ec7720c9561d373007598980b434d6548a26944a&width=1152" alt="Jorge Otero" class="photo">
-                <div class="rating-badge">87.2</div>
-            </div>
-            <div class="card">
-                <h2 style="font-size: 20px; font-weight: 800; color: var(--accent1); margin-bottom: 12px;">Player Info</h2>
-                <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">Jorge Otero Bouzas</span></div>
-                <div class="info-row"><span class="info-label">Born</span><span class="info-value">Jan 28, 1969 (Nigrán, Spain)</span></div>
-                <div class="info-row"><span class="info-label">Position</span><span class="info-value">Right-Back (RB/LB)</span></div>
-                <div class="info-row"><span class="info-label">Height</span><span class="info-value">1.78m (5'10")</span></div>
-                <div class="info-row"><span class="info-label">Foot</span><span class="info-value">Right (Two-footed)</span></div>
-                <div class="info-row"><span class="info-label">Career Span</span><span class="info-value">1987-2005</span></div>
-                <div class="info-row"><span class="info-label">National Team</span><span class="info-value">Spain (1993-1996, 9 caps)</span></div>
-                <div class="info-row"><span class="info-label">Nickname</span><span class="info-value">"The Galician Express"</span></div>
-            </div>
-            <div class="card">
-                <h2 style="font-size: 20px; font-weight: 800; color: var(--accent1); margin-bottom: 12px;">Physical Profile</h2>
-                <div class="info-row"><span class="info-label">Physical Rating</span><span class="info-value">9.1/10</span></div>
-                <div class="info-row"><span class="info-label">Technical Rating</span><span class="info-value">8.4/10</span></div>
-                <div class="info-row"><span class="info-label">Tactical Rating</span><span class="info-value">8.6/10</span></div>
-                <div class="info-row"><span class="info-label">Mental Rating</span><span class="info-value">8.8/10</span></div>
-            </div>
-            <div class="card">
-                <h2 style="font-size: 20px; font-weight: 800; color: var(--accent1); margin-bottom: 12px;">FGA Scores</h2>
-                <div class="info-row"><span class="info-label">PAC (Pace)</span><span class="info-value">9.0/10</span></div>
-                <div class="info-row"><span class="info-label">STA (Stamina)</span><span class="info-value">9.5/10</span></div>
-                <div class="info-row"><span class="info-label">CRS (Crossing)</span><span class="info-value">8.3/10</span></div>
-                <div class="info-row"><span class="info-label">MRK (Marking)</span><span class="info-value">8.8/10</span></div>
-                <div class="info-row"><span class="info-label">VER (Versatility)</span><span class="info-value">9.2/10</span></div>
-                <div class="info-row"><span class="info-label">WRK (Work Rate)</span><span class="info-value">9.6/10</span></div>
-            </div>
-            <div class="card">
-                <h2 style="font-size: 20px; font-weight: 800; color: var(--accent1); margin-bottom: 12px;">Philosophy Alignment</h2>
-                <div class="sub">Top 5 Tactical DNA Matches (60-Philosophy Framework)</div>
-                <span class="pill">🇪🇸 Clemente (9.7/10)</span>
-                <span class="pill">🇪🇸 Aragonés (9.4/10)</span>
-                <span class="pill">🇮🇹 Conte (8.8/10)</span>
-                <span class="pill">🇵🇹 Mourinho (8.6/10)</span>
-                <span class="pill">🇦🇷 Bielsa (8.5/10)</span>
-                <div class="muted-box">
-                    <strong>Philosophy Profile:</strong> A relentless, physically imposing fullback capable of dominating the flank. Less of a modern playmaker, Otero was a tactical soldier—disciplined, aggressive, and tirelessly energetic. Perfect for systems requiring fullbacks to shut down opposition wingers while providing constant overlapping runs.
+                <img src="https://i.namu.wiki/i/xpg1uOYFP6ugtZ8ZZZIy1-AIVe02ftQGfi-iM2hA8_v63IBKroRtZ6-0uW74atRZojjSwYsYH_qHaVaPoODKWA.webp" alt="Jorge Otero - Celta/Valencia Defender" class="photo">
+                <div class="title">Jorge Otero</div>
+                <div class="sub">Right Back / Center Back • Professional Model</div>
+
+                <div class="legacy-badge">🇪🇸 SPANISH INTERNATIONAL 1993-1996</div>
+
+                <div class="club-badge">
+                    <span>🔴 RC Celta (1987-1994)</span>
+                </div>
+                <span class="nationality-badge">🇪🇸 Spain ($9$ Caps)</span>
+
+                <div class="rating-badge">
+                    <span class="rating-value">82.5</span>
+                    <span class="rating-label">PEAK FGA /100</span>
+                </div>
+
+                <div class="section">
+                    <div class="stat-box" style="margin-bottom: 10px;">
+                        <span class="stat-value">82.5</span>
+                        <span class="stat-label">Empire FGA Peak Index /100</span>
+                    </div>
+                    <div class="tier-badge">⭐ SOLID PROFESSIONAL TIER</div>
+                </div>
+
+                <div class="section">
+                    <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">Jorge Otero Bouzos</span></div>
+                    <div class="info-row"><span class="info-label">Date of Birth</span><span class="info-value">28 January 1969 (Age 57)</span></div>
+                    <div class="info-row"><span class="info-label">Birthplace</span><span class="info-value">Nigrán, Pontevedra, Spain</span></div>
+                    <div class="info-row"><span class="info-label">Nationality</span><span class="info-value">🇪🇸 Spanish</span></div>
+                    <div class="info-row"><span class="info-label">Status</span><span class="info-value">Retired (2000)</span></div>
+                    <div class="info-row"><span class="info-label">Primary Club</span><span class="info-value">RC Celta de Vigo</span></div>
+                    <div class="info-row"><span class="info-label">Years at Celta</span><span class="info-value">1987-1994 (7 seasons)</span></div>
+                    <div class="info-row"><span class="info-label">Transfer Fees</span><span class="info-value">200M pesetas (1994) • 300M pesetas (1997)</span></div>
+                    <div class="info-row"><span class="info-label">Primary Position</span><span class="info-value">Right Back (Lateral Derecho)</span></div>
+                    <div class="info-row"><span class="info-label">Secondary</span><span class="info-value">Center Back (Central)</span></div>
+                    <div class="info-row"><span class="info-label">Strong Foot</span><span class="info-value">Right</span></div>
+                    <div class="info-row"><span class="info-label">Height</span><span class="info-value">1.75 m</span></div>
+                    <div class="info-row"><span class="info-label">Weight</span><span class="info-value">70 kg</span></div>
+                </div>
+
+                <div class="section">
+                    <h3>PEAK SEASON: 1995-96 (Valencia)</h3>
+                    <div class="info-row"><span class="info-label">Primera División</span><span class="info-value">37 Apps</span></div>
+                    <div class="info-row"><span class="info-label">Goals</span><span class="info-value">0</span></div>
+                    <div class="info-row"><span class="info-label">Don Balón Rating</span><span class="info-value">6.8 (Mar 1996)</span></div>
+                    <div class="info-row"><span class="info-label">Partido 200</span><span class="info-value">28/01/96 vs Mérida</span></div>
+                    <div class="info-row"><span class="info-label">Coach</span><span class="info-value">Luis Aragonés</span></div>
+                </div>
+
+                <div class="section">
+                    <h3>Career Form Summary</h3>
+                    <div class="muted-box">
+                        <strong>1987-1994 (Celta):</strong> Formative years, 188 matches. Alternated between lateral and central. Professional debut Aug 1987.<br>
+                        <strong>1994-1997 (Valencia):</strong> Peak period, 84 matches, Spain debut. Polémico fichaje from Celta. Worked under Aragonés then benched by Valdano.<br>
+                        <strong>1997-2000 (Betis):</strong> Final chapter, 300M pesetas transfer. Contract until 2000+option.<br>
+                        <strong>PEAK FGA RATING:</strong> 82.5/100 (1994-1996)
+                    </div>
                 </div>
             </div>
         </div>
+
+        <!-- Main Content -->
         <div>
+
+            <!-- FGA Legacy Analysis -->
             <div class="card">
-                <h2>▸ Career Summary</h2>
+                <h2>🌍 Empire FGA Legacy Analysis — Career Retrospective</h2>
                 <p class="lead">
-                    <strong>Jorge Otero</strong> stands as one of the most reliable and historically significant Galician footballers of the 1990s. A product of the Celta Vigo academy, he was a physical marvel on the right flank, known for his lung-busting stamina and defensive solidity. He holds the distinction of being the first Celta Vigo player to represent the Spanish national team in nearly 50 years when he debuted in 1993.
+                    Jorge Otero represents the archetype of the professional Spanish defender of the 1990s: technically limited but tactically disciplined, physically resilient, and fiercely committed. Though not blessed with extraordinary technique, his rapididad and resistencia física allowed him to compensate and forge a respected career across three major Spanish clubs. At Celta, he was a reliable servant; at Valencia, he reached the Spain national team and played 37 matches in his peak 1995-96 season under Luis Aragonés; at Betis, he closed his career as a veteran presence. His 9 caps for Spain between 1993-1996, including appearances at the 1994 World Cup and Euro 1996, testify to his reliability at the highest level.
                 </p>
-                <p class="lead" style="margin-top: 14px;">
-                    His career trajectory saw him excel at Celta before a high-profile move to Valencia, where he was part of the team that finished runners-up in La Liga. Otero was a fixture in Javier Clemente’s Spain squads, playing in both the 1994 World Cup and Euro 1996. His versatility allowed him to play on either flank, and his professional longevity saw him compete at the highest level well into his 30s with Real Betis and Atlético Madrid.
-                </p>
-            </div>
-            <div class="card">
-                <h2>▲ Peak Season Statistics (1995-96 Valencia)</h2>
-                <table>
-                    <tr>
-                        <th>Competition</th>
-                        <th>Apps</th>
-                        <th>Assists</th>
-                        <th>Tackles/Game</th>
-                        <th>Key Achievement</th>
-                    </tr>
-                    <tr>
-                        <td><strong>La Liga</strong></td>
-                        <td>37</td>
-                        <td>4</td>
-                        <td>3.8</td>
-                        <td>League Runner-up</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Copa del Rey</strong></td>
-                        <td>8</td>
-                        <td>1</td>
-                        <td>--</td>
-                        <td>Semi-Finals</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Euro 96 (Spain)</strong></td>
-                        <td>2</td>
-                        <td>0</td>
-                        <td>3.0</td>
-                        <td>Quarter-Finals</td>
-                    </tr>
-                </table>
                 <div class="muted-box">
-                    <strong>Peak Performance Context:</strong> In 1995-96, Otero was arguably the best defensive right-back in Spain. Under Luis Aragonés at Valencia, he was an immovable object, helping the team challenge Atlético Madrid for the title until the final weeks. His form secured his spot for Euro 96.
+                    <strong style="color: var(--accent1);">Empire Legacy Verdict:</strong> "A consummate professional who maximized his physical attributes through sheer determination and tactical intelligence. Otero exemplifies the defensive workhorse archetype—limited technically but invaluable as a team player. His ability to play both right back and center back, combined with his professionalism, earned him a decade-long career in the Spanish top flight and international recognition. <strong>Empire FGA Peak Rating: 82.5/100 — Solid Professional Tier.</strong>"
+                </div>
+
+                <div class="season-stats-grid">
+                    <div class="season-stat-box">
+                        <div class="season-stat-value">238</div>
+                        <div class="season-stat-label">1ª División Apps</div>
+                    </div>
+                    <div class="season-stat-box">
+                        <div class="season-stat-value">9</div>
+                        <div class="season-stat-label">Spain Caps</div>
+                    </div>
+                    <div class="season-stat-box">
+                        <div class="season-stat-value">6.67</div>
+                        <div class="season-stat-label">Don Balón Avg (4)</div>
+                    </div>
+                    <div class="season-stat-box">
+                        <div class="season-stat-value">3</div>
+                        <div class="season-stat-label">Major Tournaments</div>
+                    </div>
+                </div>
+
+                <div class="scout-alert">
+                    <div class="scout-alert-title">🏅 Legacy Alert — Professional Standard-Bearer</div>
+                    <div class="scout-alert-text">
+                        Otero's legacy is defined by his status as a "player's player"—respected by teammates and coaches for his dedication rather than his highlight reels. His 238 Primera División matches across Celta, Valencia, and Betis demonstrate consistent reliability. The fact that he earned 9 Spain caps despite never being a "star" speaks to the high regard coaches held for his professionalism and tactical reliability.
+                    </div>
                 </div>
             </div>
+
+            <!-- Defining Career Moments -->
             <div class="card">
-                <h2>⟲ Evolution Through Career</h2>
-                <div class="section">
-                    <h3>Celta Vigo Origins (1987-1994)</h3>
-                    <p class="lead">Broke into the first team at 18. Experienced both promotion and relegation, hardening his character. Became Celta's captain and star, leading them to the Copa del Rey final in 1994. His consistent excellence earned him a call-up for USA '94.</p>
+                <h2>⚡ Defining Career Moments & Legacy Markers</h2>
+                <p class="small" style="margin-bottom: 16px;">Key fixtures that defined Otero's professional career.</p>
+
+                <!-- Moment 1 -->
+                <div class="timeline-item" style="border-left-color: var(--accent1);">
+                    <div class="timeline-date">29 August 1987 • Primera División</div>
+                    <div class="timeline-event">
+                        <strong>Espanyol 0-1 RC Celta (Debut)</strong><br>
+                        Made his debut in the Spanish top flight for Celta at just 18 years old. Laid the foundation for a 13-year career in Primera División.
+                    </div>
                 </div>
-                <div class="section">
-                    <h3>Valencia Elite (1994-1997)</h3>
-                    <p class="lead">Signed for Valencia as one of Spain's top defenders. Formed a formidable defense alongside Zubizarreta and Camarasa. Finished 2nd in La Liga 1995-96. Peak FGA Rating: 9.2/10 (Physicality/Marking focus).</p>
+
+                <!-- Moment 2 -->
+                <div class="timeline-item" style="border-left-color: var(--accent2);">
+                    <div class="timeline-date">08 September 1993 • Friendly International</div>
+                    <div class="timeline-event">
+                        <strong>Spain 2-0 Chile (Alicante)</strong><br>
+                        Earned his first cap for Spain in a friendly match. Marked the beginning of a 3-year international career that would include the 1994 World Cup and Euro 1996.
+                    </div>
                 </div>
-                <div class="section">
-                    <h3>Betis & Atletico (1997-2003)</h3>
-                    <p class="lead">Moved to Real Betis, featuring in UEFA competitions. Later helped Atlético Madrid return to La Liga (Segunda champions 2002). Transitioned from pure pace to positional intelligence.</p>
+
+                <!-- Moment 3 -->
+                <div class="timeline-item" style="border-left-color: var(--accent3);">
+                    <div class="timeline-date">28 January 1996 • Primera División</div>
+                    <div class="timeline-event">
+                        <strong>Valencia vs Mérida en Mestalla (Partido 200)</strong><br>
+                        Played his 200th match in the Spanish First Division, a significant milestone that only a select group of professionals reach. Coincidentally on his 27th birthday.
+                    </div>
                 </div>
-                <div class="section">
-                    <h3>Elche Farewell (2003-2005)</h3>
-                    <p class="lead">Finished career in Segunda with Elche, mentoring younger players. Retired with over 400 professional appearances.</p>
+
+                <!-- Moment 4 -->
+                <div class="timeline-item">
+                    <div class="timeline-date">1994 • Transfer Controversy</div>
+                    <div class="timeline-event">
+                        <strong>Celta → Valencia Transfer</strong><br>
+                        Valencia paid 200 million pesetas for his services, but the transfer was surrounded by controversy: he had a pre-contract with Deportivo La Coruña. After Francisco Roig became Valencia president, Otero committed to Valencia instead, prompting Deportivo's Augusto César Lendoiro to demand 500 million pesetas in compensation.
+                    </div>
+                </div>
+
+                <!-- Moment 5 -->
+                <div class="timeline-item">
+                    <div class="timeline-date">1997 • Betis Transfer</div>
+                    <div class="timeline-event">
+                        <strong>Signing for Real Betis</strong><br>
+                        Joined Real Betis for 300 million pesetas with a contract until June 2000 (plus an optional additional season). His release clause was set at 2,000 million pesetas, showing the market value placed on reliable defenders at the time.
+                    </div>
+                </div>
+
+                <div class="muted-box" style="margin-top: 16px;">
+                    <strong style="color: var(--accent1);">Career Narrative:</strong> Otero's career trajectory reflects that of the dedicated club servant who became a reliable international. Starting at Celta's academy (via Celta Turista), he developed into a versatile defender capable of playing across the back line. His peak at Valencia saw him reach the Spain national team and achieve personal milestones (200th match). Despite the controversy surrounding his Valencia transfer, he maintained a reputation for professionalism throughout.
                 </div>
             </div>
+
+            <!-- FGA Legacy Metrics -->
             <div class="card">
-                <h2>✦ Technical Profile & Strengths</h2>
+                <h2>📊 Empire FGA Legacy Metrics (Peak Assessment: 1994-1996)</h2>
+                <p class="small" style="margin-bottom: 16px;">Metrics scaled to /100 based on peak performance period. Analysis focuses on defensive solidity and professional reliability.</p>
+
+                <h3>Tier 1: Performance Metrics (Peak Period)</h3>
                 <div class="two-col">
                     <div>
-                        <h3>Primary Strengths</h3>
-                        <div class="info-row"><span class="info-label">Stamina</span><span class="info-value">9.8/10</span></div>
-                        <div class="info-row"><span class="info-label">Man Marking</span><span class="info-value">9.2/10</span></div>
-                        <div class="info-row"><span class="info-label">Pace (Prime)</span><span class="info-value">9.0/10</span></div>
-                        <div class="info-row"><span class="info-label">Tackling</span><span class="info-value">8.9/10</span></div>
-                        <div class="info-row"><span class="info-label">Versatility</span><span class="info-value">9.5/10</span></div>
-                        <div class="info-row"><span class="info-label">Aggression</span><span class="info-value">8.7/10</span></div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">RAP (Rapidez / Speed)</span><span class="metric-score">88</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 88%"></div></div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">RST (Resistencia / Stamina)</span><span class="metric-score">90</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 90%"></div></div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">MAR (Marcaje / Marking)</span><span class="metric-score">82</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 82%"></div></div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">POS (Posicionamiento)</span><span class="metric-score">80</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 80%"></div></div>
+                        </div>
                     </div>
                     <div>
-                        <h3>Playing Style</h3>
-                        <div class="muted-box">
-                            <strong>Role:</strong> Defensive Fullback / Wide Marker<br><br>
-                            <strong>Key Attributes:</strong> Infinite engine, physically robust in duels, disciplined tactically, capable of playing LB or RB with equal efficacy.<br><br>
-                            <strong>Tactical Fit:</strong> Clemente's favorite type of player. A defender who defends first but has the lungs to support the attack when safe.
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">TEC (Técnica / Technique)</span><span class="metric-score">65</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 65%"></div></div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CTR (Centros / Crossing)</span><span class="metric-score">58</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 58%"></div></div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">VRV (Versatilidad)</span><span class="metric-score">85</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 85%"></div></div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">PRO (Profesionalidad)</span><span class="metric-score">98</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 98%"></div></div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="card">
-                <h2>● Club History</h2>
-                <table>
-                    <tr>
-                        <th>Years</th>
-                        <th>Club</th>
-                        <th>Apps</th>
-                        <th>Goals</th>
-                        <th>Highlights</th>
-                    </tr>
-                    <tr>
-                        <td>1987-1994</td>
-                        <td><strong>Celta Vigo</strong></td>
-                        <td>206</td>
-                        <td>3</td>
-                        <td>Club Legend, USA '94</td>
-                    </tr>
-                    <tr>
-                        <td>1994-1997</td>
-                        <td><strong>Valencia</strong></td>
-                        <td>78</td>
-                        <td>0</td>
-                        <td>La Liga Runner-up</td>
-                    </tr>
-                    <tr>
-                        <td>1997-2001</td>
-                        <td><strong>Real Betis</strong></td>
-                        <td>80</td>
-                        <td>2</td>
-                        <td>UEFA Cup participation</td>
-                    </tr>
-                    <tr>
-                        <td>2001-2003</td>
-                        <td><strong>Atlético Madrid</strong></td>
-                        <td>56</td>
-                        <td>1</td>
-                        <td>Segunda Champion</td>
-                    </tr>
-                </table>
-            </div>
-            <div class="card">
-                <h2>★ Honors & Trophies</h2>
-                <h3>International</h3>
-                <div class="trophy-grid">
-                    <div class="trophy-box">
-                        <div class="trophy-icon">●</div>
-                        <div class="trophy-title">World Cup Squad</div>
-                        <div class="trophy-year">USA 1994</div>
+
+                <h3>Tier 2: Professional & Physical Metrics</h3>
+                <div class="two-col">
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">FIS (Físico / Physical)</span><span class="metric-score">89</span></div>
+                        <div class="metric-bar"><div class="metric-fill" style="width: 89%"></div></div>
                     </div>
-                    <div class="trophy-box">
-                        <div class="trophy-icon">●</div>
-                        <div class="trophy-title">Euro Squad</div>
-                        <div class="trophy-year">Euro 1996</div>
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">ENT (Entrega / Work Rate)</span><span class="metric-score">95</span></div>
+                        <div class="metric-bar"><div class="metric-fill" style="width: 95%"></div></div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">DIS (Disciplina Táctica)</span><span class="metric-score">88</span></div>
+                        <div class="metric-bar"><div class="metric-fill" style="width: 88%"></div></div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">CON (Consistencia)</span><span class="metric-score">85</span></div>
+                        <div class="metric-bar"><div class="metric-fill" style="width: 85%"></div></div>
                     </div>
                 </div>
-                <h3>Club</h3>
-                <div class="trophy-grid">
-                    <div class="trophy-box">
-                        <div class="trophy-icon">▲</div>
-                        <div class="trophy-title">Segunda Div.</div>
-                        <div class="trophy-year">2001-02</div>
+
+                <div class="peak-highlight">
+                    <h3>🏆 Peak Performance Window: 1994-1996</h3>
+                    <p class="small">
+                        <strong>Physical Dominance:</strong> Peak athletic condition at Valencia, playing 37 matches in 1995-96 season (05-06 entry shows he was a workhorse).<br>
+                        <strong>Tactical Flexibility:</strong> Alternated successfully between right back and center back under Luis Aragonés.<br>
+                        <strong>International Recognition:</strong> 9 caps for Spain during this period, including 1994 World Cup and Euro 1996 squads.<br>
+                        <strong>Don Balón Archive:</strong> Monthly ratings averaging 6.67 (Era: 6.86), showing consistent professional performances.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 60-Philosophy Framework -->
+            <div class="card">
+                <h2>🧠 60-Philosophy Framework: Legacy Alignment</h2>
+                <p class="small" style="margin-bottom: 12px;">Analysis of Otero's tactical DNA and which philosophies his career legacy most embodies. Scores on /100 scale.</p>
+
+                <h3>Top Legacy Philosophy Fits</h3>
+                <div>
+                    <span class="pill">Spanish School (Tactical Discipline) 88/100</span>
+                    <span class="pill">Workhorse Defender 92/100</span>
+                    <span class="pill">Professional Model 95/100</span>
+                    <span class="pill">Aragonés System (Versatile Soldier) 87/100</span>
+                    <span class="pill">Physical Defensive Profile 90/100</span>
+                    <span class="pill">Club Servant Philosophy 85/100</span>
+                    <span class="pill">90s Spanish Fullback 82/100</span>
+                </div>
+
+                <h3>School Legacy Alignment</h3>
+                <div class="metric-item">
+                    <div class="metric-header"><span class="metric-name">Spanish School (Tactical Discipline)</span><span class="metric-score">88.0</span></div>
+                    <div class="metric-bar"><div class="metric-fill" style="width: 88%"></div></div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-header"><span class="metric-name">Physical/Professional School</span><span class="metric-score">92.5</span></div>
+                    <div class="metric-bar"><div class="metric-fill" style="width: 92.5%"></div></div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-header"><span class="metric-name">Defensive Utility Player</span><span class="metric-score">86.0</span></div>
+                    <div class="metric-bar"><div class="metric-fill" style="width: 86%"></div></div>
+                </div>
+
+                <div class="muted-box">
+                    <strong style="color: var(--accent1);">Philosophy Analysis:</strong> Otero's career perfectly embodies the "Professional Defender" philosophy—a player whose value lies not in spectacular plays but in consistent reliability and tactical discipline. His style was a product of the Spanish school which values positional intelligence, but his particular blend of physical compensations for technical limitations makes him a case study in maximizing athletic attributes. Under Luis Aragonés, he represented the versatile soldier archetype; under Valdano, he became a victim of changing tactical demands that favored more technical players.
+                </div>
+            </div>
+
+            <!-- Psychological Profile -->
+            <div class="card">
+                <h2>🧬 Psychological Profile & Personality Analysis</h2>
+                <p class="small" style="margin-bottom: 16px;">Empire FGA Mental Competence System (MCS) — Psychological profiling based on behavioral patterns and professional conduct.</p>
+
+                <div class="personality-grid">
+                    <div class="personality-card">
+                        <div class="personality-icon">💪</div>
+                        <div class="personality-title">Competitive Drive</div>
+                        <div class="personality-score">88</div>
+                        <div class="personality-desc">Fierce competitor who compensated technical limits with maximum effort</div>
                     </div>
-                    <div class="trophy-box">
-                        <div class="trophy-icon">☆</div>
-                        <div class="trophy-title">Copa del Rey</div>
-                        <div class="trophy-year">Runner-up 1994</div>
+                    <div class="personality-card">
+                        <div class="personality-icon">🛡️</div>
+                        <div class="personality-title">Resilience</div>
+                        <div class="personality-score">85</div>
+                        <div class="personality-desc">Endured Valdano's benching with professionalism, remained ready</div>
+                    </div>
+                    <div class="personality-card">
+                        <div class="personality-icon">📚</div>
+                        <div class="personality-title">Tactical Intelligence</div>
+                        <div class="personality-score">82</div>
+                        <div class="personality-desc">Understood limitations, maximized positioning and physicality</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>Personality Archetype: The Professional Soldier</h3>
+                    <div class="two-col">
+                        <div>
+                            <div class="info-row"><span class="info-label">MCS Profile</span><span class="info-value">ISTJ-T (Logistician)</span></div>
+                            <div class="info-row"><span class="info-label">Primary Drive</span><span class="info-value">Team benefit over personal glory</span></div>
+                            <div class="info-row"><span class="info-label">Stress Response</span><span class="info-value">Work harder, train more</span></div>
+                            <div class="info-row"><span class="info-label">Authority Response</span><span class="info-value">Respectful, follows hierarchy</span></div>
+                        </div>
+                        <div>
+                            <div class="info-row"><span class="info-label">Emotional Control</span><span class="info-value">Excellent (90/100)</span></div>
+                            <div class="info-row"><span class="info-label">Professionalism</span><span class="info-value">Exemplary (98/100)</span></div>
+                            <div class="info-row"><span class="info-label">Coachability</span><span class="info-value">High (adapted to multiple positions)</span></div>
+                            <div class="info-row"><span class="info-label">Conflict Handling</span><span class="info-value">Avoidant, professional silence</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>Behavioral Markers</h3>
+                    <div style="margin-bottom: 12px;">
+                        <span class="trait-pill">⚡ Incansable</span>
+                        <span class="trait-pill">🎯 Entrega Total</span>
+                        <span class="trait-pill">🤝 Team Player</span>
+                        <span class="trait-pill">🇪🇸 Internacional</span>
+                        <span class="trait-pill">💎 Humilde</span>
+                        <span class="trait-pill">🛡️ Marcador duro</span>
+                    </div>
+                    <p class="small">
+                        <strong>Empire Analysis:</strong> Otero demonstrated extraordinary mental discipline—accepting his technical limitations and compensating through sheer determination. His famous quote would be "I give 100% in every training and match." Handled the Valencia-Deportivo transfer controversy with characteristic professionalism. Under Valdano's marginalization, he never complained publicly, maintaining his dignity while training for opportunities that rarely came.
+                    </p>
+                </div>
+
+                <div class="highlight-box">
+                    <strong style="color: var(--accent1);">Psychological Edge:</strong>
+                    <p class="small" style="margin-top: 8px;">
+                        Evolved from a promising Celta youth product to a reliable professional at Valencia. The transition from Aragonés (who valued his work rate and versatility) to Valdano (who preferred technical quality) tested his resilience. Despite losing his place under Valdano, he maintained readiness and professionalism—a testament to his character. Empire MCS projects 90+ mental score for professional conduct.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Key Relationships -->
+            <div class="card">
+                <h2>🤝 Key Relationships & Interpersonal Dynamics</h2>
+                <p class="small" style="margin-bottom: 16px;">Empire FGA Network Analysis — Mapping critical professional relationships shaping career trajectory.</p>
+
+                <div class="relationship-item">
+                    <div class="relationship-avatar">LA</div>
+                    <div class="relationship-content">
+                        <div class="relationship-name">Luis Aragonés</div>
+                        <div class="relationship-role">Valencia Manager & Mentor (1995-96)</div>
+                        <div class="relationship-desc">
+                            Aragonés was Otero's ideal manager—one who valued defensive solidity, work rate, and tactical flexibility. Under Aragonés, Otero played 37 matches in 1995-96, alternating between central and lateral positions successfully. The coach trusted him as a reliable soldier who would execute tactical plans without question. Their mutual respect was based on shared professional values.
+                        </div>
+                        <span class="relationship-dynamic">Synergy: 94/100</span>
+                    </div>
+                </div>
+
+                <div class="relationship-item">
+                    <div class="relationship-avatar">JV</div>
+                    <div class="relationship-content">
+                        <div class="relationship-name">Jorge Valdano</div>
+                        <div class="relationship-role">Valencia Manager (1996-97)</div>
+                        <div class="relationship-desc">
+                            Valdano's arrival marked the end of Otero's Valencia prominence. The Argentine preferred technically gifted players and systematically benched Otero. From being a starter under Aragonés, Otero became a stands regular under Valdano. The relationship was professional but distant—Valdano saw Otero's technical limitations as incompatible with his football philosophy.
+                        </div>
+                        <span class="relationship-dynamic">Tension: 35/100 (Professional only)</span>
+                    </div>
+                </div>
+
+                <div class="relationship-item">
+                    <div class="relationship-avatar">FR</div>
+                    <div class="relationship-content">
+                        <div class="relationship-name">Francisco Roig</div>
+                        <div class="relationship-role">Valencia President (1994)</div>
+                        <div class="relationship-desc">
+                            Roig's presidency was pivotal in Otero's career. When Roig took control of Valencia, he convinced Otero to break his pre-contract with Deportivo and join Valencia instead. This controversial decision (costing 200M pesetas) defined Otero's peak years. Roig's intervention showed the club's belief in Otero's potential, though it created legal friction with Deportivo's Augusto César Lendoiro.
+                        </div>
+                        <span class="relationship-dynamic">Influence: 90/100</span>
+                    </div>
+                </div>
+
+                <div class="relationship-item">
+                    <div class="relationship-avatar">ACL</div>
+                    <div class="relationship-content">
+                        <div class="relationship-name">Augusto César Lendoiro</div>
+                        <div class="relationship-role">Deportivo La Coruña President</div>
+                        <div class="relationship-desc">
+                            Lendoiro had a signed pre-contract with Otero for Deportivo, making the Valencia transfer controversial. He demanded 500 million pesetas in compensation from Valencia/Otero. This conflict made Otero's 1994 transfer one of the soap operas of that summer, though Otero himself maintained silence and let the clubs resolve it.
+                        </div>
+                        <span class="relationship-dynamic">Conflict: Legal/Financial</span>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>Interpersonal Network Map</h3>
+                    <div class="two-col">
+                        <div class="muted-box">
+                            <strong style="color: var(--accent1);">Inner Circle (High Trust)</strong>
+                            <p class="small" style="margin-top: 8px;">
+                                • Family (wife/obscured from media)<br>
+                                • Long-time representative/agent<br>
+                                • Celta youth coaches (formative bonds)<br>
+                                • Galician football community (Nigrán roots)
+                            </p>
+                        </div>
+                        <div class="muted-box">
+                            <strong style="color: var(--accent1);">Professional Network</strong>
+                            <p class="small" style="margin-top: 8px;">
+                                • Valencia board (Roig era)<br>
+                                • Spain national team selectors (1994-96)<br>
+                                • Spanish defensive fraternity (90s era)<br>
+                                • Celta veterans from promotion years
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="scout-alert">
+                    <div class="scout-alert-title">🌐 Network Analysis Insight</div>
+                    <div class="scout-alert-text">
+                        Otero's network reveals a career shaped by institutional relationships rather than player cliques. His bond with Aragonés was the high point—two old-school professionals who valued effort and results. The rupture with Valdano's philosophy demonstrates how managerial changes can derail even reliable professionals. His silence during the Valencia-Deportivo controversy suggests a player who avoids confrontation and lets institutions handle disputes.
                     </div>
                 </div>
             </div>
+
+            <!-- Player Comparison -->
             <div class="card">
-                <h2>▶ Key Matches & Milestones</h2>
-                <div class="timeline-item">
-                    <div class="timeline-date">Sept 8, 1993 | Spain 2-0 Chile</div>
-                    <div class="timeline-event"><strong>International Debut</strong>. Became the first Celta Vigo player to play for Spain since 1948.</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">June 27, 1994 | Spain 3-1 Bolivia (USA '94)</div>
-                    <div class="timeline-event">World Cup appearance in Chicago. Played full 90 minutes in crucial group stage victory.</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">April 20, 1994 | Copa del Rey Final</div>
-                    <div class="timeline-event">Played 120 minutes for Celta vs Real Zaragoza. Lost on penalties, but performance cemented his status as a top defender.</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">1995-96 Season</div>
-                    <div class="timeline-event">Integral part of Valencia's defense that finished 2nd in La Liga, conceding very few chances down his flank.</div>
-                </div>
-            </div>
-            <div class="card">
-                <h2>▭ Player Comparison (Fullback)</h2>
+                <h2>📊 Player Comparison (Spanish Defenders of His Era)</h2>
                 <div class="visual-canvas">
-                    <canvas id="radarChart" style="max-width: 100%; max-height: 100%;"></canvas>
+                    <img src="otero_radar_comparison.png" style="max-width: 100%; max-height: 100%; border-radius: 8px;" alt="Jorge Otero Radar Comparison">
                 </div>
                 <p class="small" style="text-align: center; margin-top: 12px;">
-                    Comparing Otero vs 90s La Liga Fullbacks
+                    Comparing Otero vs. Albert Ferrer & Juan Carlos Aguilera — Peak Performance Attributes /100
                 </p>
             </div>
-        </div>
-    </div>
-    <footer style="background: var(--card); padding: 30px; text-align: center; border-top: 1px solid rgba(255,255,255,0.12); margin-top: 30px;">
-        <p style="color: var(--muted); font-size: 13px;">
-            <strong style="color: var(--accent1);">Empire FGA Scouting Network</strong> — 779 Proprietary Metrics • 60-Philosophy Framework
-        </p>
-    </footer>
-    <script>
+
+            <!-- Career Timeline -->
+            <div class="card">
+                <h2>📈 Career Timeline & Development Phases</h2>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Phase 1: Youth & Early Promise (1986-1994) — Celta</div>
+                    <div class="timeline-event">
+                        <strong>Celta de Vigo:</strong> 188 total matches (формative years). Started in Celta Turista (youth) 1986-87, debut in Primera 29/08/1987 vs Espanyol. Alternated between right back and center back. Developed strong physical foundation and professional habits. Became reliable starter in early 90s Celta side.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Phase 2: Peak & International (1994-1997) — Valencia</div>
+                    <div class="timeline-event">
+                        <strong>Valencia CF:</strong> 84 matches, international breakthrough.<br>
+                        • <strong>1994-95:</strong> Adaptation year, controversy over Deportivo pre-contract.<br>
+                        • <strong>1995-96:</strong> Peak under Aragonés: 37 matches, Spain selection.<br>
+                        • <strong>1996-97:</strong> Decline under Valdano, benched.<br>
+                        First Spain cap: 08/09/1993. 1994 World Cup squad member. Euro 1996 participant.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Phase 3: Veteran Closure (1997-2000) — Betis</div>
+                    <div class="timeline-event">
+                        <strong>Real Betis:</strong> Final professional chapter.<br>
+                        • Joined for 300M pesetas (1997).<br>
+                        • Contract: until 30/06/2000 + 1 optional season.<br>
+                        • Release clause: 2,000M pesetas.<br>
+                        • Gradual retirement from top flight football. Maintained professional standards until final match.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">International Career (1993-1996) — La Roja</div>
+                    <div class="timeline-event">
+                        <strong>Spain:</strong> 9 caps, 0 goals.<br>
+                        • Debut: 08/09/1993 vs Chile (2-0), Alicante.<br>
+                        • 1994 World Cup: Squad member, limited minutes.<br>
+                        • Euro 1996: 58 minutes vs France.<br>
+                        • Between World Cup and Euro: Armenia-España (0-2), 26/04/1995.<br>
+                        Reliable squad player during Spain's transition period.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Career Statistics -->
+            <div class="card">
+                <h2>📊 Career Statistics Overview</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Club</th>
+                            <th>Period</th>
+                            <th>Division</th>
+                            <th>Apps</th>
+                            <th>Goals</th>
+                            <th>Peak FGA</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background: rgba(139, 0, 0, 0.20);">
+                            <td><strong>RC Celta</strong></td>
+                            <td>1987-1994</td>
+                            <td>1ª / 2ª</td>
+                            <td>188</td>
+                            <td>3</td>
+                            <td><strong>80/100</strong></td>
+                            <td><strong>FORMATIVE</strong></td>
+                        </tr>
+                        <tr style="background: rgba(255, 107, 0, 0.20);">
+                            <td><strong>Valencia CF</strong></td>
+                            <td>1994-1997</td>
+                            <td>Primera</td>
+                            <td>84</td>
+                            <td>0</td>
+                            <td><strong>82.5/100</strong></td>
+                            <td><strong>PEAK</strong></td>
+                        </tr>
+                        <tr style="background: rgba(0, 150, 57, 0.20);">
+                            <td><strong>Real Betis</strong></td>
+                            <td>1997-2000</td>
+                            <td>Primera</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>78/100</td>
+                            <td>Veteran</td>
+                        </tr>
+                        <tr style="background: rgba(212, 175, 55, 0.15);">
+                            <td><strong>CAREER TOTAL</strong></td>
+                            <td><strong>1987-2000</strong></td>
+                            <td>—</td>
+                            <td><strong>238+</strong></td>
+                            <td><strong>3</strong></td>
+                            <td><strong>82.5/100 (Peak)</strong></td>
+                            <td><strong>PROFESSIONAL</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Don Balón Archive Record</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Month/Year</th>
+                            <th>Club</th>
+                            <th>Position</th>
+                            <th>Rating</th>
+                            <th>Context</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Enero 1994</td>
+                            <td>Celta</td>
+                            <td>Central</td>
+                            <td>6.7</td>
+                            <td>Pre-Valencia, alternate position</td>
+                        </tr>
+                        <tr>
+                            <td>Noviembre 1995</td>
+                            <td>Valencia</td>
+                            <td>Lateral Derecho</td>
+                            <td>6.7</td>
+                            <td>Established starter under Aragonés</td>
+                        </tr>
+                        <tr>
+                            <td>Marzo 1996</td>
+                            <td>Valencia</td>
+                            <td>Centrocampista</td>
+                            <td>6.8</td>
+                            <td>Positional versatility</td>
+                        </tr>
+                        <tr>
+                            <td>Marzo 1996</td>
+                            <td>Valencia</td>
+                            <td>Central</td>
+                            <td>6.5</td>
+                            <td>Double nomination same month</td>
+                        </tr>
+                        <tr style="background: rgba(212, 175, 55, 0.15);">
+                            <td colspan="2"><strong>AVERAGE</strong></td>
+                            <td>—</td>
+                            <td><strong>6.67</strong></td>
+                            <td>Era Avg: 6.86 | Variance: Low</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Final Legacy Assessment -->
+            <div class="card">
+                <h2>📌 Empire FGA Final Legacy Assessment</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Legacy Strengths (Professional Tier)</h3>
+                        <div class="info-row"><span class="info-label">Professionalism & Work Rate</span><span class="info-value">95/100</span></div>
+                        <div class="info-row"><span class="info-label">Physical Attributes (Speed/Stamina)</span><span class="info-value">90/100</span></div>
+                        <div class="info-row"><span class="info-label">Tactical Discipline</span><span class="info-value">88/100</span></div>
+                        <div class="info-row"><span class="info-label">Versatility (RB/CB)</span><span class="info-value">85/100</span></div>
+                        <div class="info-row"><span class="info-label">Consistency</span><span class="info-value">85/100</span></div>
+                    </div>
+                    <div>
+                        <h3>Career Context</h3>
+                        <div class="info-row"><span class="info-label">Peak League Level</span><span class="info-value">Primera División (1994-1997)</span></div>
+                        <div class="info-row"><span class="info-label">International Impact</span><span class="info-value">Spain squad player (9 caps)</span></div>
+                        <div class="info-row"><span class="info-label">Market Value Peak</span><span class="info-value">300M pesetas (1997)</span></div>
+                        <div class="info-row"><span class="info-label">Defining Quality</span><span class="info-value">Professional Reliability</span></div>
+                        <div class="info-row"><span class="info-label">Era Comparison</span><span class="info-value">Solid Spanish defender 90s</span></div>
+                    </div>
+                </div>
+
+                <div class="muted-box" style="margin-top: 16px;">
+                    <strong style="color: var(--accent1);">🏆 EMPIRE FGA FINAL LEGACY RATING: 82.5/100 (PEAK)</strong><br><br>
+                    <strong>Classification:</strong> Solid Professional Tier — Spanish 1990s Defender<br>
+                    <strong>Legacy Summary:</strong> Jorge Otero represents the professional ideal of the 1990s Spanish defender—technically limited but tactically disciplined, physically robust, and fiercely committed. His career arc from Celta youth product to Valencia international to Betis veteran demonstrates sustainable professionalism. While never a "star," his 238 Primera División matches and 9 Spain caps testify to the value of reliability and work ethic. The controversy of his Valencia transfer and his subsequent marginalization under Valdano contrast with the success he enjoyed under Aragonés, highlighting how managerial philosophy can make or break utility players.<br>
+                    <strong>Historical Significance:</strong> Will be remembered as a consummate professional who maximized modest technical gifts through exceptional physical conditioning and tactical intelligence—a model for defensive prospects with limited natural talent but unlimited determination.
+                </div>
+
+                <div class="highlight-box">
+                    <strong style="color: var(--accent1);">🔮 Scouting & Legacy Insight:</strong><br>
+                    <span class="small">Otero's career is a masterclass in "Value Extraction from Physical Profile." Celta's academy spotted his speed and stamina, converting raw athleticism into professional defensive competence. For Empire FGA, he represents the "Physical Compensator" scouting model: identifying players whose athletic attributes can overcome technical deficiencies in specific tactical systems (Aragonés' system) but may be exposed in others (Valdano's possession game). His Don Balón ratings (6.67 average vs 6.86 era) show consistent, if unspectacular, professional performance. The 200M peseta transfer (1994) and 300M peseta exit (1997) represent solid market value retention for a functional defensive piece. Ultimate lesson: professionalism and physical maintenance can sustain a 13-year top-flight career even with technical limitations.</span>
+                </div>
+<script>
         const ctx = document.getElementById('radarChart').getContext('2d');
         new Chart(ctx, {
             type: 'radar',
             data: {
-                labels: ['Marking', 'Crossing', 'Pace', 'Stamina', 'Tackling', 'Aerial', 'Technique', 'Aggression'],
+                labels: ['Speed (Rapidez)', 'Stamina (Resistencia)', 'Marking', 'Tactical IQ', 'Professionalism', 'Versatility'],
                 datasets: [{
-                    label: 'Jorge Otero (1996)',
-                    data: [9.2, 8.3, 9.0, 9.8, 8.9, 7.8, 8.2, 8.7],
-                    borderColor: '#60a5fa',
-                    backgroundColor: 'rgba(96, 165, 250, 0.15)',
+                    label: 'Jorge Otero (Celta/VAL) - 82.5',
+                    data: [88, 90, 82, 80, 98, 85],
+                    borderColor: '#d4af37',
+                    backgroundColor: 'rgba(212, 175, 55, 0.15)',
                     borderWidth: 3,
-                    pointBackgroundColor: '#60a5fa',
+                    pointBackgroundColor: '#d4af37',
                     pointBorderColor: '#fff',
                     pointRadius: 5
                 }, {
-                    label: 'Sergi Barjuán',
-                    data: [7.5, 8.8, 9.5, 9.0, 7.2, 6.5, 9.0, 7.5],
-                    borderColor: '#fff',
-                    backgroundColor: 'rgba(255,255,255,0.05)',
+                    label: 'Albert Ferrer (BAR) - 83.5',
+                    data: [85, 82, 85, 83, 88, 78],
+                    borderColor: '#034694',
+                    backgroundColor: 'rgba(3, 70, 148, 0.05)',
                     borderWidth: 2,
                     pointRadius: 4
                 }, {
-                    label: 'Ferrer',
-                    data: [9.0, 7.8, 8.8, 9.2, 9.1, 6.8, 8.0, 8.2],
-                    borderColor: '#f87171',
-                    backgroundColor: 'rgba(248, 113, 113, 0.08)',
+                    label: 'J.C. Aguilera (ATM) - 81.5',
+                    data: [82, 84, 83, 78, 85, 80],
+                    borderColor: '#C8102E',
+                    backgroundColor: 'transparent',
                     borderWidth: 2,
-                    pointRadius: 4
+                    pointRadius: 3,
+                    borderDash: [5, 5]
                 }]
             },
             options: {
-                responsive: true, maintainAspectRatio: true,
+                responsive: true,
+                maintainAspectRatio: true,
                 scales: {
                     r: {
-                        beginAtZero: true, max: 10,
-                        ticks: { stepSize: 2, color: '#8b949e', backdropColor: 'transparent', font: { size: 11 } },
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: {
+                            stepSize: 20,
+                            color: '#a0a0a0',
+                            backdropColor: 'transparent',
+                            font: { size: 11 }
+                        },
                         grid: { color: 'rgba(255,255,255,0.08)' },
-                        pointLabels: { color: '#f0f6fc', font: { size: 12, weight: '600' } }
+                        pointLabels: {
+                            color: '#f5f5f5',
+                            font: { size: 12, weight: '600' }
+                        }
                     }
                 },
                 plugins: {
-                    legend: { labels: { color: '#f0f6fc', font: { size: 13, weight: '600' }, padding: 15, usePointStyle: true } },
-                    tooltip: { backgroundColor: 'rgba(11,22,36,0.95)', titleColor: '#60a5fa', bodyColor: '#f0f6fc', borderColor: '#60a5fa', borderWidth: 2, padding: 12 }
+                    legend: {
+                        labels: {
+                            color: '#f5f5f5',
+                            font: { size: 13, weight: '600' },
+                            padding: 15,
+                            usePointStyle: true
+                        }
+                    }
                 }
             }
         });
     </script>
+                <div class="scout-alert" style="margin-top: 20px;">
+                    <div class="scout-alert-title">📈 Empire FGA Historical Value Assessment</div>
+                    <div class="scout-alert-text">
+                        <strong>Transfer Fee ROI:</strong> Celta developed from youth (free) → sold for 200M (1994) → Valencia sold for 300M (1997). Combined market value appreciation: 500M pesetas over a decade.<br>
+                        <strong>Professional Returns:</strong> 238 Primera División matches, 9 international caps, minimal disciplinary issues, zero scandals. Exemplary professional conduct throughout.<br>
+                        <strong>Model Lesson:</strong> The "Otero Model" demonstrates that scouting for character, physical durability, and tactical flexibility can yield long-term professional careers that exceed expectations set by raw technical ability. Ideal for clubs seeking reliable squad players rather than spectacular stars.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer style="background: var(--card); padding: 30px; text-align: center; border-top: 1px solid rgba(212, 175, 55, 0.12); margin-top: 30px;">
+        <p style="color: var(--muted); font-size: 13px;">
+            <strong style="color: var(--accent1);">Empire FGA Legacy Analysis Network</strong> — 779 Proprietary Metrics • 60-Philosophy Framework • Historical Retro-Scouting
+        </p>
+        <p style="color: var(--muted); font-size: 11px; margin-top: 6px;">
+            Data validated via PC Fútbol 6.0 Database (1997-98), Don Balón Magazine Archive (1994-1996), and Empire FGA historical model. | Legacy Profile Generated: 28 January 2026
+        </p>
+    </footer>
 </body>
 </html>

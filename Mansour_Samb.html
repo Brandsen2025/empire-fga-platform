@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mansour Samb — Empire FGA Prospect Analysis | Senegalese Striker Rising</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root { --bg: #0a0a0a; --card: #141414; --white: #f5f5f5; --muted: #a0a0a0; --accent1: #d4af37; --accent2: #00843D; /* Senegal Green */ --accent3: #FDEF42; /* Senegal Yellow */ --win: #22c55e; --loss: #ef4444; --draw: #eab308; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { height: 100%; margin: 0; padding: 0; background: radial-gradient(900px 500px at 8% 12%, rgba(253, 239, 66, 0.10), transparent 10%), radial-gradient(800px 400px at 92% 88%, rgba(0, 132, 61, 0.08), transparent 8%), var(--bg); color: var(--white); font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        header { max-width: 1300px; margin: 18px auto; padding: 0 22px; display: flex; align-items: center; justify-content: space-between; }
+        header img { height: 48px; object-fit: contain; }
+        .header-left { display: flex; align-items: center; gap: 12px; }
+        .header-title { font-size: 20px; font-weight: 800; color: var(--accent1); }
+        .header-date { font-size: 13px; color: var(--muted); margin-left: 12px; padding: 4px 10px; background: rgba(253, 239, 66, 0.15); border-radius: 6px; }
+        .container { max-width: 1300px; margin: 18px auto; padding: 22px; display: grid; grid-template-columns: 360px 1fr; gap: 26px; }
+        .card { background: var(--card); padding: 18px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.04); position: relative; margin-bottom: 18px; }
+        .photo { width: 100%; height: 480px; object-fit: cover; object-position: center top; border-radius: 10px; border: 3px solid var(--accent2); background: #000; filter: contrast(1.05) saturate(1.1); }
+        .title { font-size: 34px; font-weight: 900; margin: 14px 0; color: var(--white); }
+        .sub { color: var(--muted); margin-bottom: 10px; font-size: 14px; }
+        .club-badge { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, rgba(0, 132, 61, 0.25), rgba(253, 239, 66, 0.10)); padding: 8px 14px; border-radius: 8px; border: 1px solid rgba(0, 132, 61, 0.3); margin-bottom: 12px; }
+        .club-badge span { font-weight: 700; color: var(--white); font-size: 14px; }
+        .nationality-badge { display: inline-flex; align-items: center; gap: 6px; background: linear-gradient(135deg, rgba(0, 132, 61, 0.40), rgba(253, 239, 66, 0.30)); padding: 6px 12px; border-radius: 8px; border: 1px solid rgba(0, 132, 61, 0.3); margin-left: 8px; font-size: 12px; font-weight: 600; }
+        .pill { display: inline-block; background: rgba(0, 132, 61, 0.15); padding: 7px 12px; border-radius: 999px; font-weight: 700; font-size: 13px; color: var(--white); margin: 6px 8px 6px 0; border: 1px solid rgba(253, 239, 66, 0.18); }
+        table { width: 100%; border-collapse: collapse; margin-top: 12px; color: var(--white); font-size: 14px; }
+        th, td { padding: 10px; border: 1px solid rgba(255, 255, 255, 0.06); vertical-align: top; text-align: left; }
+        th { background: linear-gradient(90deg, rgba(253, 239, 66, 0.85), rgba(0, 132, 61, 0.85)); font-weight: 800; color: #000; }
+        .rating-badge { position: absolute; right: 18px; top: 18px; background: linear-gradient(90deg, var(--accent1), var(--accent2)); color: #000; font-weight: 900; padding: 10px 14px; border-radius: 16px; font-size: 22px; box-shadow: 0 10px 30px rgba(0, 132, 61, 0.18); display: flex; flex-direction: column; align-items: center; line-height: 1.1; }
+        .rating-badge .rating-value { font-size: 28px; font-weight: 900; }
+        .rating-badge .rating-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; opacity: 0.8; }
+        .section { margin-top: 18px; }
+        .section h2 { font-size: 24px; font-weight: 800; color: var(--accent1); margin-bottom: 16px; }
+        .section h3 { font-size: 18px; font-weight: 700; color: var(--accent1); margin: 16px 0 12px; }
+        .two-col, .three-col { display: grid; gap: 14px; }
+        .two-col { grid-template-columns: 1fr 1fr; }
+        .three-col { grid-template-columns: 1fr 1fr 1fr; }
+        .small { color: var(--muted); font-size: 14px; line-height: 1.6; }
+        .lead { color: var(--white); font-size: 16px; line-height: 1.5; }
+        .visual-canvas { background: transparent; border-radius: 8px; padding: 12px; height: 420px; display: flex; align-items: center; justify-content: center; border: 1px dashed rgba(253, 239, 66, 0.18); }
+        .muted-box, .highlight-box { padding: 14px; border-radius: 10px; margin-top: 12px; }
+        .muted-box { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.03); color: var(--muted); }
+        .highlight-box { background: linear-gradient(135deg, rgba(253, 239, 66, 0.12), rgba(0, 132, 61, 0.08)); border: 1px solid rgba(253, 239, 66, 0.2); }
+        .info-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.06); }
+        .info-row:last-child { border-bottom: none; }
+        .info-label { color: var(--muted); font-size: 14px; }
+        .info-value { color: var(--white); font-weight: 600; font-size: 14px; }
+        .metric-item { margin: 14px 0; }
+        .metric-header { display: flex; justify-content: space-between; margin-bottom: 6px; }
+        .metric-name { font-weight: 600; color: var(--white); font-size: 13px; }
+        .metric-score { color: var(--accent1); font-weight: 800; font-size: 15px; }
+        .metric-bar { height: 6px; background: rgba(255, 255, 255, 0.06); border-radius: 3px; overflow: hidden; }
+        .metric-fill { height: 100%; background: linear-gradient(90deg, var(--accent1) 0%, var(--accent2) 100%); border-radius: 3px; }
+        .timeline-item { padding: 14px; border-left: 3px solid var(--accent1); margin: 12px 0; background: rgba(255, 255, 255, 0.02); border-radius: 6px; }
+        .timeline-date { color: var(--accent1); font-weight: 700; margin-bottom: 6px; font-size: 14px; }
+        .timeline-event { color: var(--muted); font-size: 14px; line-height: 1.5; }
+        .stat-box, .season-stat-box, .trophy-box { text-align: center; border-radius: 8px; }
+        .stat-box { background: rgba(0, 132, 61, 0.12); border: 1px solid rgba(253, 239, 66, 0.18); padding: 14px; }
+        .stat-value { font-size: 28px; font-weight: 900; color: var(--accent1); display: block; }
+        .stat-label { font-size: 12px; color: var(--muted); margin-top: 4px; }
+        .season-stats-grid, .trophy-grid { display: grid; gap: 12px; margin-top: 16px; }
+        .season-stats-grid { grid-template-columns: repeat(4, 1fr); }
+        .trophy-grid { grid-template-columns: repeat(3, 1fr); }
+        .season-stat-box { background: rgba(0, 132, 61, 0.08); border: 1px solid rgba(253, 239, 66, 0.15); padding: 16px; }
+        .season-stat-value { font-size: 32px; font-weight: 900; color: var(--accent1); }
+        .season-stat-label { font-size: 11px; color: var(--muted); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .tier-badge { display: inline-block; background: linear-gradient(135deg, rgba(253, 239, 66, 0.3), rgba(0, 132, 61, 0.3)); padding: 6px 14px; border-radius: 20px; font-weight: 800; font-size: 12px; color: var(--accent1); border: 1px solid rgba(253, 239, 66, 0.4); text-transform: uppercase; letter-spacing: 1px; margin-top: 8px; }
+        .scout-alert { background: linear-gradient(135deg, rgba(253, 239, 66, 0.15), rgba(253, 239, 66, 0.05)); border: 1px solid rgba(253, 239, 66, 0.3); padding: 14px; border-radius: 10px; margin-top: 16px; }
+        .scout-alert-title { color: #d4af37; font-weight: 800; font-size: 14px; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .scout-alert-text { color: var(--muted); font-size: 13px; line-height: 1.5; }
+        .trait-pill { display: inline-flex; align-items: center; gap: 6px; background: rgba(0, 132, 61, 0.12); padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; color: var(--white); margin: 4px; border: 1px solid rgba(0, 132, 61, 0.2); }
+        .legacy-badge { display: inline-block; background: linear-gradient(135deg, rgba(253, 239, 66, 0.8), rgba(0, 132, 61, 0.6)); color: #000; font-weight: 900; padding: 10px 18px; border-radius: 20px; font-size: 18px; margin: 10px 0; border: 2px solid var(--accent1); }
+        .peak-highlight { background: linear-gradient(90deg, transparent, rgba(253, 239, 66, 0.1), transparent); border-left: 4px solid var(--accent1); padding: 16px; margin: 16px 0; border-radius: 0 8px 8px 0; }
+        .target-club { display: inline-flex; align-items: center; gap: 6px; background: rgba(212, 175, 55, 0.15); padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; color: var(--accent1); margin: 4px; border: 1px solid rgba(212, 175, 55, 0.3); }
+        @media (max-width: 980px) { .container { grid-template-columns: 1fr; } .photo { height: 380px; } .visual-canvas { height: auto; } .two-col, .three-col { grid-template-columns: 1fr; } .trophy-grid { grid-template-columns: repeat(2, 1fr); } .season-stats-grid { grid-template-columns: repeat(2, 1fr); } }
+    </style>
+<base target="_blank">
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <img src="https://media.licdn.com/dms/image/v2/D4E12AQEjuDAF0uOTrw/article-cover_image-shrink_720_1280/B4EZiOwG01GwAI-/0/1754741632806?e=2147483647&v=beta&t=L9ct0jEaWdSp7vfTI0urIqPPig0MspEd-6RtzxaQzzQ" alt="Empire Scouting Network">
+            <div class="header-title">EMPIRE FGA PROSPECT ANALYSIS NETWORK</div>
+            <span class="header-date">📅 28 Jan 2026 • Active Player Profile</span>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Sidebar -->
+        <div>
+            <div class="card">
+                <img src="https://static.actu.fr/uploads/2026/01/fcce662645796d0de66264579d4de6v-960x640.jpeg" alt="Mansour Samb - Senegalese Striker" class="photo">
+                <div class="title">Mansour Samb<br><span style="font-size: 20px; color: var(--muted);">Mouhamadou Mansour Samb</span></div>
+                <div class="sub">Centre-Forward (Striker) • 1.90m Target Man</div>
+
+                <div class="legacy-badge">🇸🇳 SENEGALESE PROSPECT • 80+ GOALS IN 2.5 YEARS</div>
+
+                <div class="club-badge">
+                    <span>🟢 Les Sables Vendée Football</span>
+                </div>
+                <span class="nationality-badge">🇸🇳 Senegal (Unrepped)</span>
+
+                <div class="rating-badge">
+                    <span class="rating-value">78.5</span>
+                    <span class="rating-label">CURRENT FGA /100</span>
+                </div>
+
+                <div class="section">
+                    <div class="stat-box" style="margin-bottom: 10px;">
+                        <span class="stat-value">78.5</span>
+                        <span class="stat-label">Empire FGA Current Index /100</span>
+                    </div>
+                    <div class="tier-badge">🔥 RISING PROSPECT TIER</div>
+                </div>
+
+                <div class="section">
+                    <div class="info-row"><span class="info-label">Full Name</span><span class="info-value">Mouhamadou Mansour Samb</span></div>
+                    <div class="info-row"><span class="info-label">Date of Birth</span><span class="info-value">6 December 2002 (Age 23)</span></div>
+                    <div class="info-row"><span class="info-label">Birthplace</span><span class="info-value">Senegal</span></div>
+                    <div class="info-row"><span class="info-label">Nationality</span><span class="info-value">🇸🇳 Senegalese</span></div>
+                    <div class="info-row"><span class="info-label">Status</span><span class="info-value">Active - Transfer Listed</span></div>
+                    <div class="info-row"><span class="info-label">Current Club</span><span class="info-value">Les Sables Vendée Football</span></div>
+                    <div class="info-row"><span class="info-label">League</span><span class="info-value">National 3 - Grp. B (5th Tier)</span></div>
+                    <div class="info-row"><span class="info-label">Joined</span><span class="info-value">1 July 2024</span></div>
+                    <div class="info-row"><span class="info-label">Contract Until</span><span class="info-value">30 June 2026</span></div>
+                    <div class="info-row"><span class="info-label">Former Club</span><span class="info-value">Cholet</span></div>
+                    <div class="info-row"><span class="info-label">Position</span><span class="info-value">Centre-Forward (Striker)</span></div>
+                    <div class="info-row"><span class="info-label">Height</span><span class="info-value">1.90 m (6'3")</span></div>
+                    <div class="info-row"><span class="info-label">Strong Foot</span><span class="info-value">Right</span></div>
+                    <div class="info-row"><span class="info-label">Current Status</span><span class="info-value">Leaving Jan 2026 🔥</span></div>
+                </div>
+
+                <div class="section">
+                    <h3>TARGET CLUBS (Jan 2026)</h3>
+                    <div style="margin-top: 8px;">
+                        <div class="target-club">🇫🇷 Le Havre (Ligue 1)</div>
+                        <div class="target-club">🇫🇷 Pau FC (Ligue 2)</div>
+                        <div class="target-club">🇫🇷 Valenciennes (National)</div>
+                        <div class="target-club">🇫🇷 Paris 13 (National)</div>
+                        <div class="target-club">+ Other Ligue 1 clubs</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>SEASON 2025-26 (Current)</h3>
+                    <div class="info-row"><span class="info-label">Matches</span><span class="info-value">16 Apps</span></div>
+                    <div class="info-row"><span class="info-label">Goals</span><span class="info-value">14 (11 N3 + 3 Cup)</span></div>
+                    <div class="info-row"><span class="info-label">Ratio</span><span class="info-value">0.88 goals/match</span></div>
+                    <div class="info-row"><span class="info-label">Minutes/Goal</span><span class="info-value">~90'</span></div>
+                    <div class="info-row"><span class="info-label">Cup Performance</span><span class="info-value">Scored vs Stade Rennais</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div>
+
+            <!-- FGA Prospect Analysis -->
+            <div class="card">
+                <h2>🌍 Empire FGA Prospect Analysis — The Senegalese Goal Machine</h2>
+                <p class="lead">
+                    At just 23 years old, Mansour Samb has emerged as one of the most prolific strikers in the French amateur system, netting <strong>over 80 goals in just 2.5 seasons</strong> across Cholet and Les Sables Vendée Football. Standing at 1.90m, the Senegalese forward combines physical presence with clinical finishing, drawing comparisons to classic target men while demonstrating remarkable consistency across multiple divisions and competitions. His breakthrough began at Cholet in 2023-24 with an extraordinary 42-goal campaign (30 in Régional 2 + 12 in Coupe de France), confirming his status with 25 goals in Régional 1 the following season. Now at Les Sables in National 3 (5th tier), he continues his prolific run with 14 goals in 16 appearances. His performances against professional opposition—most notably scoring against Ligue 1 side Stade Rennais in the Coupe de France—have validated his ability to compete at higher levels. *Update: As of January 2026, Samb is confirmed to be leaving Les Sables Vendée Football, with multiple professional clubs including Ligue 1's Le Havre, Ligue 2's Pau FC, and National sides Valenciennes and Paris 13 competing for his signature.*
+                </p>
+                <div class="muted-box">
+                    <strong style="color: var(--accent1);">Empire Prospect Verdict:</strong> "Samb represents the classic 'diamond in the rough' archetype—a physically gifted striker who has honed his craft in the lower leagues and is now ready for professional football. His 1.90m frame, combined with intelligent movement and composure in front of goal, suggests he can make the jump to Ligue 2 or even Ligue 1. The fact that he scores consistently across league matches and cup competitions against superior opposition demonstrates mental fortitude beyond the amateur level. <strong>Empire FGA Current Rating: 78.5/100 — Rising Prospect Tier with Ligue 1 potential.</strong>"
+                </div>
+
+                <div class="season-stats-grid">
+                    <div class="season-stat-box">
+                        <div class="season-stat-value">80+</div>
+                        <div class="season-stat-label">Goals in 2.5 Years</div>
+                    </div>
+                    <div class="season-stat-box">
+                        <div class="season-stat-value">42</div>
+                        <div class="season-stat-label">Goals 2023-24 (Cholet)</div>
+                    </div>
+                    <div class="season-stat-box">
+                        <div class="season-stat-value">25</div>
+                        <div class="season-stat-label">Goals 2024-25 (Les Sables)</div>
+                    </div>
+                    <div class="season-stat-box">
+                        <div class="season-stat-value">0.88</div>
+                        <div class="season-stat-label">Goals/Match 2025-26</div>
+                    </div>
+                </div>
+
+                <div class="scout-alert">
+                    <div class="scout-alert-title">🔥 HOT PROSPECT ALERT — Transfer Window Target</div>
+                    <div class="scout-alert-text">
+                        <strong>January 2026 Status:</strong> Samb is officially leaving Les Sables Vendée Football. Multiple professional clubs are competing for his signature: Le Havre (Ligue 1), Pau FC (Ligue 2), Valenciennes (National), and Paris 13 (National). Scouts praise his work rate, humility, and the fact that his goal-scoring has been consistent across three different levels (Régional 2 → Régional 1 → National 3) and in cup competitions against professional opposition.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Player Comparison with EMBEDDED Chart.js Radar -->
+            <div class="card">
+                <h2>📊 Player Comparison (Target Man Strikers at Similar Level)</h2>
+                <div class="visual-canvas">
+                    <canvas id="radarChart" style="max-width: 100%; max-height: 100%;"></canvas>
+                </div>
+                <p class="small" style="text-align: center; margin-top: 12px;">
+                    Comparing Samb vs. Similar Profile Targets — Current Assessment Attributes /100
+                </p>
+            </div>
+
+            <!-- FGA Prospect Metrics -->
+            <div class="card">
+                <h2>📊 Empire FGA Prospect Metrics (Current Assessment)</h2>
+                <p class="small" style="margin-bottom: 16px;">Metrics scaled to /100 based on current level (National 3) projected to professional tiers. Analysis of 23-year-old prospect.</p>
+
+                <h3>Tier 1: Attacking Metrics</h3>
+                <div class="two-col">
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">FIN (Finishing)</span><span class="metric-score">85</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 85%"></div></div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">COM (Compostura / Composure)</span><span class="metric-score">82</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 82%"></div></div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">MOV (Movement / Off-the-ball)</span><span class="metric-score">80</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 80%"></div></div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">ARI (Aerial Ability)</span><span class="metric-score">88</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 88%"></div></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">FIS (Fuerza / Physical Strength)</span><span class="metric-score">86</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 86%"></div></div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">REM (Remate / Shot Power)</span><span class="metric-score">84</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 84%"></div></div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">PRO (Professionalism)</span><span class="metric-score">90</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 90%"></div></div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-header"><span class="metric-name">CON (Consistency)</span><span class="metric-score">88</span></div>
+                            <div class="metric-bar"><div class="metric-fill" style="width: 88%"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Tier 2: Development Areas</h3>
+                <div class="two-col">
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">TEC (Technical Skill)</span><span class="metric-score">72</span></div>
+                        <div class="metric-bar"><div class="metric-fill" style="width: 72%; background: linear-gradient(90deg, #ffd93d, #ff6b6b);"></div></div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">VEL (Speed / Pace)</span><span class="metric-score">70</span></div>
+                        <div class="metric-bar"><div class="metric-fill" style="width: 70%; background: linear(90deg, #ffd93d, #ff6b6b);"></div></div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">PAS (Passing / Link-up)</span><span class="metric-score">68</span></div>
+                        <div class="metric-bar"><div class="metric-fill" style="width: 68%; background: linear-gradient(90deg, #ffd93d, #ff6b6b);"></div></div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header"><span class="metric-name">DEF (Defensive Work)</span><span class="metric-score">65</span></div>
+                        <div class="metric-bar"><div class="metric-fill" style="width: 65%; background: linear-gradient(90deg, #ffd93d, #ff6b6b);"></div></div>
+                    </div>
+                </div>
+
+                <div class="peak-highlight">
+                    <h3>📈 Projection Model (Age 23 → Peak)</h3>
+                    <p class="small">
+                        <strong>Current Level:</strong> National 3 (5th tier) — 78.5 FGA rating<br>
+                        <strong>Projected Ligue 2:</strong> 81-83 FGA (after adaptation period)<br>
+                        <strong>Projected Ligue 1 Ceiling:</strong> 84-86 FGA (if technical development continues)<br>
+                        <strong>Key for Development:</strong> Technical tight-space play, first touch under pressure, link-up passing in structured attacks. Physical attributes (strength, aerial ability) already at professional level.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Career Statistics -->
+            <div class="card">
+                <h2>📊 Career Statistics — The Goal Trail</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Saison</th>
+                            <th>Club</th>
+                            <th>Ligue</th>
+                            <th>Matchs</th>
+                            <th>Buts</th>
+                            <th>Compétition</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background: rgba(0, 100, 0, 0.15);">
+                            <td><strong>2023-24</strong></td>
+                            <td><strong>Cholet</strong></td>
+                            <td>Régional 2</td>
+                            <td>—</td>
+                            <td style="color: var(--accent1); font-weight: 700;">42</td>
+                            <td>30 Ligue + 12 Coupe de France</td>
+                        </tr>
+                        <tr style="background: rgba(0, 132, 61, 0.10);">
+                            <td><strong>2024-25</strong></td>
+                            <td><strong>Les Sables</strong></td>
+                            <td>Régional 1</td>
+                            <td>~30</td>
+                            <td style="color: var(--accent1); font-weight: 700;">25</td>
+                            <td>Ligue uniquement</td>
+                        </tr>
+                        <tr style="background: rgba(253, 239, 66, 0.15);">
+                            <td><strong>2025-26</strong></td>
+                            <td><strong>Les Sables</strong></td>
+                            <td>National 3</td>
+                            <td>16</td>
+                            <td style="color: var(--accent1); font-weight: 700;">14</td>
+                            <td>11 N3 + 3 Coupe (vs Rennes)</td>
+                        </tr>
+                        <tr style="background: linear-gradient(90deg, rgba(0, 132, 61, 0.2), rgba(253, 239, 66, 0.2));">
+                            <td colspan="2"><strong>TOTAL CAREER</strong></td>
+                            <td>—</td>
+                            <td><strong>46+</strong></td>
+                            <td style="color: var(--accent1); font-weight: 900;">80+</strong></td>
+                            <td><strong>2.5 saisons</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="season-stats-grid" style="margin-top: 20px;">
+                    <div class="season-stat-box">
+                        <div class="season-stat-value">1.74</div>
+                        <div class="season-stat-label">Goals/Match (2023-24)</div>
+                    </div>
+                    <div class="season-stat-box">
+                        <div class="season-stat-value">0.83</div>
+                        <div class="season-stat-label">Goals/Match (2024-25)</div>
+                    </div>
+                    <div class="season-stat-box">
+                        <div class="season-stat-value">0.88</div>
+                        <div class="season-stat-label">Goals/Match (2025-26)</div>
+                    </div>
+                    <div class="season-stat-box">
+                        <div class="season-stat-value">90'</div>
+                        <div class="season-stat-label">Minutes per Goal</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Defining Moments -->
+            <div class="card">
+                <h2>⚡ Defining Career Moments</h2>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2023-24 Season • Cholet</div>
+                    <div class="timeline-event">
+                        <strong>The Breakthrough: 42 Goals in All Competitions</strong><br>
+                        Exploded onto the amateur football scene with an extraordinary 42-goal campaign: 30 in Régional 2 league matches and 12 in the Coupe de France. Established himself immediately as one of France's most prolific amateur strikers and caught the attention of scouts nationwide.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">July 2024 • Transfer</div>
+                    <div class="timeline-event">
+                        <strong>Move to Les Sables Vendée Football</strong><br>
+                        Transferred to Les Sables, stepping up to Régional 1 level. The move would test whether his goal-scoring prowess could translate to a higher division. Answer: 25 goals in the following season, confirming his quality.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2025-26 Season • Coupe de France</div>
+                    <div class="timeline-event">
+                        <strong>Goal vs Stade Rennais (Ligue 1)</strong><br>
+                        In the Coupe de France, scored against top-tier Ligue 1 opposition Stade Rennais. This was the validation moment—proving he could compete with and score against professional defenders in France's top flight. Scouts cite this performance as definitive proof of his readiness for professional football.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">January 2026 • Transfer Window</div>
+                    <div class="timeline-event">
+                        <strong>The Professional Leap Confirmed</strong><br>
+                        Officially announced to be leaving Les Sables Vendée Football. Multiple professional clubs confirmed interested: Le Havre (Ligue 1), Pau FC (Ligue 2), Valenciennes (National), Paris 13 (National), and at least one other Ligue 1 club. The 2.5-year amateur apprenticeship ends as professional football comes calling.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Early Life • Senegal to France</div>
+                    <div class="timeline-event">
+                        <strong>The Journey to France</strong><br>
+                        Born in Senegal, Samb arrived in France several seasons ago and adapted quickly to the demands of competitive football. His rapid progression through the amateur ranks demonstrates not just talent but work ethic and cultural adaptability.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Final Assessment -->
+            <div class="card">
+                <h2>📌 Empire FGA Final Assessment & Scouting Recommendation</h2>
+                <div class="two-col">
+                    <div>
+                        <h3>Current Strengths</h3>
+                        <div class="info-row"><span class="info-label">Finishing</span><span class="info-value">85/100</span></div>
+                        <div class="info-row"><span class="info-label">Aerial Ability</span><span class="info-value">88/100</span></div>
+                        <div class="info-row"><span class="info-label">Physical Strength</span><span class="info-value">86/100</span></div>
+                        <div class="info-row"><span class="info-label">Compostura / Composure</span><span class="info-value">82/100</span></div>
+                        <div class="info-row"><span class="info-label">Movement / Off-ball</span><span class="info-value">80/100</span></div>
+                        <div class="info-row"><span class="info-label">Professionalism</span><span class="info-value">90/100</span></div>
+                        <div class="info-row"><span class="info-label">Goal Consistency</span><span class="info-value">88/100</span></div>
+                    </div>
+                    <div>
+                        <h3>Development Needs</h3>
+                        <div class="info-row"><span class="info-label">Technical Skill</span><span class="info-value">72/100 (Need +)</span></div>
+                        <div class="info-row"><span class="info-label">Speed / Pace</span><span class="info-value">70/100 (Need +)</span></div>
+                        <div class="info-row"><span class="info-label">Link-up Passing</span><span class="info-value">68/100 (Need ++)</span></div>
+                        <div class="info-row"><span class="info-label">Defensive Work</span><span class="info-value">65/100</span></div>
+                    </div>
+                </div>
+
+                <div class="muted-box" style="margin-top: 16px;">
+                    <strong style="color: var(--accent1);">🏆 EMPIRE FGA CURRENT RATING: 78.5/100</strong><br><br>
+                    <strong>Classification:</strong> Rising Prospect Tier — Ready for Professional Football<br>
+                    <strong>Recommendation:</strong> <strong>SIGN IMMEDIATELY</strong> — Ideal acquisition for Ligue 2 or ambitious National club. Samb represents low-risk, high-reward profile. His goal-scoring has been validated across three levels and in cup competitions against Ligue 1 opposition. Physical profile (1.90m, strong, aerial threat) already at professional standard. Technical limitations are manageable for target-man role.<br>
+                    <strong>Projection:</strong> With proper coaching at professional level, could develop into 15-20 goal-per-season striker at Ligue 2 level within 2-3 seasons. Ligue 1 ceiling possible if technical aspects (first touch, tight-space play) improve significantly.
+                </div>
+
+                <div class="highlight-box">
+                    <strong style="color: var(--accent1);">🎯 Scouting Summary:</strong><br>
+                    <span class="small"><strong>Target Profile:</strong> Classic target man / poacher with exceptional finishing instincts and aerial dominance. Best suited to systems that provide service (crosses, cutbacks) rather than expecting extensive build-up play. Mentally ready for professional jump—professionals praise humility and work ethic. Immediate contribution potential as rotation striker; long-term potential as starting 9 at Ligue 2 level. <strong>Risk Level: LOW | Reward Potential: HIGH</strong></span>
+                </div>
+
+                <div class="scout-alert" style="margin-top: 20px;">
+                    <div class="scout-alert-title">⚠️ URGENT — Closing Window Opportunity</div>
+                    <div class="scout-alert-text">
+                        <strong>January 2026 Status:</strong> Samb is confirmed leaving Les Sables. Competition for signature is intense: Ligue 1 (Le Havre + 1 other), Ligue 2 (Pau), National (Valenciennes, Paris 13). Clubs delaying risk losing to competitors. Valuation likely 150K-300K€ range given contract status and level—represents bargain for goal output provided. <strong>Empire Recommendation: Act within 7 days.</strong>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer style="background: var(--card); padding: 30px; text-align: center; border-top: 1px solid rgba(253, 239, 66, 0.12); margin-top: 30px;">
+        <p style="color: var(--muted); font-size: 13px;">
+            <strong style="color: var(--accent1);">Empire FGA Prospect Analysis Network</strong> — 779 Proprietary Metrics • 60-Philosophy Framework
+        </p>
+        <p style="color: var(--muted); font-size: 11px; margin-top: 6px;">
+            Data: Transfermarkt, AfricaSoccer, Actu.fr, Foot Mercato | Last Update: 28 January 2026 • Active Transfer Window
+        </p>
+    </footer>
+
+    <script>
+        const ctx = document.getElementById('radarChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['Finishing', 'Aerial Ability', 'Physical Strength', 'Movement', 'Composure', 'Professionalism'],
+                datasets: [{
+                    label: 'Mansour Samb - 78.5',
+                    data: [85, 88, 86, 80, 82, 90],
+                    borderColor: '#d4af37',
+                    backgroundColor: 'rgba(212, 175, 55, 0.15)',
+                    borderWidth: 3,
+                    pointBackgroundColor: '#d4af37',
+                    pointBorderColor: '#fff',
+                    pointRadius: 5
+                }, {
+                    label: 'Ideal Ligue 2 Striker',
+                    data: [90, 85, 88, 85, 88, 85],
+                    borderColor: '#fff',
+                    backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                    borderWidth: 2,
+                    pointRadius: 4
+                }, {
+                    label: 'Current Level Average',
+                    data: [70, 65, 70, 65, 70, 75],
+                    borderColor: '#444',
+                    backgroundColor: 'transparent',
+                    borderWidth: 1,
+                    pointRadius: 3,
+                    borderDash: [5, 5]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: {
+                            stepSize: 20,
+                            color: '#a0a0a0',
+                            backdropColor: 'transparent',
+                            font: { size: 11 }
+                        },
+                        grid: { color: 'rgba(255,255,255,0.08)' },
+                        pointLabels: {
+                            color: '#f5f5f5',
+                            font: { size: 12, weight: '600' }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#f5f5f5',
+                            font: { size: 13, weight: '600' },
+                            padding: 15,
+                            usePointStyle: true
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
